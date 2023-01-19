@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0FB97E6DE8AA82BFD8C2EF2D /* Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		2862D3B83FA08F0E8324D72D /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TeneasyChatSDK_iOS.podspec; path = ../TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; };
+		2862D3B83FA08F0E8324D72D /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TeneasyChatSDK_iOS.podspec; path = ../TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3D343ADDC99B0F0E81E1BE0D /* Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests/Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TeneasyChatSDK_iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeneasyChatSDK_iOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,10 +43,10 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65C3EEE8903A8FD1FBA3429E /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig"; path = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests/Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6B418FEDCDADC3D41C4C7393 /* Pods-TeneasyChatSDK_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeneasyChatSDK_iOS_Example.release.xcconfig"; path = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
-		6EF48BA9FF8974290AA7331C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6EF48BA9FF8974290AA7331C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		999C6693651E15CB8BBE5610 /* Pods_TeneasyChatSDK_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeneasyChatSDK_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDB6D067B0B3D206B59E74B /* Pods_TeneasyChatSDK_iOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeneasyChatSDK_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D789AC5A2EBF381DABCE62F7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D789AC5A2EBF381DABCE62F7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,6 @@
 				3D343ADDC99B0F0E81E1BE0D /* Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig */,
 				65C3EEE8903A8FD1FBA3429E /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
