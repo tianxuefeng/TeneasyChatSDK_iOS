@@ -10,8 +10,8 @@ public struct libTest {
     }
     
     public func toastHello(vc : UIViewController){
-        let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertControllerStyle.actionSheet)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
         vc.present(alert, animated: true, completion: nil)
     }
     
