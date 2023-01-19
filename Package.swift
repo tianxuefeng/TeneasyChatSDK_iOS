@@ -17,7 +17,9 @@ let package = Package(
     targets: [
         .target(
             name: "TeneasyChatSDK_iOS",
-          
+            dependencies: [
+                          .product(name: "Starscream", package: "Starscream")
+                      ],
             path: "TeneasyChatSDK_iOS"),
     ],
     swiftLanguageVersions: [.v5]
