@@ -18,5 +18,14 @@
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "TeneasyChatSDK_iOS/Classes/**/*"
+  "source_files": "TeneasyChatSDK_iOS/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "MapKit"
+  ],
+  "dependencies": {
+    "Starscream": [
+      "4.0.4"
+    ]
+  }
 }
