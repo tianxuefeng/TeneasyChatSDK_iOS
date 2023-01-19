@@ -177,6 +177,8 @@
 			dependencies = (
 			);
 			name = TeneasyChatSDK_iOS_Example;
+			packageProductDependencies = (
+			);
 			productName = TeneasyChatSDK_iOS;
 			productReference = 607FACD01AFB9204008FA782 /* TeneasyChatSDK_iOS_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +234,8 @@
 				Base,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			packageReferences = (
+			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
