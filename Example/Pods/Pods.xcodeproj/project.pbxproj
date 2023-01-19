@@ -7,134 +7,199 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CCBF2D580C246359DC310D3986202FD /* Pods-TeneasyChatSDK_iOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED951A4F096B26B2A320AAD11AC9108 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m */; };
-		1F84FE646CD1D7BAFFB58C243277AFF8 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E5923010B02074CAA9AAF6EA02D66AA /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00C9C2E54995B3BEA1C999016833A58B /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F0E78266F5E1BBC53ABC395111C9C3 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		046AC7AA224C78A31C0A8FACB11D2D28 /* StringHTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4146E701236EE9642030A1BB881764 /* StringHTTPHandler.swift */; };
+		1F84FE646CD1D7BAFFB58C243277AFF8 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5775F3A88E8704F736F50B7A45769C1 /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20937267AA5BE1806611B7F76DE7B034 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
 		21C22DC63B22755EF13C3B876819C2A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
-		2975A09730FD83DC0897129A11EA6585 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D66CF296ABBC57EC4D0452397E235 /* SwiftSupport.swift */; };
-		2A57495D5986F94A719F62FC65BF5EE0 /* TeneasyChatSDK_iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 482AA8CF35F1C4989CF9A8905099A147 /* TeneasyChatSDK_iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B88C28DD20CBFA7B3AEB21A365197FE /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = AE9FF9459FBCDC4AF88FB6B5A4CC1439 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CB50917F2D8E0DA85B2D3C79CEC791B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
-		2CB61F6FA511CAACB43A50DC3A82E0DD /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = D872A3EE224412D4057C234FBC629F9C /* UIImage+Snapshot.m */; };
+		21F0D9A15479EFFE7CBE11C065247071 /* TeneasyChatSDK_iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ACA12CBF639DBA03CBE804BDB2DF2F6 /* TeneasyChatSDK_iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2975A09730FD83DC0897129A11EA6585 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BE5F44B228094FBE80465EADFC4F8 /* SwiftSupport.swift */; };
+		2B88C28DD20CBFA7B3AEB21A365197FE /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F38005085BC8338F76A88A99C2B9972 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CB61F6FA511CAACB43A50DC3A82E0DD /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9A49C78AD75AEC6CB9DCCC49EC3DB /* UIImage+Snapshot.m */; };
 		2ECCAC52EF4C74E1032E0BC646BBE5B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
-		30D475DF57C0C682A723231E7BCA0D14 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABB3EB3CCC5BCA82F40FE8DC87BB778 /* FBSnapshotTestCasePlatform.m */; };
-		373413256658309F9053CE22BF62077E /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 284833D18C244D2B42966B6EE425AA59 /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		4752906C2A77B72DC1565CDEA84EADCC /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D13171F074D0D5189BF8261097E9865C /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30D475DF57C0C682A723231E7BCA0D14 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F56A54748976C7C7A13FEF931EE741C /* FBSnapshotTestCasePlatform.m */; };
+		33C71989B6C635864EC5E4862AFAAE8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
+		373413256658309F9053CE22BF62077E /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 251BCFC5C7FC071815B8FCA1BD4694EB /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3A655D6817E99F062266BB601B0EEEDF /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D35D6A91E2422C3F445AD868EB39A91 /* Starscream-dummy.m */; };
+		3D074D3618A42F7614C21E4D3E5F6C44 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCBB67C3A25731A5BAA5ADE9D35EEDA /* ReplaceMe.swift */; };
+		3F3E9C6FF4BCB6F4FF18D9121CC3E42F /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E33DB18D256F29C607975F71873ECA /* WebSocketServer.swift */; };
+		489EF4A7D4992C47CF590AEF9AA418FC /* FoundationTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB076527D56562DCE136B32AFA56D6 /* FoundationTransport.swift */; };
+		491C86222F35D1630F965D06BACF681F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
+		4A3B1BE129FDA231AC217E1C6DB2B8C8 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96EA312AEFBCF1EA38C0225BB07565 /* Transport.swift */; };
+		4AB6FCF35B998F60ED9EB100542EEA31 /* FoundationHTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B03BCAF78AB448E471684920B7B1F0 /* FoundationHTTPHandler.swift */; };
 		4B3F1306D1A39A671A8C7C829DC2E36E /* Pods-TeneasyChatSDK_iOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 53B9C49808D5205D55CF55A4546A08F4 /* Pods-TeneasyChatSDK_iOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5558B876B579BC1E79BD3D2B19148329 /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5B9AC83E667FA34B4CB75DE341644FBD /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BFA24A6085FA66AD757F5077F50E6A /* ReplaceMe.swift */; };
-		5BE525FF6FA14B999ED2CCC0AA4FA0CF /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */; };
-		640CCE9C3A28AA3CA15510899F9140EE /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67F1963AA7C9EDB78127AD5F566A4949 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5006DD4B60A05AF56EA0706A680BABF6 /* FoundationHTTPServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062016723F216A62FA7F2C3DAD35D01 /* FoundationHTTPServerHandler.swift */; };
+		5281197FE8CC6E6954315F11B8F553D0 /* FoundationSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47079AF88B796C6AB50AFEE78AAF08DB /* FoundationSecurity.swift */; };
+		5558B876B579BC1E79BD3D2B19148329 /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = E89244E32DD49FFE47CEB3CB887B8F1D /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		590BC9AB9685FE7E72D5FB096D9C2ADB /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D13171F074D0D5189BF8261097E9865C /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE525FF6FA14B999ED2CCC0AA4FA0CF /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE7395DF092CC19E501703455BBE28 /* FBSnapshotTestCase-dummy.m */; };
+		631654C419F62FE0270E1DF79CCF6F8B /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409A345B3AB81A0554FC8C48FA2FAC7A /* Data+Extensions.swift */; };
+		640CCE9C3A28AA3CA15510899F9140EE /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0E65FF10257486C897A1BD2C5E548C /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67F1963AA7C9EDB78127AD5F566A4949 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80469FCEDD6DA7FC0EECC82F7F7612 /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		69A591F2BDE4941B391C102F4C26B115 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BAB798EB75DEB6251D99A9DC6529B9 /* Security.swift */; };
+		6C0DACBE00A34619DEDB9A65CB959BA5 /* TCPTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74FA17167957AD2296C8B264A41A60 /* TCPTransport.swift */; };
 		6D8815A852344736F929BDB217C2EF05 /* Pods-TeneasyChatSDK_iOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E25441ED0F60556946863472E41DD93F /* Pods-TeneasyChatSDK_iOS_Tests-dummy.m */; };
-		74339C58AC4E5631FB8C0E662668A796 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */; };
-		7C67CBD15D9B5D0B7769B2F469478332 /* FBSnapshotTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 277B6BE10C665F515606A22FD60C6DCC /* FBSnapshotTestCase.m */; };
-		8223E4F126D220937ACF11D8D2EA1001 /* TeneasyChatSDK_iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B97DC645CD6A9C50D6B25D11A51D75CA /* TeneasyChatSDK_iOS-dummy.m */; };
+		74339C58AC4E5631FB8C0E662668A796 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4A45DF2191C6C3B6A779AEAF4DAAA /* UIApplication+StrictKeyWindow.m */; };
+		7C67CBD15D9B5D0B7769B2F469478332 /* FBSnapshotTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C202227BDAA55C94E41DE3D601C7DA /* FBSnapshotTestCase.m */; };
+		7DDEA2F73F2A02D88D5164B46BA2C7E8 /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77241704D81872B5537247C47F42C47 /* HTTPHandler.swift */; };
 		875A310EAF4D0C136C3FFFF5E0335BE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA24A38BA9EE106B59E3D4C8DD1CE0E /* UIKit.framework */; };
-		8AE19756F0126FE92AF625E36F3D70FE /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 656116C8FA5458F45D4707110C9530EC /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		8AE19756F0126FE92AF625E36F3D70FE /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BC121C282B2E575515B15E39A75050 /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9CDB7E1EE27E01EBEC56506A80BB6020 /* libTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF64227E7579CAB0DE5BB904ADAD61 /* libTest.swift */; };
 		9D3C5E2F56838937146191468A893244 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E658F388F01C72599CA75537950B6095 /* XCTest.framework */; };
-		B52281F9F4340D4FC8ABB2FEB1FEC08E /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */; };
-		C390C6005353FB986CB52F474CEF8588 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B7EA746BF6557FD565BAE12AF9198 /* FBSnapshotTestController.m */; };
-		C791EDF329797B600075266A /* libTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791EDF229797B600075266A /* libTest.swift */; };
+		B44349C69B2C0AF407B678B20DC9CB80 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF30F66A503307E1505754BB179A67 /* WebSocket.swift */; };
+		B52281F9F4340D4FC8ABB2FEB1FEC08E /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF9B9CB0CA396D7BD55E472B43DB8A2 /* UIImage+Compare.m */; };
+		BB056B9351B1BE41C2703393F69623DD /* WSEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957528FA40C3FFFB076DCB5A92D0882B /* WSEngine.swift */; };
+		C28A0006DD1C9AB062763C8FA2B3F93D /* NativeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D451892E97C14B9BA0CFEDEF3B16575 /* NativeEngine.swift */; };
+		C390C6005353FB986CB52F474CEF8588 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE32587569E5201F0FEC23C2D1BFADC /* FBSnapshotTestController.m */; };
 		C9F76407497DF0205D7460B36D22259F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3280BB5E7B57C31D41117A74F76E9DF3 /* QuartzCore.framework */; };
-		CA54C09A12400567AFFCB407EEB7E154 /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */; };
-		D3AAA82E5E40D1BBC5BB5B87C942930D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
-		FF8307B7346F4D3BA13C11AECFE6EDD0 /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE661E58CA6655B39AA49AA4C021C33 /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA54C09A12400567AFFCB407EEB7E154 /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F668BCD5703E5E33F09FBF11638494 /* UIImage+Diff.m */; };
+		CC235941F0CF9FA8C0FA3323A0D18203 /* Framer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF378B9192FB0E1DA366DED5559CB0B6 /* Framer.swift */; };
+		DF9BE4B3E95B007977780C9EFDA3EFBE /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D9B281F7BDDD4D6378C000B933A2C /* Server.swift */; };
+		DFA2736CE4B16FD4D82450863EC58507 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F433C037614E977F0CD8A5201AEF4F /* Compression.swift */; };
+		E9ACEBB8658D30FA9BB89C59E43BFDB6 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED951A4F096B26B2A320AAD11AC9108 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m */; };
+		EB5C3537AD21658D3EC873A4A4AFDE30 /* FrameCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E05480DFDA6F5950A8003323CD38AA /* FrameCollector.swift */; };
+		FA2A3CCAE01CF0108D2FDB7C8108B988 /* WSCompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDF3AA6D325EB95C5CFDA874F4C2BA /* WSCompression.swift */; };
+		FAFD54F649DC5D69DD05D517A0131968 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A1813031F51EB52599CCC47611E853 /* Engine.swift */; };
+		FC1C5BDB02513C1A9472FA0407E416ED /* TeneasyChatSDK_iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FB3E6AE41A6CB046DF10684E9BEA1 /* TeneasyChatSDK_iOS-dummy.m */; };
+		FF8307B7346F4D3BA13C11AECFE6EDD0 /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E101FE196C068F2D081225C6037B3A /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		70705FB30B5B0427434904838C22CD53 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E2F6117B18B59B0C850F5D4C585FCA77;
-			remoteInfo = "Pods-TeneasyChatSDK_iOS_Example";
-		};
-		DB2676069AC29A76CE6E805FA2FE6031 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ADC1D5EF2AF1FFA1EC94BB12634D20C0;
-			remoteInfo = TeneasyChatSDK_iOS;
-		};
-		F1C41A05500D6AC1A7EEA8C0E09CC228 /* PBXContainerItemProxy */ = {
+		2DFD572BE25DEDBDA1E3961663308FC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 98A98149697C80CEF8D5772791E92E66;
 			remoteInfo = FBSnapshotTestCase;
 		};
+		4C5D1AA7A434B482D9C1A38D9C340551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2F6117B18B59B0C850F5D4C585FCA77;
+			remoteInfo = "Pods-TeneasyChatSDK_iOS_Example";
+		};
+		A647A028F4B833476FF977F614536615 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADC1D5EF2AF1FFA1EC94BB12634D20C0;
+			remoteInfo = TeneasyChatSDK_iOS;
+		};
+		C791EDFC29799A890075266A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B78EE4AF6AE03E79D88886319853FF7;
+			remoteInfo = Starscream;
+		};
+		D418D4C7F9AA8AC3C2059177670FCB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B78EE4AF6AE03E79D88886319853FF7;
+			remoteInfo = Starscream;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07D1527DC7E1C05596DCB3E099BA8887 /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
-		10BFA24A6085FA66AD757F5077F50E6A /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = TeneasyChatSDK_iOS/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		0103B0AF15F6A389AF057C421C7BE6D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0579BA1CA07D8EEE33416DD8F60155D3 /* TeneasyChatSDK_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TeneasyChatSDK_iOS.debug.xcconfig; sourceTree = "<group>"; };
+		085E1025BB66DDE099FBA3A9751BDC84 /* Starscream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.debug.xcconfig; sourceTree = "<group>"; };
+		0A54A1904EC292222FE7DD9E66F1F267 /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0F38005085BC8338F76A88A99C2B9972 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
+		0FA6DEE29EAE8975FA52804F6FC62F12 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
 		1937BB0A137E9690E387F22D189C9D9B /* Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
-		1C9CDFC84F381C1B61361F14814AE3C5 /* TeneasyChatSDK_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TeneasyChatSDK_iOS.release.xcconfig; sourceTree = "<group>"; };
+		1C80469FCEDD6DA7FC0EECC82F7F7612 /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
+		1D0E65FF10257486C897A1BD2C5E548C /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
 		1DA24A38BA9EE106B59E3D4C8DD1CE0E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		1ED951A4F096B26B2A320AAD11AC9108 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeneasyChatSDK_iOS_Example-dummy.m"; sourceTree = "<group>"; };
-		235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
-		277B6BE10C665F515606A22FD60C6DCC /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
-		284833D18C244D2B42966B6EE425AA59 /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
-		2AD5113C300AE2F74801CF2D28A014BB /* TeneasyChatSDK_iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TeneasyChatSDK_iOS-Info.plist"; sourceTree = "<group>"; };
+		217D9B281F7BDDD4D6378C000B933A2C /* Server.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Server.swift; path = Sources/Server/Server.swift; sourceTree = "<group>"; };
+		251BCFC5C7FC071815B8FCA1BD4694EB /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
+		28E8E2410C9B945FBE75C5F68FA94B0A /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
+		2D35D6A91E2422C3F445AD868EB39A91 /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
 		2E2E77650840F87E1CBB1E546D1B3213 /* Pods-TeneasyChatSDK_iOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeneasyChatSDK_iOS_Tests-Info.plist"; sourceTree = "<group>"; };
+		2F56A54748976C7C7A13FEF931EE741C /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
 		3280BB5E7B57C31D41117A74F76E9DF3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		37B466E857E66FB8F5D457EA49CEC7C2 /* TeneasyChatSDK_iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TeneasyChatSDK_iOS.modulemap; sourceTree = "<group>"; };
+		34F0E78266F5E1BBC53ABC395111C9C3 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
+		37A1813031F51EB52599CCC47611E853 /* Engine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Engine.swift; path = Sources/Engine/Engine.swift; sourceTree = "<group>"; };
 		3D2C5C99EA76AEE3662C47A306249C40 /* Pods-TeneasyChatSDK_iOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeneasyChatSDK_iOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3F0D66CF296ABBC57EC4D0452397E235 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
-		4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
-		482AA8CF35F1C4989CF9A8905099A147 /* TeneasyChatSDK_iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TeneasyChatSDK_iOS-umbrella.h"; sourceTree = "<group>"; };
+		3DC43AE16DDD5B9A1A022DF6AF558A23 /* Starscream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.release.xcconfig; sourceTree = "<group>"; };
+		409A345B3AB81A0554FC8C48FA2FAC7A /* Data+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Extensions.swift"; path = "Sources/DataBytes/Data+Extensions.swift"; sourceTree = "<group>"; };
+		42E05480DFDA6F5950A8003323CD38AA /* FrameCollector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameCollector.swift; path = Sources/Framer/FrameCollector.swift; sourceTree = "<group>"; };
+		47079AF88B796C6AB50AFEE78AAF08DB /* FoundationSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FoundationSecurity.swift; path = Sources/Security/FoundationSecurity.swift; sourceTree = "<group>"; };
 		49F4E5C014458ED7A636BD305D95063D /* Pods-TeneasyChatSDK_iOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TeneasyChatSDK_iOS_Example.modulemap"; sourceTree = "<group>"; };
-		4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.release.xcconfig; sourceTree = "<group>"; };
+		4DE32587569E5201F0FEC23C2D1BFADC /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
+		4EBDF3AA6D325EB95C5CFDA874F4C2BA /* WSCompression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSCompression.swift; path = Sources/Compression/WSCompression.swift; sourceTree = "<group>"; };
 		51658F3ACDC7230E021E72E9345EA47D /* Pods-TeneasyChatSDK_iOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TeneasyChatSDK_iOS_Tests.modulemap"; sourceTree = "<group>"; };
+		52E33DB18D256F29C607975F71873ECA /* WebSocketServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocketServer.swift; path = Sources/Server/WebSocketServer.swift; sourceTree = "<group>"; };
 		53B9C49808D5205D55CF55A4546A08F4 /* Pods-TeneasyChatSDK_iOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeneasyChatSDK_iOS_Tests-umbrella.h"; sourceTree = "<group>"; };
 		57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		585859741A4563B34FFE429C0620CD00 /* Pods-TeneasyChatSDK_iOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeneasyChatSDK_iOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		656116C8FA5458F45D4707110C9530EC /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.h"; sourceTree = "<group>"; };
-		6ABB3EB3CCC5BCA82F40FE8DC87BB778 /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
+		5D451892E97C14B9BA0CFEDEF3B16575 /* NativeEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NativeEngine.swift; path = Sources/Engine/NativeEngine.swift; sourceTree = "<group>"; };
+		5DA4A45DF2191C6C3B6A779AEAF4DAAA /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
+		63F668BCD5703E5E33F09FBF11638494 /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
+		65E101FE196C068F2D081225C6037B3A /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
+		67B03BCAF78AB448E471684920B7B1F0 /* FoundationHTTPHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FoundationHTTPHandler.swift; path = Sources/Framer/FoundationHTTPHandler.swift; sourceTree = "<group>"; };
+		6E9BE5F44B228094FBE80465EADFC4F8 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
 		701C9E02F18BACEE578403427A0977F4 /* Pods-TeneasyChatSDK_iOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeneasyChatSDK_iOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		7B85856557EC2C26151E1CEDBBAAA098 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7E1B7EA746BF6557FD565BAE12AF9198 /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
+		78B6A39DAB71CB334C5812331D10967D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		79C202227BDAA55C94E41DE3D601C7DA /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
+		7B29FC8BA8D575FD87A9B13D18DC1BEA /* FBSnapshotTestCase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FBSnapshotTestCase-Info.plist"; sourceTree = "<group>"; };
+		7DEF64227E7579CAB0DE5BB904ADAD61 /* libTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libTest.swift; path = TeneasyChatSDK_iOS/Classes/libTest.swift; sourceTree = "<group>"; };
+		7EAE7395DF092CC19E501703455BBE28 /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
 		7EE1D0575167ACAC6819082CF71246A4 /* Pods-TeneasyChatSDK_iOS_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeneasyChatSDK_iOS_Example-frameworks.sh"; sourceTree = "<group>"; };
-		88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
-		8E5923010B02074CAA9AAF6EA02D66AA /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
-		9468E867498BBAF36F9AFFE4845F8B09 /* FBSnapshotTestCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.debug.xcconfig; sourceTree = "<group>"; };
-		96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
-		990B327CADAE69BA6A2D48EA9070A96E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
+		82BAB798EB75DEB6251D99A9DC6529B9 /* Security.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Security.swift; path = Sources/Security/Security.swift; sourceTree = "<group>"; };
+		891B2270823847ED23F2ECFC28F935EC /* Starscream */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E96EA312AEFBCF1EA38C0225BB07565 /* Transport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transport.swift; path = Sources/Transport/Transport.swift; sourceTree = "<group>"; };
+		8EBF30F66A503307E1505754BB179A67 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/Starscream/WebSocket.swift; sourceTree = "<group>"; };
+		957528FA40C3FFFB076DCB5A92D0882B /* WSEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSEngine.swift; path = Sources/Engine/WSEngine.swift; sourceTree = "<group>"; };
+		95BC121C282B2E575515B15E39A75050 /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.h"; sourceTree = "<group>"; };
+		99FBF7424E48DDFB3F6B634E57751C3C /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
+		9ACA12CBF639DBA03CBE804BDB2DF2F6 /* TeneasyChatSDK_iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TeneasyChatSDK_iOS-umbrella.h"; sourceTree = "<group>"; };
 		9B6E9F5C7E49E97355F2297F88E81113 /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9CF77169C705DFE3FC8D5D523F1DD503 /* TeneasyChatSDK_iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TeneasyChatSDK_iOS.modulemap; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E38B28AF870E9DF67C0B415B41E4DD8 /* FBSnapshotTestCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.debug.xcconfig; sourceTree = "<group>"; };
 		9F8D2FC16428D4A3F3BCD321A970A03C /* Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		AE9FF9459FBCDC4AF88FB6B5A4CC1439 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
-		B2BE9DFAB598690584AE3F63ACE1F9EB /* TeneasyChatSDK_iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TeneasyChatSDK_iOS-prefix.pch"; sourceTree = "<group>"; };
-		B7103CA00AED20722C5B69CA5B4F6938 /* FBSnapshotTestCase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FBSnapshotTestCase-Info.plist"; sourceTree = "<group>"; };
-		B7221AD533BC62A0B7FBA2739E2E707D /* TeneasyChatSDK_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TeneasyChatSDK_iOS.debug.xcconfig; sourceTree = "<group>"; };
-		B97DC645CD6A9C50D6B25D11A51D75CA /* TeneasyChatSDK_iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TeneasyChatSDK_iOS-dummy.m"; sourceTree = "<group>"; };
+		AE2FEDF37B679977258E34EBA0D25ABB /* TeneasyChatSDK_iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TeneasyChatSDK_iOS-prefix.pch"; sourceTree = "<group>"; };
+		B1F433C037614E977F0CD8A5201AEF4F /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression/Compression.swift; sourceTree = "<group>"; };
+		B3CB076527D56562DCE136B32AFA56D6 /* FoundationTransport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FoundationTransport.swift; path = Sources/Transport/FoundationTransport.swift; sourceTree = "<group>"; };
+		B477BDD6FEC726344EDB60005D57EA2C /* FBSnapshotTestCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.release.xcconfig; sourceTree = "<group>"; };
+		B7D6654C3E3CDCCA7AE23F467E84B7BD /* TeneasyChatSDK_iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TeneasyChatSDK_iOS-Info.plist"; sourceTree = "<group>"; };
+		BE060518A2C19C258E214052F5AFD265 /* Starscream-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Starscream-Info.plist"; sourceTree = "<group>"; };
 		BE65A81FE441E3A4053D2E8D4E0D07BE /* Pods-TeneasyChatSDK_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C791EDF229797B600075266A /* libTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libTest.swift; path = TeneasyChatSDK_iOS/Classes/libTest.swift; sourceTree = "<group>"; };
-		CBFF6C5FD9C3A84274A9314D3E940B6E /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
-		D08CEBB9BDD9EF7A662ECFC0305C169E /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
+		BF378B9192FB0E1DA366DED5559CB0B6 /* Framer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Framer.swift; path = Sources/Framer/Framer.swift; sourceTree = "<group>"; };
+		CC74FA17167957AD2296C8B264A41A60 /* TCPTransport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TCPTransport.swift; path = Sources/Transport/TCPTransport.swift; sourceTree = "<group>"; };
+		CF4146E701236EE9642030A1BB881764 /* StringHTTPHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringHTTPHandler.swift; path = Sources/Framer/StringHTTPHandler.swift; sourceTree = "<group>"; };
 		D13171F074D0D5189BF8261097E9865C /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeneasyChatSDK_iOS_Example-umbrella.h"; sourceTree = "<group>"; };
 		D757C2043D570AF317ECA0FB620C5227 /* Pods-TeneasyChatSDK_iOS_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TeneasyChatSDK_iOS_Tests"; path = Pods_TeneasyChatSDK_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D872A3EE224412D4057C234FBC629F9C /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
+		D79FB3E6AE41A6CB046DF10684E9BEA1 /* TeneasyChatSDK_iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TeneasyChatSDK_iOS-dummy.m"; sourceTree = "<group>"; };
 		DB94382EEE485C0A54F36A12AAE9A56D /* Pods-TeneasyChatSDK_iOS_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeneasyChatSDK_iOS_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		DBE1102EAE3E225D4984C186132CD767 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		DC368C5840FED321EE40385D32B2AA6C /* Pods-TeneasyChatSDK_iOS_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TeneasyChatSDK_iOS_Example"; path = Pods_TeneasyChatSDK_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDCBB67C3A25731A5BAA5ADE9D35EEDA /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = TeneasyChatSDK_iOS/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		DFF9B9CB0CA396D7BD55E472B43DB8A2 /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		E25441ED0F60556946863472E41DD93F /* Pods-TeneasyChatSDK_iOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeneasyChatSDK_iOS_Tests-dummy.m"; sourceTree = "<group>"; };
 		E658F388F01C72599CA75537950B6095 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E77241704D81872B5537247C47F42C47 /* HTTPHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHandler.swift; path = Sources/Framer/HTTPHandler.swift; sourceTree = "<group>"; };
+		E89244E32DD49FFE47CEB3CB887B8F1D /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
 		EF5F9476EE2C6DFF84E9D49BEF25858B /* Pods-TeneasyChatSDK_iOS_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeneasyChatSDK_iOS_Example-Info.plist"; sourceTree = "<group>"; };
+		F062016723F216A62FA7F2C3DAD35D01 /* FoundationHTTPServerHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FoundationHTTPServerHandler.swift; path = Sources/Framer/FoundationHTTPServerHandler.swift; sourceTree = "<group>"; };
+		F4E9A49C78AD75AEC6CB9DCCC49EC3DB /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
+		F5775F3A88E8704F736F50B7A45769C1 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
 		F86BF48BAE45435B2A3F8298107CA9BA /* Pods-TeneasyChatSDK_iOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeneasyChatSDK_iOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FA152C64AF791D68BDC7FBE7113AC13C /* TeneasyChatSDK_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TeneasyChatSDK_iOS.release.xcconfig; sourceTree = "<group>"; };
 		FAC11C3BDCA2996FAADB849DA4F8CFE4 /* TeneasyChatSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeneasyChatSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEE661E58CA6655B39AA49AA4C021C33 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		52851D4758C71C135F673F582252DDC2 /* Frameworks */ = {
+		22579CC44F871C4C542FC182B991B33C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3AAA82E5E40D1BBC5BB5B87C942930D /* Foundation.framework in Frameworks */,
+				33C71989B6C635864EC5E4862AFAAE8A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,11 +211,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A134174CD3EC61CCD2E5FB2D24FDC4BB /* Frameworks */ = {
+		B3F862C2268CADAF51C5C43877D3105C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CB50917F2D8E0DA85B2D3C79CEC791B /* Foundation.framework in Frameworks */,
+				491C86222F35D1630F965D06BACF681F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86C8A2F2E6958B9E79EBFED66CB9A9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20937267AA5BE1806611B7F76DE7B034 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,61 +241,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28DD2950E6096015C17188C3CA3C029B /* Pod */ = {
+		088DB8DC5947D484B268190BC427DB85 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				990B327CADAE69BA6A2D48EA9070A96E /* LICENSE */,
-				7B85856557EC2C26151E1CEDBBAAA098 /* README.md */,
-				07D1527DC7E1C05596DCB3E099BA8887 /* TeneasyChatSDK_iOS.podspec */,
+				28E8E2410C9B945FBE75C5F68FA94B0A /* FBSnapshotTestCase.modulemap */,
+				7EAE7395DF092CC19E501703455BBE28 /* FBSnapshotTestCase-dummy.m */,
+				7B29FC8BA8D575FD87A9B13D18DC1BEA /* FBSnapshotTestCase-Info.plist */,
+				99FBF7424E48DDFB3F6B634E57751C3C /* FBSnapshotTestCase-prefix.pch */,
+				F5775F3A88E8704F736F50B7A45769C1 /* FBSnapshotTestCase-umbrella.h */,
+				9E38B28AF870E9DF67C0B415B41E4DD8 /* FBSnapshotTestCase.debug.xcconfig */,
+				B477BDD6FEC726344EDB60005D57EA2C /* FBSnapshotTestCase.release.xcconfig */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "../Target Support Files/FBSnapshotTestCase";
 			sourceTree = "<group>";
 		};
-		4BA2479549DD918290454B1CDCD0B92B /* Core */ = {
+		3A5CF3B0DE659EB5F397C4E21F0A7184 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FEE661E58CA6655B39AA49AA4C021C33 /* FBSnapshotTestCase.h */,
-				277B6BE10C665F515606A22FD60C6DCC /* FBSnapshotTestCase.m */,
-				88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */,
-				6ABB3EB3CCC5BCA82F40FE8DC87BB778 /* FBSnapshotTestCasePlatform.m */,
-				AE9FF9459FBCDC4AF88FB6B5A4CC1439 /* FBSnapshotTestController.h */,
-				7E1B7EA746BF6557FD565BAE12AF9198 /* FBSnapshotTestController.m */,
-				99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */,
-				0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */,
-				656116C8FA5458F45D4707110C9530EC /* UIImage+Compare.h */,
-				235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */,
-				96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */,
-				4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */,
-				284833D18C244D2B42966B6EE425AA59 /* UIImage+Snapshot.h */,
-				D872A3EE224412D4057C234FBC629F9C /* UIImage+Snapshot.m */,
+				6907DD4EEE0B1CB73A20C35EB97CD8C7 /* FBSnapshotTestCase */,
+				F2B70DA084A72B8A66CEBFDEF9961F9E /* Starscream */,
 			);
-			name = Core;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		4CC7F167556E09726E55C09682B749F9 /* Support Files */ = {
+		3A6B97371A734FC3A7AE0C27F8D7782A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				37B466E857E66FB8F5D457EA49CEC7C2 /* TeneasyChatSDK_iOS.modulemap */,
-				B97DC645CD6A9C50D6B25D11A51D75CA /* TeneasyChatSDK_iOS-dummy.m */,
-				2AD5113C300AE2F74801CF2D28A014BB /* TeneasyChatSDK_iOS-Info.plist */,
-				B2BE9DFAB598690584AE3F63ACE1F9EB /* TeneasyChatSDK_iOS-prefix.pch */,
-				482AA8CF35F1C4989CF9A8905099A147 /* TeneasyChatSDK_iOS-umbrella.h */,
-				B7221AD533BC62A0B7FBA2739E2E707D /* TeneasyChatSDK_iOS.debug.xcconfig */,
-				1C9CDFC84F381C1B61361F14814AE3C5 /* TeneasyChatSDK_iOS.release.xcconfig */,
+				9CF77169C705DFE3FC8D5D523F1DD503 /* TeneasyChatSDK_iOS.modulemap */,
+				D79FB3E6AE41A6CB046DF10684E9BEA1 /* TeneasyChatSDK_iOS-dummy.m */,
+				B7D6654C3E3CDCCA7AE23F467E84B7BD /* TeneasyChatSDK_iOS-Info.plist */,
+				AE2FEDF37B679977258E34EBA0D25ABB /* TeneasyChatSDK_iOS-prefix.pch */,
+				9ACA12CBF639DBA03CBE804BDB2DF2F6 /* TeneasyChatSDK_iOS-umbrella.h */,
+				0579BA1CA07D8EEE33416DD8F60155D3 /* TeneasyChatSDK_iOS.debug.xcconfig */,
+				FA152C64AF791D68BDC7FBE7113AC13C /* TeneasyChatSDK_iOS.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/TeneasyChatSDK_iOS";
 			sourceTree = "<group>";
 		};
-		52219AF9FEF8E6949277561A337C7C9F /* Products */ = {
+		557ED3C625A531BB863FBD5913FC2DA1 /* SwiftSupport */ = {
 			isa = PBXGroup;
 			children = (
-				5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */,
-				DC368C5840FED321EE40385D32B2AA6C /* Pods-TeneasyChatSDK_iOS_Example */,
-				D757C2043D570AF317ECA0FB620C5227 /* Pods-TeneasyChatSDK_iOS_Tests */,
-				FAC11C3BDCA2996FAADB849DA4F8CFE4 /* TeneasyChatSDK_iOS.framework */,
+				6E9BE5F44B228094FBE80465EADFC4F8 /* SwiftSupport.swift */,
 			);
-			name = Products;
+			name = SwiftSupport;
+			sourceTree = "<group>";
+		};
+		5D5E5D091AFC768D636C622D5E93D6E8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				65E101FE196C068F2D081225C6037B3A /* FBSnapshotTestCase.h */,
+				79C202227BDAA55C94E41DE3D601C7DA /* FBSnapshotTestCase.m */,
+				1D0E65FF10257486C897A1BD2C5E548C /* FBSnapshotTestCasePlatform.h */,
+				2F56A54748976C7C7A13FEF931EE741C /* FBSnapshotTestCasePlatform.m */,
+				0F38005085BC8338F76A88A99C2B9972 /* FBSnapshotTestController.h */,
+				4DE32587569E5201F0FEC23C2D1BFADC /* FBSnapshotTestController.m */,
+				E89244E32DD49FFE47CEB3CB887B8F1D /* UIApplication+StrictKeyWindow.h */,
+				5DA4A45DF2191C6C3B6A779AEAF4DAAA /* UIApplication+StrictKeyWindow.m */,
+				95BC121C282B2E575515B15E39A75050 /* UIImage+Compare.h */,
+				DFF9B9CB0CA396D7BD55E472B43DB8A2 /* UIImage+Compare.m */,
+				1C80469FCEDD6DA7FC0EECC82F7F7612 /* UIImage+Diff.h */,
+				63F668BCD5703E5E33F09FBF11638494 /* UIImage+Diff.m */,
+				251BCFC5C7FC071815B8FCA1BD4694EB /* UIImage+Snapshot.h */,
+				F4E9A49C78AD75AEC6CB9DCCC49EC3DB /* UIImage+Snapshot.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		6907DD4EEE0B1CB73A20C35EB97CD8C7 /* FBSnapshotTestCase */ = {
+			isa = PBXGroup;
+			children = (
+				5D5E5D091AFC768D636C622D5E93D6E8 /* Core */,
+				088DB8DC5947D484B268190BC427DB85 /* Support Files */,
+				557ED3C625A531BB863FBD5913FC2DA1 /* SwiftSupport */,
+			);
+			path = FBSnapshotTestCase;
+			sourceTree = "<group>";
+		};
+		697F0EC43D8B162630A98E79454B5760 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				78B6A39DAB71CB334C5812331D10967D /* LICENSE */,
+				0103B0AF15F6A389AF057C421C7BE6D0 /* README.md */,
+				0A54A1904EC292222FE7DD9E66F1F267 /* TeneasyChatSDK_iOS.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		777971EFF5EDC3C7D86A0AC8E34674C9 /* TeneasyChatSDK_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7DEF64227E7579CAB0DE5BB904ADAD61 /* libTest.swift */,
+				DDCBB67C3A25731A5BAA5ADE9D35EEDA /* ReplaceMe.swift */,
+				697F0EC43D8B162630A98E79454B5760 /* Pod */,
+				3A6B97371A734FC3A7AE0C27F8D7782A /* Support Files */,
+			);
+			name = TeneasyChatSDK_iOS;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		79DBD460A487F8B914C91AB2789E7E8C /* Targets Support Files */ = {
@@ -251,24 +367,19 @@
 			path = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example";
 			sourceTree = "<group>";
 		};
-		906402ECC4C6C5EB58DD365FD2C64E92 /* SwiftSupport */ = {
+		A89D410282EC2A0BDBA21C2887F4FAE1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3F0D66CF296ABBC57EC4D0452397E235 /* SwiftSupport.swift */,
+				0FA6DEE29EAE8975FA52804F6FC62F12 /* Starscream.modulemap */,
+				2D35D6A91E2422C3F445AD868EB39A91 /* Starscream-dummy.m */,
+				BE060518A2C19C258E214052F5AFD265 /* Starscream-Info.plist */,
+				DBE1102EAE3E225D4984C186132CD767 /* Starscream-prefix.pch */,
+				34F0E78266F5E1BBC53ABC395111C9C3 /* Starscream-umbrella.h */,
+				085E1025BB66DDE099FBA3A9751BDC84 /* Starscream.debug.xcconfig */,
+				3DC43AE16DDD5B9A1A022DF6AF558A23 /* Starscream.release.xcconfig */,
 			);
-			name = SwiftSupport;
-			sourceTree = "<group>";
-		};
-		922EF23AB5C107E2C901FB2C69E1E1B4 /* TeneasyChatSDK_iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C791EDF229797B600075266A /* libTest.swift */,
-				10BFA24A6085FA66AD757F5077F50E6A /* ReplaceMe.swift */,
-				28DD2950E6096015C17188C3CA3C029B /* Pod */,
-				4CC7F167556E09726E55C09682B749F9 /* Support Files */,
-			);
-			name = TeneasyChatSDK_iOS;
-			path = ../..;
+			name = "Support Files";
+			path = "../Target Support Files/Starscream";
 			sourceTree = "<group>";
 		};
 		A96BB63AC0C9559BF7D79DFBE0719E62 /* Pods-TeneasyChatSDK_iOS_Tests */ = {
@@ -288,21 +399,6 @@
 			path = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests";
 			sourceTree = "<group>";
 		};
-		B69B2ECE2D2C9A3924A9231138CE0BBC /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CBFF6C5FD9C3A84274A9314D3E940B6E /* FBSnapshotTestCase.modulemap */,
-				1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */,
-				B7103CA00AED20722C5B69CA5B4F6938 /* FBSnapshotTestCase-Info.plist */,
-				D08CEBB9BDD9EF7A662ECFC0305C169E /* FBSnapshotTestCase-prefix.pch */,
-				8E5923010B02074CAA9AAF6EA02D66AA /* FBSnapshotTestCase-umbrella.h */,
-				9468E867498BBAF36F9AFFE4845F8B09 /* FBSnapshotTestCase.debug.xcconfig */,
-				4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FBSnapshotTestCase";
-			sourceTree = "<group>";
-		};
 		BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,42 +407,64 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BD2D60DE56CBB8C87BA07E0C1CCD0592 /* FBSnapshotTestCase */ = {
-			isa = PBXGroup;
-			children = (
-				4BA2479549DD918290454B1CDCD0B92B /* Core */,
-				B69B2ECE2D2C9A3924A9231138CE0BBC /* Support Files */,
-				906402ECC4C6C5EB58DD365FD2C64E92 /* SwiftSupport */,
-			);
-			path = FBSnapshotTestCase;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				E39182A75CE1D7796C687F59DF7687BC /* Development Pods */,
+				D1A7E949526156E586ED55974992CE92 /* Development Pods */,
 				BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */,
-				E81A37DBDE41E671312C56736544E2FA /* Pods */,
-				52219AF9FEF8E6949277561A337C7C9F /* Products */,
+				3A5CF3B0DE659EB5F397C4E21F0A7184 /* Pods */,
+				DC493212DB15717EC4D970DC732E0DCF /* Products */,
 				79DBD460A487F8B914C91AB2789E7E8C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		E39182A75CE1D7796C687F59DF7687BC /* Development Pods */ = {
+		D1A7E949526156E586ED55974992CE92 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				922EF23AB5C107E2C901FB2C69E1E1B4 /* TeneasyChatSDK_iOS */,
+				777971EFF5EDC3C7D86A0AC8E34674C9 /* TeneasyChatSDK_iOS */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		E81A37DBDE41E671312C56736544E2FA /* Pods */ = {
+		DC493212DB15717EC4D970DC732E0DCF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD2D60DE56CBB8C87BA07E0C1CCD0592 /* FBSnapshotTestCase */,
+				5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */,
+				DC368C5840FED321EE40385D32B2AA6C /* Pods-TeneasyChatSDK_iOS_Example */,
+				D757C2043D570AF317ECA0FB620C5227 /* Pods-TeneasyChatSDK_iOS_Tests */,
+				891B2270823847ED23F2ECFC28F935EC /* Starscream */,
+				FAC11C3BDCA2996FAADB849DA4F8CFE4 /* TeneasyChatSDK_iOS.framework */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2B70DA084A72B8A66CEBFDEF9961F9E /* Starscream */ = {
+			isa = PBXGroup;
+			children = (
+				B1F433C037614E977F0CD8A5201AEF4F /* Compression.swift */,
+				409A345B3AB81A0554FC8C48FA2FAC7A /* Data+Extensions.swift */,
+				37A1813031F51EB52599CCC47611E853 /* Engine.swift */,
+				67B03BCAF78AB448E471684920B7B1F0 /* FoundationHTTPHandler.swift */,
+				F062016723F216A62FA7F2C3DAD35D01 /* FoundationHTTPServerHandler.swift */,
+				47079AF88B796C6AB50AFEE78AAF08DB /* FoundationSecurity.swift */,
+				B3CB076527D56562DCE136B32AFA56D6 /* FoundationTransport.swift */,
+				42E05480DFDA6F5950A8003323CD38AA /* FrameCollector.swift */,
+				BF378B9192FB0E1DA366DED5559CB0B6 /* Framer.swift */,
+				E77241704D81872B5537247C47F42C47 /* HTTPHandler.swift */,
+				5D451892E97C14B9BA0CFEDEF3B16575 /* NativeEngine.swift */,
+				82BAB798EB75DEB6251D99A9DC6529B9 /* Security.swift */,
+				217D9B281F7BDDD4D6378C000B933A2C /* Server.swift */,
+				CF4146E701236EE9642030A1BB881764 /* StringHTTPHandler.swift */,
+				CC74FA17167957AD2296C8B264A41A60 /* TCPTransport.swift */,
+				8E96EA312AEFBCF1EA38C0225BB07565 /* Transport.swift */,
+				8EBF30F66A503307E1505754BB179A67 /* WebSocket.swift */,
+				52E33DB18D256F29C607975F71873ECA /* WebSocketServer.swift */,
+				4EBDF3AA6D325EB95C5CFDA874F4C2BA /* WSCompression.swift */,
+				957528FA40C3FFFB076DCB5A92D0882B /* WSEngine.swift */,
+				A89D410282EC2A0BDBA21C2887F4FAE1 /* Support Files */,
+			);
+			path = Starscream;
 			sourceTree = "<group>";
 		};
 		FB2668559AE577E6E8078C0C291AD417 /* iOS */ = {
@@ -363,11 +481,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2E74A25D16AB9A5DDB638AB896CB3B9F /* Headers */ = {
+		3CBD0F9C48772E87C2F80436B70E099E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A57495D5986F94A719F62FC65BF5EE0 /* TeneasyChatSDK_iOS-umbrella.h in Headers */,
+				00C9C2E54995B3BEA1C999016833A58B /* Starscream-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,11 +497,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAE3BB14DAF67823A6DB091E5438D80C /* Headers */ = {
+		C6BBC81CED5DCD22843AE6036E80F3C4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4752906C2A77B72DC1565CDEA84EADCC /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h in Headers */,
+				21F0D9A15479EFFE7CBE11C065247071 /* TeneasyChatSDK_iOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +520,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E23A5A4D6B6BA4831974B4008FA24A41 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590BC9AB9685FE7E72D5FB096D9C2ADB /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -417,8 +543,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				4D83C33C7ED0D7638B11FC6B649B219E /* PBXTargetDependency */,
-				7D2A5D27CB22942AD40105556E272E74 /* PBXTargetDependency */,
+				06E7CF28CA262BAF9237011FDF4D5213 /* PBXTargetDependency */,
+				BFED46BC9103EA7DED8EBCCCE3C09345 /* PBXTargetDependency */,
 			);
 			name = "Pods-TeneasyChatSDK_iOS_Tests";
 			productName = Pods_TeneasyChatSDK_iOS_Tests;
@@ -443,18 +569,37 @@
 			productReference = 5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */;
 			productType = "com.apple.product-type.framework";
 		};
-		ADC1D5EF2AF1FFA1EC94BB12634D20C0 /* TeneasyChatSDK_iOS */ = {
+		9B78EE4AF6AE03E79D88886319853FF7 /* Starscream */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1310D691F4798C6ED4E4C060797E48E /* Build configuration list for PBXNativeTarget "TeneasyChatSDK_iOS" */;
+			buildConfigurationList = 5E342B11DDD91D2A8D5CEC382A58F29D /* Build configuration list for PBXNativeTarget "Starscream" */;
 			buildPhases = (
-				2E74A25D16AB9A5DDB638AB896CB3B9F /* Headers */,
-				0205B3DF9EC6A526806A2DACD0D9C62B /* Sources */,
-				A134174CD3EC61CCD2E5FB2D24FDC4BB /* Frameworks */,
-				2E073EF3AE1CCCDADF0CE538A7F8A110 /* Resources */,
+				3CBD0F9C48772E87C2F80436B70E099E /* Headers */,
+				3CBD844312542615DF274F62D22D823A /* Sources */,
+				22579CC44F871C4C542FC182B991B33C /* Frameworks */,
+				6D93F8ECBEC0B1B601F31CAB9D03FAA2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = Starscream;
+			productName = Starscream;
+			productReference = 891B2270823847ED23F2ECFC28F935EC /* Starscream */;
+			productType = "com.apple.product-type.framework";
+		};
+		ADC1D5EF2AF1FFA1EC94BB12634D20C0 /* TeneasyChatSDK_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2BC6CCB0BCE1269334EF904A4431D10 /* Build configuration list for PBXNativeTarget "TeneasyChatSDK_iOS" */;
+			buildPhases = (
+				C6BBC81CED5DCD22843AE6036E80F3C4 /* Headers */,
+				A8330CF653C6EF2C7500C43BEE63B269 /* Sources */,
+				B86C8A2F2E6958B9E79EBFED66CB9A9F /* Frameworks */,
+				48FEEA6657BF2302CFB88D760FB69A62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C791EDFD29799A890075266A /* PBXTargetDependency */,
 			);
 			name = TeneasyChatSDK_iOS;
 			productName = TeneasyChatSDK_iOS;
@@ -463,17 +608,18 @@
 		};
 		E2F6117B18B59B0C850F5D4C585FCA77 /* Pods-TeneasyChatSDK_iOS_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5D8481EB8180B36F149F478C269A51E /* Build configuration list for PBXNativeTarget "Pods-TeneasyChatSDK_iOS_Example" */;
+			buildConfigurationList = A49BB2DED3A5D6615F75E9D6C7DFF3F8 /* Build configuration list for PBXNativeTarget "Pods-TeneasyChatSDK_iOS_Example" */;
 			buildPhases = (
-				AAE3BB14DAF67823A6DB091E5438D80C /* Headers */,
-				2FBFEBB875759FD808B893D9A712ED25 /* Sources */,
-				52851D4758C71C135F673F582252DDC2 /* Frameworks */,
-				3C1EC12F2AF6525A41E4A04EAF86528F /* Resources */,
+				E23A5A4D6B6BA4831974B4008FA24A41 /* Headers */,
+				216F057057D3B3D2ED2AB5568CB62369 /* Sources */,
+				B3F862C2268CADAF51C5C43877D3105C /* Frameworks */,
+				D2AB4EDA52AC6D36D8527F206548F35B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A74D9B03DE33324B65A69E7FA54E4C7E /* PBXTargetDependency */,
+				74E00B14D445CCB3179461162C7F67D8 /* PBXTargetDependency */,
+				50082464475A0082BBFC800AD2074706 /* PBXTargetDependency */,
 			);
 			name = "Pods-TeneasyChatSDK_iOS_Example";
 			productName = Pods_TeneasyChatSDK_iOS_Example;
@@ -498,13 +644,14 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 52219AF9FEF8E6949277561A337C7C9F /* Products */;
+			productRefGroup = DC493212DB15717EC4D970DC732E0DCF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */,
 				E2F6117B18B59B0C850F5D4C585FCA77 /* Pods-TeneasyChatSDK_iOS_Example */,
 				92F160BD880D642E587E236BE270074F /* Pods-TeneasyChatSDK_iOS_Tests */,
+				9B78EE4AF6AE03E79D88886319853FF7 /* Starscream */,
 				ADC1D5EF2AF1FFA1EC94BB12634D20C0 /* TeneasyChatSDK_iOS */,
 			);
 		};
@@ -518,14 +665,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E073EF3AE1CCCDADF0CE538A7F8A110 /* Resources */ = {
+		48FEEA6657BF2302CFB88D760FB69A62 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C1EC12F2AF6525A41E4A04EAF86528F /* Resources */ = {
+		6D93F8ECBEC0B1B601F31CAB9D03FAA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -539,24 +686,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0205B3DF9EC6A526806A2DACD0D9C62B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		D2AB4EDA52AC6D36D8527F206548F35B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B9AC83E667FA34B4CB75DE341644FBD /* ReplaceMe.swift in Sources */,
-				8223E4F126D220937ACF11D8D2EA1001 /* TeneasyChatSDK_iOS-dummy.m in Sources */,
-				C791EDF329797B600075266A /* libTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FBFEBB875759FD808B893D9A712ED25 /* Sources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		216F057057D3B3D2ED2AB5568CB62369 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CCBF2D580C246359DC310D3986202FD /* Pods-TeneasyChatSDK_iOS_Example-dummy.m in Sources */,
+				E9ACEBB8658D30FA9BB89C59E43BFDB6 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBD844312542615DF274F62D22D823A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFA2736CE4B16FD4D82450863EC58507 /* Compression.swift in Sources */,
+				631654C419F62FE0270E1DF79CCF6F8B /* Data+Extensions.swift in Sources */,
+				FAFD54F649DC5D69DD05D517A0131968 /* Engine.swift in Sources */,
+				4AB6FCF35B998F60ED9EB100542EEA31 /* FoundationHTTPHandler.swift in Sources */,
+				5006DD4B60A05AF56EA0706A680BABF6 /* FoundationHTTPServerHandler.swift in Sources */,
+				5281197FE8CC6E6954315F11B8F553D0 /* FoundationSecurity.swift in Sources */,
+				489EF4A7D4992C47CF590AEF9AA418FC /* FoundationTransport.swift in Sources */,
+				EB5C3537AD21658D3EC873A4A4AFDE30 /* FrameCollector.swift in Sources */,
+				CC235941F0CF9FA8C0FA3323A0D18203 /* Framer.swift in Sources */,
+				7DDEA2F73F2A02D88D5164B46BA2C7E8 /* HTTPHandler.swift in Sources */,
+				C28A0006DD1C9AB062763C8FA2B3F93D /* NativeEngine.swift in Sources */,
+				69A591F2BDE4941B391C102F4C26B115 /* Security.swift in Sources */,
+				DF9BE4B3E95B007977780C9EFDA3EFBE /* Server.swift in Sources */,
+				3A655D6817E99F062266BB601B0EEEDF /* Starscream-dummy.m in Sources */,
+				046AC7AA224C78A31C0A8FACB11D2D28 /* StringHTTPHandler.swift in Sources */,
+				6C0DACBE00A34619DEDB9A65CB959BA5 /* TCPTransport.swift in Sources */,
+				4A3B1BE129FDA231AC217E1C6DB2B8C8 /* Transport.swift in Sources */,
+				B44349C69B2C0AF407B678B20DC9CB80 /* WebSocket.swift in Sources */,
+				3F3E9C6FF4BCB6F4FF18D9121CC3E42F /* WebSocketServer.swift in Sources */,
+				FA2A3CCAE01CF0108D2FDB7C8108B988 /* WSCompression.swift in Sources */,
+				BB056B9351B1BE41C2703393F69623DD /* WSEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +737,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8815A852344736F929BDB217C2EF05 /* Pods-TeneasyChatSDK_iOS_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8330CF653C6EF2C7500C43BEE63B269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CDB7E1EE27E01EBEC56506A80BB6020 /* libTest.swift in Sources */,
+				3D074D3618A42F7614C21E4D3E5F6C44 /* ReplaceMe.swift in Sources */,
+				FC1C5BDB02513C1A9472FA0407E416ED /* TeneasyChatSDK_iOS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,30 +769,41 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4D83C33C7ED0D7638B11FC6B649B219E /* PBXTargetDependency */ = {
+		06E7CF28CA262BAF9237011FDF4D5213 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FBSnapshotTestCase;
 			target = 98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */;
-			targetProxy = F1C41A05500D6AC1A7EEA8C0E09CC228 /* PBXContainerItemProxy */;
+			targetProxy = 2DFD572BE25DEDBDA1E3961663308FC9 /* PBXContainerItemProxy */;
 		};
-		7D2A5D27CB22942AD40105556E272E74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-TeneasyChatSDK_iOS_Example";
-			target = E2F6117B18B59B0C850F5D4C585FCA77 /* Pods-TeneasyChatSDK_iOS_Example */;
-			targetProxy = 70705FB30B5B0427434904838C22CD53 /* PBXContainerItemProxy */;
-		};
-		A74D9B03DE33324B65A69E7FA54E4C7E /* PBXTargetDependency */ = {
+		50082464475A0082BBFC800AD2074706 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TeneasyChatSDK_iOS;
 			target = ADC1D5EF2AF1FFA1EC94BB12634D20C0 /* TeneasyChatSDK_iOS */;
-			targetProxy = DB2676069AC29A76CE6E805FA2FE6031 /* PBXContainerItemProxy */;
+			targetProxy = A647A028F4B833476FF977F614536615 /* PBXContainerItemProxy */;
+		};
+		74E00B14D445CCB3179461162C7F67D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Starscream;
+			target = 9B78EE4AF6AE03E79D88886319853FF7 /* Starscream */;
+			targetProxy = D418D4C7F9AA8AC3C2059177670FCB4C /* PBXContainerItemProxy */;
+		};
+		BFED46BC9103EA7DED8EBCCCE3C09345 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-TeneasyChatSDK_iOS_Example";
+			target = E2F6117B18B59B0C850F5D4C585FCA77 /* Pods-TeneasyChatSDK_iOS_Example */;
+			targetProxy = 4C5D1AA7A434B482D9C1A38D9C340551 /* PBXContainerItemProxy */;
+		};
+		C791EDFD29799A890075266A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B78EE4AF6AE03E79D88886319853FF7 /* Starscream */;
+			targetProxy = C791EDFC29799A890075266A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0CF977E736A9F0297ED689DCD07C3E1C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */;
+			baseConfigurationReference = B477BDD6FEC726344EDB60005D57EA2C /* FBSnapshotTestCase.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -639,9 +832,9 @@
 			};
 			name = Release;
 		};
-		12C4DF9C2990F019976B81D95BFE83D5 /* Debug */ = {
+		5EDD5053A105CBCB4163A8B0AB3DF71B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7221AD533BC62A0B7FBA2739E2E707D /* TeneasyChatSDK_iOS.debug.xcconfig */;
+			baseConfigurationReference = 0579BA1CA07D8EEE33416DD8F60155D3 /* TeneasyChatSDK_iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -652,6 +845,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = $PODS_CONFIGURATION_BUILD_DIR/Starscream;
 				GCC_PREFIX_HEADER = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -663,78 +857,12 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		3413982E8D9622E08803FD4968135808 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE65A81FE441E3A4053D2E8D4E0D07BE /* Pods-TeneasyChatSDK_iOS_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5FAF887EAF6C16C2F2ADED907167FC72 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C9CDFC84F381C1B61361F14814AE3C5 /* TeneasyChatSDK_iOS.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS.modulemap";
-				PRODUCT_MODULE_NAME = TeneasyChatSDK_iOS;
-				PRODUCT_NAME = TeneasyChatSDK_iOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		64491A93DCE1D661AE084428AA6B45EE /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -768,6 +896,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		686A7C378BEC487803B2D026E5B158DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA152C64AF791D68BDC7FBE7113AC13C /* TeneasyChatSDK_iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = $PODS_CONFIGURATION_BUILD_DIR/Starscream;
+				GCC_PREFIX_HEADER = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS.modulemap";
+				PRODUCT_MODULE_NAME = TeneasyChatSDK_iOS;
+				PRODUCT_NAME = TeneasyChatSDK_iOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -832,7 +993,7 @@
 		};
 		842C60C4F1EBC85F9C8FF97D39D120FF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9468E867498BBAF36F9AFFE4845F8B09 /* FBSnapshotTestCase.debug.xcconfig */;
+			baseConfigurationReference = 9E38B28AF870E9DF67C0B415B41E4DD8 /* FBSnapshotTestCase.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -860,7 +1021,105 @@
 			};
 			name = Debug;
 		};
-		84AAB94C03D00F41D34B2581FA305E14 /* Debug */ = {
+		89DDD25DB9130670FEDC5E0AD0F46AE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 085E1025BB66DDE099FBA3A9751BDC84 /* Starscream.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Starscream/Starscream.modulemap";
+				PRODUCT_MODULE_NAME = Starscream;
+				PRODUCT_NAME = Starscream;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9FE6C966833798DDAE0849E49DCF7C0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE65A81FE441E3A4053D2E8D4E0D07BE /* Pods-TeneasyChatSDK_iOS_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BDB1F86D793385964A38B8E163BDF02B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B6E9F5C7E49E97355F2297F88E81113 /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests/Pods-TeneasyChatSDK_iOS_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests/Pods-TeneasyChatSDK_iOS_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C959B80D98F6EDE7C866AD8EF7DDDC6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F8D2FC16428D4A3F3BCD321A970A03C /* Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig */;
 			buildSettings = {
@@ -893,12 +1152,10 @@
 			};
 			name = Debug;
 		};
-		BDB1F86D793385964A38B8E163BDF02B /* Release */ = {
+		CC66474D42F4DE32770AC3115C19B7CA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B6E9F5C7E49E97355F2297F88E81113 /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */;
+			baseConfigurationReference = 3DC43AE16DDD5B9A1A022DF6AF558A23 /* Starscream.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -907,19 +1164,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests/Pods-TeneasyChatSDK_iOS_Tests-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TeneasyChatSDK_iOS_Tests/Pods-TeneasyChatSDK_iOS_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Starscream/Starscream.modulemap";
+				PRODUCT_MODULE_NAME = Starscream;
+				PRODUCT_NAME = Starscream;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1023,20 +1279,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1310D691F4798C6ED4E4C060797E48E /* Build configuration list for PBXNativeTarget "TeneasyChatSDK_iOS" */ = {
+		5E342B11DDD91D2A8D5CEC382A58F29D /* Build configuration list for PBXNativeTarget "Starscream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12C4DF9C2990F019976B81D95BFE83D5 /* Debug */,
-				5FAF887EAF6C16C2F2ADED907167FC72 /* Release */,
+				89DDD25DB9130670FEDC5E0AD0F46AE7 /* Debug */,
+				CC66474D42F4DE32770AC3115C19B7CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5D8481EB8180B36F149F478C269A51E /* Build configuration list for PBXNativeTarget "Pods-TeneasyChatSDK_iOS_Example" */ = {
+		A49BB2DED3A5D6615F75E9D6C7DFF3F8 /* Build configuration list for PBXNativeTarget "Pods-TeneasyChatSDK_iOS_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84AAB94C03D00F41D34B2581FA305E14 /* Debug */,
-				3413982E8D9622E08803FD4968135808 /* Release */,
+				C959B80D98F6EDE7C866AD8EF7DDDC6C /* Debug */,
+				9FE6C966833798DDAE0849E49DCF7C0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2BC6CCB0BCE1269334EF904A4431D10 /* Build configuration list for PBXNativeTarget "TeneasyChatSDK_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EDD5053A105CBCB4163A8B0AB3DF71B /* Debug */,
+				686A7C378BEC487803B2D026E5B158DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,6 +9,7 @@
 import UIKit
 import TeneasyChatSDK_iOS
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -19,12 +20,15 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let lib = libTest()
         lib.toastHello(vc: self)
+        
+        lib.callWebsocket()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 }
 

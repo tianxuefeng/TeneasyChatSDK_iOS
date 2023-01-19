@@ -332,10 +332,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TeneasyChatSDK_iOS_Example/Pods-TeneasyChatSDK_iOS_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/TeneasyChatSDK_iOS/TeneasyChatSDK_iOS.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TeneasyChatSDK_iOS.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

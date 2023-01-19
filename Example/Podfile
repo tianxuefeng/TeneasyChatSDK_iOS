@@ -4,10 +4,14 @@ platform :ios, '10.0'
 
 target 'TeneasyChatSDK_iOS_Example' do
   pod 'TeneasyChatSDK_iOS', :path => '../'
-
+  pod 'Starscream', '~> 4.0.0'
   target 'TeneasyChatSDK_iOS_Tests' do
     inherit! :search_paths
 
     pod 'FBSnapshotTestCase' , '~> 2.1.4'
+    #pod 'Starscream', '~> 4.0.0'
   end
+  
+
+  
 end

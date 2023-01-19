@@ -1,4 +1,5 @@
 import UIKit
+import Starscream
 //import Toast
 
 public struct libTest {
@@ -14,6 +15,14 @@ public struct libTest {
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
         vc.present(alert, animated: true, completion: nil)
     }
+    
+     public func callWebsocket(){
+         let url = URL(string: "ws://echo.websocket.org")!
+           let request = URLRequest(url: url)
+           let websocket = WebSocket(request: request)
+         print("call web socket")
+     }
+
     
  /* public func toastHello(view : UIView){
         
