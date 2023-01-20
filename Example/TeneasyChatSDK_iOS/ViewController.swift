@@ -11,17 +11,16 @@ import TeneasyChatSDK_iOS
 
 
 class ViewController: UIViewController {
-
+    let lib = libTest()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        lib.callWebsocket()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let lib = libTest()
-        //lib.toastHello(vc: self)
+        lib.toastHello(vc: self)
         
-        lib.callWebsocket()
     }
 
     override func didReceiveMemoryWarning() {

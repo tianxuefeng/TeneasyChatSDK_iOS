@@ -2,11 +2,11 @@ import UIKit
 import Starscream
 //import Toast
 
-public class libTest: WebSocketDelegate {
+public class libTest {
     public private(set) var text = "Hello, World!"
-
+    let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
+    var websocket : WebSocket? = nil
     public init() {
-        
         print(text)
     }
     
@@ -16,17 +16,59 @@ public class libTest: WebSocketDelegate {
         vc.present(alert, animated: true, completion: nil)
     }
     
+//https://swiftpackageregistry.com/daltoniam/Starscream
      public func callWebsocket(){
          //let url = URL(string: "ws://echo.websocket.org")!
          let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
          let request = URLRequest(url: url)
-         let websocket = WebSocket(request: request)
-         websocket.delegate = self
-         websocket.connect()
+        websocket = WebSocket(request: request)
+         websocket?.delegate = self
+         websocket?.connect()
+         
          //websocket.write(string: "Hi Server!")
          print("call web socket")
      }
     
+    deinit {
+      if (websocket != nil){
+          websocket!.disconnect()
+          websocket!.delegate = nil
+      }
+    }
+  
+}
+ /* public func toastHello(view : UIView){
+        
+        // create a new style
+        var style = ToastStyle()
+
+        // this is just one of many style options
+        style.messageColor = .blue
+
+        // present the toast with the new style
+        view.makeToast("This is a piece of toast", duration: 3.0, position: .bottom, style: style)
+
+        // or perhaps you want to use this style for all toasts going forward?
+        // just set the shared style and there's no need to provide the style again
+        ToastManager.shared.style = style
+        view.makeToast("This is a piece of toast") // now uses the shared style
+
+        // toggle "tap to dismiss" functionality
+        ToastManager.shared.isTapToDismissEnabled = true
+
+        // toggle queueing behavior
+        ToastManager.shared.isQueueEnabled = true
+    }*/
+    
+ 
+
+// MARK: - WebSocketDelegate
+extension libTest : WebSocketDelegate {
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("got some text: \(text)")
+    }
+
    public func didReceive(event: WebSocketEvent, client: WebSocket){
        switch event {
        case .connected(let headers):
@@ -51,28 +93,4 @@ public class libTest: WebSocketDelegate {
          print("cancelled")
        }
     }
-    
- /* public func toastHello(view : UIView){
-        
-        // create a new style
-        var style = ToastStyle()
-
-        // this is just one of many style options
-        style.messageColor = .blue
-
-        // present the toast with the new style
-        view.makeToast("This is a piece of toast", duration: 3.0, position: .bottom, style: style)
-
-        // or perhaps you want to use this style for all toasts going forward?
-        // just set the shared style and there's no need to provide the style again
-        ToastManager.shared.style = style
-        view.makeToast("This is a piece of toast") // now uses the shared style
-
-        // toggle "tap to dismiss" functionality
-        ToastManager.shared.isTapToDismissEnabled = true
-
-        // toggle queueing behavior
-        ToastManager.shared.isQueueEnabled = true
-    }*/
-    
 }
