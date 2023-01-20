@@ -2,7 +2,7 @@ import UIKit
 import Starscream
 //import Toast
 
-public struct libTest {
+public class libTest: WebSocketDelegate {
     public private(set) var text = "Hello, World!"
 
     public init() {
@@ -17,12 +17,40 @@ public struct libTest {
     }
     
      public func callWebsocket(){
-         let url = URL(string: "ws://echo.websocket.org")!
-           let request = URLRequest(url: url)
-           let websocket = WebSocket(request: request)
+         //let url = URL(string: "ws://echo.websocket.org")!
+         let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
+         let request = URLRequest(url: url)
+         let websocket = WebSocket(request: request)
+         websocket.delegate = self
+         websocket.connect()
+         //websocket.write(string: "Hi Server!")
          print("call web socket")
      }
-
+    
+   public func didReceive(event: WebSocketEvent, client: WebSocket){
+       switch event {
+       case .connected(let headers):
+         print("connected \(headers)")
+       case .disconnected(let reason, let closeCode):
+         print("disconnected \(reason) \(closeCode)")
+       case .text(let text):
+         print("received text: \(text)")
+       case .binary(let data):
+         print("received data: \(data)")
+       case .pong(let pongData):
+         print("received pong: \(pongData)")
+       case .ping(let pingData):
+         print("received ping: \(pingData)")
+       case .error(let error):
+         print("error \(error)")
+       case .viabilityChanged:
+         print("viabilityChanged")
+       case .reconnectSuggested:
+         print("reconnectSuggested")
+       case .cancelled:
+         print("cancelled")
+       }
+    }
     
  /* public func toastHello(view : UIView){
         

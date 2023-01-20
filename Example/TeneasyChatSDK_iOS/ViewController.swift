@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let lib = libTest()
-        lib.toastHello(vc: self)
+        //lib.toastHello(vc: self)
         
         lib.callWebsocket()
     }
