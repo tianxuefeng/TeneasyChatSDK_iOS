@@ -12,14 +12,21 @@ public class libTest {
     
     public func toastHello(vc : UIViewController){
         let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in
+            //self.websocket?.write(string: "日！")
+            self.websocket?.write(string: "ddd", completion: ( {
+                print("Sent 日2")
+            }))
+            print("Sent 日")
+        }))
         vc.present(alert, animated: true, completion: nil)
     }
     
 //https://swiftpackageregistry.com/daltoniam/Starscream
      public func callWebsocket(){
          //let url = URL(string: "ws://echo.websocket.org")!
-         let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
+         //wss://127.0.0.1:8013/v1/gateway/h5?token=CAsQAxgBIAwojeyt6tQw.NcnU2L85lR8ImA3rTbHl5f8UCTueNQ8oyj7Kb4w2EEazoywQAHDoh5sxTOflvfUkgvWBuE3llWNvH5rDSLHCAQ
+         let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=CAsQAxgBIAwojeyt6tQw.NcnU2L85lR8ImA3rTbHl5f8UCTueNQ8oyj7Kb4w2EEazoywQAHDoh5sxTOflvfUkgvWBuE3llWNvH5rDSLHCAQ")!
          let request = URLRequest(url: url)
         websocket = WebSocket(request: request)
          websocket?.delegate = self
