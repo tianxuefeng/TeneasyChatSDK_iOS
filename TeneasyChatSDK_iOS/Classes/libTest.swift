@@ -16,7 +16,8 @@ public class libTest {
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in
             //self.websocket?.write(string: "日！")
             self.websocket?.write(string: "ddd", completion: ( {
-                print("Sent 日2")
+                let d = CommonDeviceType.ios
+                print(d)
             }))
             print("Sent 日")
         }))
