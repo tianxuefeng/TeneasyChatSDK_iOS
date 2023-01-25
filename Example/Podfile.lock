@@ -5,17 +5,21 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - Starscream (4.0.4)
+  - SwiftProtobuf (1.20.3)
   - TeneasyChatSDK_iOS (0.1.0):
     - Starscream (= 4.0.4)
+    - SwiftProtobuf (~> 1.20.3)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
+  - SwiftProtobuf (~> 1.20.3)
   - TeneasyChatSDK_iOS (from `../`)
 
 SPEC REPOS:
   trunk:
     - FBSnapshotTestCase
     - Starscream
+    - SwiftProtobuf
 
 EXTERNAL SOURCES:
   TeneasyChatSDK_iOS:
@@ -24,8 +28,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
-  TeneasyChatSDK_iOS: 4c14f0590301fa4ea0c31fe96561dac75fe467f2
+  SwiftProtobuf: b02b5075dcf60c9f5f403000b3b0c202a11b6ae1
+  TeneasyChatSDK_iOS: 12e3b8a72a6acc87ef666a26c5a17de175a5f7fe
 
-PODFILE CHECKSUM: 7a0c6e0f4b59e05694900c9874b694ec850b768a
+PODFILE CHECKSUM: f3e7a039aa70331bf4385e327f9cde35dd565b09
 
 COCOAPODS: 1.11.3

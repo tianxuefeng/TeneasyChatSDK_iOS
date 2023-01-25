@@ -1,5 +1,6 @@
 import UIKit
 import Starscream
+import SwiftProtobuf
 //import Toast
 
 public class libTest {
