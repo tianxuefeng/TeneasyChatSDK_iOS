@@ -5,23 +5,38 @@ import SwiftProtobuf
 
 public class libTest {
     public private(set) var text = "Hello, World!"
-    let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
+    //https://csapi.xdev.stream
+    //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
+    let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
     var websocket : WebSocket? = nil
     public init() {
         print(text)
     }
     
     public func toastHello(vc : UIViewController){
+        
+        var msg = CommonMessage()
+        var content = CommonMessageContent()
+        content.data = "你好！需要什么帮助？"
+        msg.content = content
+        msg.sender = 0
+        msg.chatID = 00000000000
+        
+        // Serialize to binary protobuf format:
+        let binaryData: Data = try! msg.serializedData()
+        
+        
         let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in
-            //self.websocket?.write(string: "日！")
-            self.websocket?.write(string: "ddd", completion: ( {
+            self.websocket?.write(data: binaryData)
+            /*self.websocket?.write(string: "ddd", completion: ( {
                 let d = CommonDeviceType.ios
                 print(d)
-            }))
+            }))*/
             print("Sent 日")
         }))
         vc.present(alert, animated: true, completion: nil)
+        
     }
     
 //https://swiftpackageregistry.com/daltoniam/Starscream
@@ -44,7 +59,24 @@ public class libTest {
           websocket!.delegate = nil
       }
     }
-  
+    
+    private func serilizeSample(){
+        var info = CommonPhoneNumber()
+        info.countryCode = 65
+        info.nationalNumber = 99999
+        
+        // Serialize to binary protobuf format:
+        let binaryData: Data = try! info.serializedData()
+
+        // Deserialize a received Data object from `binaryData`
+        let decodedInfo = try? CommonPhoneNumber(serializedData: binaryData)
+
+        // Serialize to JSON format as a Data object
+        let jsonData: Data = try! info.jsonUTF8Data()
+
+        // Deserialize from JSON format from `jsonData`
+        let receivedFromJSON = try! CommonPhoneNumber(jsonUTF8Data: jsonData)
+    }
 }
  /* public func toastHello(view : UIView){
         
@@ -81,7 +113,8 @@ extension libTest : WebSocketDelegate {
    public func didReceive(event: WebSocketEvent, client: WebSocket){
        switch event {
        case .connected(let headers):
-         print("connected \(headers)")
+        print("connected")
+        //print("connected \(headers)")
        case .disconnected(let reason, let closeCode):
          print("disconnected \(reason) \(closeCode)")
        case .text(let text):
