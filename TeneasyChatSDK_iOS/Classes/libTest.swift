@@ -4,48 +4,30 @@ import SwiftProtobuf
 //import Toast
 
 public class libTest {
-    public private(set) var text = "Hello, World!"
+    public private(set) var text = "Teneasy Chat SDK 启动"
     //https://csapi.xdev.stream
     //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
-    let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
+    let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=CCcQARgEIBwoxqGWkN8w.qme55iCk3NM7LUN3febogBhwp0CbZVQ-15u0kwfTfti8VlRsNE3ycQHgl65RNZjTqnUNe4lB8ZCiYUoOozGrDw")!
+    //acc=xuaofua001&pwd=xuaofua001&
+    //let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
     var websocket : WebSocket? = nil
     public init() {
         print(text)
     }
     
     public func toastHello(vc : UIViewController){
-        
-        var msg = CommonMessage()
-        var content = CommonMessageContent()
-        content.data = "你好！需要什么帮助？"
-        msg.content = content
-        msg.sender = 0
-        msg.chatID = 00000000000
-        
-        // Serialize to binary protobuf format:
-        let binaryData: Data = try! msg.serializedData()
-        
-        
         let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in
-            self.websocket?.write(data: binaryData)
-            /*self.websocket?.write(string: "ddd", completion: ( {
-                let d = CommonDeviceType.ios
-                print(d)
-            }))*/
-            print("Sent 日")
+            self.sendMessage()
         }))
         vc.present(alert, animated: true, completion: nil)
-        
     }
     
 //https://swiftpackageregistry.com/daltoniam/Starscream
      public func callWebsocket(){
-         //let url = URL(string: "ws://echo.websocket.org")!
-         //wss://127.0.0.1:8013/v1/gateway/h5?token=CAsQAxgBIAwojeyt6tQw.NcnU2L85lR8ImA3rTbHl5f8UCTueNQ8oyj7Kb4w2EEazoywQAHDoh5sxTOflvfUkgvWBuE3llWNvH5rDSLHCAQ
-         let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=CAsQAxgBIAwojeyt6tQw.NcnU2L85lR8ImA3rTbHl5f8UCTueNQ8oyj7Kb4w2EEazoywQAHDoh5sxTOflvfUkgvWBuE3llWNvH5rDSLHCAQ")!
-         let request = URLRequest(url: url)
+         let request = URLRequest(url: self.url)
         websocket = WebSocket(request: request)
+         websocket?.request.timeoutInterval = 10000
          websocket?.delegate = self
          websocket?.connect()
          
@@ -58,6 +40,33 @@ public class libTest {
           websocket!.disconnect()
           websocket!.delegate = nil
       }
+    }
+    
+    public func sendMessage(){
+            
+        var msg = CommonMessage()
+        var content = CommonMessageContent()
+        content.data = "你好！需要什么帮助？"
+        msg.content = content
+        msg.sender = 0
+        msg.chatID = 2692944494596
+        msg.worker = 0
+        msg.msgTime = Google_Protobuf_Timestamp()
+        
+        // Serialize to binary protobuf format:
+        let msgData: Data = try! msg.serializedData()
+        
+       // var sendPayload = SCR
+        
+        var payLoad = Gateway_Payload()
+        payLoad.data = msgData
+        payLoad.act = .cssendMsg
+        payLoad.id = 2
+        let binaryData: Data = try! payLoad.serializedData()
+        
+        self.websocket?.write(data: binaryData, completion: ({
+           print("msg sent")
+        }))
     }
     
     private func serilizeSample(){
@@ -115,12 +124,35 @@ extension libTest : WebSocketDelegate {
        case .connected(let headers):
         print("connected")
         //print("connected \(headers)")
+           sendMessage()
        case .disconnected(let reason, let closeCode):
          print("disconnected \(reason) \(closeCode)")
        case .text(let text):
          print("received text: \(text)")
        case .binary(let data):
-         print("received data: \(data)")
+           if data.count == 1{
+               
+           }else{
+               let decodedInfo = try? Gateway_Payload(serializedData: data)
+               let msgData = decodedInfo?.data
+               
+               if (decodedInfo?.act == .screcvMsg){
+                   let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
+                   let msC = msg?.msg
+                   print(msC)
+               }else if decodedInfo?.act == .schi{
+                   let msg = try? Gateway_SCHi(serializedData: msgData!)
+                   //let msC = msg?.token
+                   print(msg)
+               }else if decodedInfo?.act == .forward{
+                   let msg = try? Gateway_CSForward(serializedData: msgData!)
+                   //let msC = msg?.token
+                   print(msg)
+               }else{
+                   print("received data: \(data)")
+               }
+           }
+
        case .pong(let pongData):
          print("received pong: \(pongData)")
        case .ping(let pingData):

@@ -20,7 +20,14 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         lib.toastHello(vc: self)
-        
+    
+        let btSend = UIButton()
+        self.view.addSubview(btSend)
+        btSend.addTarget(self, action:#selector(btSendAction), for:.touchUpInside)
+    }
+    
+    @objc func btSendAction(){
+        lib.sendMessage()
     }
 
     override func didReceiveMemoryWarning() {

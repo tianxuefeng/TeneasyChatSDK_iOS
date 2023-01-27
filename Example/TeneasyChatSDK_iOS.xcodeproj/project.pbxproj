@@ -213,10 +213,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2384H4RDKS;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2384H4RDKS;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -503,6 +505,7 @@
 			baseConfigurationReference = 0FB97E6DE8AA82BFD8C2EF2D /* Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2384H4RDKS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/TeneasyChatSDK_iOS\"",
@@ -524,6 +527,7 @@
 			baseConfigurationReference = 6B418FEDCDADC3D41C4C7393 /* Pods-TeneasyChatSDK_iOS_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2384H4RDKS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/TeneasyChatSDK_iOS\"",
@@ -544,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D343ADDC99B0F0E81E1BE0D /* Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2384H4RDKS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -566,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 65C3EEE8903A8FD1FBA3429E /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2384H4RDKS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
