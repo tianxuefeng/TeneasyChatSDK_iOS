@@ -3,14 +3,22 @@ import Starscream
 import SwiftProtobuf
 //import Toast
 
+//https://swiftpackageregistry.com/daltoniam/Starscream
+public protocol teneasySDKDelegate{
+    func receivedMsg(msg: String)
+}
+
 public class libTest {
     public private(set) var text = "Teneasy Chat SDK 启动"
     //https://csapi.xdev.stream
     //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
-    let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=CCcQARgEIBwoxqGWkN8w.qme55iCk3NM7LUN3febogBhwp0CbZVQ-15u0kwfTfti8VlRsNE3ycQHgl65RNZjTqnUNe4lB8ZCiYUoOozGrDw")!
+    let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=CCcQARgFIBwoiqzald8w.Lvq-lMjWFQ5xL8_UBZOQLLG0rhXKBWIfUjSWwYthb9Y0GpWn5YY-tV_U47KO59U4utHUqoNgYWwSTqVGjJ7WDg")!
     //acc=xuaofua001&pwd=xuaofua001&
     //let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
     var websocket : WebSocket? = nil
+    var isConnected = false
+    open var delegate : teneasySDKDelegate? = nil
+    var payloadId : Int64? = 0
     public init() {
         print(text)
     }
@@ -27,11 +35,17 @@ public class libTest {
      public func callWebsocket(){
          let request = URLRequest(url: self.url)
         websocket = WebSocket(request: request)
-         websocket?.request.timeoutInterval = 10000
+         websocket?.request.timeoutInterval = 5 // Sets the timeout for the connection
          websocket?.delegate = self
          websocket?.connect()
          
-         //websocket.write(string: "Hi Server!")
+         /*
+          request.setValue("someother protocols", forHTTPHeaderField: "Sec-WebSocket-Protocol")
+          request.setValue("14", forHTTPHeaderField: "Sec-WebSocket-Version")
+          request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
+          request.setValue("Everything is Awesome!", forHTTPHeaderField: "My-Awesome-Header")
+          */
+
          print("call web socket")
      }
     
@@ -43,25 +57,40 @@ public class libTest {
     }
     
     public func sendMessage(){
+        
+        if !isConnected{
+            print("断开了")
+        }
             
-        var msg = CommonMessage()
+        //发送信息的封装，有四层
+        //payload -> CSSendMessage -> common message -> CommonMessageContent
+        
+        //第一层
         var content = CommonMessageContent()
         content.data = "你好！需要什么帮助？"
+        
+        //第二层
+        var msg = CommonMessage()
         msg.content = content
         msg.sender = 0
-        msg.chatID = 2692944494596
-        msg.worker = 0
+        msg.chatID = 2692944494597
+        msg.worker = 3
         msg.msgTime = Google_Protobuf_Timestamp()
         
+        //第三层
+        var cSendMsg = Gateway_CSSendMessage()
+        cSendMsg.msg = msg
         // Serialize to binary protobuf format:
-        let msgData: Data = try! msg.serializedData()
+        let cSendMsgData: Data = try! cSendMsg.serializedData()
         
-       // var sendPayload = SCR
-        
+        //第四层
         var payLoad = Gateway_Payload()
-        payLoad.data = msgData
+        payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
-        payLoad.id = 2
+        self.payloadId! += 1
+        //self.payloadId! += Int64.random(in: 1000...19999)
+        let bigUInt:UInt64 = UInt64(self.payloadId!)
+        payLoad.id = bigUInt
         let binaryData: Data = try! payLoad.serializedData()
         
         self.websocket?.write(data: binaryData, completion: ({
@@ -87,30 +116,6 @@ public class libTest {
         let receivedFromJSON = try! CommonPhoneNumber(jsonUTF8Data: jsonData)
     }
 }
- /* public func toastHello(view : UIView){
-        
-        // create a new style
-        var style = ToastStyle()
-
-        // this is just one of many style options
-        style.messageColor = .blue
-
-        // present the toast with the new style
-        view.makeToast("This is a piece of toast", duration: 3.0, position: .bottom, style: style)
-
-        // or perhaps you want to use this style for all toasts going forward?
-        // just set the shared style and there's no need to provide the style again
-        ToastManager.shared.style = style
-        view.makeToast("This is a piece of toast") // now uses the shared style
-
-        // toggle "tap to dismiss" functionality
-        ToastManager.shared.isTapToDismissEnabled = true
-
-        // toggle queueing behavior
-        ToastManager.shared.isQueueEnabled = true
-    }*/
-    
- 
 
 // MARK: - WebSocketDelegate
 extension libTest : WebSocketDelegate {
@@ -123,15 +128,15 @@ extension libTest : WebSocketDelegate {
        switch event {
        case .connected(let headers):
         print("connected")
-        //print("connected \(headers)")
-           sendMessage()
+           isConnected = true
        case .disconnected(let reason, let closeCode):
          print("disconnected \(reason) \(closeCode)")
+           isConnected = false
        case .text(let text):
          print("received text: \(text)")
        case .binary(let data):
            if data.count == 1{
-               
+               print("在别处登录了")
            }else{
                let decodedInfo = try? Gateway_Payload(serializedData: data)
                let msgData = decodedInfo?.data
@@ -139,10 +144,17 @@ extension libTest : WebSocketDelegate {
                if (decodedInfo?.act == .screcvMsg){
                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
                    let msC = msg?.msg
-                   print(msC)
+                   if let dele = delegate{
+                       if let p = msC?.content{
+                            dele.receivedMsg(msg: p.data)
+                       }
+                       //dele.receivedMsg(msg: "dd")
+                   }
+                   //print(msC)
                }else if decodedInfo?.act == .schi{
                    let msg = try? Gateway_SCHi(serializedData: msgData!)
                    //let msC = msg?.token
+                   self.payloadId = msg?.id
                    print(msg)
                }else if decodedInfo?.act == .forward{
                    let msg = try? Gateway_CSForward(serializedData: msgData!)
@@ -158,12 +170,14 @@ extension libTest : WebSocketDelegate {
        case .ping(let pingData):
          print("received ping: \(pingData)")
        case .error(let error):
+           isConnected = false
          print("error \(error)")
        case .viabilityChanged:
          print("viabilityChanged")
        case .reconnectSuggested:
          print("reconnectSuggested")
        case .cancelled:
+           isConnected = false
          print("cancelled")
        }
     }
