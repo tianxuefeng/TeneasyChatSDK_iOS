@@ -60,7 +60,7 @@
 		5049C3E3B2AAB342913EEE8C8B7BA7A8 /* BinaryDelimited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F17574B752DE9DD8055DFE6DF0A78B /* BinaryDelimited.swift */; };
 		5063AA2394E1671D2897064FFABA985C /* SwiftProtobuf-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D13AC01FEDE3F4466A8CED667BFD614 /* SwiftProtobuf-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5281197FE8CC6E6954315F11B8F553D0 /* FoundationSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62141A9563B6009EE4709951D11A90C6 /* FoundationSecurity.swift */; };
-		540DE7E0352CB535BDDBAEF12B482A7E /* chatLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4611226B221EF1C192B82A48B457B /* chatLib.swift */; };
+		540DE7E0352CB535BDDBAEF12B482A7E /* ChatLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4611226B221EF1C192B82A48B457B /* ChatLib.swift */; };
 		5558B876B579BC1E79BD3D2B19148329 /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 09224A8BFF393173D2BAA03F7740F4BC /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5675A07127232BEEB2506AE8DC05FEC5 /* c_phonenumber.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDAEBAEB3A25634BDB03360140F2B6B /* c_phonenumber.pb.swift */; };
 		56E23E55CC70AF7C8E9EEE3A4886431F /* g_gateway.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528C20C0594FB153743F1B5ABE8994E /* g_gateway.pb.swift */; };
@@ -412,7 +412,7 @@
 		DA1D54FF873189BF5827963CFD433D87 /* JSONEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncoder.swift; path = Sources/SwiftProtobuf/JSONEncoder.swift; sourceTree = "<group>"; };
 		DB94382EEE485C0A54F36A12AAE9A56D /* Pods-TeneasyChatSDK_iOS_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeneasyChatSDK_iOS_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		DC368C5840FED321EE40385D32B2AA6C /* Pods-TeneasyChatSDK_iOS_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TeneasyChatSDK_iOS_Example"; path = Pods_TeneasyChatSDK_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCD4611226B221EF1C192B82A48B457B /* chatLib.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = chatLib.swift; path = TeneasyChatSDK_iOS/Classes/chatLib.swift; sourceTree = "<group>"; };
+		DCD4611226B221EF1C192B82A48B457B /* ChatLib.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChatLib.swift; path = TeneasyChatSDK_iOS/Classes/ChatLib.swift; sourceTree = "<group>"; };
 		DDC9B2BCE0CF34DFE30342ACE622CB3B /* NativeEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NativeEngine.swift; path = Sources/Engine/NativeEngine.swift; sourceTree = "<group>"; };
 		DE1882D3C8FA90962EFD65C7C94005B4 /* SwiftProtobuf-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftProtobuf-Info.plist"; sourceTree = "<group>"; };
 		E08B9ACD0E200FCCA4E645B982E52A76 /* c_entrance.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = c_entrance.pb.swift; sourceTree = "<group>"; };
@@ -681,7 +681,7 @@
 		6FD912FD70BC9CAB473DB36A98028B27 /* TeneasyChatSDK_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				DCD4611226B221EF1C192B82A48B457B /* chatLib.swift */,
+				DCD4611226B221EF1C192B82A48B457B /* ChatLib.swift */,
 				A3B75B4B8A24314B38B09CEBE8032EE8 /* Pod */,
 				FFF7FB8A6A09F340812865EEE67DD15F /* Support Files */,
 				30813F7353EC8F5DA934514241236281 /* swiftOut */,
@@ -1256,7 +1256,7 @@
 				5A1DD645CFDDF056CB88BD55E6D8C7C1 /* c_verify.pb.swift in Sources */,
 				80F76EFC32AE07628CC2FB697CBFF54E /* c_worker.pb.swift in Sources */,
 				9E8658FD4FE5A000001D0D0BAC18BD91 /* chat.pb.swift in Sources */,
-				540DE7E0352CB535BDDBAEF12B482A7E /* chatLib.swift in Sources */,
+				540DE7E0352CB535BDDBAEF12B482A7E /* ChatLib.swift in Sources */,
 				82E27CC1DA296911C29F2C8982204244 /* consult.pb.swift in Sources */,
 				4660C0992ACEBE496F11A07043896C2E /* entrance.pb.swift in Sources */,
 				931195785F38E2354C39C3249C526EDA /* front.pb.swift in Sources */,

@@ -18,11 +18,10 @@ extension teneasySDKDelegate {
     }
 }*/
 
-public class chatLib {
+public class ChatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
     //https://csapi.xdev.stream
     //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
-    var url = URL(string: "")!
     //acc=xuaofua001&pwd=xuaofua001&
     //let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
     var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
@@ -38,12 +37,13 @@ public class chatLib {
     public init(chatId: Int64, token: String) {
         self.chatId = chatId
         //self.token = token
-        url = URL(string: baseUrl + token)!
+        baseUrl = baseUrl + token
         print(text)
     }
 
      public func callWebsocket(){
-         var request = URLRequest(url: self.url)
+         //var request = URLRequest(url: URL(string: baseUrl))
+         var request = URLRequest(url: URL(string: baseUrl)!)
          request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
          websocket = WebSocket(request: request)
          websocket?.request.timeoutInterval = 5 // Sets the timeout for the connection
@@ -134,7 +134,7 @@ public class chatLib {
 }
 
 // MARK: - WebSocketDelegate
-extension chatLib : WebSocketDelegate {
+extension ChatLib : WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("got some text: \(text)")
@@ -176,6 +176,7 @@ extension chatLib : WebSocketDelegate {
                }else if payLoad?.act == .scsendMsgAck{
                    let msg = try? Gateway_SCSendMessage(serializedData: msgData!)
                    print("消息回执")
+                   //delegate?.receivedMsg(msg: msg.)
                    print(msg!)
                }
                else{
