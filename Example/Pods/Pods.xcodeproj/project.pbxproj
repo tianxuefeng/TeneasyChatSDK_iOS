@@ -155,7 +155,6 @@
 		DF671FB6B5DD329C59488CD86F70B9E7 /* c_note.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA56CED7583E953CFEC038FDC98A4A00 /* c_note.pb.swift */; };
 		DF9BE4B3E95B007977780C9EFDA3EFBE /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2698591D6024BA91B1B44D7DFCBC62 /* Server.swift */; };
 		DFA2736CE4B16FD4D82450863EC58507 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4334B73539CD87319BFB61897D1339 /* Compression.swift */; };
-		E008DDC15C2DA23B56EE8B88590FBE3A /* EasyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93A916DDA31FA3D5FB89F6AAA7E62B /* EasyMessage.swift */; };
 		E281E734C4D04B311D3D743DB56F67D4 /* DoubleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C39113E0C6AFE25B2F7589BC74CD3 /* DoubleParser.swift */; };
 		E41DB42AE03FEBE405604669FE7050A5 /* Message+JSONArrayAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498A4D3FA726346A7DE711D305327BDD /* Message+JSONArrayAdditions.swift */; };
 		E5C0445746ECCF632102D8BCA76D23C1 /* empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF0891B57AFBE46B605A704DB0237C /* empty.pb.swift */; };
@@ -262,7 +261,7 @@
 		1329E09F122F6E20828186B85A2F9D09 /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
 		1937BB0A137E9690E387F22D189C9D9B /* Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		198389CFC433620A93C338DA6F0C2C40 /* UnknownStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnknownStorage.swift; path = Sources/SwiftProtobuf/UnknownStorage.swift; sourceTree = "<group>"; };
-		1B1A253664C1567D43BAA0AA476DF064 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		1B1A253664C1567D43BAA0AA476DF064 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1BDF0C4963C5D0C5AB2EE2CA5FE5159D /* Visitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Visitor.swift; path = Sources/SwiftProtobuf/Visitor.swift; sourceTree = "<group>"; };
 		1C66A7662D3E8DC8CD5B4BBCE65D5081 /* c_message.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = c_message.pb.swift; sourceTree = "<group>"; };
 		1D3AB874B3D3910E34CC0ADAC995B36B /* Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Sources/SwiftProtobuf/Version.swift; sourceTree = "<group>"; };
@@ -306,7 +305,6 @@
 		4C3C8D56E4860C2D0D0360BB3431446B /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
 		4C5BBFEC3C1C0769DE2D498246BC252D /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
 		4D22AA4F6E456BC75040765975E6FC40 /* JSONScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONScanner.swift; path = Sources/SwiftProtobuf/JSONScanner.swift; sourceTree = "<group>"; };
-		4D93A916DDA31FA3D5FB89F6AAA7E62B /* EasyMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EasyMessage.swift; path = TeneasyChatSDK_iOS/Classes/EasyMessage.swift; sourceTree = "<group>"; };
 		4DA43122CC800FE82EA078020DE33FBF /* TeneasyChatSDK_iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TeneasyChatSDK_iOS.modulemap; sourceTree = "<group>"; };
 		4DC3A09AB6BB5B9F2AF77A6C84056B0F /* ExtensionFields.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionFields.swift; path = Sources/SwiftProtobuf/ExtensionFields.swift; sourceTree = "<group>"; };
 		4F3A5110FC3CE13CB6054DD1FECBF6FC /* FrameCollector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameCollector.swift; path = Sources/Framer/FrameCollector.swift; sourceTree = "<group>"; };
@@ -315,7 +313,7 @@
 		53649A1D27D04214B24D74B79A72C8E8 /* c_operate.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = c_operate.pb.swift; sourceTree = "<group>"; };
 		536516BFA477A5BB2009A0CDC371C6E3 /* StringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = Sources/SwiftProtobuf/StringUtils.swift; sourceTree = "<group>"; };
 		53B9C49808D5205D55CF55A4546A08F4 /* Pods-TeneasyChatSDK_iOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeneasyChatSDK_iOS_Tests-umbrella.h"; sourceTree = "<group>"; };
-		558402F12D7B6F77A816F3DE0220C202 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		558402F12D7B6F77A816F3DE0220C202 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		566C636DFF1C9774CF59AB13E613B170 /* scylla.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = scylla.pb.swift; sourceTree = "<group>"; };
 		56A021FE106BAF653908FEE9BAE17EC3 /* TextFormatEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncoder.swift; path = Sources/SwiftProtobuf/TextFormatEncoder.swift; sourceTree = "<group>"; };
 		57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -372,7 +370,7 @@
 		9B6E9F5C7E49E97355F2297F88E81113 /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9B8D5FC3D694DCD07C76B8846EDED794 /* HashVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashVisitor.swift; path = Sources/SwiftProtobuf/HashVisitor.swift; sourceTree = "<group>"; };
 		9C07CD520420D804D111CF16F096AC0F /* TeneasyChatSDK_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TeneasyChatSDK_iOS.release.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F8D2FC16428D4A3F3BCD321A970A03C /* Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A14E7386CF736C3DAE77E875B66D8CDF /* g_payload.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = g_payload.pb.swift; sourceTree = "<group>"; };
 		A1922B44D1F0375E30D5290E6786B4BD /* timestamp.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = timestamp.pb.swift; path = Sources/SwiftProtobuf/timestamp.pb.swift; sourceTree = "<group>"; };
@@ -452,7 +450,7 @@
 		FAC11C3BDCA2996FAADB849DA4F8CFE4 /* TeneasyChatSDK_iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TeneasyChatSDK_iOS; path = TeneasyChatSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA74E64A5B68577E39E1160AA64D09C /* Starscream-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Starscream-Info.plist"; sourceTree = "<group>"; };
 		FCC3B572015BA1C97B7B71A70C0DA071 /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
-		FD3D49717B0159BB91E6F580A799A5EA /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FD3D49717B0159BB91E6F580A799A5EA /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FF48FC971A6C5D71672661A4E2E2A7B3 /* SwiftProtobuf-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftProtobuf-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -601,7 +599,6 @@
 				F19E388CD93EC1738F07F66C2EC1144E /* ZigZag.swift */,
 				1DFCBD543CDAD59C0BCF02F704B6A0F1 /* Support Files */,
 			);
-			name = SwiftProtobuf;
 			path = SwiftProtobuf;
 			sourceTree = "<group>";
 		};
@@ -650,7 +647,6 @@
 				6AA805C0CD83299F8B3BC15D9B48E684 /* worker.pb.swift */,
 				F8E10477265C5826C1260CE418A8DF5C /* worker_group.pb.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -679,7 +675,6 @@
 			children = (
 				E6D8A83668D56C07E6E57E8C1DF44252 /* sentry.pb.swift */,
 			);
-			name = sentry;
 			path = sentry;
 			sourceTree = "<group>";
 		};
@@ -687,7 +682,6 @@
 			isa = PBXGroup;
 			children = (
 				DCD4611226B221EF1C192B82A48B457B /* chatLib.swift */,
-				4D93A916DDA31FA3D5FB89F6AAA7E62B /* EasyMessage.swift */,
 				A3B75B4B8A24314B38B09CEBE8032EE8 /* Pod */,
 				FFF7FB8A6A09F340812865EEE67DD15F /* Support Files */,
 				30813F7353EC8F5DA934514241236281 /* swiftOut */,
@@ -715,7 +709,6 @@
 				2061579F18183C25939D99912E7F380F /* core */,
 				61AF9A7CFEC924FC30C12B00D64DE1E3 /* sentry */,
 			);
-			name = api;
 			path = api;
 			sourceTree = "<group>";
 		};
@@ -847,7 +840,6 @@
 				10BADDB194C77DEDA6CBE0BBB417FFFB /* WSEngine.swift */,
 				989098AA1E8887E550797C260D64BC8E /* Support Files */,
 			);
-			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -867,7 +859,6 @@
 				A14E7386CF736C3DAE77E875B66D8CDF /* g_payload.pb.swift */,
 				B2C4CA96FE9E8B7D8331962122C7C07F /* g_pubsub.pb.swift */,
 			);
-			name = gateway;
 			path = gateway;
 			sourceTree = "<group>";
 		};
@@ -896,7 +887,6 @@
 				1FC99D0353D3C44A27E3820D1EA0C34D /* c_verify.pb.swift */,
 				70322A120780E9AB1F0BF584C7E237E8 /* c_worker.pb.swift */,
 			);
-			name = common;
 			path = common;
 			sourceTree = "<group>";
 		};
@@ -919,7 +909,6 @@
 				93FB8C1D2E9210FBC7D96FF703A3B34F /* Support Files */,
 				BEB3369D0A9093F9F65DF0CBDD097C0C /* SwiftSupport */,
 			);
-			name = FBSnapshotTestCase;
 			path = FBSnapshotTestCase;
 			sourceTree = "<group>";
 		};
@@ -928,7 +917,6 @@
 			children = (
 				A3FF3721A2E20D1D6848747625EE055C /* asset.pb.swift */,
 			);
-			name = asset;
 			path = asset;
 			sourceTree = "<group>";
 		};
@@ -1270,7 +1258,6 @@
 				9E8658FD4FE5A000001D0D0BAC18BD91 /* chat.pb.swift in Sources */,
 				540DE7E0352CB535BDDBAEF12B482A7E /* chatLib.swift in Sources */,
 				82E27CC1DA296911C29F2C8982204244 /* consult.pb.swift in Sources */,
-				E008DDC15C2DA23B56EE8B88590FBE3A /* EasyMessage.swift in Sources */,
 				4660C0992ACEBE496F11A07043896C2E /* entrance.pb.swift in Sources */,
 				931195785F38E2354C39C3249C526EDA /* front.pb.swift in Sources */,
 				98B2891F9FD60C9841E0685981252545 /* g_action.pb.swift in Sources */,
@@ -1639,8 +1626,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

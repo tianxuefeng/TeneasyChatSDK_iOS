@@ -22,15 +22,23 @@ public class chatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
     //https://csapi.xdev.stream
     //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
-    let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=CCcQARgFIBwoiqzald8w.Lvq-lMjWFQ5xL8_UBZOQLLG0rhXKBWIfUjSWwYthb9Y0GpWn5YY-tV_U47KO59U4utHUqoNgYWwSTqVGjJ7WDg")!
+    var url = URL(string: "")!
     //acc=xuaofua001&pwd=xuaofua001&
     //let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
+    var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
     var websocket : WebSocket? = nil
     var isConnected = false
     open var delegate : teneasySDKDelegate? = nil
     var payloadId : Int64? = 0
     var sendingMsg: String = ""
+    var chatId: Int64? = 0
+    //var token: String? = ""
     public init() {
+    }
+    public init(chatId: Int64, token: String) {
+        self.chatId = chatId
+        //self.token = token
+        url = URL(string: baseUrl + token)!
         print(text)
     }
 
@@ -149,24 +157,23 @@ extension chatLib : WebSocketDelegate {
            if data.count == 1{
                print("在别处登录了")
            }else{
-               let decodedInfo = try? Gateway_Payload(serializedData: data)
-               let msgData = decodedInfo?.data
+               let payLoad = try? Gateway_Payload(serializedData: data)
+               let msgData = payLoad?.data
                
-               if (decodedInfo?.act == .screcvMsg){
+               if (payLoad?.act == .screcvMsg){
                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
                    if let msC = msg?.msg{
-                       //if delegate != nil{
-                           delegate?.receivedMsg(msg: msC)
-                       //}
+
+                    delegate?.receivedMsg(msg: msC)
                    }
-               }else if decodedInfo?.act == .schi{
+               }else if payLoad?.act == .schi{
                    let msg = try? Gateway_SCHi(serializedData: msgData!)
                    self.payloadId = msg?.id
                    print(msg!)
-               }else if decodedInfo?.act == .forward{
+               }else if payLoad?.act == .forward{
                    let msg = try? Gateway_CSForward(serializedData: msgData!)
                    print(msg!)
-               }else if decodedInfo?.act == .scsendMsgAck{
+               }else if payLoad?.act == .scsendMsgAck{
                    let msg = try? Gateway_SCSendMessage(serializedData: msgData!)
                    print("消息回执")
                    print(msg!)

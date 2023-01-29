@@ -12,7 +12,7 @@ import TeneasyChatSDK_iOS
 
 class ViewController: UIViewController, teneasySDKDelegate {
     @IBOutlet weak var tvChatView: UITextView!
-    
+    var lib = chatLib()
     func receivedMsg(msg: CommonMessage) {
         print(msg)
         tvChatView.text.append(msg.content.data)
@@ -26,18 +26,16 @@ class ViewController: UIViewController, teneasySDKDelegate {
         }
     }
     
-    var lib = chatLib()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         tvChatView.text = "teneasy chat sdk 初始化"
+        //从网页端把chatId和token传进sdk
+        lib = chatLib(chatId: 2692944494597, token: "CCcQARgFIBwoiqzald8w.Lvq-lMjWFQ5xL8_UBZOQLLG0rhXKBWIfUjSWwYthb9Y0GpWn5YY-tV_U47KO59U4utHUqoNgYWwSTqVGjJ7WDg")
         lib.callWebsocket()
         lib.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //lib.toastHello(vc: self)
-    
         let btSend = UIButton()
         btSend.frame = CGRect(x: 100, y: 600, width: 200, height: 200)
         btSend.setTitleColor(UIColor.systemRed, for: UIControlState.normal)
