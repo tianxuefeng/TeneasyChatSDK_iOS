@@ -6,8 +6,8 @@ import SwiftProtobuf
 //https://swiftpackageregistry.com/daltoniam/Starscream
 //https://www.kodeco.com/861-websockets-on-ios-with-starscream
 public protocol teneasySDKDelegate{
-    func receivedMsg(msg: String)
-    //func receivedMsg2(msg: EasyMessage)
+    //func receivedMsg(msg: String)
+    func receivedMsg(msg: CommonMessage)
     func connected(c: Bool)
 }
 
@@ -68,11 +68,7 @@ public class chatLib {
 //            print("断开了")
 //        }
         
-        if !isConnected{
-            sendingMsg = msg
-            callWebsocket()
-            return
-        }
+        sendingMsg = msg//临时放到一个变量，如果失败，SDK可以自动重试
             
         //发送信息的封装，有四层
         //payload -> CSSendMessage -> common message -> CommonMessageContent
@@ -142,6 +138,7 @@ extension chatLib : WebSocketDelegate {
            print("connected" + headers.description)
            self.delegate?.connected(c: true)
            if (!sendingMsg.isEmpty){
+               sendingMsg = ""
                sendMessage(msg: sendingMsg)
            }
        case .disconnected(let reason, let closeCode):
@@ -158,10 +155,9 @@ extension chatLib : WebSocketDelegate {
                if (decodedInfo?.act == .screcvMsg){
                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
                    if let msC = msg?.msg{
-                       if delegate != nil{
-                           //delegate!.receivedMsg(msg: msC)
-                           delegate!.receivedMsg(msg: "")
-                       }
+                       //if delegate != nil{
+                           delegate?.receivedMsg(msg: msC)
+                       //}
                    }
                }else if decodedInfo?.act == .schi{
                    let msg = try? Gateway_SCHi(serializedData: msgData!)
@@ -185,7 +181,6 @@ extension chatLib : WebSocketDelegate {
        case .ping(let pingData):
          print("received ping: \(pingData)")
        case .error(let error):
-           isConnected = false
           // self.delegate?.connected(c: false)
          print("error \(error)")
        case .viabilityChanged:
@@ -194,7 +189,6 @@ extension chatLib : WebSocketDelegate {
          print("reconnectSuggested")
        case .cancelled:
            self.delegate?.connected(c: false)
-           isConnected = false
          print("cancelled")
        }
     }

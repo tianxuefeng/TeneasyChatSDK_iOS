@@ -11,17 +11,11 @@ import TeneasyChatSDK_iOS
 
 
 class ViewController: UIViewController, teneasySDKDelegate {
-//    func receivedMsg2(msg: EasyMessage) {
-//        print(msg)
-//    }
-    
-    
-    
     @IBOutlet weak var tvChatView: UITextView!
     
-    func receivedMsg(msg: String) {
+    func receivedMsg(msg: CommonMessage) {
         print(msg)
-        tvChatView.text.append(msg + "\n")
+        tvChatView.text.append(msg.content.data)
     }
     
     func connected(c: Bool) {
