@@ -20,19 +20,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Api_Common_TransportType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_TransportType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case transportHTTP // = 0
   case transportHTTPS // = 3
   case transportH2C // = 5
   case transportHTTP3 // = 30
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .transportHTTP
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .transportHTTP
     case 3: self = .transportHTTPS
@@ -42,7 +42,7 @@ enum Api_Common_TransportType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .transportHTTP: return 0
     case .transportHTTPS: return 3
@@ -58,7 +58,7 @@ enum Api_Common_TransportType: SwiftProtobuf.Enum {
 
 extension Api_Common_TransportType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_TransportType] = [
+  public static var allCases: [Api_Common_TransportType] = [
     .transportHTTP,
     .transportHTTPS,
     .transportH2C,
@@ -68,8 +68,8 @@ extension Api_Common_TransportType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_Common_AddressType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_AddressType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 域名
   case addresDomain // = 0
@@ -81,11 +81,11 @@ enum Api_Common_AddressType: SwiftProtobuf.Enum {
   case addresIpv6 // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .addresDomain
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .addresDomain
     case 1: self = .addresIpv4
@@ -94,7 +94,7 @@ enum Api_Common_AddressType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .addresDomain: return 0
     case .addresIpv4: return 1
@@ -109,7 +109,7 @@ enum Api_Common_AddressType: SwiftProtobuf.Enum {
 
 extension Api_Common_AddressType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_AddressType] = [
+  public static var allCases: [Api_Common_AddressType] = [
     .addresDomain,
     .addresIpv4,
     .addresIpv6,
@@ -126,7 +126,7 @@ extension Api_Common_AddressType: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Api_Common_TransportType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "TRANSPORT_HTTP"),
     3: .same(proto: "TRANSPORT_HTTPS"),
     5: .same(proto: "TRANSPORT_H2C"),
@@ -135,7 +135,7 @@ extension Api_Common_TransportType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_Common_AddressType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ADDRES_DOMAIN"),
     1: .same(proto: "ADDRES_IPV4"),
     2: .same(proto: "addres_ipv6"),

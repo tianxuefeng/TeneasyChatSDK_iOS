@@ -21,49 +21,49 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// 客服指标
-struct Api_Core_WorkerMetric {
+public struct Api_Core_WorkerMetric {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 3分钟回复率, 万分比
   /// 即: 9950 = 99.50%
-  var replyPercent3Min: Int32 = 0
+  public var replyPercent3Min: Int32 = 0
 
   /// 今日咨询人数
-  var todayService: Int32 = 0
+  public var todayService: Int32 = 0
 
   /// 平均响应时长
-  var avgReplyInterval: Int32 = 0
+  public var avgReplyInterval: Int32 = 0
 
   /// 转任务数
-  var transferTo: Int32 = 0
+  public var transferTo: Int32 = 0
 
   /// 接任务数
-  var transferFrom: Int32 = 0
+  public var transferFrom: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_QuerySelfResponse {
+public struct Api_Core_QuerySelfResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var metric: Api_Core_WorkerMetric {
+  public var metric: Api_Core_WorkerMetric {
     get {return _metric ?? Api_Core_WorkerMetric()}
     set {_metric = newValue}
   }
   /// Returns true if `metric` has been explicitly set.
-  var hasMetric: Bool {return self._metric != nil}
+  public var hasMetric: Bool {return self._metric != nil}
   /// Clears the value of `metric`. Subsequent reads from it will return its default value.
-  mutating func clearMetric() {self._metric = nil}
+  public mutating func clearMetric() {self._metric = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _metric: Api_Core_WorkerMetric? = nil
 }
@@ -78,8 +78,8 @@ extension Api_Core_QuerySelfResponse: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_WorkerMetric: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerMetric"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerMetric"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "reply_percent_3_min"),
     2: .standard(proto: "today_service"),
     3: .standard(proto: "avg_reply_interval"),
@@ -87,7 +87,7 @@ extension Api_Core_WorkerMetric: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     5: .standard(proto: "transfer_from"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -103,7 +103,7 @@ extension Api_Core_WorkerMetric: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.replyPercent3Min != 0 {
       try visitor.visitSingularInt32Field(value: self.replyPercent3Min, fieldNumber: 1)
     }
@@ -122,7 +122,7 @@ extension Api_Core_WorkerMetric: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerMetric, rhs: Api_Core_WorkerMetric) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerMetric, rhs: Api_Core_WorkerMetric) -> Bool {
     if lhs.replyPercent3Min != rhs.replyPercent3Min {return false}
     if lhs.todayService != rhs.todayService {return false}
     if lhs.avgReplyInterval != rhs.avgReplyInterval {return false}
@@ -134,12 +134,12 @@ extension Api_Core_WorkerMetric: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Api_Core_QuerySelfResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuerySelfResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuerySelfResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "metric"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -151,7 +151,7 @@ extension Api_Core_QuerySelfResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -162,7 +162,7 @@ extension Api_Core_QuerySelfResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuerySelfResponse, rhs: Api_Core_QuerySelfResponse) -> Bool {
+  public static func ==(lhs: Api_Core_QuerySelfResponse, rhs: Api_Core_QuerySelfResponse) -> Bool {
     if lhs._metric != rhs._metric {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

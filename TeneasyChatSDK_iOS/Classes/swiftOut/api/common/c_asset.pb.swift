@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum CommonAssetUploadState: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonAssetUploadState: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 上传中
@@ -31,11 +31,11 @@ enum CommonAssetUploadState: SwiftProtobuf.Enum {
   case put // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .putting
@@ -44,7 +44,7 @@ enum CommonAssetUploadState: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .putting: return 1
@@ -59,7 +59,7 @@ enum CommonAssetUploadState: SwiftProtobuf.Enum {
 
 extension CommonAssetUploadState: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonAssetUploadState] = [
+  public static var allCases: [CommonAssetUploadState] = [
     .unknown,
     .putting,
     .put,
@@ -69,8 +69,8 @@ extension CommonAssetUploadState: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 文件类型类型 0 ～ 4
-enum CommonAssetKind: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonAssetKind: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// 商户公共文件
@@ -86,11 +86,11 @@ enum CommonAssetKind: SwiftProtobuf.Enum {
   case session // = 4
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .public
@@ -101,7 +101,7 @@ enum CommonAssetKind: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .public: return 1
@@ -118,7 +118,7 @@ enum CommonAssetKind: SwiftProtobuf.Enum {
 
 extension CommonAssetKind: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonAssetKind] = [
+  public static var allCases: [CommonAssetKind] = [
     .none,
     .public,
     .private,
@@ -130,8 +130,8 @@ extension CommonAssetKind: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 资源类型 0 ～ 7
-enum CommonAssetType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonAssetType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 图片 （缩略图复用图片id）
@@ -147,11 +147,11 @@ enum CommonAssetType: SwiftProtobuf.Enum {
   case file // = 4
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .image
@@ -162,7 +162,7 @@ enum CommonAssetType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .image: return 1
@@ -179,7 +179,7 @@ enum CommonAssetType: SwiftProtobuf.Enum {
 
 extension CommonAssetType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonAssetType] = [
+  public static var allCases: [CommonAssetType] = [
     .unknown,
     .image,
     .audio,
@@ -191,8 +191,8 @@ extension CommonAssetType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 资源用途 0 ～ 15
-enum CommonAssetContext: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonAssetContext: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 消息体
@@ -214,11 +214,11 @@ enum CommonAssetContext: SwiftProtobuf.Enum {
   case bulletin // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .message
@@ -231,7 +231,7 @@ enum CommonAssetContext: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .message: return 1
@@ -250,7 +250,7 @@ enum CommonAssetContext: SwiftProtobuf.Enum {
 
 extension CommonAssetContext: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonAssetContext] = [
+  public static var allCases: [CommonAssetContext] = [
     .unknown,
     .message,
     .moment,
@@ -263,17 +263,17 @@ extension CommonAssetContext: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct CommonAsset {
+public struct CommonAsset {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// shorturi 短url， 在消息体里表示资源地址
-  var uri: String = String()
+  public var uri: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -289,7 +289,7 @@ extension CommonAsset: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension CommonAssetUploadState: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ASSET_UPLOAD_STATE_UNKNOWN"),
     1: .same(proto: "ASSET_UPLOAD_STATE_PUTTING"),
     2: .same(proto: "ASSET_UPLOAD_STATE_PUT"),
@@ -297,7 +297,7 @@ extension CommonAssetUploadState: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonAssetKind: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ASSET_KIND_NONE"),
     1: .same(proto: "ASSET_KIND_PUBLIC"),
     2: .same(proto: "ASSET_KIND_PRIVATE"),
@@ -307,7 +307,7 @@ extension CommonAssetKind: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonAssetType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ASSET_TYPE_UNKNOWN"),
     1: .same(proto: "ASSET_TYPE_IMAGE"),
     2: .same(proto: "ASSET_TYPE_AUDIO"),
@@ -317,7 +317,7 @@ extension CommonAssetType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonAssetContext: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ASSET_CONTEXT_UNKNOWN"),
     1: .same(proto: "ASSET_CONTEXT_MESSAGE"),
     2: .same(proto: "ASSET_CONTEXT_MOMENT"),
@@ -329,12 +329,12 @@ extension CommonAssetContext: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonAsset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Asset"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Asset"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uri"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -346,14 +346,14 @@ extension CommonAsset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uri.isEmpty {
       try visitor.visitSingularStringField(value: self.uri, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonAsset, rhs: CommonAsset) -> Bool {
+  public static func ==(lhs: CommonAsset, rhs: CommonAsset) -> Bool {
     if lhs.uri != rhs.uri {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

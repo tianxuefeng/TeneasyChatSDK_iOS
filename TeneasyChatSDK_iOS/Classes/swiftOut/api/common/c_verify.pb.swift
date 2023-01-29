@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum CommonValidatorType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonValidatorType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 短信验证
@@ -31,11 +31,11 @@ enum CommonValidatorType: SwiftProtobuf.Enum {
   case captcha // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .sms
@@ -44,7 +44,7 @@ enum CommonValidatorType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .sms: return 1
@@ -59,7 +59,7 @@ enum CommonValidatorType: SwiftProtobuf.Enum {
 
 extension CommonValidatorType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonValidatorType] = [
+  public static var allCases: [CommonValidatorType] = [
     .unknown,
     .sms,
     .captcha,
@@ -68,8 +68,8 @@ extension CommonValidatorType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum CommonVerifyFor: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonVerifyFor: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 重置密码
@@ -97,11 +97,11 @@ enum CommonVerifyFor: SwiftProtobuf.Enum {
   case backstageResetPassword // = 101
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .resetPassword
@@ -116,7 +116,7 @@ enum CommonVerifyFor: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .resetPassword: return 1
@@ -137,7 +137,7 @@ enum CommonVerifyFor: SwiftProtobuf.Enum {
 
 extension CommonVerifyFor: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonVerifyFor] = [
+  public static var allCases: [CommonVerifyFor] = [
     .unknown,
     .resetPassword,
     .resetPhone,
@@ -152,14 +152,14 @@ extension CommonVerifyFor: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct CommonVerify {
+public struct CommonVerify {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var way: CommonVerify.OneOf_Way? = nil
+  public var way: CommonVerify.OneOf_Way? = nil
 
-  var sms: CommonVerifyBySMS {
+  public var sms: CommonVerifyBySMS {
     get {
       if case .sms(let v)? = way {return v}
       return CommonVerifyBySMS()
@@ -167,7 +167,7 @@ struct CommonVerify {
     set {way = .sms(newValue)}
   }
 
-  var pwd: CommonVerifyByPassword {
+  public var pwd: CommonVerifyByPassword {
     get {
       if case .pwd(let v)? = way {return v}
       return CommonVerifyByPassword()
@@ -175,7 +175,7 @@ struct CommonVerify {
     set {way = .pwd(newValue)}
   }
 
-  var captcha: CommonVerifyByCaptcha {
+  public var captcha: CommonVerifyByCaptcha {
     get {
       if case .captcha(let v)? = way {return v}
       return CommonVerifyByCaptcha()
@@ -183,15 +183,15 @@ struct CommonVerify {
     set {way = .captcha(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Way: Equatable {
+  public enum OneOf_Way: Equatable {
     case sms(CommonVerifyBySMS)
     case pwd(CommonVerifyByPassword)
     case captcha(CommonVerifyByCaptcha)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CommonVerify.OneOf_Way, rhs: CommonVerify.OneOf_Way) -> Bool {
+    public static func ==(lhs: CommonVerify.OneOf_Way, rhs: CommonVerify.OneOf_Way) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -214,52 +214,52 @@ struct CommonVerify {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 /// 短信验证
-struct CommonVerifyBySMS {
+public struct CommonVerifyBySMS {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// /v1/verify/verify 验证短信码成功后获取的 key
-  var key: String = String()
+  public var key: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 密码验证
-struct CommonVerifyByPassword {
+public struct CommonVerifyByPassword {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 密码
-  var passwd: String = String()
+  public var passwd: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// captcha验证
-struct CommonVerifyByCaptcha {
+public struct CommonVerifyByCaptcha {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 请求captcha时发给前端的key
-  var key: String = String()
+  public var key: String = String()
 
   /// 回答
-  var answer: String = String()
+  public var answer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -277,7 +277,7 @@ extension CommonVerifyByCaptcha: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension CommonValidatorType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "VALIDATOR_TYPE_UNKNOWN"),
     1: .same(proto: "VALIDATOR_TYPE_SMS"),
     2: .same(proto: "VALIDATOR_TYPE_CAPTCHA"),
@@ -285,7 +285,7 @@ extension CommonValidatorType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonVerifyFor: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "VERIFY_FOR_UNKNOWN"),
     1: .same(proto: "VERIFY_FOR_RESET_PASSWORD"),
     2: .same(proto: "VERIFY_FOR_RESET_PHONE"),
@@ -299,14 +299,14 @@ extension CommonVerifyFor: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonVerify: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Verify"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Verify"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sms"),
     2: .same(proto: "pwd"),
     3: .same(proto: "captcha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -356,7 +356,7 @@ extension CommonVerify: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -379,7 +379,7 @@ extension CommonVerify: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonVerify, rhs: CommonVerify) -> Bool {
+  public static func ==(lhs: CommonVerify, rhs: CommonVerify) -> Bool {
     if lhs.way != rhs.way {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -387,12 +387,12 @@ extension CommonVerify: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 }
 
 extension CommonVerifyBySMS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".VerifyBySMS"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".VerifyBySMS"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -404,14 +404,14 @@ extension CommonVerifyBySMS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularStringField(value: self.key, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonVerifyBySMS, rhs: CommonVerifyBySMS) -> Bool {
+  public static func ==(lhs: CommonVerifyBySMS, rhs: CommonVerifyBySMS) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -419,12 +419,12 @@ extension CommonVerifyBySMS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension CommonVerifyByPassword: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".VerifyByPassword"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".VerifyByPassword"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "passwd"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -436,14 +436,14 @@ extension CommonVerifyByPassword: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.passwd.isEmpty {
       try visitor.visitSingularStringField(value: self.passwd, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonVerifyByPassword, rhs: CommonVerifyByPassword) -> Bool {
+  public static func ==(lhs: CommonVerifyByPassword, rhs: CommonVerifyByPassword) -> Bool {
     if lhs.passwd != rhs.passwd {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -451,13 +451,13 @@ extension CommonVerifyByPassword: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension CommonVerifyByCaptcha: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".VerifyByCaptcha"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".VerifyByCaptcha"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "answer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -470,7 +470,7 @@ extension CommonVerifyByCaptcha: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularStringField(value: self.key, fieldNumber: 1)
     }
@@ -480,7 +480,7 @@ extension CommonVerifyByCaptcha: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonVerifyByCaptcha, rhs: CommonVerifyByCaptcha) -> Bool {
+  public static func ==(lhs: CommonVerifyByCaptcha, rhs: CommonVerifyByCaptcha) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.answer != rhs.answer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

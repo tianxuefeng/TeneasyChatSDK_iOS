@@ -20,82 +20,82 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Api_Core_QueryConsultResponse {
+public struct Api_Core_QueryConsultResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var consultArr: [Api_Common_Consult] = []
+  public var consultArr: [Api_Common_Consult] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_CreateConsultRequest {
+public struct Api_Core_CreateConsultRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var consult: Api_Common_Consult {
+  public var consult: Api_Common_Consult {
     get {return _consult ?? Api_Common_Consult()}
     set {_consult = newValue}
   }
   /// Returns true if `consult` has been explicitly set.
-  var hasConsult: Bool {return self._consult != nil}
+  public var hasConsult: Bool {return self._consult != nil}
   /// Clears the value of `consult`. Subsequent reads from it will return its default value.
-  mutating func clearConsult() {self._consult = nil}
+  public mutating func clearConsult() {self._consult = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _consult: Api_Common_Consult? = nil
 }
 
-struct Api_Core_CreateConsultResponse {
+public struct Api_Core_CreateConsultResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: UInt32 = 0
+  public var id: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_UpdateConsultRequest {
+public struct Api_Core_UpdateConsultRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var consult: Api_Common_Consult {
+  public var consult: Api_Common_Consult {
     get {return _consult ?? Api_Common_Consult()}
     set {_consult = newValue}
   }
   /// Returns true if `consult` has been explicitly set.
-  var hasConsult: Bool {return self._consult != nil}
+  public var hasConsult: Bool {return self._consult != nil}
   /// Clears the value of `consult`. Subsequent reads from it will return its default value.
-  mutating func clearConsult() {self._consult = nil}
+  public mutating func clearConsult() {self._consult = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _consult: Api_Common_Consult? = nil
 }
 
-struct Api_Core_DeleteConsultRequest {
+public struct Api_Core_DeleteConsultRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: UInt32 = 0
+  public var id: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -111,12 +111,12 @@ extension Api_Core_DeleteConsultRequest: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_QueryConsultResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConsultResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConsultResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "consultArr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -128,14 +128,14 @@ extension Api_Core_QueryConsultResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.consultArr.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.consultArr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QueryConsultResponse, rhs: Api_Core_QueryConsultResponse) -> Bool {
+  public static func ==(lhs: Api_Core_QueryConsultResponse, rhs: Api_Core_QueryConsultResponse) -> Bool {
     if lhs.consultArr != rhs.consultArr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -143,12 +143,12 @@ extension Api_Core_QueryConsultResponse: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Api_Core_CreateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateConsultRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateConsultRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "consult"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -160,7 +160,7 @@ extension Api_Core_CreateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -171,7 +171,7 @@ extension Api_Core_CreateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_CreateConsultRequest, rhs: Api_Core_CreateConsultRequest) -> Bool {
+  public static func ==(lhs: Api_Core_CreateConsultRequest, rhs: Api_Core_CreateConsultRequest) -> Bool {
     if lhs._consult != rhs._consult {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -179,12 +179,12 @@ extension Api_Core_CreateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Api_Core_CreateConsultResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateConsultResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateConsultResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -196,14 +196,14 @@ extension Api_Core_CreateConsultResponse: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_CreateConsultResponse, rhs: Api_Core_CreateConsultResponse) -> Bool {
+  public static func ==(lhs: Api_Core_CreateConsultResponse, rhs: Api_Core_CreateConsultResponse) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -211,12 +211,12 @@ extension Api_Core_CreateConsultResponse: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Api_Core_UpdateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateConsultRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UpdateConsultRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "consult"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -228,7 +228,7 @@ extension Api_Core_UpdateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -239,7 +239,7 @@ extension Api_Core_UpdateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_UpdateConsultRequest, rhs: Api_Core_UpdateConsultRequest) -> Bool {
+  public static func ==(lhs: Api_Core_UpdateConsultRequest, rhs: Api_Core_UpdateConsultRequest) -> Bool {
     if lhs._consult != rhs._consult {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -247,12 +247,12 @@ extension Api_Core_UpdateConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Api_Core_DeleteConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteConsultRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DeleteConsultRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -264,14 +264,14 @@ extension Api_Core_DeleteConsultRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_DeleteConsultRequest, rhs: Api_Core_DeleteConsultRequest) -> Bool {
+  public static func ==(lhs: Api_Core_DeleteConsultRequest, rhs: Api_Core_DeleteConsultRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

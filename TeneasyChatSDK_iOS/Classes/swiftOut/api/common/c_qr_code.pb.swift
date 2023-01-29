@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// 二维码类别: QRCode(CAT)egory
-enum CommonQRCodeCAT: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonQRCodeCAT: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 用户名片, 包含 用户ID, AssetID, Name 信息
@@ -38,11 +38,11 @@ enum CommonQRCodeCAT: SwiftProtobuf.Enum {
   case groupCardLite // = 4
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .userCard
@@ -53,7 +53,7 @@ enum CommonQRCodeCAT: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .userCard: return 1
@@ -70,7 +70,7 @@ enum CommonQRCodeCAT: SwiftProtobuf.Enum {
 
 extension CommonQRCodeCAT: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonQRCodeCAT] = [
+  public static var allCases: [CommonQRCodeCAT] = [
     .unknown,
     .userCard,
     .userCardLite,
@@ -82,8 +82,8 @@ extension CommonQRCodeCAT: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 二维码类型: 动态码,静态码
-enum CommonQRCodeType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonQRCodeType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 静态码
@@ -93,11 +93,11 @@ enum CommonQRCodeType: SwiftProtobuf.Enum {
   case dynamic // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .static
@@ -106,7 +106,7 @@ enum CommonQRCodeType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .static: return 1
@@ -121,7 +121,7 @@ enum CommonQRCodeType: SwiftProtobuf.Enum {
 
 extension CommonQRCodeType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonQRCodeType] = [
+  public static var allCases: [CommonQRCodeType] = [
     .unknown,
     .static,
     .dynamic,
@@ -138,7 +138,7 @@ extension CommonQRCodeType: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension CommonQRCodeCAT: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "QR_CODE_CAT_UNKNOWN"),
     1: .same(proto: "QR_CODE_CAT_USER_CARD"),
     2: .same(proto: "QR_CODE_CAT_USER_CARD_LITE"),
@@ -148,7 +148,7 @@ extension CommonQRCodeCAT: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonQRCodeType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "QR_CODE_TYPE_UNKNOWN"),
     1: .same(proto: "QR_CODE_TYPE_STATIC"),
     2: .same(proto: "QR_CODE_TYPE_DYNAMIC"),

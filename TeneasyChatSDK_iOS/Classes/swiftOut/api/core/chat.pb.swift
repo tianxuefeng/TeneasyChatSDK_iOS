@@ -20,112 +20,112 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Api_Core_ChatItem {
+public struct Api_Core_ChatItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 {
+  public var chatID: Int64 {
     get {return _storage._chatID}
     set {_uniqueStorage()._chatID = newValue}
   }
 
-  var state: CommonChatState {
+  public var state: CommonChatState {
     get {return _storage._state}
     set {_uniqueStorage()._state = newValue}
   }
 
-  var unread: Int32 {
+  public var unread: Int32 {
     get {return _storage._unread}
     set {_uniqueStorage()._unread = newValue}
   }
 
-  var latestMsg: CommonMessage {
+  public var latestMsg: CommonMessage {
     get {return _storage._latestMsg ?? CommonMessage()}
     set {_uniqueStorage()._latestMsg = newValue}
   }
   /// Returns true if `latestMsg` has been explicitly set.
-  var hasLatestMsg: Bool {return _storage._latestMsg != nil}
+  public var hasLatestMsg: Bool {return _storage._latestMsg != nil}
   /// Clears the value of `latestMsg`. Subsequent reads from it will return its default value.
-  mutating func clearLatestMsg() {_uniqueStorage()._latestMsg = nil}
+  public mutating func clearLatestMsg() {_uniqueStorage()._latestMsg = nil}
 
   /// 创建时间(用于3分钟规则, 起始点)
-  var createAt: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var createAt: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._createAt ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._createAt = newValue}
   }
   /// Returns true if `createAt` has been explicitly set.
-  var hasCreateAt: Bool {return _storage._createAt != nil}
+  public var hasCreateAt: Bool {return _storage._createAt != nil}
   /// Clears the value of `createAt`. Subsequent reads from it will return its default value.
-  mutating func clearCreateAt() {_uniqueStorage()._createAt = nil}
+  public mutating func clearCreateAt() {_uniqueStorage()._createAt = nil}
 
   /// 第一次服务时间(用于3分钟规则, 终止点)
-  var serviceAt: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var serviceAt: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._serviceAt ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._serviceAt = newValue}
   }
   /// Returns true if `serviceAt` has been explicitly set.
-  var hasServiceAt: Bool {return _storage._serviceAt != nil}
+  public var hasServiceAt: Bool {return _storage._serviceAt != nil}
   /// Clears the value of `serviceAt`. Subsequent reads from it will return its default value.
-  mutating func clearServiceAt() {_uniqueStorage()._serviceAt = nil}
+  public mutating func clearServiceAt() {_uniqueStorage()._serviceAt = nil}
 
   /// 会话详情
-  var detail: Api_Core_ChatDetail {
+  public var detail: Api_Core_ChatDetail {
     get {return _storage._detail ?? Api_Core_ChatDetail()}
     set {_uniqueStorage()._detail = newValue}
   }
   /// Returns true if `detail` has been explicitly set.
-  var hasDetail: Bool {return _storage._detail != nil}
+  public var hasDetail: Bool {return _storage._detail != nil}
   /// Clears the value of `detail`. Subsequent reads from it will return its default value.
-  mutating func clearDetail() {_uniqueStorage()._detail = nil}
+  public mutating func clearDetail() {_uniqueStorage()._detail = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// 聊天会话列表
-struct Api_Core_ChatListQueryResponse {
+public struct Api_Core_ChatListQueryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chats: [Api_Core_ChatItem] = []
+  public var chats: [Api_Core_ChatItem] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 标记已读
-struct Api_Core_ChatMarkReadRequest {
+public struct Api_Core_ChatMarkReadRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_OrphanResponse {
+public struct Api_Core_OrphanResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var workerID: Int32 = 0
+  public var workerID: Int32 = 0
 
-  var nick: String = String()
+  public var nick: String = String()
 
-  var avatar: String = String()
+  public var avatar: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -140,8 +140,8 @@ extension Api_Core_OrphanResponse: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_ChatItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ChatItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ChatItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .same(proto: "state"),
     3: .same(proto: "unread"),
@@ -182,7 +182,7 @@ extension Api_Core_ChatItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -203,7 +203,7 @@ extension Api_Core_ChatItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -234,7 +234,7 @@ extension Api_Core_ChatItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_ChatItem, rhs: Api_Core_ChatItem) -> Bool {
+  public static func ==(lhs: Api_Core_ChatItem, rhs: Api_Core_ChatItem) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -256,12 +256,12 @@ extension Api_Core_ChatItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Api_Core_ChatListQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ChatListQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ChatListQueryResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "chats"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -273,14 +273,14 @@ extension Api_Core_ChatListQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.chats.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.chats, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_ChatListQueryResponse, rhs: Api_Core_ChatListQueryResponse) -> Bool {
+  public static func ==(lhs: Api_Core_ChatListQueryResponse, rhs: Api_Core_ChatListQueryResponse) -> Bool {
     if lhs.chats != rhs.chats {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -288,12 +288,12 @@ extension Api_Core_ChatListQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Api_Core_ChatMarkReadRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ChatMarkReadRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ChatMarkReadRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -305,14 +305,14 @@ extension Api_Core_ChatMarkReadRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.chatID != 0 {
       try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_ChatMarkReadRequest, rhs: Api_Core_ChatMarkReadRequest) -> Bool {
+  public static func ==(lhs: Api_Core_ChatMarkReadRequest, rhs: Api_Core_ChatMarkReadRequest) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -320,14 +320,14 @@ extension Api_Core_ChatMarkReadRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Api_Core_OrphanResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OrphanResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OrphanResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "worker_id"),
     2: .same(proto: "nick"),
     3: .same(proto: "avatar"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -341,7 +341,7 @@ extension Api_Core_OrphanResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.workerID != 0 {
       try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 1)
     }
@@ -354,7 +354,7 @@ extension Api_Core_OrphanResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_OrphanResponse, rhs: Api_Core_OrphanResponse) -> Bool {
+  public static func ==(lhs: Api_Core_OrphanResponse, rhs: Api_Core_OrphanResponse) -> Bool {
     if lhs.workerID != rhs.workerID {return false}
     if lhs.nick != rhs.nick {return false}
     if lhs.avatar != rhs.avatar {return false}

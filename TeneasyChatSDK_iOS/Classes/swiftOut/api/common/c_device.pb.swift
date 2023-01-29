@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum CommonDeviceType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonDeviceType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 系统平台
   case system // = 0
@@ -36,11 +36,11 @@ enum CommonDeviceType: SwiftProtobuf.Enum {
   case android // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .system
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .system
     case 1: self = .desktop
@@ -50,7 +50,7 @@ enum CommonDeviceType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .system: return 0
     case .desktop: return 1
@@ -66,7 +66,7 @@ enum CommonDeviceType: SwiftProtobuf.Enum {
 
 extension CommonDeviceType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonDeviceType] = [
+  public static var allCases: [CommonDeviceType] = [
     .system,
     .desktop,
     .ios,
@@ -83,7 +83,7 @@ extension CommonDeviceType: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension CommonDeviceType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "System"),
     1: .same(proto: "Desktop"),
     2: .same(proto: "Ios"),

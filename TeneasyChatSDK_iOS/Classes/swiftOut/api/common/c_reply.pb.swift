@@ -20,29 +20,29 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct CommonQuickReply {
+public struct CommonQuickReply {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 快速回复 名称
-  var name: String = String()
+  public var name: String = String()
 
   /// 快速回复 展示优先级
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
   /// 回复消息 图片 + 文字
-  var items: [CommonMessage] = []
+  public var items: [CommonMessage] = []
 
   /// 回复内容
-  var content: String = String()
+  public var content: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonQuickReplyWorkerStore {
+public struct CommonQuickReplyWorkerStore {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,103 +51,103 @@ struct CommonQuickReplyWorkerStore {
   /// value: 无视
   /// 为什么不用 repeated :
   /// 方便mysql 执行删除 object key
-  var quickReplyID: Dictionary<Int64,String> = [:]
+  public var quickReplyID: Dictionary<Int64,String> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonQuickReplyGroup {
+public struct CommonQuickReplyGroup {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 便签组 显示优先级
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
   /// 对应的快速回复id, 不用repeated原因同 QuickReplyWorkerStore
-  var quickReplyID: Dictionary<Int64,String> = [:]
+  public var quickReplyID: Dictionary<Int64,String> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonQuickReplyGroupStore {
+public struct CommonQuickReplyGroupStore {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 直接用 便签组名称 做 key, 避免维护 id
-  var store: Dictionary<String,CommonQuickReplyGroup> = [:]
+  public var store: Dictionary<String,CommonQuickReplyGroup> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 问答
-struct CommonQuestionAnswer {
+public struct CommonQuestionAnswer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 序号
-  var id: Int32 = 0
+  public var id: Int32 = 0
 
   /// 常见问题
-  var question: CommonMessage {
+  public var question: CommonMessage {
     get {return _question ?? CommonMessage()}
     set {_question = newValue}
   }
   /// Returns true if `question` has been explicitly set.
-  var hasQuestion: Bool {return self._question != nil}
+  public var hasQuestion: Bool {return self._question != nil}
   /// Clears the value of `question`. Subsequent reads from it will return its default value.
-  mutating func clearQuestion() {self._question = nil}
+  public mutating func clearQuestion() {self._question = nil}
 
   /// 问题回答
-  var content: String = String()
+  public var content: String = String()
 
   /// 回答&图片
-  var answer: [CommonMessage] = []
+  public var answer: [CommonMessage] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _question: CommonMessage? = nil
 }
 
 /// 自动回复
-struct CommonAutoReplyItem {
+public struct CommonAutoReplyItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
   /// 回复名称
-  var name: String = String()
+  public var name: String = String()
 
   /// 引导文案
-  var title: String = String()
+  public var title: String = String()
 
   /// 回复内容
-  var qa: [CommonQuestionAnswer] = []
+  public var qa: [CommonQuestionAnswer] = []
 
   /// 延迟回复时间
-  var delaySec: Double = 0
+  public var delaySec: Double = 0
 
   /// 绑定客服id
-  var workerID: [Int32] = []
+  public var workerID: [Int32] = []
 
   /// 绑定客服名数组
-  var workerNames: [String] = []
+  public var workerNames: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -164,15 +164,15 @@ extension CommonAutoReplyItem: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension CommonQuickReply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReply"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "priority"),
     3: .same(proto: "items"),
     4: .same(proto: "content"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -187,7 +187,7 @@ extension CommonQuickReply: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -203,7 +203,7 @@ extension CommonQuickReply: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonQuickReply, rhs: CommonQuickReply) -> Bool {
+  public static func ==(lhs: CommonQuickReply, rhs: CommonQuickReply) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
     if lhs.items != rhs.items {return false}
@@ -214,12 +214,12 @@ extension CommonQuickReply: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension CommonQuickReplyWorkerStore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyWorkerStore"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyWorkerStore"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .standard(proto: "quick_reply_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -231,14 +231,14 @@ extension CommonQuickReplyWorkerStore: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.quickReplyID.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufString>.self, value: self.quickReplyID, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonQuickReplyWorkerStore, rhs: CommonQuickReplyWorkerStore) -> Bool {
+  public static func ==(lhs: CommonQuickReplyWorkerStore, rhs: CommonQuickReplyWorkerStore) -> Bool {
     if lhs.quickReplyID != rhs.quickReplyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -246,13 +246,13 @@ extension CommonQuickReplyWorkerStore: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension CommonQuickReplyGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "priority"),
     3: .standard(proto: "quick_reply_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -265,7 +265,7 @@ extension CommonQuickReplyGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.priority != 0 {
       try visitor.visitSingularInt32Field(value: self.priority, fieldNumber: 1)
     }
@@ -275,7 +275,7 @@ extension CommonQuickReplyGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonQuickReplyGroup, rhs: CommonQuickReplyGroup) -> Bool {
+  public static func ==(lhs: CommonQuickReplyGroup, rhs: CommonQuickReplyGroup) -> Bool {
     if lhs.priority != rhs.priority {return false}
     if lhs.quickReplyID != rhs.quickReplyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -284,12 +284,12 @@ extension CommonQuickReplyGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension CommonQuickReplyGroupStore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupStore"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupStore"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "store"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -301,14 +301,14 @@ extension CommonQuickReplyGroupStore: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.store.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,CommonQuickReplyGroup>.self, value: self.store, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonQuickReplyGroupStore, rhs: CommonQuickReplyGroupStore) -> Bool {
+  public static func ==(lhs: CommonQuickReplyGroupStore, rhs: CommonQuickReplyGroupStore) -> Bool {
     if lhs.store != rhs.store {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -316,15 +316,15 @@ extension CommonQuickReplyGroupStore: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension CommonQuestionAnswer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuestionAnswer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuestionAnswer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "question"),
     3: .same(proto: "content"),
     4: .same(proto: "answer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -339,7 +339,7 @@ extension CommonQuestionAnswer: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -359,7 +359,7 @@ extension CommonQuestionAnswer: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonQuestionAnswer, rhs: CommonQuestionAnswer) -> Bool {
+  public static func ==(lhs: CommonQuestionAnswer, rhs: CommonQuestionAnswer) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs._question != rhs._question {return false}
     if lhs.content != rhs.content {return false}
@@ -370,8 +370,8 @@ extension CommonQuestionAnswer: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AutoReplyItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AutoReplyItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "title"),
@@ -381,7 +381,7 @@ extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     7: .standard(proto: "worker_names"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -399,7 +399,7 @@ extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -424,7 +424,7 @@ extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonAutoReplyItem, rhs: CommonAutoReplyItem) -> Bool {
+  public static func ==(lhs: CommonAutoReplyItem, rhs: CommonAutoReplyItem) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.title != rhs.title {return false}

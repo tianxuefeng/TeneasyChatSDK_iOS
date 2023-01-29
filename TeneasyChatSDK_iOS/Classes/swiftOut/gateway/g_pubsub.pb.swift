@@ -20,26 +20,26 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Gateway_PubSubMessage {
+public struct Gateway_PubSubMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 接收人clientId
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var msg: CommonMessage {
+  public var msg: CommonMessage {
     get {return _msg ?? CommonMessage()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
-  var hasMsg: Bool {return self._msg != nil}
+  public var hasMsg: Bool {return self._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
-  mutating func clearMsg() {self._msg = nil}
+  public mutating func clearMsg() {self._msg = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _msg: CommonMessage? = nil
 }
@@ -53,13 +53,13 @@ extension Gateway_PubSubMessage: @unchecked Sendable {}
 fileprivate let _protobuf_package = "gateway"
 
 extension Gateway_PubSubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PubSubMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PubSubMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "target"),
     2: .same(proto: "msg"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -72,7 +72,7 @@ extension Gateway_PubSubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -86,7 +86,7 @@ extension Gateway_PubSubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_PubSubMessage, rhs: Gateway_PubSubMessage) -> Bool {
+  public static func ==(lhs: Gateway_PubSubMessage, rhs: Gateway_PubSubMessage) -> Bool {
     if lhs.target != rhs.target {return false}
     if lhs._msg != rhs._msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

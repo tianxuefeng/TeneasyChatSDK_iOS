@@ -21,98 +21,98 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// 查询组
-struct Api_Core_WorkerGroupQueryResponse {
+public struct Api_Core_WorkerGroupQueryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var items: [Api_Common_WorkerGroup] = []
+  public var items: [Api_Common_WorkerGroup] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 创建分组
-struct Api_Core_WorkerGroupCreateRequest {
+public struct Api_Core_WorkerGroupCreateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 组名称
-  var name: String = String()
+  public var name: String = String()
 
   /// 显示优先级
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_WorkerGroupCreateResponse {
+public struct Api_Core_WorkerGroupCreateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 更新分组内容
-struct Api_Core_WorkerGroupUpdateRequest {
+public struct Api_Core_WorkerGroupUpdateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 指定分组id
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
   /// 全量更新
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_WorkerGroupUpdateResponse {
+public struct Api_Core_WorkerGroupUpdateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 删除分组
-struct Api_Core_WorkerGroupDeleteRequest {
+public struct Api_Core_WorkerGroupDeleteRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 指定分组id
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -129,12 +129,12 @@ extension Api_Core_WorkerGroupDeleteRequest: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_WorkerGroupQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroupQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroupQueryResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "items"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -146,14 +146,14 @@ extension Api_Core_WorkerGroupQueryResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.items.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerGroupQueryResponse, rhs: Api_Core_WorkerGroupQueryResponse) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerGroupQueryResponse, rhs: Api_Core_WorkerGroupQueryResponse) -> Bool {
     if lhs.items != rhs.items {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -161,13 +161,13 @@ extension Api_Core_WorkerGroupQueryResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Api_Core_WorkerGroupCreateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroupCreateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroupCreateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -180,7 +180,7 @@ extension Api_Core_WorkerGroupCreateRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -190,7 +190,7 @@ extension Api_Core_WorkerGroupCreateRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerGroupCreateRequest, rhs: Api_Core_WorkerGroupCreateRequest) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerGroupCreateRequest, rhs: Api_Core_WorkerGroupCreateRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -199,14 +199,14 @@ extension Api_Core_WorkerGroupCreateRequest: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Api_Core_WorkerGroupCreateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroupCreateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroupCreateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -220,7 +220,7 @@ extension Api_Core_WorkerGroupCreateResponse: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -233,7 +233,7 @@ extension Api_Core_WorkerGroupCreateResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerGroupCreateResponse, rhs: Api_Core_WorkerGroupCreateResponse) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerGroupCreateResponse, rhs: Api_Core_WorkerGroupCreateResponse) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
@@ -243,14 +243,14 @@ extension Api_Core_WorkerGroupCreateResponse: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Api_Core_WorkerGroupUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroupUpdateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroupUpdateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -264,7 +264,7 @@ extension Api_Core_WorkerGroupUpdateRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -277,7 +277,7 @@ extension Api_Core_WorkerGroupUpdateRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerGroupUpdateRequest, rhs: Api_Core_WorkerGroupUpdateRequest) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerGroupUpdateRequest, rhs: Api_Core_WorkerGroupUpdateRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
@@ -287,14 +287,14 @@ extension Api_Core_WorkerGroupUpdateRequest: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Api_Core_WorkerGroupUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroupUpdateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroupUpdateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -308,7 +308,7 @@ extension Api_Core_WorkerGroupUpdateResponse: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -321,7 +321,7 @@ extension Api_Core_WorkerGroupUpdateResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerGroupUpdateResponse, rhs: Api_Core_WorkerGroupUpdateResponse) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerGroupUpdateResponse, rhs: Api_Core_WorkerGroupUpdateResponse) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
@@ -331,12 +331,12 @@ extension Api_Core_WorkerGroupUpdateResponse: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Api_Core_WorkerGroupDeleteRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroupDeleteRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroupDeleteRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -348,14 +348,14 @@ extension Api_Core_WorkerGroupDeleteRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_WorkerGroupDeleteRequest, rhs: Api_Core_WorkerGroupDeleteRequest) -> Bool {
+  public static func ==(lhs: Api_Core_WorkerGroupDeleteRequest, rhs: Api_Core_WorkerGroupDeleteRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

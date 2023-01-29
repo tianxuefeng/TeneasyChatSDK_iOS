@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Gateway_ChatChanged: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Gateway_ChatChanged: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
 
   /// 新的聊天会话
@@ -31,11 +31,11 @@ enum Gateway_ChatChanged: SwiftProtobuf.Enum {
   case del // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .add
@@ -44,7 +44,7 @@ enum Gateway_ChatChanged: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .add: return 1
@@ -59,7 +59,7 @@ enum Gateway_ChatChanged: SwiftProtobuf.Enum {
 
 extension Gateway_ChatChanged: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Gateway_ChatChanged] = [
+  public static var allCases: [Gateway_ChatChanged] = [
     .unknown,
     .add,
     .del,
@@ -69,283 +69,283 @@ extension Gateway_ChatChanged: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 登录成功后, 下发必须信息
-struct Gateway_SCHi {
+public struct Gateway_SCHi {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
   /// 下面均为 h5/web 使用
-  var token: String = String()
+  public var token: String = String()
 
   /// 绑定客服(如果有的话)
-  var workerID: Int32 = 0
+  public var workerID: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Gateway_CSForward {
+public struct Gateway_CSForward {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var appID: String = String()
+  public var appID: String = String()
 
-  var url: String = String()
+  public var url: String = String()
 
-  var verb: String = String()
+  public var verb: String = String()
 
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Gateway_SCForward {
+public struct Gateway_SCForward {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var err: String = String()
+  public var err: String = String()
 
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 发消息
-struct Gateway_CSSendMessage {
+public struct Gateway_CSSendMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var msg: CommonMessage {
+  public var msg: CommonMessage {
     get {return _msg ?? CommonMessage()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
-  var hasMsg: Bool {return self._msg != nil}
+  public var hasMsg: Bool {return self._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
-  mutating func clearMsg() {self._msg = nil}
+  public mutating func clearMsg() {self._msg = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _msg: CommonMessage? = nil
 }
 
 /// 发消息确认
-struct Gateway_SCSendMessage {
+public struct Gateway_SCSendMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var msgID: Int64 = 0
+  public var msgID: Int64 = 0
 
-  var msgTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var msgTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _msgTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_msgTime = newValue}
   }
   /// Returns true if `msgTime` has been explicitly set.
-  var hasMsgTime: Bool {return self._msgTime != nil}
+  public var hasMsgTime: Bool {return self._msgTime != nil}
   /// Clears the value of `msgTime`. Subsequent reads from it will return its default value.
-  mutating func clearMsgTime() {self._msgTime = nil}
+  public mutating func clearMsgTime() {self._msgTime = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _msgTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 /// 收消息
-struct Gateway_SCRecvMessage {
+public struct Gateway_SCRecvMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var msg: CommonMessage {
+  public var msg: CommonMessage {
     get {return _msg ?? CommonMessage()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
-  var hasMsg: Bool {return self._msg != nil}
+  public var hasMsg: Bool {return self._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
-  mutating func clearMsg() {self._msg = nil}
+  public mutating func clearMsg() {self._msg = nil}
 
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _msg: CommonMessage? = nil
 }
 
 /// 收消息确认
-struct Gateway_CSRecvMessage {
+public struct Gateway_CSRecvMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var msgID: Int64 = 0
+  public var msgID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 读消息
-struct Gateway_CSReadMessage {
+public struct Gateway_CSReadMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var msgID: Int64 = 0
+  public var msgID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Gateway_SCReadMessage {
+public struct Gateway_SCReadMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var msgID: Int64 = 0
+  public var msgID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 正在输入(发送):开始
-struct Gateway_InputtingBegin {
+public struct Gateway_InputtingBegin {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 无需处理
-  var self_p: Int64 = 0
+  public var self_p: Int64 = 0
 
   /// 终端用户无需处理, 客服传指定目标用户的clientId
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var msgFmt: CommonMessageFormat = .msgText
+  public var msgFmt: CommonMessageFormat = .msgText
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 正在输入(发送):结束
 /// 注意: MSG_TEXT, MSG_GEO 无需调用
-struct Gateway_InputtingEnd {
+public struct Gateway_InputtingEnd {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 无需处理
-  var self_p: Int64 = 0
+  public var self_p: Int64 = 0
 
   /// 终端用户无需处理, 客服传指定目标用户的clientId
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 转接客服操作, 通知给 新的客服 + 用户
-struct Gateway_WorkerTransfer {
+public struct Gateway_WorkerTransfer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var msg: CommonMessage {
+  public var msg: CommonMessage {
     get {return _msg ?? CommonMessage()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
-  var hasMsg: Bool {return self._msg != nil}
+  public var hasMsg: Bool {return self._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
-  mutating func clearMsg() {self._msg = nil}
+  public mutating func clearMsg() {self._msg = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _msg: CommonMessage? = nil
 }
 
 /// 新的聊天(客服用)
-struct Gateway_SCChatChanged {
+public struct Gateway_SCChatChanged {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var ty: Gateway_ChatChanged = .unknown
+  public var ty: Gateway_ChatChanged = .unknown
 
   /// 因为何种原因 增加 删除
-  var reason: CommonChatState = .common
+  public var reason: CommonChatState = .common
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 用户上线
-struct Gateway_SCUserConnectionChanged {
+public struct Gateway_SCUserConnectionChanged {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 用户的 client_id (chat_id)
-  var clientID: Int64 = 0
+  public var clientID: Int64 = 0
 
-  var conn: Api_Common_ConnectState = .offline
+  public var conn: Api_Common_ConnectState = .offline
 
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Gateway_SCWorkerChanged {
+public struct Gateway_SCWorkerChanged {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var workerName: String = String()
+  public var workerName: String = String()
 
-  var workerAvatar: String = String()
+  public var workerAvatar: String = String()
 
-  var target: Int64 = 0
+  public var target: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -372,7 +372,7 @@ extension Gateway_SCWorkerChanged: @unchecked Sendable {}
 fileprivate let _protobuf_package = "gateway"
 
 extension Gateway_ChatChanged: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CHAT_CHANGED_UNKNOWN"),
     1: .same(proto: "CHAT_CHANGED_ADD"),
     2: .same(proto: "CHAT_CHANGED_DEL"),
@@ -380,14 +380,14 @@ extension Gateway_ChatChanged: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Gateway_SCHi: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCHi"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCHi"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "token"),
     3: .standard(proto: "worker_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -401,7 +401,7 @@ extension Gateway_SCHi: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -414,7 +414,7 @@ extension Gateway_SCHi: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCHi, rhs: Gateway_SCHi) -> Bool {
+  public static func ==(lhs: Gateway_SCHi, rhs: Gateway_SCHi) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.token != rhs.token {return false}
     if lhs.workerID != rhs.workerID {return false}
@@ -424,15 +424,15 @@ extension Gateway_SCHi: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 }
 
 extension Gateway_CSForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CSForward"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CSForward"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "appId"),
     2: .same(proto: "url"),
     3: .same(proto: "verb"),
     4: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -447,7 +447,7 @@ extension Gateway_CSForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.appID.isEmpty {
       try visitor.visitSingularStringField(value: self.appID, fieldNumber: 1)
     }
@@ -463,7 +463,7 @@ extension Gateway_CSForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_CSForward, rhs: Gateway_CSForward) -> Bool {
+  public static func ==(lhs: Gateway_CSForward, rhs: Gateway_CSForward) -> Bool {
     if lhs.appID != rhs.appID {return false}
     if lhs.url != rhs.url {return false}
     if lhs.verb != rhs.verb {return false}
@@ -474,13 +474,13 @@ extension Gateway_CSForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Gateway_SCForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCForward"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCForward"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "err"),
     3: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -493,7 +493,7 @@ extension Gateway_SCForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.err.isEmpty {
       try visitor.visitSingularStringField(value: self.err, fieldNumber: 2)
     }
@@ -503,7 +503,7 @@ extension Gateway_SCForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCForward, rhs: Gateway_SCForward) -> Bool {
+  public static func ==(lhs: Gateway_SCForward, rhs: Gateway_SCForward) -> Bool {
     if lhs.err != rhs.err {return false}
     if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -512,12 +512,12 @@ extension Gateway_SCForward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Gateway_CSSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CSSendMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CSSendMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "msg"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -529,7 +529,7 @@ extension Gateway_CSSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -540,7 +540,7 @@ extension Gateway_CSSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_CSSendMessage, rhs: Gateway_CSSendMessage) -> Bool {
+  public static func ==(lhs: Gateway_CSSendMessage, rhs: Gateway_CSSendMessage) -> Bool {
     if lhs._msg != rhs._msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -548,14 +548,14 @@ extension Gateway_CSSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_SCSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCSendMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCSendMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .standard(proto: "msg_id"),
     3: .standard(proto: "msg_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -569,7 +569,7 @@ extension Gateway_SCSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -586,7 +586,7 @@ extension Gateway_SCSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCSendMessage, rhs: Gateway_SCSendMessage) -> Bool {
+  public static func ==(lhs: Gateway_SCSendMessage, rhs: Gateway_SCSendMessage) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.msgID != rhs.msgID {return false}
     if lhs._msgTime != rhs._msgTime {return false}
@@ -596,13 +596,13 @@ extension Gateway_SCSendMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_SCRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCRecvMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCRecvMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "msg"),
     2: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -615,7 +615,7 @@ extension Gateway_SCRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -629,7 +629,7 @@ extension Gateway_SCRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCRecvMessage, rhs: Gateway_SCRecvMessage) -> Bool {
+  public static func ==(lhs: Gateway_SCRecvMessage, rhs: Gateway_SCRecvMessage) -> Bool {
     if lhs._msg != rhs._msg {return false}
     if lhs.target != rhs.target {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -638,13 +638,13 @@ extension Gateway_SCRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_CSRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CSRecvMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CSRecvMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .standard(proto: "msg_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -657,7 +657,7 @@ extension Gateway_CSRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.chatID != 0 {
       try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
     }
@@ -667,7 +667,7 @@ extension Gateway_CSRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_CSRecvMessage, rhs: Gateway_CSRecvMessage) -> Bool {
+  public static func ==(lhs: Gateway_CSRecvMessage, rhs: Gateway_CSRecvMessage) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -676,13 +676,13 @@ extension Gateway_CSRecvMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_CSReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CSReadMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CSReadMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .standard(proto: "msg_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -695,7 +695,7 @@ extension Gateway_CSReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.chatID != 0 {
       try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
     }
@@ -705,7 +705,7 @@ extension Gateway_CSReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_CSReadMessage, rhs: Gateway_CSReadMessage) -> Bool {
+  public static func ==(lhs: Gateway_CSReadMessage, rhs: Gateway_CSReadMessage) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -714,13 +714,13 @@ extension Gateway_CSReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_SCReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCReadMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCReadMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .standard(proto: "msg_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -733,7 +733,7 @@ extension Gateway_SCReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.chatID != 0 {
       try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
     }
@@ -743,7 +743,7 @@ extension Gateway_SCReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCReadMessage, rhs: Gateway_SCReadMessage) -> Bool {
+  public static func ==(lhs: Gateway_SCReadMessage, rhs: Gateway_SCReadMessage) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -752,14 +752,14 @@ extension Gateway_SCReadMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_InputtingBegin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InputtingBegin"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InputtingBegin"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "self"),
     2: .same(proto: "target"),
     3: .standard(proto: "msg_fmt"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -773,7 +773,7 @@ extension Gateway_InputtingBegin: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.self_p != 0 {
       try visitor.visitSingularInt64Field(value: self.self_p, fieldNumber: 1)
     }
@@ -786,7 +786,7 @@ extension Gateway_InputtingBegin: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_InputtingBegin, rhs: Gateway_InputtingBegin) -> Bool {
+  public static func ==(lhs: Gateway_InputtingBegin, rhs: Gateway_InputtingBegin) -> Bool {
     if lhs.self_p != rhs.self_p {return false}
     if lhs.target != rhs.target {return false}
     if lhs.msgFmt != rhs.msgFmt {return false}
@@ -796,13 +796,13 @@ extension Gateway_InputtingBegin: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Gateway_InputtingEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InputtingEnd"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InputtingEnd"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "self"),
     2: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -815,7 +815,7 @@ extension Gateway_InputtingEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.self_p != 0 {
       try visitor.visitSingularInt64Field(value: self.self_p, fieldNumber: 1)
     }
@@ -825,7 +825,7 @@ extension Gateway_InputtingEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_InputtingEnd, rhs: Gateway_InputtingEnd) -> Bool {
+  public static func ==(lhs: Gateway_InputtingEnd, rhs: Gateway_InputtingEnd) -> Bool {
     if lhs.self_p != rhs.self_p {return false}
     if lhs.target != rhs.target {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -834,12 +834,12 @@ extension Gateway_InputtingEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Gateway_WorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerTransfer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerTransfer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "msg"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -851,7 +851,7 @@ extension Gateway_WorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -862,7 +862,7 @@ extension Gateway_WorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_WorkerTransfer, rhs: Gateway_WorkerTransfer) -> Bool {
+  public static func ==(lhs: Gateway_WorkerTransfer, rhs: Gateway_WorkerTransfer) -> Bool {
     if lhs._msg != rhs._msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -870,15 +870,15 @@ extension Gateway_WorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Gateway_SCChatChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCChatChanged"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCChatChanged"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ty"),
     2: .same(proto: "reason"),
     3: .standard(proto: "chat_id"),
     4: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -893,7 +893,7 @@ extension Gateway_SCChatChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ty != .unknown {
       try visitor.visitSingularEnumField(value: self.ty, fieldNumber: 1)
     }
@@ -909,7 +909,7 @@ extension Gateway_SCChatChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCChatChanged, rhs: Gateway_SCChatChanged) -> Bool {
+  public static func ==(lhs: Gateway_SCChatChanged, rhs: Gateway_SCChatChanged) -> Bool {
     if lhs.ty != rhs.ty {return false}
     if lhs.reason != rhs.reason {return false}
     if lhs.chatID != rhs.chatID {return false}
@@ -920,14 +920,14 @@ extension Gateway_SCChatChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Gateway_SCUserConnectionChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCUserConnectionChanged"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCUserConnectionChanged"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .same(proto: "conn"),
     3: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -941,7 +941,7 @@ extension Gateway_SCUserConnectionChanged: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.clientID != 0 {
       try visitor.visitSingularInt64Field(value: self.clientID, fieldNumber: 1)
     }
@@ -954,7 +954,7 @@ extension Gateway_SCUserConnectionChanged: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCUserConnectionChanged, rhs: Gateway_SCUserConnectionChanged) -> Bool {
+  public static func ==(lhs: Gateway_SCUserConnectionChanged, rhs: Gateway_SCUserConnectionChanged) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.conn != rhs.conn {return false}
     if lhs.target != rhs.target {return false}
@@ -964,14 +964,14 @@ extension Gateway_SCUserConnectionChanged: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Gateway_SCWorkerChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SCWorkerChanged"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SCWorkerChanged"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "worker_name"),
     2: .standard(proto: "worker_avatar"),
     3: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -985,7 +985,7 @@ extension Gateway_SCWorkerChanged: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.workerName.isEmpty {
       try visitor.visitSingularStringField(value: self.workerName, fieldNumber: 1)
     }
@@ -998,7 +998,7 @@ extension Gateway_SCWorkerChanged: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_SCWorkerChanged, rhs: Gateway_SCWorkerChanged) -> Bool {
+  public static func ==(lhs: Gateway_SCWorkerChanged, rhs: Gateway_SCWorkerChanged) -> Bool {
     if lhs.workerName != rhs.workerName {return false}
     if lhs.workerAvatar != rhs.workerAvatar {return false}
     if lhs.target != rhs.target {return false}

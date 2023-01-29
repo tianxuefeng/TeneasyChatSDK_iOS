@@ -12,7 +12,6 @@ PODS:
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
-  - SwiftProtobuf (~> 1.20.3)
   - TeneasyChatSDK_iOS (from `../`)
 
 SPEC REPOS:
@@ -31,6 +30,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: b02b5075dcf60c9f5f403000b3b0c202a11b6ae1
   TeneasyChatSDK_iOS: 12e3b8a72a6acc87ef666a26c5a17de175a5f7fe
 
-PODFILE CHECKSUM: f3e7a039aa70331bf4385e327f9cde35dd565b09
+PODFILE CHECKSUM: d350c47538dfcecfb7b1de51c2e8019effed0422
 
 COCOAPODS: 1.11.3

@@ -20,21 +20,21 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Gateway_Payload {
+public struct Gateway_Payload {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: UInt64 = 0
+  public var id: UInt64 = 0
 
-  var act: Gateway_Action = .forward
+  public var act: Gateway_Action = .forward
 
   /// max: 4MB
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -46,14 +46,14 @@ extension Gateway_Payload: @unchecked Sendable {}
 fileprivate let _protobuf_package = "gateway"
 
 extension Gateway_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Payload"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Payload"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "act"),
     3: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -67,7 +67,7 @@ extension Gateway_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularUInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -80,7 +80,7 @@ extension Gateway_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Gateway_Payload, rhs: Gateway_Payload) -> Bool {
+  public static func ==(lhs: Gateway_Payload, rhs: Gateway_Payload) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.act != rhs.act {return false}
     if lhs.data != rhs.data {return false}

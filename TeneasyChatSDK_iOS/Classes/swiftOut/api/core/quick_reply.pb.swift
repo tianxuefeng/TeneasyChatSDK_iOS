@@ -22,270 +22,270 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// 针对前端cooked的便签组
 /// 避免前端摸不透结构
-struct Api_Core_QuickReplyGroupItem {
+public struct Api_Core_QuickReplyGroupItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 查询便签组
-struct Api_Core_QuickReplyGroupQueryResponse {
+public struct Api_Core_QuickReplyGroupQueryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var items: [Api_Core_QuickReplyGroupItem] = []
+  public var items: [Api_Core_QuickReplyGroupItem] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 创建便签组
-struct Api_Core_QuickReplyGroupCreateRequest {
+public struct Api_Core_QuickReplyGroupCreateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 更新便签组(全量更新)
-struct Api_Core_QuickReplyGroupUpdateRequest {
+public struct Api_Core_QuickReplyGroupUpdateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 旧群名
-  var oldName: String = String()
+  public var oldName: String = String()
 
   /// 新群名 如未调整 则与旧群名一致
-  var newName: String = String()
+  public var newName: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 删除便签组
-struct Api_Core_QuickReplyGroupDeleteRequest {
+public struct Api_Core_QuickReplyGroupDeleteRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 针对前端cooked的便签
 /// 避免前端摸不透结构
-struct Api_Core_QuickReplyItem {
+public struct Api_Core_QuickReplyItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 创建时不需要填
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
   /// 便签 名称
-  var name: String = String()
+  public var name: String = String()
 
   /// 便签分组名称
-  var groupName: String = String()
+  public var groupName: String = String()
 
   /// 便签 展示优先级
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
   /// 便签内容
-  var content: String = String()
+  public var content: String = String()
 
   /// 回复消息 图片 + 文字
-  var items: [CommonMessage] = []
+  public var items: [CommonMessage] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 查询便签
-struct Api_Core_QuickReplyQueryResponse {
+public struct Api_Core_QuickReplyQueryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var items: [Api_Core_QuickReplyItem] = []
+  public var items: [Api_Core_QuickReplyItem] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 创建便签
-struct Api_Core_CreateQuickReplyRequest {
+public struct Api_Core_CreateQuickReplyRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var reply: Api_Core_QuickReplyItem {
+  public var reply: Api_Core_QuickReplyItem {
     get {return _reply ?? Api_Core_QuickReplyItem()}
     set {_reply = newValue}
   }
   /// Returns true if `reply` has been explicitly set.
-  var hasReply: Bool {return self._reply != nil}
+  public var hasReply: Bool {return self._reply != nil}
   /// Clears the value of `reply`. Subsequent reads from it will return its default value.
-  mutating func clearReply() {self._reply = nil}
+  public mutating func clearReply() {self._reply = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _reply: Api_Core_QuickReplyItem? = nil
 }
 
-struct Api_Core_CreateQuickReplyResponse {
+public struct Api_Core_CreateQuickReplyResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var reply: Api_Core_QuickReplyItem {
+  public var reply: Api_Core_QuickReplyItem {
     get {return _reply ?? Api_Core_QuickReplyItem()}
     set {_reply = newValue}
   }
   /// Returns true if `reply` has been explicitly set.
-  var hasReply: Bool {return self._reply != nil}
+  public var hasReply: Bool {return self._reply != nil}
   /// Clears the value of `reply`. Subsequent reads from it will return its default value.
-  mutating func clearReply() {self._reply = nil}
+  public mutating func clearReply() {self._reply = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _reply: Api_Core_QuickReplyItem? = nil
 }
 
 /// 更新标签(全量更新)
-struct Api_Core_UpdateQuickReplyRequest {
+public struct Api_Core_UpdateQuickReplyRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var reply: Api_Core_QuickReplyItem {
+  public var reply: Api_Core_QuickReplyItem {
     get {return _reply ?? Api_Core_QuickReplyItem()}
     set {_reply = newValue}
   }
   /// Returns true if `reply` has been explicitly set.
-  var hasReply: Bool {return self._reply != nil}
+  public var hasReply: Bool {return self._reply != nil}
   /// Clears the value of `reply`. Subsequent reads from it will return its default value.
-  mutating func clearReply() {self._reply = nil}
+  public mutating func clearReply() {self._reply = nil}
 
   /// 旧的群名
-  var oldGroupName: String = String()
+  public var oldGroupName: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _reply: Api_Core_QuickReplyItem? = nil
 }
 
 /// 删除标签
-struct Api_Core_DeleteQuickReplyRequest {
+public struct Api_Core_DeleteQuickReplyRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var quickReplyID: Int64 = 0
+  public var quickReplyID: Int64 = 0
 
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_PushCommonRequest {
+public struct Api_Core_PushCommonRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var quickReplyID: Int64 = 0
+  public var quickReplyID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_PopCommonRequest {
+public struct Api_Core_PopCommonRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var quickReplyID: Int64 = 0
+  public var quickReplyID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_QueryCommonResponse {
+public struct Api_Core_QueryCommonResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 显示在常用组的便签
-  var quickReply: [Api_Core_QuickReplyItem] = []
+  public var quickReply: [Api_Core_QuickReplyItem] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_QuickReplyItemGroup {
+public struct Api_Core_QuickReplyItemGroup {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var groupName: String = String()
+  public var groupName: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var items: [Api_Core_QuickReplyItem] = []
+  public var items: [Api_Core_QuickReplyItem] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_QueryByWorkerResponse {
+public struct Api_Core_QueryByWorkerResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 显示在常用组的便签
-  var group: [Api_Core_QuickReplyItemGroup] = []
+  public var group: [Api_Core_QuickReplyItemGroup] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -312,13 +312,13 @@ extension Api_Core_QueryByWorkerResponse: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_QuickReplyGroupItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -331,7 +331,7 @@ extension Api_Core_QuickReplyGroupItem: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -341,7 +341,7 @@ extension Api_Core_QuickReplyGroupItem: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyGroupItem, rhs: Api_Core_QuickReplyGroupItem) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyGroupItem, rhs: Api_Core_QuickReplyGroupItem) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -350,12 +350,12 @@ extension Api_Core_QuickReplyGroupItem: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Api_Core_QuickReplyGroupQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupQueryResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "items"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -367,14 +367,14 @@ extension Api_Core_QuickReplyGroupQueryResponse: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.items.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyGroupQueryResponse, rhs: Api_Core_QuickReplyGroupQueryResponse) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyGroupQueryResponse, rhs: Api_Core_QuickReplyGroupQueryResponse) -> Bool {
     if lhs.items != rhs.items {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -382,13 +382,13 @@ extension Api_Core_QuickReplyGroupQueryResponse: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Api_Core_QuickReplyGroupCreateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupCreateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupCreateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -401,7 +401,7 @@ extension Api_Core_QuickReplyGroupCreateRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -411,7 +411,7 @@ extension Api_Core_QuickReplyGroupCreateRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyGroupCreateRequest, rhs: Api_Core_QuickReplyGroupCreateRequest) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyGroupCreateRequest, rhs: Api_Core_QuickReplyGroupCreateRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -420,14 +420,14 @@ extension Api_Core_QuickReplyGroupCreateRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Api_Core_QuickReplyGroupUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupUpdateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupUpdateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "old_name"),
     2: .standard(proto: "new_name"),
     3: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -441,7 +441,7 @@ extension Api_Core_QuickReplyGroupUpdateRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.oldName.isEmpty {
       try visitor.visitSingularStringField(value: self.oldName, fieldNumber: 1)
     }
@@ -454,7 +454,7 @@ extension Api_Core_QuickReplyGroupUpdateRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyGroupUpdateRequest, rhs: Api_Core_QuickReplyGroupUpdateRequest) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyGroupUpdateRequest, rhs: Api_Core_QuickReplyGroupUpdateRequest) -> Bool {
     if lhs.oldName != rhs.oldName {return false}
     if lhs.newName != rhs.newName {return false}
     if lhs.priority != rhs.priority {return false}
@@ -464,12 +464,12 @@ extension Api_Core_QuickReplyGroupUpdateRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Api_Core_QuickReplyGroupDeleteRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupDeleteRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyGroupDeleteRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -481,14 +481,14 @@ extension Api_Core_QuickReplyGroupDeleteRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyGroupDeleteRequest, rhs: Api_Core_QuickReplyGroupDeleteRequest) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyGroupDeleteRequest, rhs: Api_Core_QuickReplyGroupDeleteRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -496,8 +496,8 @@ extension Api_Core_QuickReplyGroupDeleteRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .standard(proto: "group_name"),
@@ -506,7 +506,7 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
     6: .same(proto: "items"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -523,7 +523,7 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -545,7 +545,7 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyItem, rhs: Api_Core_QuickReplyItem) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyItem, rhs: Api_Core_QuickReplyItem) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.groupName != rhs.groupName {return false}
@@ -558,12 +558,12 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
 }
 
 extension Api_Core_QuickReplyQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyQueryResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "items"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -575,14 +575,14 @@ extension Api_Core_QuickReplyQueryResponse: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.items.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyQueryResponse, rhs: Api_Core_QuickReplyQueryResponse) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyQueryResponse, rhs: Api_Core_QuickReplyQueryResponse) -> Bool {
     if lhs.items != rhs.items {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -590,12 +590,12 @@ extension Api_Core_QuickReplyQueryResponse: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Api_Core_CreateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateQuickReplyRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateQuickReplyRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "reply"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -607,7 +607,7 @@ extension Api_Core_CreateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -618,7 +618,7 @@ extension Api_Core_CreateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_CreateQuickReplyRequest, rhs: Api_Core_CreateQuickReplyRequest) -> Bool {
+  public static func ==(lhs: Api_Core_CreateQuickReplyRequest, rhs: Api_Core_CreateQuickReplyRequest) -> Bool {
     if lhs._reply != rhs._reply {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -626,12 +626,12 @@ extension Api_Core_CreateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Api_Core_CreateQuickReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateQuickReplyResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateQuickReplyResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "reply"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -643,7 +643,7 @@ extension Api_Core_CreateQuickReplyResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -654,7 +654,7 @@ extension Api_Core_CreateQuickReplyResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_CreateQuickReplyResponse, rhs: Api_Core_CreateQuickReplyResponse) -> Bool {
+  public static func ==(lhs: Api_Core_CreateQuickReplyResponse, rhs: Api_Core_CreateQuickReplyResponse) -> Bool {
     if lhs._reply != rhs._reply {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -662,13 +662,13 @@ extension Api_Core_CreateQuickReplyResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Api_Core_UpdateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateQuickReplyRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UpdateQuickReplyRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "reply"),
     2: .standard(proto: "old_group_name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -681,7 +681,7 @@ extension Api_Core_UpdateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -695,7 +695,7 @@ extension Api_Core_UpdateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_UpdateQuickReplyRequest, rhs: Api_Core_UpdateQuickReplyRequest) -> Bool {
+  public static func ==(lhs: Api_Core_UpdateQuickReplyRequest, rhs: Api_Core_UpdateQuickReplyRequest) -> Bool {
     if lhs._reply != rhs._reply {return false}
     if lhs.oldGroupName != rhs.oldGroupName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -704,13 +704,13 @@ extension Api_Core_UpdateQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Api_Core_DeleteQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteQuickReplyRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DeleteQuickReplyRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "quick_reply_id"),
     2: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -723,7 +723,7 @@ extension Api_Core_DeleteQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.quickReplyID != 0 {
       try visitor.visitSingularInt64Field(value: self.quickReplyID, fieldNumber: 1)
     }
@@ -733,7 +733,7 @@ extension Api_Core_DeleteQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_DeleteQuickReplyRequest, rhs: Api_Core_DeleteQuickReplyRequest) -> Bool {
+  public static func ==(lhs: Api_Core_DeleteQuickReplyRequest, rhs: Api_Core_DeleteQuickReplyRequest) -> Bool {
     if lhs.quickReplyID != rhs.quickReplyID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -742,12 +742,12 @@ extension Api_Core_DeleteQuickReplyRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Api_Core_PushCommonRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PushCommonRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PushCommonRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "quick_reply_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -759,14 +759,14 @@ extension Api_Core_PushCommonRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.quickReplyID != 0 {
       try visitor.visitSingularInt64Field(value: self.quickReplyID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_PushCommonRequest, rhs: Api_Core_PushCommonRequest) -> Bool {
+  public static func ==(lhs: Api_Core_PushCommonRequest, rhs: Api_Core_PushCommonRequest) -> Bool {
     if lhs.quickReplyID != rhs.quickReplyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -774,12 +774,12 @@ extension Api_Core_PushCommonRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension Api_Core_PopCommonRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PopCommonRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PopCommonRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "quick_reply_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -791,14 +791,14 @@ extension Api_Core_PopCommonRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.quickReplyID != 0 {
       try visitor.visitSingularInt64Field(value: self.quickReplyID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_PopCommonRequest, rhs: Api_Core_PopCommonRequest) -> Bool {
+  public static func ==(lhs: Api_Core_PopCommonRequest, rhs: Api_Core_PopCommonRequest) -> Bool {
     if lhs.quickReplyID != rhs.quickReplyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -806,12 +806,12 @@ extension Api_Core_PopCommonRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Api_Core_QueryCommonResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCommonResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryCommonResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "quick_reply"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -823,14 +823,14 @@ extension Api_Core_QueryCommonResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.quickReply.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.quickReply, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QueryCommonResponse, rhs: Api_Core_QueryCommonResponse) -> Bool {
+  public static func ==(lhs: Api_Core_QueryCommonResponse, rhs: Api_Core_QueryCommonResponse) -> Bool {
     if lhs.quickReply != rhs.quickReply {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -838,14 +838,14 @@ extension Api_Core_QueryCommonResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Api_Core_QuickReplyItemGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuickReplyItemGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuickReplyItemGroup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_name"),
     2: .same(proto: "priority"),
     3: .same(proto: "items"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -859,7 +859,7 @@ extension Api_Core_QuickReplyItemGroup: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.groupName.isEmpty {
       try visitor.visitSingularStringField(value: self.groupName, fieldNumber: 1)
     }
@@ -872,7 +872,7 @@ extension Api_Core_QuickReplyItemGroup: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QuickReplyItemGroup, rhs: Api_Core_QuickReplyItemGroup) -> Bool {
+  public static func ==(lhs: Api_Core_QuickReplyItemGroup, rhs: Api_Core_QuickReplyItemGroup) -> Bool {
     if lhs.groupName != rhs.groupName {return false}
     if lhs.priority != rhs.priority {return false}
     if lhs.items != rhs.items {return false}
@@ -882,12 +882,12 @@ extension Api_Core_QuickReplyItemGroup: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Api_Core_QueryByWorkerResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryByWorkerResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryByWorkerResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "group"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -899,14 +899,14 @@ extension Api_Core_QueryByWorkerResponse: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.group.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.group, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_QueryByWorkerResponse, rhs: Api_Core_QueryByWorkerResponse) -> Bool {
+  public static func ==(lhs: Api_Core_QueryByWorkerResponse, rhs: Api_Core_QueryByWorkerResponse) -> Bool {
     if lhs.group != rhs.group {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

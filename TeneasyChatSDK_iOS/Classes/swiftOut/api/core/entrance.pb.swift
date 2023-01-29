@@ -20,132 +20,132 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Api_Core_EntranceQueryResponse {
+public struct Api_Core_EntranceQueryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var entrances: [Api_Common_Entrance] = []
+  public var entrances: [Api_Common_Entrance] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_DomainItem {
+public struct Api_Core_DomainItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var domainName: String = String()
+  public var domainName: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_DownloadDomainResponse {
+public struct Api_Core_DownloadDomainResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var domainItem: [Api_Core_DomainItem] = []
+  public var domainItem: [Api_Core_DomainItem] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_CreateEntranceRequest {
+public struct Api_Core_CreateEntranceRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var entrances: Api_Common_Entrance {
+  public var entrances: Api_Common_Entrance {
     get {return _entrances ?? Api_Common_Entrance()}
     set {_entrances = newValue}
   }
   /// Returns true if `entrances` has been explicitly set.
-  var hasEntrances: Bool {return self._entrances != nil}
+  public var hasEntrances: Bool {return self._entrances != nil}
   /// Clears the value of `entrances`. Subsequent reads from it will return its default value.
-  mutating func clearEntrances() {self._entrances = nil}
+  public mutating func clearEntrances() {self._entrances = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _entrances: Api_Common_Entrance? = nil
 }
 
-struct Api_Core_CreateEntranceResponse {
+public struct Api_Core_CreateEntranceResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: UInt32 = 0
+  public var id: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_UpdateEntranceRequest {
+public struct Api_Core_UpdateEntranceRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var entrances: Api_Common_Entrance {
+  public var entrances: Api_Common_Entrance {
     get {return _entrances ?? Api_Common_Entrance()}
     set {_entrances = newValue}
   }
   /// Returns true if `entrances` has been explicitly set.
-  var hasEntrances: Bool {return self._entrances != nil}
+  public var hasEntrances: Bool {return self._entrances != nil}
   /// Clears the value of `entrances`. Subsequent reads from it will return its default value.
-  mutating func clearEntrances() {self._entrances = nil}
+  public mutating func clearEntrances() {self._entrances = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _entrances: Api_Common_Entrance? = nil
 }
 
-struct Api_Core_DeleteEntranceRequest {
+public struct Api_Core_DeleteEntranceRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: UInt32 = 0
+  public var id: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_GetDistributionResponse {
+public struct Api_Core_GetDistributionResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var tenantID: Int32 = 0
+  public var tenantID: Int32 = 0
 
-  var distributionType: String = String()
+  public var distributionType: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_SaveDistributionRequest {
+public struct Api_Core_SaveDistributionRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var distributionType: [Api_Common_DistributionType] = []
+  public var distributionType: [Api_Common_DistributionType] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -165,12 +165,12 @@ extension Api_Core_SaveDistributionRequest: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_EntranceQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EntranceQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EntranceQueryResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entrances"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -182,14 +182,14 @@ extension Api_Core_EntranceQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.entrances.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.entrances, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_EntranceQueryResponse, rhs: Api_Core_EntranceQueryResponse) -> Bool {
+  public static func ==(lhs: Api_Core_EntranceQueryResponse, rhs: Api_Core_EntranceQueryResponse) -> Bool {
     if lhs.entrances != rhs.entrances {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -197,12 +197,12 @@ extension Api_Core_EntranceQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Api_Core_DomainItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DomainItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DomainItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "domain_name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -214,14 +214,14 @@ extension Api_Core_DomainItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.domainName.isEmpty {
       try visitor.visitSingularStringField(value: self.domainName, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_DomainItem, rhs: Api_Core_DomainItem) -> Bool {
+  public static func ==(lhs: Api_Core_DomainItem, rhs: Api_Core_DomainItem) -> Bool {
     if lhs.domainName != rhs.domainName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -229,12 +229,12 @@ extension Api_Core_DomainItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 }
 
 extension Api_Core_DownloadDomainResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DownloadDomainResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DownloadDomainResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "domain_item"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -246,14 +246,14 @@ extension Api_Core_DownloadDomainResponse: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.domainItem.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.domainItem, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_DownloadDomainResponse, rhs: Api_Core_DownloadDomainResponse) -> Bool {
+  public static func ==(lhs: Api_Core_DownloadDomainResponse, rhs: Api_Core_DownloadDomainResponse) -> Bool {
     if lhs.domainItem != rhs.domainItem {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -261,12 +261,12 @@ extension Api_Core_DownloadDomainResponse: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Api_Core_CreateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateEntranceRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateEntranceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entrances"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -278,7 +278,7 @@ extension Api_Core_CreateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -289,7 +289,7 @@ extension Api_Core_CreateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_CreateEntranceRequest, rhs: Api_Core_CreateEntranceRequest) -> Bool {
+  public static func ==(lhs: Api_Core_CreateEntranceRequest, rhs: Api_Core_CreateEntranceRequest) -> Bool {
     if lhs._entrances != rhs._entrances {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -297,12 +297,12 @@ extension Api_Core_CreateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Api_Core_CreateEntranceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateEntranceResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateEntranceResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -314,14 +314,14 @@ extension Api_Core_CreateEntranceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_CreateEntranceResponse, rhs: Api_Core_CreateEntranceResponse) -> Bool {
+  public static func ==(lhs: Api_Core_CreateEntranceResponse, rhs: Api_Core_CreateEntranceResponse) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -329,12 +329,12 @@ extension Api_Core_CreateEntranceResponse: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Api_Core_UpdateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateEntranceRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UpdateEntranceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entrances"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -346,7 +346,7 @@ extension Api_Core_UpdateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -357,7 +357,7 @@ extension Api_Core_UpdateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_UpdateEntranceRequest, rhs: Api_Core_UpdateEntranceRequest) -> Bool {
+  public static func ==(lhs: Api_Core_UpdateEntranceRequest, rhs: Api_Core_UpdateEntranceRequest) -> Bool {
     if lhs._entrances != rhs._entrances {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -365,12 +365,12 @@ extension Api_Core_UpdateEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Api_Core_DeleteEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteEntranceRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DeleteEntranceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -382,14 +382,14 @@ extension Api_Core_DeleteEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_DeleteEntranceRequest, rhs: Api_Core_DeleteEntranceRequest) -> Bool {
+  public static func ==(lhs: Api_Core_DeleteEntranceRequest, rhs: Api_Core_DeleteEntranceRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -397,13 +397,13 @@ extension Api_Core_DeleteEntranceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Api_Core_GetDistributionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetDistributionResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetDistributionResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "tenant_id"),
     2: .standard(proto: "distribution_type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -416,7 +416,7 @@ extension Api_Core_GetDistributionResponse: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.tenantID != 0 {
       try visitor.visitSingularInt32Field(value: self.tenantID, fieldNumber: 1)
     }
@@ -426,7 +426,7 @@ extension Api_Core_GetDistributionResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_GetDistributionResponse, rhs: Api_Core_GetDistributionResponse) -> Bool {
+  public static func ==(lhs: Api_Core_GetDistributionResponse, rhs: Api_Core_GetDistributionResponse) -> Bool {
     if lhs.tenantID != rhs.tenantID {return false}
     if lhs.distributionType != rhs.distributionType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -435,12 +435,12 @@ extension Api_Core_GetDistributionResponse: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Api_Core_SaveDistributionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SaveDistributionRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SaveDistributionRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .standard(proto: "distribution_type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -452,14 +452,14 @@ extension Api_Core_SaveDistributionRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.distributionType.isEmpty {
       try visitor.visitPackedEnumField(value: self.distributionType, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_SaveDistributionRequest, rhs: Api_Core_SaveDistributionRequest) -> Bool {
+  public static func ==(lhs: Api_Core_SaveDistributionRequest, rhs: Api_Core_SaveDistributionRequest) -> Bool {
     if lhs.distributionType != rhs.distributionType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

@@ -20,138 +20,138 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct CommonBaseResponse {
+public struct CommonBaseResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonPage {
+public struct CommonPage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var page: Int32 = 0
+  public var page: Int32 = 0
 
-  var limit: Int32 = 0
+  public var limit: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonBatch {
+public struct CommonBatch {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var offset: Int32 = 0
+  public var offset: Int32 = 0
 
-  var limit: Int32 = 0
+  public var limit: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonListInt32 {
+public struct CommonListInt32 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var i32: [Int32] = []
+  public var i32: [Int32] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonListInt64 {
+public struct CommonListInt64 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var i64: [Int64] = []
+  public var i64: [Int64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonListFloat32 {
+public struct CommonListFloat32 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var f32: [Float] = []
+  public var f32: [Float] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonListFloat64 {
+public struct CommonListFloat64 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var f64: [Double] = []
+  public var f64: [Double] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonListString {
+public struct CommonListString {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var str: [String] = []
+  public var str: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonSetInt32 {
+public struct CommonSetInt32 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var i32: Dictionary<Int32,Int64> = [:]
+  public var i32: Dictionary<Int32,Int64> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonSetInt64 {
+public struct CommonSetInt64 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var i64: Dictionary<Int64,Int64> = [:]
+  public var i64: Dictionary<Int64,Int64> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonSetString {
+public struct CommonSetString {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var str: Dictionary<String,Int64> = [:]
+  public var str: Dictionary<String,Int64> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -173,32 +173,32 @@ extension CommonSetString: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension CommonBaseResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BaseResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".BaseResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonBaseResponse, rhs: CommonBaseResponse) -> Bool {
+  public static func ==(lhs: CommonBaseResponse, rhs: CommonBaseResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CommonPage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Page"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Page"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "page"),
     2: .same(proto: "limit"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -211,7 +211,7 @@ extension CommonPage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.page != 0 {
       try visitor.visitSingularInt32Field(value: self.page, fieldNumber: 1)
     }
@@ -221,7 +221,7 @@ extension CommonPage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonPage, rhs: CommonPage) -> Bool {
+  public static func ==(lhs: CommonPage, rhs: CommonPage) -> Bool {
     if lhs.page != rhs.page {return false}
     if lhs.limit != rhs.limit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -230,13 +230,13 @@ extension CommonPage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 }
 
 extension CommonBatch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Batch"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Batch"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "offset"),
     2: .same(proto: "limit"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -249,7 +249,7 @@ extension CommonBatch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.offset != 0 {
       try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 1)
     }
@@ -259,7 +259,7 @@ extension CommonBatch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonBatch, rhs: CommonBatch) -> Bool {
+  public static func ==(lhs: CommonBatch, rhs: CommonBatch) -> Bool {
     if lhs.offset != rhs.offset {return false}
     if lhs.limit != rhs.limit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -268,12 +268,12 @@ extension CommonBatch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension CommonListInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListInt32"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListInt32"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i32"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -285,14 +285,14 @@ extension CommonListInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.i32.isEmpty {
       try visitor.visitPackedInt32Field(value: self.i32, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonListInt32, rhs: CommonListInt32) -> Bool {
+  public static func ==(lhs: CommonListInt32, rhs: CommonListInt32) -> Bool {
     if lhs.i32 != rhs.i32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -300,12 +300,12 @@ extension CommonListInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension CommonListInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListInt64"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListInt64"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i64"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -317,14 +317,14 @@ extension CommonListInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.i64.isEmpty {
       try visitor.visitPackedInt64Field(value: self.i64, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonListInt64, rhs: CommonListInt64) -> Bool {
+  public static func ==(lhs: CommonListInt64, rhs: CommonListInt64) -> Bool {
     if lhs.i64 != rhs.i64 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -332,12 +332,12 @@ extension CommonListInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension CommonListFloat32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListFloat32"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListFloat32"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "f32"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -349,14 +349,14 @@ extension CommonListFloat32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.f32.isEmpty {
       try visitor.visitPackedFloatField(value: self.f32, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonListFloat32, rhs: CommonListFloat32) -> Bool {
+  public static func ==(lhs: CommonListFloat32, rhs: CommonListFloat32) -> Bool {
     if lhs.f32 != rhs.f32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -364,12 +364,12 @@ extension CommonListFloat32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension CommonListFloat64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListFloat64"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListFloat64"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "f64"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -381,14 +381,14 @@ extension CommonListFloat64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.f64.isEmpty {
       try visitor.visitPackedDoubleField(value: self.f64, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonListFloat64, rhs: CommonListFloat64) -> Bool {
+  public static func ==(lhs: CommonListFloat64, rhs: CommonListFloat64) -> Bool {
     if lhs.f64 != rhs.f64 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -396,12 +396,12 @@ extension CommonListFloat64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension CommonListString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListString"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListString"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "str"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -413,14 +413,14 @@ extension CommonListString: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.str.isEmpty {
       try visitor.visitRepeatedStringField(value: self.str, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonListString, rhs: CommonListString) -> Bool {
+  public static func ==(lhs: CommonListString, rhs: CommonListString) -> Bool {
     if lhs.str != rhs.str {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -428,12 +428,12 @@ extension CommonListString: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension CommonSetInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SetInt32"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SetInt32"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i32"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -445,14 +445,14 @@ extension CommonSetInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.i32.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt64>.self, value: self.i32, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonSetInt32, rhs: CommonSetInt32) -> Bool {
+  public static func ==(lhs: CommonSetInt32, rhs: CommonSetInt32) -> Bool {
     if lhs.i32 != rhs.i32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -460,12 +460,12 @@ extension CommonSetInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension CommonSetInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SetInt64"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SetInt64"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i64"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -477,14 +477,14 @@ extension CommonSetInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.i64.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: self.i64, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonSetInt64, rhs: CommonSetInt64) -> Bool {
+  public static func ==(lhs: CommonSetInt64, rhs: CommonSetInt64) -> Bool {
     if lhs.i64 != rhs.i64 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -492,12 +492,12 @@ extension CommonSetInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension CommonSetString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SetString"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SetString"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "str"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -509,14 +509,14 @@ extension CommonSetString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.str.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufInt64>.self, value: self.str, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonSetString, rhs: CommonSetString) -> Bool {
+  public static func ==(lhs: CommonSetString, rhs: CommonSetString) -> Bool {
     if lhs.str != rhs.str {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

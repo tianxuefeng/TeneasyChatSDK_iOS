@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// 角色
-enum Api_Sentry_AuthRole: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Sentry_AuthRole: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 未授权
   case roleNone // = 0
@@ -46,11 +46,11 @@ enum Api_Sentry_AuthRole: SwiftProtobuf.Enum {
   case roleAdministrator // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .roleNone
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .roleNone
     case 1: self = .roleAnonymous
@@ -63,7 +63,7 @@ enum Api_Sentry_AuthRole: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .roleNone: return 0
     case .roleAnonymous: return 1
@@ -82,7 +82,7 @@ enum Api_Sentry_AuthRole: SwiftProtobuf.Enum {
 
 extension Api_Sentry_AuthRole: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Sentry_AuthRole] = [
+  public static var allCases: [Api_Sentry_AuthRole] = [
     .roleNone,
     .roleAnonymous,
     .roleCustomer,
@@ -95,91 +95,91 @@ extension Api_Sentry_AuthRole: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Api_Sentry_AuthToken {
+public struct Api_Sentry_AuthToken {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 商户id
-  var tenantID: Int32 = 0
+  public var tenantID: Int32 = 0
 
   /// 授权角色
-  var ownerRole: Api_Sentry_AuthRole = .roleNone
+  public var ownerRole: Api_Sentry_AuthRole = .roleNone
 
   /// 授权id
-  var ownerID: Int32 = 0
+  public var ownerID: Int32 = 0
 
   /// 会话id
-  var ownerSession: Int32 = 0
+  public var ownerSession: Int32 = 0
 
   /// 会话建立时间
-  var ownerSessionTime: Int64 = 0
+  public var ownerSessionTime: Int64 = 0
 
   /// 授权设备
-  var ownerDevice: Int64 = 0
+  public var ownerDevice: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Sentry_AuthRequest {
+public struct Api_Sentry_AuthRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: String = String()
+  public var path: String = String()
 
-  var ip: String = String()
+  public var ip: String = String()
 
-  var token: String = String()
+  public var token: String = String()
 
-  var auth: UInt32 = 0
+  public var auth: UInt32 = 0
 
-  var readonly: Bool = false
+  public var readonly: Bool = false
 
-  var qos: UInt32 = 0
+  public var qos: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Sentry_AuthResponse {
+public struct Api_Sentry_AuthResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var deviceType: CommonDeviceType = .system
+  public var deviceType: CommonDeviceType = .system
 
-  var userID: Int32 = 0
+  public var userID: Int32 = 0
 
-  var sessionID: Int32 = 0
+  public var sessionID: Int32 = 0
 
-  var deviceID: Int32 = 0
+  public var deviceID: Int32 = 0
 
-  var externalID: Int32 = 0
+  public var externalID: Int32 = 0
 
-  var uniqueID: Int64 = 0
+  public var uniqueID: Int64 = 0
 
-  var uniqueKey: Data = Data()
+  public var uniqueKey: Data = Data()
 
-  var isCommand: Bool = false
+  public var isCommand: Bool = false
 
-  var errCode: Int32 = 0
+  public var errCode: Int32 = 0
 
-  var errMsg: String = String()
+  public var errMsg: String = String()
 
-  var jwtToken: String = String()
+  public var jwtToken: String = String()
 
-  var cloudflareIp: String = String()
+  public var cloudflareIp: String = String()
 
   ///真实ip
-  var realIp: String = String()
+  public var realIp: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -194,7 +194,7 @@ extension Api_Sentry_AuthResponse: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.sentry"
 
 extension Api_Sentry_AuthRole: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ROLE_NONE"),
     1: .same(proto: "ROLE_ANONYMOUS"),
     2: .same(proto: "ROLE_CUSTOMER"),
@@ -206,8 +206,8 @@ extension Api_Sentry_AuthRole: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_Sentry_AuthToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AuthToken"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AuthToken"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "tenant_id"),
     2: .standard(proto: "owner_role"),
     3: .standard(proto: "owner_id"),
@@ -216,7 +216,7 @@ extension Api_Sentry_AuthToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     6: .standard(proto: "owner_device"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -233,7 +233,7 @@ extension Api_Sentry_AuthToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.tenantID != 0 {
       try visitor.visitSingularInt32Field(value: self.tenantID, fieldNumber: 1)
     }
@@ -255,7 +255,7 @@ extension Api_Sentry_AuthToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Sentry_AuthToken, rhs: Api_Sentry_AuthToken) -> Bool {
+  public static func ==(lhs: Api_Sentry_AuthToken, rhs: Api_Sentry_AuthToken) -> Bool {
     if lhs.tenantID != rhs.tenantID {return false}
     if lhs.ownerRole != rhs.ownerRole {return false}
     if lhs.ownerID != rhs.ownerID {return false}
@@ -268,8 +268,8 @@ extension Api_Sentry_AuthToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Api_Sentry_AuthRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AuthRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AuthRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .same(proto: "ip"),
     3: .same(proto: "token"),
@@ -278,7 +278,7 @@ extension Api_Sentry_AuthRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     6: .same(proto: "qos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -295,7 +295,7 @@ extension Api_Sentry_AuthRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularStringField(value: self.path, fieldNumber: 1)
     }
@@ -317,7 +317,7 @@ extension Api_Sentry_AuthRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Sentry_AuthRequest, rhs: Api_Sentry_AuthRequest) -> Bool {
+  public static func ==(lhs: Api_Sentry_AuthRequest, rhs: Api_Sentry_AuthRequest) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs.ip != rhs.ip {return false}
     if lhs.token != rhs.token {return false}
@@ -330,8 +330,8 @@ extension Api_Sentry_AuthRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Api_Sentry_AuthResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AuthResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AuthResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "device_type"),
     2: .standard(proto: "user_id"),
     3: .standard(proto: "session_id"),
@@ -347,7 +347,7 @@ extension Api_Sentry_AuthResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     13: .standard(proto: "real_ip"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -371,7 +371,7 @@ extension Api_Sentry_AuthResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.deviceType != .system {
       try visitor.visitSingularEnumField(value: self.deviceType, fieldNumber: 1)
     }
@@ -414,7 +414,7 @@ extension Api_Sentry_AuthResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Sentry_AuthResponse, rhs: Api_Sentry_AuthResponse) -> Bool {
+  public static func ==(lhs: Api_Sentry_AuthResponse, rhs: Api_Sentry_AuthResponse) -> Bool {
     if lhs.deviceType != rhs.deviceType {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.sessionID != rhs.sessionID {return false}

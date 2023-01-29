@@ -20,18 +20,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum CommonOperate: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonOperate: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case get // = 0
   case set // = 1
   case unSet // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .get
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .get
     case 1: self = .set
@@ -40,7 +40,7 @@ enum CommonOperate: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .get: return 0
     case .set: return 1
@@ -55,7 +55,7 @@ enum CommonOperate: SwiftProtobuf.Enum {
 
 extension CommonOperate: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonOperate] = [
+  public static var allCases: [CommonOperate] = [
     .get,
     .set,
     .unSet,
@@ -71,7 +71,7 @@ extension CommonOperate: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension CommonOperate: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "Get"),
     1: .same(proto: "Set"),
     2: .same(proto: "UnSet"),

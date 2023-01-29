@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum CommonChatState: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonChatState: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 一线任务
   case common // = 0
@@ -46,11 +46,11 @@ enum CommonChatState: SwiftProtobuf.Enum {
   case confirmed // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .common
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .common
     case 1: self = .transfer
@@ -63,7 +63,7 @@ enum CommonChatState: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .common: return 0
     case .transfer: return 1
@@ -82,7 +82,7 @@ enum CommonChatState: SwiftProtobuf.Enum {
 
 extension CommonChatState: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonChatState] = [
+  public static var allCases: [CommonChatState] = [
     .common,
     .transfer,
     .unprocessed3Min,
@@ -96,8 +96,8 @@ extension CommonChatState: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 消息类型
-enum CommonMessageFormat: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonMessageFormat: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 文本
   case msgText // = 0
@@ -118,11 +118,11 @@ enum CommonMessageFormat: SwiftProtobuf.Enum {
   case msgFile // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .msgText
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .msgText
     case 1: self = .msgImg
@@ -134,7 +134,7 @@ enum CommonMessageFormat: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .msgText: return 0
     case .msgImg: return 1
@@ -152,7 +152,7 @@ enum CommonMessageFormat: SwiftProtobuf.Enum {
 
 extension CommonMessageFormat: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonMessageFormat] = [
+  public static var allCases: [CommonMessageFormat] = [
     .msgText,
     .msgImg,
     .msgVoice,
@@ -165,8 +165,8 @@ extension CommonMessageFormat: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 消息拥有者角色
-enum CommonMessageRole: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonMessageRole: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 系统服务
   case msgRoleSystem // = 0
@@ -181,11 +181,11 @@ enum CommonMessageRole: SwiftProtobuf.Enum {
   case msgRoleAnonymous // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .msgRoleSystem
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .msgRoleSystem
     case 1: self = .msgRoleWorker
@@ -195,7 +195,7 @@ enum CommonMessageRole: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .msgRoleSystem: return 0
     case .msgRoleWorker: return 1
@@ -211,7 +211,7 @@ enum CommonMessageRole: SwiftProtobuf.Enum {
 
 extension CommonMessageRole: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonMessageRole] = [
+  public static var allCases: [CommonMessageRole] = [
     .msgRoleSystem,
     .msgRoleWorker,
     .msgRoleCustomer,
@@ -221,8 +221,8 @@ extension CommonMessageRole: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum CommonMessageOperate: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CommonMessageOperate: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// (默认)发送
   case msgOpPost // = 0
@@ -234,11 +234,11 @@ enum CommonMessageOperate: SwiftProtobuf.Enum {
   case msgOpDelete // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .msgOpPost
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .msgOpPost
     case 1: self = .msgOpEdit
@@ -247,7 +247,7 @@ enum CommonMessageOperate: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .msgOpPost: return 0
     case .msgOpEdit: return 1
@@ -262,7 +262,7 @@ enum CommonMessageOperate: SwiftProtobuf.Enum {
 
 extension CommonMessageOperate: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CommonMessageOperate] = [
+  public static var allCases: [CommonMessageOperate] = [
     .msgOpPost,
     .msgOpEdit,
     .msgOpDelete,
@@ -272,111 +272,111 @@ extension CommonMessageOperate: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 文本消息内容
-struct CommonMessageContent {
+public struct CommonMessageContent {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 内容
-  var data: String = String()
+  public var data: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 图片
-struct CommonMessageImage {
+public struct CommonMessageImage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 不包括host部分
-  var uri: String = String()
+  public var uri: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 音频
-struct CommonMessageAudio {
+public struct CommonMessageAudio {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 不包括host部分
-  var uri: String = String()
+  public var uri: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 视频
-struct CommonMessageVideo {
+public struct CommonMessageVideo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 不包括host部分
-  var uri: String = String()
+  public var uri: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 地理位置
-struct CommonMessageGeo {
+public struct CommonMessageGeo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var longitude: String = String()
+  public var longitude: String = String()
 
-  var latitude: String = String()
+  public var latitude: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 文件
-struct CommonMessageFile {
+public struct CommonMessageFile {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 不包括host部分
-  var uri: String = String()
+  public var uri: String = String()
 
   /// 文件名, 去掉目录部分
-  var fileName: String = String()
+  public var fileName: String = String()
 
   /// 文件大小
-  var size: Int32 = 0
+  public var size: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonMessageKey {
+public struct CommonMessageKey {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
-  var msgID: Int64 = 0
+  public var msgID: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CommonMessage {
+public struct CommonMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -386,37 +386,37 @@ struct CommonMessage {
   /// 对于终端用户(h5, web), 无视此字段(服务端填入)
   /// 对于客服(pc), 发消息时填对应会话的id
   /// 对于持久化, 可作为 分区 id
-  var chatID: Int64 = 0
+  public var chatID: Int64 = 0
 
   /// 消息id, 服务端分配
-  var msgID: Int64 = 0
+  public var msgID: Int64 = 0
 
   /// 消息发送时间, 服务端分配
-  var msgTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var msgTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _msgTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_msgTime = newValue}
   }
   /// Returns true if `msgTime` has been explicitly set.
-  var hasMsgTime: Bool {return self._msgTime != nil}
+  public var hasMsgTime: Bool {return self._msgTime != nil}
   /// Clears the value of `msgTime`. Subsequent reads from it will return its default value.
-  mutating func clearMsgTime() {self._msgTime = nil}
+  public mutating func clearMsgTime() {self._msgTime = nil}
 
   /// 发送人, 服务端记录
   /// 发送人为0 = 系统消息
-  var sender: Int64 = 0
+  public var sender: Int64 = 0
 
   /// 回复消息
-  var replyMsgID: Int64 = 0
+  public var replyMsgID: Int64 = 0
 
   /// 消息操作人
-  var msgOp: CommonMessageOperate = .msgOpPost
+  public var msgOp: CommonMessageOperate = .msgOpPost
 
   /// 分配客服id
-  var worker: Int32 = 0
+  public var worker: Int32 = 0
 
-  var payload: CommonMessage.OneOf_Payload? = nil
+  public var payload: CommonMessage.OneOf_Payload? = nil
 
-  var content: CommonMessageContent {
+  public var content: CommonMessageContent {
     get {
       if case .content(let v)? = payload {return v}
       return CommonMessageContent()
@@ -424,7 +424,7 @@ struct CommonMessage {
     set {payload = .content(newValue)}
   }
 
-  var image: CommonMessageImage {
+  public var image: CommonMessageImage {
     get {
       if case .image(let v)? = payload {return v}
       return CommonMessageImage()
@@ -432,7 +432,7 @@ struct CommonMessage {
     set {payload = .image(newValue)}
   }
 
-  var audio: CommonMessageAudio {
+  public var audio: CommonMessageAudio {
     get {
       if case .audio(let v)? = payload {return v}
       return CommonMessageAudio()
@@ -440,7 +440,7 @@ struct CommonMessage {
     set {payload = .audio(newValue)}
   }
 
-  var video: CommonMessageVideo {
+  public var video: CommonMessageVideo {
     get {
       if case .video(let v)? = payload {return v}
       return CommonMessageVideo()
@@ -448,7 +448,7 @@ struct CommonMessage {
     set {payload = .video(newValue)}
   }
 
-  var geo: CommonMessageGeo {
+  public var geo: CommonMessageGeo {
     get {
       if case .geo(let v)? = payload {return v}
       return CommonMessageGeo()
@@ -456,7 +456,7 @@ struct CommonMessage {
     set {payload = .geo(newValue)}
   }
 
-  var file: CommonMessageFile {
+  public var file: CommonMessageFile {
     get {
       if case .file(let v)? = payload {return v}
       return CommonMessageFile()
@@ -465,7 +465,7 @@ struct CommonMessage {
   }
 
   /// 已转接至客服 xxx
-  var workerTrans: CommonWorkerTransfer {
+  public var workerTrans: CommonWorkerTransfer {
     get {
       if case .workerTrans(let v)? = payload {return v}
       return CommonWorkerTransfer()
@@ -474,7 +474,7 @@ struct CommonMessage {
   }
 
   /// 请求将此会话拉入黑名单
-  var blacklistApply: CommonBlackListApply {
+  public var blacklistApply: CommonBlackListApply {
     get {
       if case .blacklistApply(let v)? = payload {return v}
       return CommonBlackListApply()
@@ -483,7 +483,7 @@ struct CommonMessage {
   }
 
   /// 确认拉入黑名单
-  var blacklistConfirm: CommonBlackListConfirm {
+  public var blacklistConfirm: CommonBlackListConfirm {
     get {
       if case .blacklistConfirm(let v)? = payload {return v}
       return CommonBlackListConfirm()
@@ -491,9 +491,9 @@ struct CommonMessage {
     set {payload = .blacklistConfirm(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Payload: Equatable {
+  public enum OneOf_Payload: Equatable {
     case content(CommonMessageContent)
     case image(CommonMessageImage)
     case audio(CommonMessageAudio)
@@ -508,7 +508,7 @@ struct CommonMessage {
     case blacklistConfirm(CommonBlackListConfirm)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CommonMessage.OneOf_Payload, rhs: CommonMessage.OneOf_Payload) -> Bool {
+    public static func ==(lhs: CommonMessage.OneOf_Payload, rhs: CommonMessage.OneOf_Payload) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -555,54 +555,54 @@ struct CommonMessage {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _msgTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-struct CommonWorkerTransfer {
+public struct CommonWorkerTransfer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var workerID: Int32 = 0
+  public var workerID: Int32 = 0
 
-  var workerName: String = String()
+  public var workerName: String = String()
 
-  var workerAvatar: String = String()
+  public var workerAvatar: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 请求拉入黑名单
-struct CommonBlackListApply {
+public struct CommonBlackListApply {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 目标客服
   /// 目标客服 需有 操作黑名单权限
-  var workerID: Int32 = 0
+  public var workerID: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// 确认拉入黑名单
-struct CommonBlackListConfirm {
+public struct CommonBlackListConfirm {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 操作客服
-  var workerID: Int32 = 0
+  public var workerID: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -629,7 +629,7 @@ extension CommonBlackListConfirm: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension CommonChatState: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CHAT_STATE_COMMON"),
     1: .same(proto: "CHAT_STATE_TRANSFER"),
     2: .same(proto: "CHAT_STATE_UNPROCESSED_3MIN"),
@@ -641,7 +641,7 @@ extension CommonChatState: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonMessageFormat: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MSG_TEXT"),
     1: .same(proto: "MSG_IMG"),
     2: .same(proto: "MSG_VOICE"),
@@ -652,7 +652,7 @@ extension CommonMessageFormat: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonMessageRole: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MSG_ROLE_SYSTEM"),
     1: .same(proto: "MSG_ROLE_WORKER"),
     2: .same(proto: "MSG_ROLE_CUSTOMER"),
@@ -661,7 +661,7 @@ extension CommonMessageRole: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonMessageOperate: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MSG_OP_POST"),
     1: .same(proto: "MSG_OP_EDIT"),
     2: .same(proto: "MSG_OP_DELETE"),
@@ -669,12 +669,12 @@ extension CommonMessageOperate: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CommonMessageContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageContent"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageContent"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -686,14 +686,14 @@ extension CommonMessageContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.data.isEmpty {
       try visitor.visitSingularStringField(value: self.data, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageContent, rhs: CommonMessageContent) -> Bool {
+  public static func ==(lhs: CommonMessageContent, rhs: CommonMessageContent) -> Bool {
     if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -701,12 +701,12 @@ extension CommonMessageContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension CommonMessageImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageImage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageImage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uri"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -718,14 +718,14 @@ extension CommonMessageImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uri.isEmpty {
       try visitor.visitSingularStringField(value: self.uri, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageImage, rhs: CommonMessageImage) -> Bool {
+  public static func ==(lhs: CommonMessageImage, rhs: CommonMessageImage) -> Bool {
     if lhs.uri != rhs.uri {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -733,12 +733,12 @@ extension CommonMessageImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension CommonMessageAudio: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageAudio"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageAudio"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uri"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -750,14 +750,14 @@ extension CommonMessageAudio: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uri.isEmpty {
       try visitor.visitSingularStringField(value: self.uri, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageAudio, rhs: CommonMessageAudio) -> Bool {
+  public static func ==(lhs: CommonMessageAudio, rhs: CommonMessageAudio) -> Bool {
     if lhs.uri != rhs.uri {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -765,12 +765,12 @@ extension CommonMessageAudio: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension CommonMessageVideo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageVideo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageVideo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uri"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -782,14 +782,14 @@ extension CommonMessageVideo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uri.isEmpty {
       try visitor.visitSingularStringField(value: self.uri, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageVideo, rhs: CommonMessageVideo) -> Bool {
+  public static func ==(lhs: CommonMessageVideo, rhs: CommonMessageVideo) -> Bool {
     if lhs.uri != rhs.uri {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -797,13 +797,13 @@ extension CommonMessageVideo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension CommonMessageGeo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageGeo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageGeo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "longitude"),
     2: .same(proto: "latitude"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -816,7 +816,7 @@ extension CommonMessageGeo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.longitude.isEmpty {
       try visitor.visitSingularStringField(value: self.longitude, fieldNumber: 1)
     }
@@ -826,7 +826,7 @@ extension CommonMessageGeo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageGeo, rhs: CommonMessageGeo) -> Bool {
+  public static func ==(lhs: CommonMessageGeo, rhs: CommonMessageGeo) -> Bool {
     if lhs.longitude != rhs.longitude {return false}
     if lhs.latitude != rhs.latitude {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -835,14 +835,14 @@ extension CommonMessageGeo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension CommonMessageFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageFile"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageFile"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uri"),
     2: .standard(proto: "file_name"),
     3: .same(proto: "size"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -856,7 +856,7 @@ extension CommonMessageFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uri.isEmpty {
       try visitor.visitSingularStringField(value: self.uri, fieldNumber: 1)
     }
@@ -869,7 +869,7 @@ extension CommonMessageFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageFile, rhs: CommonMessageFile) -> Bool {
+  public static func ==(lhs: CommonMessageFile, rhs: CommonMessageFile) -> Bool {
     if lhs.uri != rhs.uri {return false}
     if lhs.fileName != rhs.fileName {return false}
     if lhs.size != rhs.size {return false}
@@ -879,13 +879,13 @@ extension CommonMessageFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension CommonMessageKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageKey"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageKey"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .standard(proto: "msg_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -898,7 +898,7 @@ extension CommonMessageKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.chatID != 0 {
       try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
     }
@@ -908,7 +908,7 @@ extension CommonMessageKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessageKey, rhs: CommonMessageKey) -> Bool {
+  public static func ==(lhs: CommonMessageKey, rhs: CommonMessageKey) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -917,8 +917,8 @@ extension CommonMessageKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Message"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Message"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chat_id"),
     2: .standard(proto: "msg_id"),
     3: .standard(proto: "msg_time"),
@@ -937,7 +937,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     108: .standard(proto: "blacklist_confirm"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1072,7 +1072,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1140,7 +1140,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonMessage, rhs: CommonMessage) -> Bool {
+  public static func ==(lhs: CommonMessage, rhs: CommonMessage) -> Bool {
     if lhs.chatID != rhs.chatID {return false}
     if lhs.msgID != rhs.msgID {return false}
     if lhs._msgTime != rhs._msgTime {return false}
@@ -1155,14 +1155,14 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 }
 
 extension CommonWorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerTransfer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerTransfer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "worker_id"),
     2: .standard(proto: "worker_name"),
     3: .standard(proto: "worker_avatar"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1176,7 +1176,7 @@ extension CommonWorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.workerID != 0 {
       try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 1)
     }
@@ -1189,7 +1189,7 @@ extension CommonWorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonWorkerTransfer, rhs: CommonWorkerTransfer) -> Bool {
+  public static func ==(lhs: CommonWorkerTransfer, rhs: CommonWorkerTransfer) -> Bool {
     if lhs.workerID != rhs.workerID {return false}
     if lhs.workerName != rhs.workerName {return false}
     if lhs.workerAvatar != rhs.workerAvatar {return false}
@@ -1199,12 +1199,12 @@ extension CommonWorkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension CommonBlackListApply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BlackListApply"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BlackListApply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "worker_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1216,14 +1216,14 @@ extension CommonBlackListApply: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.workerID != 0 {
       try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonBlackListApply, rhs: CommonBlackListApply) -> Bool {
+  public static func ==(lhs: CommonBlackListApply, rhs: CommonBlackListApply) -> Bool {
     if lhs.workerID != rhs.workerID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1231,12 +1231,12 @@ extension CommonBlackListApply: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension CommonBlackListConfirm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BlackListConfirm"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BlackListConfirm"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "worker_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1248,14 +1248,14 @@ extension CommonBlackListConfirm: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.workerID != 0 {
       try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonBlackListConfirm, rhs: CommonBlackListConfirm) -> Bool {
+  public static func ==(lhs: CommonBlackListConfirm, rhs: CommonBlackListConfirm) -> Bool {
     if lhs.workerID != rhs.workerID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

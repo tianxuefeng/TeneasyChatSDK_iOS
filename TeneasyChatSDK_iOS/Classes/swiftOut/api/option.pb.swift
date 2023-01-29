@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Api_AuthenticationRole: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_AuthenticationRole: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case authRoleNone // = 0
 
   /// require account id
@@ -43,11 +43,11 @@ enum Api_AuthenticationRole: SwiftProtobuf.Enum {
   case authRoleAdmin // = 32
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .authRoleNone
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .authRoleNone
     case 1: self = .authRoleAccount
@@ -60,7 +60,7 @@ enum Api_AuthenticationRole: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .authRoleNone: return 0
     case .authRoleAccount: return 1
@@ -79,7 +79,7 @@ enum Api_AuthenticationRole: SwiftProtobuf.Enum {
 
 extension Api_AuthenticationRole: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_AuthenticationRole] = [
+  public static var allCases: [Api_AuthenticationRole] = [
     .authRoleNone,
     .authRoleAccount,
     .authRoleDevice,
@@ -92,17 +92,17 @@ extension Api_AuthenticationRole: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_PayloadType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_PayloadType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case jsonPayload // = 0
   case binaryPayload // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .jsonPayload
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .jsonPayload
     case 1: self = .binaryPayload
@@ -110,7 +110,7 @@ enum Api_PayloadType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .jsonPayload: return 0
     case .binaryPayload: return 1
@@ -124,7 +124,7 @@ enum Api_PayloadType: SwiftProtobuf.Enum {
 
 extension Api_PayloadType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_PayloadType] = [
+  public static var allCases: [Api_PayloadType] = [
     .jsonPayload,
     .binaryPayload,
   ]
@@ -132,95 +132,95 @@ extension Api_PayloadType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Api_Payload {
+public struct Api_Payload {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var type: Api_PayloadType = .jsonPayload
+  public var type: Api_PayloadType = .jsonPayload
 
-  var examples: [Api_Example] = []
+  public var examples: [Api_Example] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_ExternalDocumentation {
+public struct Api_ExternalDocumentation {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var description_p: String {
+  public var description_p: String {
     get {return _description_p ?? String()}
     set {_description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  var hasDescription_p: Bool {return self._description_p != nil}
+  public var hasDescription_p: Bool {return self._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
-  mutating func clearDescription_p() {self._description_p = nil}
+  public mutating func clearDescription_p() {self._description_p = nil}
 
-  var url: String {
+  public var url: String {
     get {return _url ?? String()}
     set {_url = newValue}
   }
   /// Returns true if `url` has been explicitly set.
-  var hasURL: Bool {return self._url != nil}
+  public var hasURL: Bool {return self._url != nil}
   /// Clears the value of `url`. Subsequent reads from it will return its default value.
-  mutating func clearURL() {self._url = nil}
+  public mutating func clearURL() {self._url = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _description_p: String? = nil
   fileprivate var _url: String? = nil
 }
 
-struct Api_Example {
+public struct Api_Example {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var summary: String {
+  public var summary: String {
     get {return _summary ?? String()}
     set {_summary = newValue}
   }
   /// Returns true if `summary` has been explicitly set.
-  var hasSummary: Bool {return self._summary != nil}
+  public var hasSummary: Bool {return self._summary != nil}
   /// Clears the value of `summary`. Subsequent reads from it will return its default value.
-  mutating func clearSummary() {self._summary = nil}
+  public mutating func clearSummary() {self._summary = nil}
 
-  var description_p: String {
+  public var description_p: String {
     get {return _description_p ?? String()}
     set {_description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  var hasDescription_p: Bool {return self._description_p != nil}
+  public var hasDescription_p: Bool {return self._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
-  mutating func clearDescription_p() {self._description_p = nil}
+  public mutating func clearDescription_p() {self._description_p = nil}
 
-  var value: String {
+  public var value: String {
     get {return _value ?? String()}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
-  var hasValue: Bool {return self._value != nil}
+  public var hasValue: Bool {return self._value != nil}
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
-  mutating func clearValue() {self._value = nil}
+  public mutating func clearValue() {self._value = nil}
 
-  var externalValue: String {
+  public var externalValue: String {
     get {return _externalValue ?? String()}
     set {_externalValue = newValue}
   }
   /// Returns true if `externalValue` has been explicitly set.
-  var hasExternalValue: Bool {return self._externalValue != nil}
+  public var hasExternalValue: Bool {return self._externalValue != nil}
   /// Clears the value of `externalValue`. Subsequent reads from it will return its default value.
-  mutating func clearExternalValue() {self._externalValue = nil}
+  public mutating func clearExternalValue() {self._externalValue = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _summary: String? = nil
   fileprivate var _description_p: String? = nil
@@ -229,109 +229,109 @@ struct Api_Example {
 }
 
 /// 表示方法请求以及响应操作的是一个数据集合
-struct Api_MessageCache {
+public struct Api_MessageCache {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 元素集合名称， 例如: group_members。 如果api需要写入数据库，可以省略name属性
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
   /// 请求以及响应中的元素集合id field, 与name组合后可以作为缓存key，分布式事务锁。 如果不设置则使用当前登陆用户id
-  var id: String {
+  public var id: String {
     get {return _id ?? String()}
     set {_id = newValue}
   }
   /// Returns true if `id` has been explicitly set.
-  var hasID: Bool {return self._id != nil}
+  public var hasID: Bool {return self._id != nil}
   /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  mutating func clearID() {self._id = nil}
+  public mutating func clearID() {self._id = nil}
 
   /// 请求及响应的的元素集合tag field, 用来作为缓存的版本号
-  var tag: String {
+  public var tag: String {
     get {return _tag ?? String()}
     set {_tag = newValue}
   }
   /// Returns true if `tag` has been explicitly set.
-  var hasTag: Bool {return self._tag != nil}
+  public var hasTag: Bool {return self._tag != nil}
   /// Clears the value of `tag`. Subsequent reads from it will return its default value.
-  mutating func clearTag() {self._tag = nil}
+  public mutating func clearTag() {self._tag = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
   fileprivate var _id: String? = nil
   fileprivate var _tag: String? = nil
 }
 
-struct Api_InfoOptions {
+public struct Api_InfoOptions {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var appID: String {
+  public var appID: String {
     get {return _appID ?? String()}
     set {_appID = newValue}
   }
   /// Returns true if `appID` has been explicitly set.
-  var hasAppID: Bool {return self._appID != nil}
+  public var hasAppID: Bool {return self._appID != nil}
   /// Clears the value of `appID`. Subsequent reads from it will return its default value.
-  mutating func clearAppID() {self._appID = nil}
+  public mutating func clearAppID() {self._appID = nil}
 
-  var authors: [String] = []
+  public var authors: [String] = []
 
-  var inheritAuthors: Bool {
+  public var inheritAuthors: Bool {
     get {return _inheritAuthors ?? false}
     set {_inheritAuthors = newValue}
   }
   /// Returns true if `inheritAuthors` has been explicitly set.
-  var hasInheritAuthors: Bool {return self._inheritAuthors != nil}
+  public var hasInheritAuthors: Bool {return self._inheritAuthors != nil}
   /// Clears the value of `inheritAuthors`. Subsequent reads from it will return its default value.
-  mutating func clearInheritAuthors() {self._inheritAuthors = nil}
+  public mutating func clearInheritAuthors() {self._inheritAuthors = nil}
 
-  var date: String {
+  public var date: String {
     get {return _date ?? String()}
     set {_date = newValue}
   }
   /// Returns true if `date` has been explicitly set.
-  var hasDate: Bool {return self._date != nil}
+  public var hasDate: Bool {return self._date != nil}
   /// Clears the value of `date`. Subsequent reads from it will return its default value.
-  mutating func clearDate() {self._date = nil}
+  public mutating func clearDate() {self._date = nil}
 
-  var tags: [String] = []
+  public var tags: [String] = []
 
-  var auth: [Api_AuthenticationRole] = []
+  public var auth: [Api_AuthenticationRole] = []
 
-  var path: String {
+  public var path: String {
     get {return _path ?? String()}
     set {_path = newValue}
   }
   /// Returns true if `path` has been explicitly set.
-  var hasPath: Bool {return self._path != nil}
+  public var hasPath: Bool {return self._path != nil}
   /// Clears the value of `path`. Subsequent reads from it will return its default value.
-  mutating func clearPath() {self._path = nil}
+  public mutating func clearPath() {self._path = nil}
 
-  var qos: Int32 {
+  public var qos: Int32 {
     get {return _qos ?? 0}
     set {_qos = newValue}
   }
   /// Returns true if `qos` has been explicitly set.
-  var hasQos: Bool {return self._qos != nil}
+  public var hasQos: Bool {return self._qos != nil}
   /// Clears the value of `qos`. Subsequent reads from it will return its default value.
-  mutating func clearQos() {self._qos = nil}
+  public mutating func clearQos() {self._qos = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _appID: String? = nil
   fileprivate var _inheritAuthors: Bool? = nil
@@ -340,74 +340,74 @@ struct Api_InfoOptions {
   fileprivate var _qos: Int32? = nil
 }
 
-struct Api_ServiceOptions {
+public struct Api_ServiceOptions {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var summary: String {
+  public var summary: String {
     get {return _summary ?? String()}
     set {_summary = newValue}
   }
   /// Returns true if `summary` has been explicitly set.
-  var hasSummary: Bool {return self._summary != nil}
+  public var hasSummary: Bool {return self._summary != nil}
   /// Clears the value of `summary`. Subsequent reads from it will return its default value.
-  mutating func clearSummary() {self._summary = nil}
+  public mutating func clearSummary() {self._summary = nil}
 
-  var authors: [String] = []
+  public var authors: [String] = []
 
-  var inheritAuthors: Bool {
+  public var inheritAuthors: Bool {
     get {return _inheritAuthors ?? false}
     set {_inheritAuthors = newValue}
   }
   /// Returns true if `inheritAuthors` has been explicitly set.
-  var hasInheritAuthors: Bool {return self._inheritAuthors != nil}
+  public var hasInheritAuthors: Bool {return self._inheritAuthors != nil}
   /// Clears the value of `inheritAuthors`. Subsequent reads from it will return its default value.
-  mutating func clearInheritAuthors() {self._inheritAuthors = nil}
+  public mutating func clearInheritAuthors() {self._inheritAuthors = nil}
 
-  var date: String {
+  public var date: String {
     get {return _date ?? String()}
     set {_date = newValue}
   }
   /// Returns true if `date` has been explicitly set.
-  var hasDate: Bool {return self._date != nil}
+  public var hasDate: Bool {return self._date != nil}
   /// Clears the value of `date`. Subsequent reads from it will return its default value.
-  mutating func clearDate() {self._date = nil}
+  public mutating func clearDate() {self._date = nil}
 
-  var tags: [String] = []
+  public var tags: [String] = []
 
-  var auth: [Api_AuthenticationRole] = []
+  public var auth: [Api_AuthenticationRole] = []
 
-  var path: String {
+  public var path: String {
     get {return _path ?? String()}
     set {_path = newValue}
   }
   /// Returns true if `path` has been explicitly set.
-  var hasPath: Bool {return self._path != nil}
+  public var hasPath: Bool {return self._path != nil}
   /// Clears the value of `path`. Subsequent reads from it will return its default value.
-  mutating func clearPath() {self._path = nil}
+  public mutating func clearPath() {self._path = nil}
 
-  var qos: Int32 {
+  public var qos: Int32 {
     get {return _qos ?? 0}
     set {_qos = newValue}
   }
   /// Returns true if `qos` has been explicitly set.
-  var hasQos: Bool {return self._qos != nil}
+  public var hasQos: Bool {return self._qos != nil}
   /// Clears the value of `qos`. Subsequent reads from it will return its default value.
-  mutating func clearQos() {self._qos = nil}
+  public mutating func clearQos() {self._qos = nil}
 
-  var cache: Api_MessageCache {
+  public var cache: Api_MessageCache {
     get {return _cache ?? Api_MessageCache()}
     set {_cache = newValue}
   }
   /// Returns true if `cache` has been explicitly set.
-  var hasCache: Bool {return self._cache != nil}
+  public var hasCache: Bool {return self._cache != nil}
   /// Clears the value of `cache`. Subsequent reads from it will return its default value.
-  mutating func clearCache() {self._cache = nil}
+  public mutating func clearCache() {self._cache = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _summary: String? = nil
   fileprivate var _inheritAuthors: Bool? = nil
@@ -417,345 +417,345 @@ struct Api_ServiceOptions {
   fileprivate var _cache: Api_MessageCache? = nil
 }
 
-struct Api_MethodOptions {
+public struct Api_MethodOptions {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 每服务唯一的方法ID， 最大值 8191
-  var id: UInt32 {
+  public var id: UInt32 {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
-  var summary: String {
+  public var summary: String {
     get {return _storage._summary ?? String()}
     set {_uniqueStorage()._summary = newValue}
   }
   /// Returns true if `summary` has been explicitly set.
-  var hasSummary: Bool {return _storage._summary != nil}
+  public var hasSummary: Bool {return _storage._summary != nil}
   /// Clears the value of `summary`. Subsequent reads from it will return its default value.
-  mutating func clearSummary() {_uniqueStorage()._summary = nil}
+  public mutating func clearSummary() {_uniqueStorage()._summary = nil}
 
   /// api开发完成可测试后设置为true
-  var ready: Bool {
+  public var ready: Bool {
     get {return _storage._ready ?? false}
     set {_uniqueStorage()._ready = newValue}
   }
   /// Returns true if `ready` has been explicitly set.
-  var hasReady: Bool {return _storage._ready != nil}
+  public var hasReady: Bool {return _storage._ready != nil}
   /// Clears the value of `ready`. Subsequent reads from it will return its default value.
-  mutating func clearReady() {_uniqueStorage()._ready = nil}
+  public mutating func clearReady() {_uniqueStorage()._ready = nil}
 
-  var authors: [String] {
+  public var authors: [String] {
     get {return _storage._authors}
     set {_uniqueStorage()._authors = newValue}
   }
 
-  var inheritAuthors: Bool {
+  public var inheritAuthors: Bool {
     get {return _storage._inheritAuthors ?? false}
     set {_uniqueStorage()._inheritAuthors = newValue}
   }
   /// Returns true if `inheritAuthors` has been explicitly set.
-  var hasInheritAuthors: Bool {return _storage._inheritAuthors != nil}
+  public var hasInheritAuthors: Bool {return _storage._inheritAuthors != nil}
   /// Clears the value of `inheritAuthors`. Subsequent reads from it will return its default value.
-  mutating func clearInheritAuthors() {_uniqueStorage()._inheritAuthors = nil}
+  public mutating func clearInheritAuthors() {_uniqueStorage()._inheritAuthors = nil}
 
-  var date: String {
+  public var date: String {
     get {return _storage._date ?? String()}
     set {_uniqueStorage()._date = newValue}
   }
   /// Returns true if `date` has been explicitly set.
-  var hasDate: Bool {return _storage._date != nil}
+  public var hasDate: Bool {return _storage._date != nil}
   /// Clears the value of `date`. Subsequent reads from it will return its default value.
-  mutating func clearDate() {_uniqueStorage()._date = nil}
+  public mutating func clearDate() {_uniqueStorage()._date = nil}
 
-  var tags: [String] {
+  public var tags: [String] {
     get {return _storage._tags}
     set {_uniqueStorage()._tags = newValue}
   }
 
-  var auth: [Api_AuthenticationRole] {
+  public var auth: [Api_AuthenticationRole] {
     get {return _storage._auth}
     set {_uniqueStorage()._auth = newValue}
   }
 
-  var path: String {
+  public var path: String {
     get {return _storage._path ?? String()}
     set {_uniqueStorage()._path = newValue}
   }
   /// Returns true if `path` has been explicitly set.
-  var hasPath: Bool {return _storage._path != nil}
+  public var hasPath: Bool {return _storage._path != nil}
   /// Clears the value of `path`. Subsequent reads from it will return its default value.
-  mutating func clearPath() {_uniqueStorage()._path = nil}
+  public mutating func clearPath() {_uniqueStorage()._path = nil}
 
-  var qos: Int32 {
+  public var qos: Int32 {
     get {return _storage._qos ?? 0}
     set {_uniqueStorage()._qos = newValue}
   }
   /// Returns true if `qos` has been explicitly set.
-  var hasQos: Bool {return _storage._qos != nil}
+  public var hasQos: Bool {return _storage._qos != nil}
   /// Clears the value of `qos`. Subsequent reads from it will return its default value.
-  mutating func clearQos() {_uniqueStorage()._qos = nil}
+  public mutating func clearQos() {_uniqueStorage()._qos = nil}
 
-  var cache: Api_MessageCache {
+  public var cache: Api_MessageCache {
     get {return _storage._cache ?? Api_MessageCache()}
     set {_uniqueStorage()._cache = newValue}
   }
   /// Returns true if `cache` has been explicitly set.
-  var hasCache: Bool {return _storage._cache != nil}
+  public var hasCache: Bool {return _storage._cache != nil}
   /// Clears the value of `cache`. Subsequent reads from it will return its default value.
-  mutating func clearCache() {_uniqueStorage()._cache = nil}
+  public mutating func clearCache() {_uniqueStorage()._cache = nil}
 
-  var readonly: Bool {
+  public var readonly: Bool {
     get {return _storage._readonly ?? false}
     set {_uniqueStorage()._readonly = newValue}
   }
   /// Returns true if `readonly` has been explicitly set.
-  var hasReadonly: Bool {return _storage._readonly != nil}
+  public var hasReadonly: Bool {return _storage._readonly != nil}
   /// Clears the value of `readonly`. Subsequent reads from it will return its default value.
-  mutating func clearReadonly() {_uniqueStorage()._readonly = nil}
+  public mutating func clearReadonly() {_uniqueStorage()._readonly = nil}
 
-  var `in`: Api_Payload {
+  public var `in`: Api_Payload {
     get {return _storage._in ?? Api_Payload()}
     set {_uniqueStorage()._in = newValue}
   }
   /// Returns true if ``in`` has been explicitly set.
-  var hasIn: Bool {return _storage._in != nil}
+  public var hasIn: Bool {return _storage._in != nil}
   /// Clears the value of ``in``. Subsequent reads from it will return its default value.
-  mutating func clearIn() {_uniqueStorage()._in = nil}
+  public mutating func clearIn() {_uniqueStorage()._in = nil}
 
-  var out: Api_Payload {
+  public var out: Api_Payload {
     get {return _storage._out ?? Api_Payload()}
     set {_uniqueStorage()._out = newValue}
   }
   /// Returns true if `out` has been explicitly set.
-  var hasOut: Bool {return _storage._out != nil}
+  public var hasOut: Bool {return _storage._out != nil}
   /// Clears the value of `out`. Subsequent reads from it will return its default value.
-  mutating func clearOut() {_uniqueStorage()._out = nil}
+  public mutating func clearOut() {_uniqueStorage()._out = nil}
 
-  var docs: [Api_ExternalDocumentation] {
+  public var docs: [Api_ExternalDocumentation] {
     get {return _storage._docs}
     set {_uniqueStorage()._docs = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Api_PubSubOptions {
+public struct Api_PubSubOptions {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 业务中不指定pubsubName时使用的默认值
   /// 如果为空则使用service name
-  var name: String = String()
+  public var name: String = String()
 
   /// 指定topic, 默认使用name.{method name}
-  var topic: String = String()
+  public var topic: String = String()
 
   /// 指定route path, 默认使用"/${service name}/${method name}"
-  var route: String = String()
+  public var route: String = String()
 
   /// 当执行失败时是否重试
-  var retry: Bool = false
+  public var retry: Bool = false
 
   /// 指定content_type, 默认"application/json"
-  var contentType: String = String()
+  public var contentType: String = String()
 
   /// CEL格式的表达式, 用来筛选订阅
-  var match: String = String()
+  public var match: String = String()
 
   /// 优先级, 尚未实现
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
   /// DisableTopicValidation allows to receive events from publisher topics that differ from the subscribed topic.
-  var disableTopicValidation: Bool = false
+  public var disableTopicValidation: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_MessageOptions {
+public struct Api_MessageOptions {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var summary: String {
+  public var summary: String {
     get {return _summary ?? String()}
     set {_summary = newValue}
   }
   /// Returns true if `summary` has been explicitly set.
-  var hasSummary: Bool {return self._summary != nil}
+  public var hasSummary: Bool {return self._summary != nil}
   /// Clears the value of `summary`. Subsequent reads from it will return its default value.
-  mutating func clearSummary() {self._summary = nil}
+  public mutating func clearSummary() {self._summary = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _summary: String? = nil
 }
 
-struct Api_FieldOptions {
+public struct Api_FieldOptions {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var summary: String {
+  public var summary: String {
     get {return _summary ?? String()}
     set {_summary = newValue}
   }
   /// Returns true if `summary` has been explicitly set.
-  var hasSummary: Bool {return self._summary != nil}
+  public var hasSummary: Bool {return self._summary != nil}
   /// Clears the value of `summary`. Subsequent reads from it will return its default value.
-  mutating func clearSummary() {self._summary = nil}
+  public mutating func clearSummary() {self._summary = nil}
 
-  var `in`: Bool {
+  public var `in`: Bool {
     get {return _in ?? false}
     set {_in = newValue}
   }
   /// Returns true if ``in`` has been explicitly set.
-  var hasIn: Bool {return self._in != nil}
+  public var hasIn: Bool {return self._in != nil}
   /// Clears the value of ``in``. Subsequent reads from it will return its default value.
-  mutating func clearIn() {self._in = nil}
+  public mutating func clearIn() {self._in = nil}
 
-  var out: Bool {
+  public var out: Bool {
     get {return _out ?? false}
     set {_out = newValue}
   }
   /// Returns true if `out` has been explicitly set.
-  var hasOut: Bool {return self._out != nil}
+  public var hasOut: Bool {return self._out != nil}
   /// Clears the value of `out`. Subsequent reads from it will return its default value.
-  mutating func clearOut() {self._out = nil}
+  public mutating func clearOut() {self._out = nil}
 
-  var required: Bool {
+  public var required: Bool {
     get {return _required ?? false}
     set {_required = newValue}
   }
   /// Returns true if `required` has been explicitly set.
-  var hasRequired: Bool {return self._required != nil}
+  public var hasRequired: Bool {return self._required != nil}
   /// Clears the value of `required`. Subsequent reads from it will return its default value.
-  mutating func clearRequired() {self._required = nil}
+  public mutating func clearRequired() {self._required = nil}
 
-  var example: String {
+  public var example: String {
     get {return _example ?? String()}
     set {_example = newValue}
   }
   /// Returns true if `example` has been explicitly set.
-  var hasExample: Bool {return self._example != nil}
+  public var hasExample: Bool {return self._example != nil}
   /// Clears the value of `example`. Subsequent reads from it will return its default value.
-  mutating func clearExample() {self._example = nil}
+  public mutating func clearExample() {self._example = nil}
 
   /// JSON Schema definition
-  var minimum: Int64 {
+  public var minimum: Int64 {
     get {return _minimum ?? 0}
     set {_minimum = newValue}
   }
   /// Returns true if `minimum` has been explicitly set.
-  var hasMinimum: Bool {return self._minimum != nil}
+  public var hasMinimum: Bool {return self._minimum != nil}
   /// Clears the value of `minimum`. Subsequent reads from it will return its default value.
-  mutating func clearMinimum() {self._minimum = nil}
+  public mutating func clearMinimum() {self._minimum = nil}
 
-  var exclusiveMinimum: Bool {
+  public var exclusiveMinimum: Bool {
     get {return _exclusiveMinimum ?? false}
     set {_exclusiveMinimum = newValue}
   }
   /// Returns true if `exclusiveMinimum` has been explicitly set.
-  var hasExclusiveMinimum: Bool {return self._exclusiveMinimum != nil}
+  public var hasExclusiveMinimum: Bool {return self._exclusiveMinimum != nil}
   /// Clears the value of `exclusiveMinimum`. Subsequent reads from it will return its default value.
-  mutating func clearExclusiveMinimum() {self._exclusiveMinimum = nil}
+  public mutating func clearExclusiveMinimum() {self._exclusiveMinimum = nil}
 
-  var maximum: UInt64 {
+  public var maximum: UInt64 {
     get {return _maximum ?? 0}
     set {_maximum = newValue}
   }
   /// Returns true if `maximum` has been explicitly set.
-  var hasMaximum: Bool {return self._maximum != nil}
+  public var hasMaximum: Bool {return self._maximum != nil}
   /// Clears the value of `maximum`. Subsequent reads from it will return its default value.
-  mutating func clearMaximum() {self._maximum = nil}
+  public mutating func clearMaximum() {self._maximum = nil}
 
-  var exclusiveMaximum: Bool {
+  public var exclusiveMaximum: Bool {
     get {return _exclusiveMaximum ?? false}
     set {_exclusiveMaximum = newValue}
   }
   /// Returns true if `exclusiveMaximum` has been explicitly set.
-  var hasExclusiveMaximum: Bool {return self._exclusiveMaximum != nil}
+  public var hasExclusiveMaximum: Bool {return self._exclusiveMaximum != nil}
   /// Clears the value of `exclusiveMaximum`. Subsequent reads from it will return its default value.
-  mutating func clearExclusiveMaximum() {self._exclusiveMaximum = nil}
+  public mutating func clearExclusiveMaximum() {self._exclusiveMaximum = nil}
 
-  var multipleOf: Int64 {
+  public var multipleOf: Int64 {
     get {return _multipleOf ?? 0}
     set {_multipleOf = newValue}
   }
   /// Returns true if `multipleOf` has been explicitly set.
-  var hasMultipleOf: Bool {return self._multipleOf != nil}
+  public var hasMultipleOf: Bool {return self._multipleOf != nil}
   /// Clears the value of `multipleOf`. Subsequent reads from it will return its default value.
-  mutating func clearMultipleOf() {self._multipleOf = nil}
+  public mutating func clearMultipleOf() {self._multipleOf = nil}
 
-  var maxLength: UInt32 {
+  public var maxLength: UInt32 {
     get {return _maxLength ?? 0}
     set {_maxLength = newValue}
   }
   /// Returns true if `maxLength` has been explicitly set.
-  var hasMaxLength: Bool {return self._maxLength != nil}
+  public var hasMaxLength: Bool {return self._maxLength != nil}
   /// Clears the value of `maxLength`. Subsequent reads from it will return its default value.
-  mutating func clearMaxLength() {self._maxLength = nil}
+  public mutating func clearMaxLength() {self._maxLength = nil}
 
-  var minLength: UInt32 {
+  public var minLength: UInt32 {
     get {return _minLength ?? 0}
     set {_minLength = newValue}
   }
   /// Returns true if `minLength` has been explicitly set.
-  var hasMinLength: Bool {return self._minLength != nil}
+  public var hasMinLength: Bool {return self._minLength != nil}
   /// Clears the value of `minLength`. Subsequent reads from it will return its default value.
-  mutating func clearMinLength() {self._minLength = nil}
+  public mutating func clearMinLength() {self._minLength = nil}
 
   /// This string SHOULD be a valid regular expression
-  var pattern: String {
+  public var pattern: String {
     get {return _pattern ?? String()}
     set {_pattern = newValue}
   }
   /// Returns true if `pattern` has been explicitly set.
-  var hasPattern: Bool {return self._pattern != nil}
+  public var hasPattern: Bool {return self._pattern != nil}
   /// Clears the value of `pattern`. Subsequent reads from it will return its default value.
-  mutating func clearPattern() {self._pattern = nil}
+  public mutating func clearPattern() {self._pattern = nil}
 
-  var maxItems: UInt32 {
+  public var maxItems: UInt32 {
     get {return _maxItems ?? 0}
     set {_maxItems = newValue}
   }
   /// Returns true if `maxItems` has been explicitly set.
-  var hasMaxItems: Bool {return self._maxItems != nil}
+  public var hasMaxItems: Bool {return self._maxItems != nil}
   /// Clears the value of `maxItems`. Subsequent reads from it will return its default value.
-  mutating func clearMaxItems() {self._maxItems = nil}
+  public mutating func clearMaxItems() {self._maxItems = nil}
 
-  var minItems: UInt32 {
+  public var minItems: UInt32 {
     get {return _minItems ?? 0}
     set {_minItems = newValue}
   }
   /// Returns true if `minItems` has been explicitly set.
-  var hasMinItems: Bool {return self._minItems != nil}
+  public var hasMinItems: Bool {return self._minItems != nil}
   /// Clears the value of `minItems`. Subsequent reads from it will return its default value.
-  mutating func clearMinItems() {self._minItems = nil}
+  public mutating func clearMinItems() {self._minItems = nil}
 
-  var uniqueItems: Bool {
+  public var uniqueItems: Bool {
     get {return _uniqueItems ?? false}
     set {_uniqueItems = newValue}
   }
   /// Returns true if `uniqueItems` has been explicitly set.
-  var hasUniqueItems: Bool {return self._uniqueItems != nil}
+  public var hasUniqueItems: Bool {return self._uniqueItems != nil}
   /// Clears the value of `uniqueItems`. Subsequent reads from it will return its default value.
-  mutating func clearUniqueItems() {self._uniqueItems = nil}
+  public mutating func clearUniqueItems() {self._uniqueItems = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _summary: String? = nil
   fileprivate var _in: Bool? = nil
@@ -801,105 +801,105 @@ extension Api_FieldOptions: @unchecked Sendable {}
 
 extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
-  var Api_schema: Api_FieldOptions {
+  public var Api_schema: Api_FieldOptions {
     get {return getExtensionValue(ext: Api_Extensions_schema) ?? Api_FieldOptions()}
     set {setExtensionValue(ext: Api_Extensions_schema, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_schema`
   /// has been explicitly set.
-  var hasApi_schema: Bool {
+  public var hasApi_schema: Bool {
     return hasExtensionValue(ext: Api_Extensions_schema)
   }
   /// Clears the value of extension `Api_Extensions_schema`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_schema() {
+  public mutating func clearApi_schema() {
     clearExtensionValue(ext: Api_Extensions_schema)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
-  var Api_info: Api_InfoOptions {
+  public var Api_info: Api_InfoOptions {
     get {return getExtensionValue(ext: Api_Extensions_info) ?? Api_InfoOptions()}
     set {setExtensionValue(ext: Api_Extensions_info, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_info`
   /// has been explicitly set.
-  var hasApi_info: Bool {
+  public var hasApi_info: Bool {
     return hasExtensionValue(ext: Api_Extensions_info)
   }
   /// Clears the value of extension `Api_Extensions_info`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_info() {
+  public mutating func clearApi_info() {
     clearExtensionValue(ext: Api_Extensions_info)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
-  var Api_component: Api_MessageOptions {
+  public var Api_component: Api_MessageOptions {
     get {return getExtensionValue(ext: Api_Extensions_component) ?? Api_MessageOptions()}
     set {setExtensionValue(ext: Api_Extensions_component, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_component`
   /// has been explicitly set.
-  var hasApi_component: Bool {
+  public var hasApi_component: Bool {
     return hasExtensionValue(ext: Api_Extensions_component)
   }
   /// Clears the value of extension `Api_Extensions_component`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_component() {
+  public mutating func clearApi_component() {
     clearExtensionValue(ext: Api_Extensions_component)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_MethodOptions {
 
-  var Api_method: Api_MethodOptions {
+  public var Api_method: Api_MethodOptions {
     get {return getExtensionValue(ext: Api_Extensions_method) ?? Api_MethodOptions()}
     set {setExtensionValue(ext: Api_Extensions_method, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_method`
   /// has been explicitly set.
-  var hasApi_method: Bool {
+  public var hasApi_method: Bool {
     return hasExtensionValue(ext: Api_Extensions_method)
   }
   /// Clears the value of extension `Api_Extensions_method`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_method() {
+  public mutating func clearApi_method() {
     clearExtensionValue(ext: Api_Extensions_method)
   }
 
-  var Api_pubSub: Api_PubSubOptions {
+  public var Api_pubSub: Api_PubSubOptions {
     get {return getExtensionValue(ext: Api_Extensions_pub_sub) ?? Api_PubSubOptions()}
     set {setExtensionValue(ext: Api_Extensions_pub_sub, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_pub_sub`
   /// has been explicitly set.
-  var hasApi_pubSub: Bool {
+  public var hasApi_pubSub: Bool {
     return hasExtensionValue(ext: Api_Extensions_pub_sub)
   }
   /// Clears the value of extension `Api_Extensions_pub_sub`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_pubSub() {
+  public mutating func clearApi_pubSub() {
     clearExtensionValue(ext: Api_Extensions_pub_sub)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
 
-  var Api_service: Api_ServiceOptions {
+  public var Api_service: Api_ServiceOptions {
     get {return getExtensionValue(ext: Api_Extensions_service) ?? Api_ServiceOptions()}
     set {setExtensionValue(ext: Api_Extensions_service, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_service`
   /// has been explicitly set.
-  var hasApi_service: Bool {
+  public var hasApi_service: Bool {
     return hasExtensionValue(ext: Api_Extensions_service)
   }
   /// Clears the value of extension `Api_Extensions_service`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_service() {
+  public mutating func clearApi_service() {
     clearExtensionValue(ext: Api_Extensions_service)
   }
 
@@ -911,7 +911,7 @@ extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Api_Option_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+public let Api_Option_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Api_Extensions_info,
   Api_Extensions_service,
   Api_Extensions_method,
@@ -924,32 +924,32 @@ let Api_Option_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Api_Extensions_info = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_InfoOptions>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+public let Api_Extensions_info = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_InfoOptions>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 52199,
   fieldName: "api.info"
 )
 
-let Api_Extensions_service = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_ServiceOptions>, SwiftProtobuf.Google_Protobuf_ServiceOptions>(
+public let Api_Extensions_service = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_ServiceOptions>, SwiftProtobuf.Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 52199,
   fieldName: "api.service"
 )
 
-let Api_Extensions_method = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_MethodOptions>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
+public let Api_Extensions_method = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_MethodOptions>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 52199,
   fieldName: "api.method"
 )
 
-let Api_Extensions_pub_sub = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_PubSubOptions>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
+public let Api_Extensions_pub_sub = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_PubSubOptions>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 52200,
   fieldName: "api.pub_sub"
 )
 
-let Api_Extensions_component = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_MessageOptions>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+public let Api_Extensions_component = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_MessageOptions>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 52198,
   fieldName: "api.component"
 )
 
-let Api_Extensions_schema = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_FieldOptions>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+public let Api_Extensions_schema = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_FieldOptions>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 52199,
   fieldName: "api.schema"
 )
@@ -959,7 +959,7 @@ let Api_Extensions_schema = SwiftProtobuf.MessageExtension<SwiftProtobuf.Optiona
 fileprivate let _protobuf_package = "api"
 
 extension Api_AuthenticationRole: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "AUTH_ROLE_NONE"),
     1: .same(proto: "AUTH_ROLE_ACCOUNT"),
     2: .same(proto: "AUTH_ROLE_DEVICE"),
@@ -971,20 +971,20 @@ extension Api_AuthenticationRole: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_PayloadType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "JSON_PAYLOAD"),
     1: .same(proto: "BINARY_PAYLOAD"),
   ]
 }
 
 extension Api_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Payload"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Payload"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "examples"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -997,7 +997,7 @@ extension Api_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.type != .jsonPayload {
       try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
     }
@@ -1007,7 +1007,7 @@ extension Api_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Payload, rhs: Api_Payload) -> Bool {
+  public static func ==(lhs: Api_Payload, rhs: Api_Payload) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.examples != rhs.examples {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1016,13 +1016,13 @@ extension Api_Payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension Api_ExternalDocumentation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExternalDocumentation"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ExternalDocumentation"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "description"),
     2: .same(proto: "url"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1035,7 +1035,7 @@ extension Api_ExternalDocumentation: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1049,7 +1049,7 @@ extension Api_ExternalDocumentation: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_ExternalDocumentation, rhs: Api_ExternalDocumentation) -> Bool {
+  public static func ==(lhs: Api_ExternalDocumentation, rhs: Api_ExternalDocumentation) -> Bool {
     if lhs._description_p != rhs._description_p {return false}
     if lhs._url != rhs._url {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1058,15 +1058,15 @@ extension Api_ExternalDocumentation: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Api_Example: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Example"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Example"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "summary"),
     2: .same(proto: "description"),
     3: .same(proto: "value"),
     4: .same(proto: "externalValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1081,7 +1081,7 @@ extension Api_Example: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1101,7 +1101,7 @@ extension Api_Example: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Example, rhs: Api_Example) -> Bool {
+  public static func ==(lhs: Api_Example, rhs: Api_Example) -> Bool {
     if lhs._summary != rhs._summary {return false}
     if lhs._description_p != rhs._description_p {return false}
     if lhs._value != rhs._value {return false}
@@ -1112,14 +1112,14 @@ extension Api_Example: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension Api_MessageCache: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageCache"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageCache"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "id"),
     3: .same(proto: "tag"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1133,7 +1133,7 @@ extension Api_MessageCache: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1150,7 +1150,7 @@ extension Api_MessageCache: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_MessageCache, rhs: Api_MessageCache) -> Bool {
+  public static func ==(lhs: Api_MessageCache, rhs: Api_MessageCache) -> Bool {
     if lhs._name != rhs._name {return false}
     if lhs._id != rhs._id {return false}
     if lhs._tag != rhs._tag {return false}
@@ -1160,8 +1160,8 @@ extension Api_MessageCache: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension Api_InfoOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InfoOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InfoOptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     13: .standard(proto: "app_id"),
     100: .same(proto: "authors"),
     101: .standard(proto: "inherit_authors"),
@@ -1172,7 +1172,7 @@ extension Api_InfoOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     203: .same(proto: "qos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1191,7 +1191,7 @@ extension Api_InfoOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1223,7 +1223,7 @@ extension Api_InfoOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_InfoOptions, rhs: Api_InfoOptions) -> Bool {
+  public static func ==(lhs: Api_InfoOptions, rhs: Api_InfoOptions) -> Bool {
     if lhs._appID != rhs._appID {return false}
     if lhs.authors != rhs.authors {return false}
     if lhs._inheritAuthors != rhs._inheritAuthors {return false}
@@ -1238,8 +1238,8 @@ extension Api_InfoOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Api_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "summary"),
     100: .same(proto: "authors"),
     101: .standard(proto: "inherit_authors"),
@@ -1251,7 +1251,7 @@ extension Api_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     204: .same(proto: "cache"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1271,7 +1271,7 @@ extension Api_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1306,7 +1306,7 @@ extension Api_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_ServiceOptions, rhs: Api_ServiceOptions) -> Bool {
+  public static func ==(lhs: Api_ServiceOptions, rhs: Api_ServiceOptions) -> Bool {
     if lhs._summary != rhs._summary {return false}
     if lhs.authors != rhs.authors {return false}
     if lhs._inheritAuthors != rhs._inheritAuthors {return false}
@@ -1322,8 +1322,8 @@ extension Api_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Api_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MethodOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MethodOptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "summary"),
     3: .same(proto: "ready"),
@@ -1388,7 +1388,7 @@ extension Api_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1417,7 +1417,7 @@ extension Api_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1472,7 +1472,7 @@ extension Api_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_MethodOptions, rhs: Api_MethodOptions) -> Bool {
+  public static func ==(lhs: Api_MethodOptions, rhs: Api_MethodOptions) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1502,8 +1502,8 @@ extension Api_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Api_PubSubOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PubSubOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PubSubOptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "topic"),
     3: .same(proto: "route"),
@@ -1514,7 +1514,7 @@ extension Api_PubSubOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     8: .standard(proto: "disable_topic_validation"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1533,7 +1533,7 @@ extension Api_PubSubOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -1561,7 +1561,7 @@ extension Api_PubSubOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_PubSubOptions, rhs: Api_PubSubOptions) -> Bool {
+  public static func ==(lhs: Api_PubSubOptions, rhs: Api_PubSubOptions) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.topic != rhs.topic {return false}
     if lhs.route != rhs.route {return false}
@@ -1576,12 +1576,12 @@ extension Api_PubSubOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Api_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MessageOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MessageOptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "summary"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1593,7 +1593,7 @@ extension Api_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1604,7 +1604,7 @@ extension Api_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_MessageOptions, rhs: Api_MessageOptions) -> Bool {
+  public static func ==(lhs: Api_MessageOptions, rhs: Api_MessageOptions) -> Bool {
     if lhs._summary != rhs._summary {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1612,8 +1612,8 @@ extension Api_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Api_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FieldOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FieldOptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "summary"),
     2: .same(proto: "in"),
     3: .same(proto: "out"),
@@ -1632,7 +1632,7 @@ extension Api_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     42: .same(proto: "uniqueItems"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1659,7 +1659,7 @@ extension Api_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1715,7 +1715,7 @@ extension Api_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_FieldOptions, rhs: Api_FieldOptions) -> Bool {
+  public static func ==(lhs: Api_FieldOptions, rhs: Api_FieldOptions) -> Bool {
     if lhs._summary != rhs._summary {return false}
     if lhs._in != rhs._in {return false}
     if lhs._out != rhs._out {return false}

@@ -21,19 +21,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// https://docs.scylladb.com/stable/cql/ddl.html#tombstones-gc-options
-enum Api_TombstoneGCMode: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_TombstoneGCMode: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case timeout // = 0
   case repair // = 1
   case disabled // = 2
   case immediate // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .timeout
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .timeout
     case 1: self = .repair
@@ -43,7 +43,7 @@ enum Api_TombstoneGCMode: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .timeout: return 0
     case .repair: return 1
@@ -59,7 +59,7 @@ enum Api_TombstoneGCMode: SwiftProtobuf.Enum {
 
 extension Api_TombstoneGCMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_TombstoneGCMode] = [
+  public static var allCases: [Api_TombstoneGCMode] = [
     .timeout,
     .repair,
     .disabled,
@@ -69,18 +69,18 @@ extension Api_TombstoneGCMode: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_CompactionWindowUnit: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_CompactionWindowUnit: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case days // = 0
   case hours // = 1
   case minutes // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .days
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .days
     case 1: self = .hours
@@ -89,7 +89,7 @@ enum Api_CompactionWindowUnit: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .days: return 0
     case .hours: return 1
@@ -104,7 +104,7 @@ enum Api_CompactionWindowUnit: SwiftProtobuf.Enum {
 
 extension Api_CompactionWindowUnit: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_CompactionWindowUnit] = [
+  public static var allCases: [Api_CompactionWindowUnit] = [
     .days,
     .hours,
     .minutes,
@@ -113,18 +113,18 @@ extension Api_CompactionWindowUnit: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_CompressionMode: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_CompressionMode: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case lz4Compressor // = 0
   case snappyCompressor // = 1
   case deflateCompressor // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .lz4Compressor
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .lz4Compressor
     case 1: self = .snappyCompressor
@@ -133,7 +133,7 @@ enum Api_CompressionMode: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .lz4Compressor: return 0
     case .snappyCompressor: return 1
@@ -148,7 +148,7 @@ enum Api_CompressionMode: SwiftProtobuf.Enum {
 
 extension Api_CompressionMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_CompressionMode] = [
+  public static var allCases: [Api_CompressionMode] = [
     .lz4Compressor,
     .snappyCompressor,
     .deflateCompressor,
@@ -157,17 +157,17 @@ extension Api_CompressionMode: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_OrderBy: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_OrderBy: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case obAes // = 0
   case obDesc // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .obAes
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .obAes
     case 1: self = .obDesc
@@ -175,7 +175,7 @@ enum Api_OrderBy: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .obAes: return 0
     case .obDesc: return 1
@@ -189,7 +189,7 @@ enum Api_OrderBy: SwiftProtobuf.Enum {
 
 extension Api_OrderBy: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_OrderBy] = [
+  public static var allCases: [Api_OrderBy] = [
     .obAes,
     .obDesc,
   ]
@@ -206,8 +206,8 @@ extension Api_OrderBy: CaseIterable {
 /// NT_VARCHAR = string
 /// NT_BLOB = bytes
 /// NT_TIMESTAMP = google.protobuf.timestamp
-enum Api_NativeType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_NativeType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case ntUnknown // = 0
   case ntBoolean // = 1
   case ntTinyInt // = 2
@@ -231,11 +231,11 @@ enum Api_NativeType: SwiftProtobuf.Enum {
   case ntInet // = 20
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .ntUnknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .ntUnknown
     case 1: self = .ntBoolean
@@ -262,7 +262,7 @@ enum Api_NativeType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .ntUnknown: return 0
     case .ntBoolean: return 1
@@ -295,7 +295,7 @@ enum Api_NativeType: SwiftProtobuf.Enum {
 
 extension Api_NativeType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_NativeType] = [
+  public static var allCases: [Api_NativeType] = [
     .ntUnknown,
     .ntBoolean,
     .ntTinyInt,
@@ -322,41 +322,41 @@ extension Api_NativeType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Api_SimpleStrategy {
+public struct Api_SimpleStrategy {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var replicationFactor: Int32 = 0
+  public var replicationFactor: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_NetworkTopologyStrategy {
+public struct Api_NetworkTopologyStrategy {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// key: 数据中心名称, value: 副本因子
-  var replicationFactor: Dictionary<String,Int32> = [:]
+  public var replicationFactor: Dictionary<String,Int32> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_KeySpaceOption {
+public struct Api_KeySpaceOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var strategy: Api_KeySpaceOption.OneOf_Strategy? = nil
+  public var strategy: Api_KeySpaceOption.OneOf_Strategy? = nil
 
-  var ss: Api_SimpleStrategy {
+  public var ss: Api_SimpleStrategy {
     get {
       if case .ss(let v)? = strategy {return v}
       return Api_SimpleStrategy()
@@ -364,7 +364,7 @@ struct Api_KeySpaceOption {
     set {strategy = .ss(newValue)}
   }
 
-  var nts: Api_NetworkTopologyStrategy {
+  public var nts: Api_NetworkTopologyStrategy {
     get {
       if case .nts(let v)? = strategy {return v}
       return Api_NetworkTopologyStrategy()
@@ -372,23 +372,23 @@ struct Api_KeySpaceOption {
     set {strategy = .nts(newValue)}
   }
 
-  var durableWrites: Bool {
+  public var durableWrites: Bool {
     get {return _durableWrites ?? false}
     set {_durableWrites = newValue}
   }
   /// Returns true if `durableWrites` has been explicitly set.
-  var hasDurableWrites: Bool {return self._durableWrites != nil}
+  public var hasDurableWrites: Bool {return self._durableWrites != nil}
   /// Clears the value of `durableWrites`. Subsequent reads from it will return its default value.
-  mutating func clearDurableWrites() {self._durableWrites = nil}
+  public mutating func clearDurableWrites() {self._durableWrites = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Strategy: Equatable {
+  public enum OneOf_Strategy: Equatable {
     case ss(Api_SimpleStrategy)
     case nts(Api_NetworkTopologyStrategy)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Api_KeySpaceOption.OneOf_Strategy, rhs: Api_KeySpaceOption.OneOf_Strategy) -> Bool {
+    public static func ==(lhs: Api_KeySpaceOption.OneOf_Strategy, rhs: Api_KeySpaceOption.OneOf_Strategy) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -407,22 +407,22 @@ struct Api_KeySpaceOption {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _durableWrites: Bool? = nil
 }
 
 /// https://docs.scylladb.com/stable/cql/ddl.html#speculative-retry-options
 /// 单副本模式下使用使用会报错: ServerError: sstring out of range
-struct Api_SpeculativeRetry {
+public struct Api_SpeculativeRetry {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var options: Api_SpeculativeRetry.OneOf_Options? = nil
+  public var options: Api_SpeculativeRetry.OneOf_Options? = nil
 
   /// 0-100, 百分比
-  var percentile: Double {
+  public var percentile: Double {
     get {
       if case .percentile(let v)? = options {return v}
       return 0
@@ -430,7 +430,7 @@ struct Api_SpeculativeRetry {
     set {options = .percentile(newValue)}
   }
 
-  var milliseconds: Int64 {
+  public var milliseconds: Int64 {
     get {
       if case .milliseconds(let v)? = options {return v}
       return 0
@@ -438,7 +438,7 @@ struct Api_SpeculativeRetry {
     set {options = .milliseconds(newValue)}
   }
 
-  var always: Bool {
+  public var always: Bool {
     get {
       if case .always(let v)? = options {return v}
       return false
@@ -446,7 +446,7 @@ struct Api_SpeculativeRetry {
     set {options = .always(newValue)}
   }
 
-  var none: Bool {
+  public var none: Bool {
     get {
       if case .none(let v)? = options {return v}
       return false
@@ -454,9 +454,9 @@ struct Api_SpeculativeRetry {
     set {options = .none(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Options: Equatable {
+  public enum OneOf_Options: Equatable {
     /// 0-100, 百分比
     case percentile(Double)
     case milliseconds(Int64)
@@ -464,7 +464,7 @@ struct Api_SpeculativeRetry {
     case none(Bool)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Api_SpeculativeRetry.OneOf_Options, rhs: Api_SpeculativeRetry.OneOf_Options) -> Bool {
+    public static func ==(lhs: Api_SpeculativeRetry.OneOf_Options, rhs: Api_SpeculativeRetry.OneOf_Options) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -491,64 +491,64 @@ struct Api_SpeculativeRetry {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 /// https://docs.scylladb.com/stable/cql/compaction.html#size-tiered-compaction-strategy-stcs
 /// 所有策略默认值均参考官方(即不指定则使用官方参数)
-struct Api_STCS {
+public struct Api_STCS {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var bucketHigh: Double {
+  public var bucketHigh: Double {
     get {return _bucketHigh ?? 0}
     set {_bucketHigh = newValue}
   }
   /// Returns true if `bucketHigh` has been explicitly set.
-  var hasBucketHigh: Bool {return self._bucketHigh != nil}
+  public var hasBucketHigh: Bool {return self._bucketHigh != nil}
   /// Clears the value of `bucketHigh`. Subsequent reads from it will return its default value.
-  mutating func clearBucketHigh() {self._bucketHigh = nil}
+  public mutating func clearBucketHigh() {self._bucketHigh = nil}
 
-  var bucketLow: Double {
+  public var bucketLow: Double {
     get {return _bucketLow ?? 0}
     set {_bucketLow = newValue}
   }
   /// Returns true if `bucketLow` has been explicitly set.
-  var hasBucketLow: Bool {return self._bucketLow != nil}
+  public var hasBucketLow: Bool {return self._bucketLow != nil}
   /// Clears the value of `bucketLow`. Subsequent reads from it will return its default value.
-  mutating func clearBucketLow() {self._bucketLow = nil}
+  public mutating func clearBucketLow() {self._bucketLow = nil}
 
-  var minSstableSize: Int64 {
+  public var minSstableSize: Int64 {
     get {return _minSstableSize ?? 0}
     set {_minSstableSize = newValue}
   }
   /// Returns true if `minSstableSize` has been explicitly set.
-  var hasMinSstableSize: Bool {return self._minSstableSize != nil}
+  public var hasMinSstableSize: Bool {return self._minSstableSize != nil}
   /// Clears the value of `minSstableSize`. Subsequent reads from it will return its default value.
-  mutating func clearMinSstableSize() {self._minSstableSize = nil}
+  public mutating func clearMinSstableSize() {self._minSstableSize = nil}
 
-  var minThreshold: Int64 {
+  public var minThreshold: Int64 {
     get {return _minThreshold ?? 0}
     set {_minThreshold = newValue}
   }
   /// Returns true if `minThreshold` has been explicitly set.
-  var hasMinThreshold: Bool {return self._minThreshold != nil}
+  public var hasMinThreshold: Bool {return self._minThreshold != nil}
   /// Clears the value of `minThreshold`. Subsequent reads from it will return its default value.
-  mutating func clearMinThreshold() {self._minThreshold = nil}
+  public mutating func clearMinThreshold() {self._minThreshold = nil}
 
-  var maxThreshold: Int64 {
+  public var maxThreshold: Int64 {
     get {return _maxThreshold ?? 0}
     set {_maxThreshold = newValue}
   }
   /// Returns true if `maxThreshold` has been explicitly set.
-  var hasMaxThreshold: Bool {return self._maxThreshold != nil}
+  public var hasMaxThreshold: Bool {return self._maxThreshold != nil}
   /// Clears the value of `maxThreshold`. Subsequent reads from it will return its default value.
-  mutating func clearMaxThreshold() {self._maxThreshold = nil}
+  public mutating func clearMaxThreshold() {self._maxThreshold = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _bucketHigh: Double? = nil
   fileprivate var _bucketLow: Double? = nil
@@ -557,98 +557,98 @@ struct Api_STCS {
   fileprivate var _maxThreshold: Int64? = nil
 }
 
-struct Api_LCS {
+public struct Api_LCS {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var sstableSizeInMb: Int64 {
+  public var sstableSizeInMb: Int64 {
     get {return _sstableSizeInMb ?? 0}
     set {_sstableSizeInMb = newValue}
   }
   /// Returns true if `sstableSizeInMb` has been explicitly set.
-  var hasSstableSizeInMb: Bool {return self._sstableSizeInMb != nil}
+  public var hasSstableSizeInMb: Bool {return self._sstableSizeInMb != nil}
   /// Clears the value of `sstableSizeInMb`. Subsequent reads from it will return its default value.
-  mutating func clearSstableSizeInMb() {self._sstableSizeInMb = nil}
+  public mutating func clearSstableSizeInMb() {self._sstableSizeInMb = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _sstableSizeInMb: Int64? = nil
 }
 
-struct Api_ICS {
+public struct Api_ICS {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var bucketHigh: Double {
+  public var bucketHigh: Double {
     get {return _bucketHigh ?? 0}
     set {_bucketHigh = newValue}
   }
   /// Returns true if `bucketHigh` has been explicitly set.
-  var hasBucketHigh: Bool {return self._bucketHigh != nil}
+  public var hasBucketHigh: Bool {return self._bucketHigh != nil}
   /// Clears the value of `bucketHigh`. Subsequent reads from it will return its default value.
-  mutating func clearBucketHigh() {self._bucketHigh = nil}
+  public mutating func clearBucketHigh() {self._bucketHigh = nil}
 
-  var bucketLow: Double {
+  public var bucketLow: Double {
     get {return _bucketLow ?? 0}
     set {_bucketLow = newValue}
   }
   /// Returns true if `bucketLow` has been explicitly set.
-  var hasBucketLow: Bool {return self._bucketLow != nil}
+  public var hasBucketLow: Bool {return self._bucketLow != nil}
   /// Clears the value of `bucketLow`. Subsequent reads from it will return its default value.
-  mutating func clearBucketLow() {self._bucketLow = nil}
+  public mutating func clearBucketLow() {self._bucketLow = nil}
 
-  var minSstableSize: Int64 {
+  public var minSstableSize: Int64 {
     get {return _minSstableSize ?? 0}
     set {_minSstableSize = newValue}
   }
   /// Returns true if `minSstableSize` has been explicitly set.
-  var hasMinSstableSize: Bool {return self._minSstableSize != nil}
+  public var hasMinSstableSize: Bool {return self._minSstableSize != nil}
   /// Clears the value of `minSstableSize`. Subsequent reads from it will return its default value.
-  mutating func clearMinSstableSize() {self._minSstableSize = nil}
+  public mutating func clearMinSstableSize() {self._minSstableSize = nil}
 
-  var minThreshold: Int64 {
+  public var minThreshold: Int64 {
     get {return _minThreshold ?? 0}
     set {_minThreshold = newValue}
   }
   /// Returns true if `minThreshold` has been explicitly set.
-  var hasMinThreshold: Bool {return self._minThreshold != nil}
+  public var hasMinThreshold: Bool {return self._minThreshold != nil}
   /// Clears the value of `minThreshold`. Subsequent reads from it will return its default value.
-  mutating func clearMinThreshold() {self._minThreshold = nil}
+  public mutating func clearMinThreshold() {self._minThreshold = nil}
 
-  var maxThreshold: Int64 {
+  public var maxThreshold: Int64 {
     get {return _maxThreshold ?? 0}
     set {_maxThreshold = newValue}
   }
   /// Returns true if `maxThreshold` has been explicitly set.
-  var hasMaxThreshold: Bool {return self._maxThreshold != nil}
+  public var hasMaxThreshold: Bool {return self._maxThreshold != nil}
   /// Clears the value of `maxThreshold`. Subsequent reads from it will return its default value.
-  mutating func clearMaxThreshold() {self._maxThreshold = nil}
+  public mutating func clearMaxThreshold() {self._maxThreshold = nil}
 
-  var sstableSizeInMb: Int64 {
+  public var sstableSizeInMb: Int64 {
     get {return _sstableSizeInMb ?? 0}
     set {_sstableSizeInMb = newValue}
   }
   /// Returns true if `sstableSizeInMb` has been explicitly set.
-  var hasSstableSizeInMb: Bool {return self._sstableSizeInMb != nil}
+  public var hasSstableSizeInMb: Bool {return self._sstableSizeInMb != nil}
   /// Clears the value of `sstableSizeInMb`. Subsequent reads from it will return its default value.
-  mutating func clearSstableSizeInMb() {self._sstableSizeInMb = nil}
+  public mutating func clearSstableSizeInMb() {self._sstableSizeInMb = nil}
 
-  var spaceAmplificationGoal: Double {
+  public var spaceAmplificationGoal: Double {
     get {return _spaceAmplificationGoal ?? 0}
     set {_spaceAmplificationGoal = newValue}
   }
   /// Returns true if `spaceAmplificationGoal` has been explicitly set.
-  var hasSpaceAmplificationGoal: Bool {return self._spaceAmplificationGoal != nil}
+  public var hasSpaceAmplificationGoal: Bool {return self._spaceAmplificationGoal != nil}
   /// Clears the value of `spaceAmplificationGoal`. Subsequent reads from it will return its default value.
-  mutating func clearSpaceAmplificationGoal() {self._spaceAmplificationGoal = nil}
+  public mutating func clearSpaceAmplificationGoal() {self._spaceAmplificationGoal = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _bucketHigh: Double? = nil
   fileprivate var _bucketLow: Double? = nil
@@ -659,59 +659,59 @@ struct Api_ICS {
   fileprivate var _spaceAmplificationGoal: Double? = nil
 }
 
-struct Api_TWCS {
+public struct Api_TWCS {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var compactionWindowUnit: Api_CompactionWindowUnit {
+  public var compactionWindowUnit: Api_CompactionWindowUnit {
     get {return _compactionWindowUnit ?? .days}
     set {_compactionWindowUnit = newValue}
   }
   /// Returns true if `compactionWindowUnit` has been explicitly set.
-  var hasCompactionWindowUnit: Bool {return self._compactionWindowUnit != nil}
+  public var hasCompactionWindowUnit: Bool {return self._compactionWindowUnit != nil}
   /// Clears the value of `compactionWindowUnit`. Subsequent reads from it will return its default value.
-  mutating func clearCompactionWindowUnit() {self._compactionWindowUnit = nil}
+  public mutating func clearCompactionWindowUnit() {self._compactionWindowUnit = nil}
 
-  var compactionWindowSize: Int64 {
+  public var compactionWindowSize: Int64 {
     get {return _compactionWindowSize ?? 0}
     set {_compactionWindowSize = newValue}
   }
   /// Returns true if `compactionWindowSize` has been explicitly set.
-  var hasCompactionWindowSize: Bool {return self._compactionWindowSize != nil}
+  public var hasCompactionWindowSize: Bool {return self._compactionWindowSize != nil}
   /// Clears the value of `compactionWindowSize`. Subsequent reads from it will return its default value.
-  mutating func clearCompactionWindowSize() {self._compactionWindowSize = nil}
+  public mutating func clearCompactionWindowSize() {self._compactionWindowSize = nil}
 
-  var expiredSstableCheckFrequencySeconds: Int64 {
+  public var expiredSstableCheckFrequencySeconds: Int64 {
     get {return _expiredSstableCheckFrequencySeconds ?? 0}
     set {_expiredSstableCheckFrequencySeconds = newValue}
   }
   /// Returns true if `expiredSstableCheckFrequencySeconds` has been explicitly set.
-  var hasExpiredSstableCheckFrequencySeconds: Bool {return self._expiredSstableCheckFrequencySeconds != nil}
+  public var hasExpiredSstableCheckFrequencySeconds: Bool {return self._expiredSstableCheckFrequencySeconds != nil}
   /// Clears the value of `expiredSstableCheckFrequencySeconds`. Subsequent reads from it will return its default value.
-  mutating func clearExpiredSstableCheckFrequencySeconds() {self._expiredSstableCheckFrequencySeconds = nil}
+  public mutating func clearExpiredSstableCheckFrequencySeconds() {self._expiredSstableCheckFrequencySeconds = nil}
 
-  var minThreshold: Int64 {
+  public var minThreshold: Int64 {
     get {return _minThreshold ?? 0}
     set {_minThreshold = newValue}
   }
   /// Returns true if `minThreshold` has been explicitly set.
-  var hasMinThreshold: Bool {return self._minThreshold != nil}
+  public var hasMinThreshold: Bool {return self._minThreshold != nil}
   /// Clears the value of `minThreshold`. Subsequent reads from it will return its default value.
-  mutating func clearMinThreshold() {self._minThreshold = nil}
+  public mutating func clearMinThreshold() {self._minThreshold = nil}
 
-  var maxThreshold: Int64 {
+  public var maxThreshold: Int64 {
     get {return _maxThreshold ?? 0}
     set {_maxThreshold = newValue}
   }
   /// Returns true if `maxThreshold` has been explicitly set.
-  var hasMaxThreshold: Bool {return self._maxThreshold != nil}
+  public var hasMaxThreshold: Bool {return self._maxThreshold != nil}
   /// Clears the value of `maxThreshold`. Subsequent reads from it will return its default value.
-  mutating func clearMaxThreshold() {self._maxThreshold = nil}
+  public mutating func clearMaxThreshold() {self._maxThreshold = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _compactionWindowUnit: Api_CompactionWindowUnit? = nil
   fileprivate var _compactionWindowSize: Int64? = nil
@@ -721,14 +721,14 @@ struct Api_TWCS {
 }
 
 /// https://docs.scylladb.com/stable/cql/ddl.html#compaction-options
-struct Api_CompactionMode {
+public struct Api_CompactionMode {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var mode: Api_CompactionMode.OneOf_Mode? = nil
+  public var mode: Api_CompactionMode.OneOf_Mode? = nil
 
-  var stcs: Api_STCS {
+  public var stcs: Api_STCS {
     get {
       if case .stcs(let v)? = mode {return v}
       return Api_STCS()
@@ -736,7 +736,7 @@ struct Api_CompactionMode {
     set {mode = .stcs(newValue)}
   }
 
-  var lcs: Api_LCS {
+  public var lcs: Api_LCS {
     get {
       if case .lcs(let v)? = mode {return v}
       return Api_LCS()
@@ -744,7 +744,7 @@ struct Api_CompactionMode {
     set {mode = .lcs(newValue)}
   }
 
-  var ics: Api_ICS {
+  public var ics: Api_ICS {
     get {
       if case .ics(let v)? = mode {return v}
       return Api_ICS()
@@ -752,7 +752,7 @@ struct Api_CompactionMode {
     set {mode = .ics(newValue)}
   }
 
-  var twcs: Api_TWCS {
+  public var twcs: Api_TWCS {
     get {
       if case .twcs(let v)? = mode {return v}
       return Api_TWCS()
@@ -760,16 +760,16 @@ struct Api_CompactionMode {
     set {mode = .twcs(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Mode: Equatable {
+  public enum OneOf_Mode: Equatable {
     case stcs(Api_STCS)
     case lcs(Api_LCS)
     case ics(Api_ICS)
     case twcs(Api_TWCS)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Api_CompactionMode.OneOf_Mode, rhs: Api_CompactionMode.OneOf_Mode) -> Bool {
+    public static func ==(lhs: Api_CompactionMode.OneOf_Mode, rhs: Api_CompactionMode.OneOf_Mode) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -796,132 +796,132 @@ struct Api_CompactionMode {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 /// https://docs.scylladb.com/stable/cql/ddl.html#compression-options
-struct Api_CompressionOption {
+public struct Api_CompressionOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var sstableCompression: Api_CompressionMode {
+  public var sstableCompression: Api_CompressionMode {
     get {return _sstableCompression ?? .lz4Compressor}
     set {_sstableCompression = newValue}
   }
   /// Returns true if `sstableCompression` has been explicitly set.
-  var hasSstableCompression: Bool {return self._sstableCompression != nil}
+  public var hasSstableCompression: Bool {return self._sstableCompression != nil}
   /// Clears the value of `sstableCompression`. Subsequent reads from it will return its default value.
-  mutating func clearSstableCompression() {self._sstableCompression = nil}
+  public mutating func clearSstableCompression() {self._sstableCompression = nil}
 
-  var chunkLengthInKb: Int64 {
+  public var chunkLengthInKb: Int64 {
     get {return _chunkLengthInKb ?? 0}
     set {_chunkLengthInKb = newValue}
   }
   /// Returns true if `chunkLengthInKb` has been explicitly set.
-  var hasChunkLengthInKb: Bool {return self._chunkLengthInKb != nil}
+  public var hasChunkLengthInKb: Bool {return self._chunkLengthInKb != nil}
   /// Clears the value of `chunkLengthInKb`. Subsequent reads from it will return its default value.
-  mutating func clearChunkLengthInKb() {self._chunkLengthInKb = nil}
+  public mutating func clearChunkLengthInKb() {self._chunkLengthInKb = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _sstableCompression: Api_CompressionMode? = nil
   fileprivate var _chunkLengthInKb: Int64? = nil
 }
 
-struct Api_CDCOption {
+public struct Api_CDCOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var enabled: Bool {
+  public var enabled: Bool {
     get {return _enabled ?? false}
     set {_enabled = newValue}
   }
   /// Returns true if `enabled` has been explicitly set.
-  var hasEnabled: Bool {return self._enabled != nil}
+  public var hasEnabled: Bool {return self._enabled != nil}
   /// Clears the value of `enabled`. Subsequent reads from it will return its default value.
-  mutating func clearEnabled() {self._enabled = nil}
+  public mutating func clearEnabled() {self._enabled = nil}
 
-  var preimage: Bool {
+  public var preimage: Bool {
     get {return _preimage ?? false}
     set {_preimage = newValue}
   }
   /// Returns true if `preimage` has been explicitly set.
-  var hasPreimage: Bool {return self._preimage != nil}
+  public var hasPreimage: Bool {return self._preimage != nil}
   /// Clears the value of `preimage`. Subsequent reads from it will return its default value.
-  mutating func clearPreimage() {self._preimage = nil}
+  public mutating func clearPreimage() {self._preimage = nil}
 
-  var ttlSec: Int64 {
+  public var ttlSec: Int64 {
     get {return _ttlSec ?? 0}
     set {_ttlSec = newValue}
   }
   /// Returns true if `ttlSec` has been explicitly set.
-  var hasTtlSec: Bool {return self._ttlSec != nil}
+  public var hasTtlSec: Bool {return self._ttlSec != nil}
   /// Clears the value of `ttlSec`. Subsequent reads from it will return its default value.
-  mutating func clearTtlSec() {self._ttlSec = nil}
+  public mutating func clearTtlSec() {self._ttlSec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _enabled: Bool? = nil
   fileprivate var _preimage: Bool? = nil
   fileprivate var _ttlSec: Int64? = nil
 }
 
-struct Api_PrimaryKey {
+public struct Api_PrimaryKey {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var partKey: [String] = []
+  public var partKey: [String] = []
 
-  var sortKey: [String] = []
+  public var sortKey: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_MaterializedView {
+public struct Api_MaterializedView {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 不显式指定的情况下, 将使用 table_name_by_part_key 作为规则
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
-  var primaryKey: Api_PrimaryKey {
+  public var primaryKey: Api_PrimaryKey {
     get {return _primaryKey ?? Api_PrimaryKey()}
     set {_primaryKey = newValue}
   }
   /// Returns true if `primaryKey` has been explicitly set.
-  var hasPrimaryKey: Bool {return self._primaryKey != nil}
+  public var hasPrimaryKey: Bool {return self._primaryKey != nil}
   /// Clears the value of `primaryKey`. Subsequent reads from it will return its default value.
-  mutating func clearPrimaryKey() {self._primaryKey = nil}
+  public mutating func clearPrimaryKey() {self._primaryKey = nil}
 
-  var option: Api_TableNativeOption {
+  public var option: Api_TableNativeOption {
     get {return _option ?? Api_TableNativeOption()}
     set {_option = newValue}
   }
   /// Returns true if `option` has been explicitly set.
-  var hasOption: Bool {return self._option != nil}
+  public var hasOption: Bool {return self._option != nil}
   /// Clears the value of `option`. Subsequent reads from it will return its default value.
-  mutating func clearOption() {self._option = nil}
+  public mutating func clearOption() {self._option = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
   fileprivate var _primaryKey: Api_PrimaryKey? = nil
@@ -929,195 +929,195 @@ struct Api_MaterializedView {
 }
 
 /// https://docs.scylladb.com/stable/cql/ddl.html#other-table-options
-struct Api_TableNativeOption {
+public struct Api_TableNativeOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var comment: String {
+  public var comment: String {
     get {return _storage._comment ?? String()}
     set {_uniqueStorage()._comment = newValue}
   }
   /// Returns true if `comment` has been explicitly set.
-  var hasComment: Bool {return _storage._comment != nil}
+  public var hasComment: Bool {return _storage._comment != nil}
   /// Clears the value of `comment`. Subsequent reads from it will return its default value.
-  mutating func clearComment() {_uniqueStorage()._comment = nil}
+  public mutating func clearComment() {_uniqueStorage()._comment = nil}
 
-  var readRepairChance: Double {
+  public var readRepairChance: Double {
     get {return _storage._readRepairChance ?? 0}
     set {_uniqueStorage()._readRepairChance = newValue}
   }
   /// Returns true if `readRepairChance` has been explicitly set.
-  var hasReadRepairChance: Bool {return _storage._readRepairChance != nil}
+  public var hasReadRepairChance: Bool {return _storage._readRepairChance != nil}
   /// Clears the value of `readRepairChance`. Subsequent reads from it will return its default value.
-  mutating func clearReadRepairChance() {_uniqueStorage()._readRepairChance = nil}
+  public mutating func clearReadRepairChance() {_uniqueStorage()._readRepairChance = nil}
 
-  var dclocalReadRepairChance: Double {
+  public var dclocalReadRepairChance: Double {
     get {return _storage._dclocalReadRepairChance ?? 0}
     set {_uniqueStorage()._dclocalReadRepairChance = newValue}
   }
   /// Returns true if `dclocalReadRepairChance` has been explicitly set.
-  var hasDclocalReadRepairChance: Bool {return _storage._dclocalReadRepairChance != nil}
+  public var hasDclocalReadRepairChance: Bool {return _storage._dclocalReadRepairChance != nil}
   /// Clears the value of `dclocalReadRepairChance`. Subsequent reads from it will return its default value.
-  mutating func clearDclocalReadRepairChance() {_uniqueStorage()._dclocalReadRepairChance = nil}
+  public mutating func clearDclocalReadRepairChance() {_uniqueStorage()._dclocalReadRepairChance = nil}
 
-  var speculativeRetry: Api_SpeculativeRetry {
+  public var speculativeRetry: Api_SpeculativeRetry {
     get {return _storage._speculativeRetry ?? Api_SpeculativeRetry()}
     set {_uniqueStorage()._speculativeRetry = newValue}
   }
   /// Returns true if `speculativeRetry` has been explicitly set.
-  var hasSpeculativeRetry: Bool {return _storage._speculativeRetry != nil}
+  public var hasSpeculativeRetry: Bool {return _storage._speculativeRetry != nil}
   /// Clears the value of `speculativeRetry`. Subsequent reads from it will return its default value.
-  mutating func clearSpeculativeRetry() {_uniqueStorage()._speculativeRetry = nil}
+  public mutating func clearSpeculativeRetry() {_uniqueStorage()._speculativeRetry = nil}
 
   /// https://docs.scylladb.com/stable/cql/ddl.html#ddl-tombstones-gc
-  var gcGraceSeconds: Int64 {
+  public var gcGraceSeconds: Int64 {
     get {return _storage._gcGraceSeconds ?? 0}
     set {_uniqueStorage()._gcGraceSeconds = newValue}
   }
   /// Returns true if `gcGraceSeconds` has been explicitly set.
-  var hasGcGraceSeconds: Bool {return _storage._gcGraceSeconds != nil}
+  public var hasGcGraceSeconds: Bool {return _storage._gcGraceSeconds != nil}
   /// Clears the value of `gcGraceSeconds`. Subsequent reads from it will return its default value.
-  mutating func clearGcGraceSeconds() {_uniqueStorage()._gcGraceSeconds = nil}
+  public mutating func clearGcGraceSeconds() {_uniqueStorage()._gcGraceSeconds = nil}
 
-  var tombstoneGc: Api_TombstoneGCMode {
+  public var tombstoneGc: Api_TombstoneGCMode {
     get {return _storage._tombstoneGc ?? .timeout}
     set {_uniqueStorage()._tombstoneGc = newValue}
   }
   /// Returns true if `tombstoneGc` has been explicitly set.
-  var hasTombstoneGc: Bool {return _storage._tombstoneGc != nil}
+  public var hasTombstoneGc: Bool {return _storage._tombstoneGc != nil}
   /// Clears the value of `tombstoneGc`. Subsequent reads from it will return its default value.
-  mutating func clearTombstoneGc() {_uniqueStorage()._tombstoneGc = nil}
+  public mutating func clearTombstoneGc() {_uniqueStorage()._tombstoneGc = nil}
 
-  var bloomFilterFpChance: Double {
+  public var bloomFilterFpChance: Double {
     get {return _storage._bloomFilterFpChance ?? 0}
     set {_uniqueStorage()._bloomFilterFpChance = newValue}
   }
   /// Returns true if `bloomFilterFpChance` has been explicitly set.
-  var hasBloomFilterFpChance: Bool {return _storage._bloomFilterFpChance != nil}
+  public var hasBloomFilterFpChance: Bool {return _storage._bloomFilterFpChance != nil}
   /// Clears the value of `bloomFilterFpChance`. Subsequent reads from it will return its default value.
-  mutating func clearBloomFilterFpChance() {_uniqueStorage()._bloomFilterFpChance = nil}
+  public mutating func clearBloomFilterFpChance() {_uniqueStorage()._bloomFilterFpChance = nil}
 
   /// seconds
-  var defaultTimeToLive: Int64 {
+  public var defaultTimeToLive: Int64 {
     get {return _storage._defaultTimeToLive ?? 0}
     set {_uniqueStorage()._defaultTimeToLive = newValue}
   }
   /// Returns true if `defaultTimeToLive` has been explicitly set.
-  var hasDefaultTimeToLive: Bool {return _storage._defaultTimeToLive != nil}
+  public var hasDefaultTimeToLive: Bool {return _storage._defaultTimeToLive != nil}
   /// Clears the value of `defaultTimeToLive`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultTimeToLive() {_uniqueStorage()._defaultTimeToLive = nil}
+  public mutating func clearDefaultTimeToLive() {_uniqueStorage()._defaultTimeToLive = nil}
 
-  var compaction: Api_CompactionMode {
+  public var compaction: Api_CompactionMode {
     get {return _storage._compaction ?? Api_CompactionMode()}
     set {_uniqueStorage()._compaction = newValue}
   }
   /// Returns true if `compaction` has been explicitly set.
-  var hasCompaction: Bool {return _storage._compaction != nil}
+  public var hasCompaction: Bool {return _storage._compaction != nil}
   /// Clears the value of `compaction`. Subsequent reads from it will return its default value.
-  mutating func clearCompaction() {_uniqueStorage()._compaction = nil}
+  public mutating func clearCompaction() {_uniqueStorage()._compaction = nil}
 
-  var compress: Api_CompressionOption {
+  public var compress: Api_CompressionOption {
     get {return _storage._compress ?? Api_CompressionOption()}
     set {_uniqueStorage()._compress = newValue}
   }
   /// Returns true if `compress` has been explicitly set.
-  var hasCompress: Bool {return _storage._compress != nil}
+  public var hasCompress: Bool {return _storage._compress != nil}
   /// Clears the value of `compress`. Subsequent reads from it will return its default value.
-  mutating func clearCompress() {_uniqueStorage()._compress = nil}
+  public mutating func clearCompress() {_uniqueStorage()._compress = nil}
 
   /// https://docs.scylladb.com/stable/cql/ddl.html#cql-caching-options
-  var caching: Bool {
+  public var caching: Bool {
     get {return _storage._caching ?? false}
     set {_uniqueStorage()._caching = newValue}
   }
   /// Returns true if `caching` has been explicitly set.
-  var hasCaching: Bool {return _storage._caching != nil}
+  public var hasCaching: Bool {return _storage._caching != nil}
   /// Clears the value of `caching`. Subsequent reads from it will return its default value.
-  mutating func clearCaching() {_uniqueStorage()._caching = nil}
+  public mutating func clearCaching() {_uniqueStorage()._caching = nil}
 
-  var cdc: Api_CDCOption {
+  public var cdc: Api_CDCOption {
     get {return _storage._cdc ?? Api_CDCOption()}
     set {_uniqueStorage()._cdc = newValue}
   }
   /// Returns true if `cdc` has been explicitly set.
-  var hasCdc: Bool {return _storage._cdc != nil}
+  public var hasCdc: Bool {return _storage._cdc != nil}
   /// Clears the value of `cdc`. Subsequent reads from it will return its default value.
-  mutating func clearCdc() {_uniqueStorage()._cdc = nil}
+  public mutating func clearCdc() {_uniqueStorage()._cdc = nil}
 
   /// 排序
-  var clusteringOrderBy: [Api_ClusteringOrderBy] {
+  public var clusteringOrderBy: [Api_ClusteringOrderBy] {
     get {return _storage._clusteringOrderBy}
     set {_uniqueStorage()._clusteringOrderBy = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Api_ClusteringOrderBy {
+public struct Api_ClusteringOrderBy {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var sortKey: String = String()
+  public var sortKey: String = String()
 
-  var orderBy: Api_OrderBy = .obAes
+  public var orderBy: Api_OrderBy = .obAes
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_TableOption {
+public struct Api_TableOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 可选,不指定将使用message名称作为表名
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
-  var option: Api_TableNativeOption {
+  public var option: Api_TableNativeOption {
     get {return _option ?? Api_TableNativeOption()}
     set {_option = newValue}
   }
   /// Returns true if `option` has been explicitly set.
-  var hasOption: Bool {return self._option != nil}
+  public var hasOption: Bool {return self._option != nil}
   /// Clears the value of `option`. Subsequent reads from it will return its default value.
-  mutating func clearOption() {self._option = nil}
+  public mutating func clearOption() {self._option = nil}
 
   /// 分区键, 聚集键, 次级索引
   /// 如不设置分区键, 将会解析为user defined type
-  var primaryKey: Api_PrimaryKey {
+  public var primaryKey: Api_PrimaryKey {
     get {return _primaryKey ?? Api_PrimaryKey()}
     set {_primaryKey = newValue}
   }
   /// Returns true if `primaryKey` has been explicitly set.
-  var hasPrimaryKey: Bool {return self._primaryKey != nil}
+  public var hasPrimaryKey: Bool {return self._primaryKey != nil}
   /// Clears the value of `primaryKey`. Subsequent reads from it will return its default value.
-  mutating func clearPrimaryKey() {self._primaryKey = nil}
+  public mutating func clearPrimaryKey() {self._primaryKey = nil}
 
-  var mv: [Api_MaterializedView] = []
+  public var mv: [Api_MaterializedView] = []
 
   /// 本地次级索引, 自动补全part_key
-  var localSecondaryIndex: [String] = []
+  public var localSecondaryIndex: [String] = []
 
   /// 全局次级索引, 性能较 local_secondary_index 弱
-  var globalSecondaryIndex: [String] = []
+  public var globalSecondaryIndex: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
   fileprivate var _option: Api_TableNativeOption? = nil
@@ -1125,24 +1125,24 @@ struct Api_TableOption {
 }
 
 /// 字段暂不支持 repeated map, 对应类型[collections](https://docs.scylladb.com/stable/cql/types.html#collections)
-struct Api_FieldOption {
+public struct Api_FieldOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 可选,不指定将使用字段名称作为列名
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
-  var ty: Api_FieldOption.OneOf_Ty? = nil
+  public var ty: Api_FieldOption.OneOf_Ty? = nil
 
-  var base: Api_NativeType {
+  public var base: Api_NativeType {
     get {
       if case .base(let v)? = ty {return v}
       return .ntUnknown
@@ -1151,7 +1151,7 @@ struct Api_FieldOption {
   }
 
   /// user defined type, 多数情况下无需显式指定
-  var udt: String {
+  public var udt: String {
     get {
       if case .udt(let v)? = ty {return v}
       return String()
@@ -1160,24 +1160,24 @@ struct Api_FieldOption {
   }
 
   /// true: 不持久化到数据库, 作为模型临时字段
-  var exclude: Bool {
+  public var exclude: Bool {
     get {return _exclude ?? false}
     set {_exclude = newValue}
   }
   /// Returns true if `exclude` has been explicitly set.
-  var hasExclude: Bool {return self._exclude != nil}
+  public var hasExclude: Bool {return self._exclude != nil}
   /// Clears the value of `exclude`. Subsequent reads from it will return its default value.
-  mutating func clearExclude() {self._exclude = nil}
+  public mutating func clearExclude() {self._exclude = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Ty: Equatable {
+  public enum OneOf_Ty: Equatable {
     case base(Api_NativeType)
     /// user defined type, 多数情况下无需显式指定
     case udt(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Api_FieldOption.OneOf_Ty, rhs: Api_FieldOption.OneOf_Ty) -> Bool {
+    public static func ==(lhs: Api_FieldOption.OneOf_Ty, rhs: Api_FieldOption.OneOf_Ty) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -1196,7 +1196,7 @@ struct Api_FieldOption {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
   fileprivate var _exclude: Bool? = nil
@@ -1242,54 +1242,54 @@ extension Api_FieldOption.OneOf_Ty: @unchecked Sendable {}
 
 extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
-  var Api_field: Api_FieldOption {
+  public var Api_field: Api_FieldOption {
     get {return getExtensionValue(ext: Api_Extensions_field) ?? Api_FieldOption()}
     set {setExtensionValue(ext: Api_Extensions_field, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_field`
   /// has been explicitly set.
-  var hasApi_field: Bool {
+  public var hasApi_field: Bool {
     return hasExtensionValue(ext: Api_Extensions_field)
   }
   /// Clears the value of extension `Api_Extensions_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_field() {
+  public mutating func clearApi_field() {
     clearExtensionValue(ext: Api_Extensions_field)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
-  var Api_keySpace: Api_KeySpaceOption {
+  public var Api_keySpace: Api_KeySpaceOption {
     get {return getExtensionValue(ext: Api_Extensions_key_space) ?? Api_KeySpaceOption()}
     set {setExtensionValue(ext: Api_Extensions_key_space, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_key_space`
   /// has been explicitly set.
-  var hasApi_keySpace: Bool {
+  public var hasApi_keySpace: Bool {
     return hasExtensionValue(ext: Api_Extensions_key_space)
   }
   /// Clears the value of extension `Api_Extensions_key_space`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_keySpace() {
+  public mutating func clearApi_keySpace() {
     clearExtensionValue(ext: Api_Extensions_key_space)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
-  var Api_table: Api_TableOption {
+  public var Api_table: Api_TableOption {
     get {return getExtensionValue(ext: Api_Extensions_table) ?? Api_TableOption()}
     set {setExtensionValue(ext: Api_Extensions_table, value: newValue)}
   }
   /// Returns true if extension `Api_Extensions_table`
   /// has been explicitly set.
-  var hasApi_table: Bool {
+  public var hasApi_table: Bool {
     return hasExtensionValue(ext: Api_Extensions_table)
   }
   /// Clears the value of extension `Api_Extensions_table`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearApi_table() {
+  public mutating func clearApi_table() {
     clearExtensionValue(ext: Api_Extensions_table)
   }
 
@@ -1301,7 +1301,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Api_Scylla_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+public let Api_Scylla_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Api_Extensions_key_space,
   Api_Extensions_table,
   Api_Extensions_field
@@ -1311,17 +1311,17 @@ let Api_Scylla_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Api_Extensions_key_space = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_KeySpaceOption>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+public let Api_Extensions_key_space = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_KeySpaceOption>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 53000,
   fieldName: "api.key_space"
 )
 
-let Api_Extensions_table = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_TableOption>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+public let Api_Extensions_table = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_TableOption>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 53000,
   fieldName: "api.table"
 )
 
-let Api_Extensions_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_FieldOption>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+public let Api_Extensions_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Api_FieldOption>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 53000,
   fieldName: "api.field"
 )
@@ -1331,7 +1331,7 @@ let Api_Extensions_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.Optional
 fileprivate let _protobuf_package = "api"
 
 extension Api_TombstoneGCMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "TIMEOUT"),
     1: .same(proto: "REPAIR"),
     2: .same(proto: "DISABLED"),
@@ -1340,7 +1340,7 @@ extension Api_TombstoneGCMode: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_CompactionWindowUnit: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DAYS"),
     1: .same(proto: "HOURS"),
     2: .same(proto: "MINUTES"),
@@ -1348,7 +1348,7 @@ extension Api_CompactionWindowUnit: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_CompressionMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "LZ4Compressor"),
     1: .same(proto: "SnappyCompressor"),
     2: .same(proto: "DeflateCompressor"),
@@ -1356,14 +1356,14 @@ extension Api_CompressionMode: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_OrderBy: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "OB_AES"),
     1: .same(proto: "OB_DESC"),
   ]
 }
 
 extension Api_NativeType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NT_UNKNOWN"),
     1: .same(proto: "NT_BOOLEAN"),
     2: .same(proto: "NT_TINY_INT"),
@@ -1389,12 +1389,12 @@ extension Api_NativeType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_SimpleStrategy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SimpleStrategy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SimpleStrategy"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "replication_factor"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1406,14 +1406,14 @@ extension Api_SimpleStrategy: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.replicationFactor != 0 {
       try visitor.visitSingularInt32Field(value: self.replicationFactor, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_SimpleStrategy, rhs: Api_SimpleStrategy) -> Bool {
+  public static func ==(lhs: Api_SimpleStrategy, rhs: Api_SimpleStrategy) -> Bool {
     if lhs.replicationFactor != rhs.replicationFactor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1421,12 +1421,12 @@ extension Api_SimpleStrategy: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Api_NetworkTopologyStrategy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NetworkTopologyStrategy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NetworkTopologyStrategy"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "replication_factor"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1438,14 +1438,14 @@ extension Api_NetworkTopologyStrategy: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.replicationFactor.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufInt32>.self, value: self.replicationFactor, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_NetworkTopologyStrategy, rhs: Api_NetworkTopologyStrategy) -> Bool {
+  public static func ==(lhs: Api_NetworkTopologyStrategy, rhs: Api_NetworkTopologyStrategy) -> Bool {
     if lhs.replicationFactor != rhs.replicationFactor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1453,15 +1453,15 @@ extension Api_NetworkTopologyStrategy: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Api_KeySpaceOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".KeySpaceOption"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".KeySpaceOption"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "ss"),
     3: .same(proto: "nts"),
     4: .standard(proto: "durable_writes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1500,7 +1500,7 @@ extension Api_KeySpaceOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1525,7 +1525,7 @@ extension Api_KeySpaceOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_KeySpaceOption, rhs: Api_KeySpaceOption) -> Bool {
+  public static func ==(lhs: Api_KeySpaceOption, rhs: Api_KeySpaceOption) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.strategy != rhs.strategy {return false}
     if lhs._durableWrites != rhs._durableWrites {return false}
@@ -1535,15 +1535,15 @@ extension Api_KeySpaceOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Api_SpeculativeRetry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SpeculativeRetry"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SpeculativeRetry"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "percentile"),
     2: .same(proto: "milliseconds"),
     3: .same(proto: "always"),
     4: .same(proto: "none"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1586,7 +1586,7 @@ extension Api_SpeculativeRetry: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1613,7 +1613,7 @@ extension Api_SpeculativeRetry: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_SpeculativeRetry, rhs: Api_SpeculativeRetry) -> Bool {
+  public static func ==(lhs: Api_SpeculativeRetry, rhs: Api_SpeculativeRetry) -> Bool {
     if lhs.options != rhs.options {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1621,8 +1621,8 @@ extension Api_SpeculativeRetry: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Api_STCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".STCS"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".STCS"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "bucket_high"),
     2: .standard(proto: "bucket_low"),
     3: .standard(proto: "min_sstable_size"),
@@ -1630,7 +1630,7 @@ extension Api_STCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     5: .standard(proto: "max_threshold"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1646,7 +1646,7 @@ extension Api_STCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1669,7 +1669,7 @@ extension Api_STCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_STCS, rhs: Api_STCS) -> Bool {
+  public static func ==(lhs: Api_STCS, rhs: Api_STCS) -> Bool {
     if lhs._bucketHigh != rhs._bucketHigh {return false}
     if lhs._bucketLow != rhs._bucketLow {return false}
     if lhs._minSstableSize != rhs._minSstableSize {return false}
@@ -1681,12 +1681,12 @@ extension Api_STCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
 }
 
 extension Api_LCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LCS"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LCS"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sstable_size_in_mb"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1698,7 +1698,7 @@ extension Api_LCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1709,7 +1709,7 @@ extension Api_LCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_LCS, rhs: Api_LCS) -> Bool {
+  public static func ==(lhs: Api_LCS, rhs: Api_LCS) -> Bool {
     if lhs._sstableSizeInMb != rhs._sstableSizeInMb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1717,8 +1717,8 @@ extension Api_LCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
 }
 
 extension Api_ICS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ICS"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ICS"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "bucket_high"),
     2: .standard(proto: "bucket_low"),
     3: .standard(proto: "min_sstable_size"),
@@ -1728,7 +1728,7 @@ extension Api_ICS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     7: .standard(proto: "space_amplification_goal"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1746,7 +1746,7 @@ extension Api_ICS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1775,7 +1775,7 @@ extension Api_ICS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_ICS, rhs: Api_ICS) -> Bool {
+  public static func ==(lhs: Api_ICS, rhs: Api_ICS) -> Bool {
     if lhs._bucketHigh != rhs._bucketHigh {return false}
     if lhs._bucketLow != rhs._bucketLow {return false}
     if lhs._minSstableSize != rhs._minSstableSize {return false}
@@ -1789,8 +1789,8 @@ extension Api_ICS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
 }
 
 extension Api_TWCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TWCS"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TWCS"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "compaction_window_unit"),
     2: .standard(proto: "compaction_window_size"),
     3: .standard(proto: "expired_sstable_check_frequency_seconds"),
@@ -1798,7 +1798,7 @@ extension Api_TWCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     5: .standard(proto: "max_threshold"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1814,7 +1814,7 @@ extension Api_TWCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1837,7 +1837,7 @@ extension Api_TWCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_TWCS, rhs: Api_TWCS) -> Bool {
+  public static func ==(lhs: Api_TWCS, rhs: Api_TWCS) -> Bool {
     if lhs._compactionWindowUnit != rhs._compactionWindowUnit {return false}
     if lhs._compactionWindowSize != rhs._compactionWindowSize {return false}
     if lhs._expiredSstableCheckFrequencySeconds != rhs._expiredSstableCheckFrequencySeconds {return false}
@@ -1849,15 +1849,15 @@ extension Api_TWCS: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
 }
 
 extension Api_CompactionMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CompactionMode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CompactionMode"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "stcs"),
     2: .same(proto: "lcs"),
     3: .same(proto: "ics"),
     4: .same(proto: "twcs"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1920,7 +1920,7 @@ extension Api_CompactionMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1947,7 +1947,7 @@ extension Api_CompactionMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_CompactionMode, rhs: Api_CompactionMode) -> Bool {
+  public static func ==(lhs: Api_CompactionMode, rhs: Api_CompactionMode) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1955,13 +1955,13 @@ extension Api_CompactionMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Api_CompressionOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CompressionOption"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CompressionOption"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sstable_compression"),
     2: .standard(proto: "chunk_length_in_kb"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1974,7 +1974,7 @@ extension Api_CompressionOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1988,7 +1988,7 @@ extension Api_CompressionOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_CompressionOption, rhs: Api_CompressionOption) -> Bool {
+  public static func ==(lhs: Api_CompressionOption, rhs: Api_CompressionOption) -> Bool {
     if lhs._sstableCompression != rhs._sstableCompression {return false}
     if lhs._chunkLengthInKb != rhs._chunkLengthInKb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1997,14 +1997,14 @@ extension Api_CompressionOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Api_CDCOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CDCOption"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CDCOption"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "enabled"),
     2: .same(proto: "preimage"),
     3: .standard(proto: "ttl_sec"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2018,7 +2018,7 @@ extension Api_CDCOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2035,7 +2035,7 @@ extension Api_CDCOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_CDCOption, rhs: Api_CDCOption) -> Bool {
+  public static func ==(lhs: Api_CDCOption, rhs: Api_CDCOption) -> Bool {
     if lhs._enabled != rhs._enabled {return false}
     if lhs._preimage != rhs._preimage {return false}
     if lhs._ttlSec != rhs._ttlSec {return false}
@@ -2045,13 +2045,13 @@ extension Api_CDCOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 }
 
 extension Api_PrimaryKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PrimaryKey"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PrimaryKey"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     13: .standard(proto: "part_key"),
     14: .standard(proto: "sort_key"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2064,7 +2064,7 @@ extension Api_PrimaryKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.partKey.isEmpty {
       try visitor.visitRepeatedStringField(value: self.partKey, fieldNumber: 13)
     }
@@ -2074,7 +2074,7 @@ extension Api_PrimaryKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_PrimaryKey, rhs: Api_PrimaryKey) -> Bool {
+  public static func ==(lhs: Api_PrimaryKey, rhs: Api_PrimaryKey) -> Bool {
     if lhs.partKey != rhs.partKey {return false}
     if lhs.sortKey != rhs.sortKey {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2083,14 +2083,14 @@ extension Api_PrimaryKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension Api_MaterializedView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MaterializedView"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MaterializedView"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "primary_key"),
     3: .same(proto: "option"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2104,7 +2104,7 @@ extension Api_MaterializedView: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2121,7 +2121,7 @@ extension Api_MaterializedView: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_MaterializedView, rhs: Api_MaterializedView) -> Bool {
+  public static func ==(lhs: Api_MaterializedView, rhs: Api_MaterializedView) -> Bool {
     if lhs._name != rhs._name {return false}
     if lhs._primaryKey != rhs._primaryKey {return false}
     if lhs._option != rhs._option {return false}
@@ -2131,8 +2131,8 @@ extension Api_MaterializedView: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Api_TableNativeOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TableNativeOption"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TableNativeOption"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "comment"),
     2: .standard(proto: "read_repair_chance"),
     3: .standard(proto: "dclocal_read_repair_chance"),
@@ -2191,7 +2191,7 @@ extension Api_TableNativeOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2218,7 +2218,7 @@ extension Api_TableNativeOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -2267,7 +2267,7 @@ extension Api_TableNativeOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_TableNativeOption, rhs: Api_TableNativeOption) -> Bool {
+  public static func ==(lhs: Api_TableNativeOption, rhs: Api_TableNativeOption) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2295,13 +2295,13 @@ extension Api_TableNativeOption: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Api_ClusteringOrderBy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClusteringOrderBy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClusteringOrderBy"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sort_key"),
     2: .standard(proto: "order_by"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2314,7 +2314,7 @@ extension Api_ClusteringOrderBy: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sortKey.isEmpty {
       try visitor.visitSingularStringField(value: self.sortKey, fieldNumber: 1)
     }
@@ -2324,7 +2324,7 @@ extension Api_ClusteringOrderBy: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_ClusteringOrderBy, rhs: Api_ClusteringOrderBy) -> Bool {
+  public static func ==(lhs: Api_ClusteringOrderBy, rhs: Api_ClusteringOrderBy) -> Bool {
     if lhs.sortKey != rhs.sortKey {return false}
     if lhs.orderBy != rhs.orderBy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2333,8 +2333,8 @@ extension Api_ClusteringOrderBy: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Api_TableOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TableOption"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TableOption"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "option"),
     3: .standard(proto: "primary_key"),
@@ -2343,7 +2343,7 @@ extension Api_TableOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     6: .standard(proto: "global_secondary_index"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2360,7 +2360,7 @@ extension Api_TableOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2386,7 +2386,7 @@ extension Api_TableOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_TableOption, rhs: Api_TableOption) -> Bool {
+  public static func ==(lhs: Api_TableOption, rhs: Api_TableOption) -> Bool {
     if lhs._name != rhs._name {return false}
     if lhs._option != rhs._option {return false}
     if lhs._primaryKey != rhs._primaryKey {return false}
@@ -2399,15 +2399,15 @@ extension Api_TableOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Api_FieldOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FieldOption"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FieldOption"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "base"),
     3: .same(proto: "udt"),
     4: .same(proto: "exclude"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2436,7 +2436,7 @@ extension Api_FieldOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2461,7 +2461,7 @@ extension Api_FieldOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_FieldOption, rhs: Api_FieldOption) -> Bool {
+  public static func ==(lhs: Api_FieldOption, rhs: Api_FieldOption) -> Bool {
     if lhs._name != rhs._name {return false}
     if lhs.ty != rhs.ty {return false}
     if lhs._exclude != rhs._exclude {return false}

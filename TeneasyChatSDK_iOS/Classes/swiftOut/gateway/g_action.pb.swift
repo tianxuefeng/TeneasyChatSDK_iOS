@@ -22,8 +22,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// SC: service -> client
 /// CS: client -> service
-enum Gateway_Action: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Gateway_Action: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 协议转发
   case forward // = 0
@@ -86,11 +86,11 @@ enum Gateway_Action: SwiftProtobuf.Enum {
   case scuserConnectionChanged // = 18
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .forward
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .forward
     case 1: self = .schi
@@ -115,7 +115,7 @@ enum Gateway_Action: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .forward: return 0
     case .schi: return 1
@@ -146,7 +146,7 @@ enum Gateway_Action: SwiftProtobuf.Enum {
 
 extension Gateway_Action: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Gateway_Action] = [
+  public static var allCases: [Gateway_Action] = [
     .forward,
     .schi,
     .cssendMsg,
@@ -178,7 +178,7 @@ extension Gateway_Action: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Gateway_Action: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ActionForward"),
     1: .same(proto: "ActionSCHi"),
     2: .same(proto: "ActionCSSendMsg"),

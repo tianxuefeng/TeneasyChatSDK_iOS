@@ -4,11 +4,21 @@ import SwiftProtobuf
 //import Toast
 
 //https://swiftpackageregistry.com/daltoniam/Starscream
+//https://www.kodeco.com/861-websockets-on-ios-with-starscream
 public protocol teneasySDKDelegate{
     func receivedMsg(msg: String)
+    //func receivedMsg2(msg: EasyMessage)
+    func connected(c: Bool)
 }
 
-public class libTest {
+/*
+extension teneasySDKDelegate {
+    func receivedMsg2(msg: EasyMessage) {
+        /* return a default value or just leave empty */
+    }
+}*/
+
+public class chatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
     //https://csapi.xdev.stream
     //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
@@ -19,27 +29,20 @@ public class libTest {
     var isConnected = false
     open var delegate : teneasySDKDelegate? = nil
     var payloadId : Int64? = 0
+    var sendingMsg: String = ""
     public init() {
         print(text)
     }
-    
-    public func toastHello(vc : UIViewController){
-        let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in
-            self.sendMessage()
-        }))
-        vc.present(alert, animated: true, completion: nil)
-    }
-    
-//https://swiftpackageregistry.com/daltoniam/Starscream
+
      public func callWebsocket(){
-         let request = URLRequest(url: self.url)
-        websocket = WebSocket(request: request)
+         var request = URLRequest(url: self.url)
+         request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
+         websocket = WebSocket(request: request)
          websocket?.request.timeoutInterval = 5 // Sets the timeout for the connection
          websocket?.delegate = self
          websocket?.connect()
          
-         /*
+         /* 添加header的办法
           request.setValue("someother protocols", forHTTPHeaderField: "Sec-WebSocket-Protocol")
           request.setValue("14", forHTTPHeaderField: "Sec-WebSocket-Version")
           request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
@@ -56,10 +59,19 @@ public class libTest {
       }
     }
     
-    public func sendMessage(){
+    public func deleteMessage(){
+        
+    }
+    
+    public func sendMessage(msg: String){
+//        if !isConnected{
+//            print("断开了")
+//        }
         
         if !isConnected{
-            print("断开了")
+            sendingMsg = msg
+            callWebsocket()
+            return
         }
             
         //发送信息的封装，有四层
@@ -67,7 +79,7 @@ public class libTest {
         
         //第一层
         var content = CommonMessageContent()
-        content.data = "你好！需要什么帮助？"
+        content.data = msg
         
         //第二层
         var msg = CommonMessage()
@@ -118,7 +130,7 @@ public class libTest {
 }
 
 // MARK: - WebSocketDelegate
-extension libTest : WebSocketDelegate {
+extension chatLib : WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("got some text: \(text)")
@@ -127,11 +139,13 @@ extension libTest : WebSocketDelegate {
    public func didReceive(event: WebSocketEvent, client: WebSocket){
        switch event {
        case .connected(let headers):
-        print("connected")
-           isConnected = true
+           print("connected" + headers.description)
+           self.delegate?.connected(c: true)
+           if (!sendingMsg.isEmpty){
+               sendMessage(msg: sendingMsg)
+           }
        case .disconnected(let reason, let closeCode):
          print("disconnected \(reason) \(closeCode)")
-           isConnected = false
        case .text(let text):
          print("received text: \(text)")
        case .binary(let data):
@@ -143,24 +157,25 @@ extension libTest : WebSocketDelegate {
                
                if (decodedInfo?.act == .screcvMsg){
                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
-                   let msC = msg?.msg
-                   if let dele = delegate{
-                       if let p = msC?.content{
-                            dele.receivedMsg(msg: p.data)
+                   if let msC = msg?.msg{
+                       if delegate != nil{
+                           //delegate!.receivedMsg(msg: msC)
+                           delegate!.receivedMsg(msg: "")
                        }
-                       //dele.receivedMsg(msg: "dd")
                    }
-                   //print(msC)
                }else if decodedInfo?.act == .schi{
                    let msg = try? Gateway_SCHi(serializedData: msgData!)
-                   //let msC = msg?.token
                    self.payloadId = msg?.id
-                   print(msg)
+                   print(msg!)
                }else if decodedInfo?.act == .forward{
                    let msg = try? Gateway_CSForward(serializedData: msgData!)
-                   //let msC = msg?.token
-                   print(msg)
-               }else{
+                   print(msg!)
+               }else if decodedInfo?.act == .scsendMsgAck{
+                   let msg = try? Gateway_SCSendMessage(serializedData: msgData!)
+                   print("消息回执")
+                   print(msg!)
+               }
+               else{
                    print("received data: \(data)")
                }
            }
@@ -171,14 +186,25 @@ extension libTest : WebSocketDelegate {
          print("received ping: \(pingData)")
        case .error(let error):
            isConnected = false
+          // self.delegate?.connected(c: false)
          print("error \(error)")
        case .viabilityChanged:
          print("viabilityChanged")
        case .reconnectSuggested:
          print("reconnectSuggested")
        case .cancelled:
+           self.delegate?.connected(c: false)
            isConnected = false
          print("cancelled")
        }
     }
+    
+    
+    /*public func toastHello(vc : UIViewController){
+        let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in
+           
+        }))
+        vc.present(alert, animated: true, completion: nil)
+    }*/
 }

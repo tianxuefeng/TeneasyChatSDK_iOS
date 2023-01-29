@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// 老用户分配机制
-enum Api_Common_DistributionType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_DistributionType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 空闲
   case distributionLeisure // = 0
@@ -37,11 +37,11 @@ enum Api_Common_DistributionType: SwiftProtobuf.Enum {
   case distributionNotLogin // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .distributionLeisure
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .distributionLeisure
     case 1: self = .distributionBusy
@@ -51,7 +51,7 @@ enum Api_Common_DistributionType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .distributionLeisure: return 0
     case .distributionBusy: return 1
@@ -67,7 +67,7 @@ enum Api_Common_DistributionType: SwiftProtobuf.Enum {
 
 extension Api_Common_DistributionType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_DistributionType] = [
+  public static var allCases: [Api_Common_DistributionType] = [
     .distributionLeisure,
     .distributionBusy,
     .distributionOffline,
@@ -78,8 +78,8 @@ extension Api_Common_DistributionType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// 客服权限
-enum Api_Common_WorkerPermission: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_WorkerPermission: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case workerPermNone // = 0
 
   /// 商户顶级账户, 创建商户时设置, 只读
@@ -104,11 +104,11 @@ enum Api_Common_WorkerPermission: SwiftProtobuf.Enum {
   case workerPermBlacker // = 64
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .workerPermNone
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .workerPermNone
     case 1: self = .workerPermTop
@@ -122,7 +122,7 @@ enum Api_Common_WorkerPermission: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .workerPermNone: return 0
     case .workerPermTop: return 1
@@ -142,7 +142,7 @@ enum Api_Common_WorkerPermission: SwiftProtobuf.Enum {
 
 extension Api_Common_WorkerPermission: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_WorkerPermission] = [
+  public static var allCases: [Api_Common_WorkerPermission] = [
     .workerPermNone,
     .workerPermTop,
     .workerPermAdmin,
@@ -156,17 +156,17 @@ extension Api_Common_WorkerPermission: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_Common_ConnectState: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_ConnectState: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case offline // = 0
   case online // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .offline
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .offline
     case 1: self = .online
@@ -174,7 +174,7 @@ enum Api_Common_ConnectState: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .offline: return 0
     case .online: return 1
@@ -188,7 +188,7 @@ enum Api_Common_ConnectState: SwiftProtobuf.Enum {
 
 extension Api_Common_ConnectState: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_ConnectState] = [
+  public static var allCases: [Api_Common_ConnectState] = [
     .offline,
     .online,
   ]
@@ -196,8 +196,8 @@ extension Api_Common_ConnectState: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Api_Common_OnlineState: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_OnlineState: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 空闲
   case idle // = 0
@@ -209,11 +209,11 @@ enum Api_Common_OnlineState: SwiftProtobuf.Enum {
   case afk // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .idle
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .idle
     case 1: self = .busy
@@ -222,7 +222,7 @@ enum Api_Common_OnlineState: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .idle: return 0
     case .busy: return 1
@@ -237,7 +237,7 @@ enum Api_Common_OnlineState: SwiftProtobuf.Enum {
 
 extension Api_Common_OnlineState: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_OnlineState] = [
+  public static var allCases: [Api_Common_OnlineState] = [
     .idle,
     .busy,
     .afk,
@@ -246,68 +246,68 @@ extension Api_Common_OnlineState: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Api_Common_Worker {
+public struct Api_Common_Worker {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var workerID: Int32 = 0
+  public var workerID: Int32 = 0
 
-  var account: String = String()
+  public var account: String = String()
 
   /// 所在的组
-  var group: [Api_Common_WorkerGroup] = []
+  public var group: [Api_Common_WorkerGroup] = []
 
   /// 权限掩码, 前端理解有困难的话 随时可调
-  var permMask: Int32 = 0
+  public var permMask: Int32 = 0
 
   /// 客服名
-  var name: String = String()
+  public var name: String = String()
 
   /// 头像url
-  var avatar: String = String()
+  public var avatar: String = String()
 
   /// 在线状态
-  var onlineState: Api_Common_OnlineState = .idle
+  public var onlineState: Api_Common_OnlineState = .idle
 
   /// 密码
-  var password: String = String()
+  public var password: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Common_WorkerGroup {
+public struct Api_Common_WorkerGroup {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Common_Distribution {
+public struct Api_Common_Distribution {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var id: Int64 = 0
+  public var id: Int64 = 0
 
-  var name: String = String()
+  public var name: String = String()
 
-  var priority: Int32 = 0
+  public var priority: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -325,7 +325,7 @@ extension Api_Common_Distribution: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension Api_Common_DistributionType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DISTRIBUTION_LEISURE"),
     1: .same(proto: "DISTRIBUTION_BUSY"),
     2: .same(proto: "DISTRIBUTION_OFFLINE"),
@@ -334,7 +334,7 @@ extension Api_Common_DistributionType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_Common_WorkerPermission: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "WORKER_PERM_NONE"),
     1: .same(proto: "WORKER_PERM_TOP"),
     2: .same(proto: "WORKER_PERM_ADMIN"),
@@ -347,14 +347,14 @@ extension Api_Common_WorkerPermission: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_Common_ConnectState: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CONNECT_STATE_OFFLINE"),
     1: .same(proto: "CONNECT_STATE_ONLINE"),
   ]
 }
 
 extension Api_Common_OnlineState: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ONLINE_STATE_IDLE"),
     1: .same(proto: "ONLINE_STATE_BUSY"),
     2: .same(proto: "ONLINE_STATE_AFK"),
@@ -362,8 +362,8 @@ extension Api_Common_OnlineState: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Worker"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Worker"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "worker_id"),
     2: .same(proto: "account"),
     3: .same(proto: "group"),
@@ -374,7 +374,7 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     8: .same(proto: "password"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -393,7 +393,7 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.workerID != 0 {
       try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 1)
     }
@@ -421,7 +421,7 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Common_Worker, rhs: Api_Common_Worker) -> Bool {
+  public static func ==(lhs: Api_Common_Worker, rhs: Api_Common_Worker) -> Bool {
     if lhs.workerID != rhs.workerID {return false}
     if lhs.account != rhs.account {return false}
     if lhs.group != rhs.group {return false}
@@ -436,14 +436,14 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WorkerGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WorkerGroup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -457,7 +457,7 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -470,7 +470,7 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Common_WorkerGroup, rhs: Api_Common_WorkerGroup) -> Bool {
+  public static func ==(lhs: Api_Common_WorkerGroup, rhs: Api_Common_WorkerGroup) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
@@ -480,14 +480,14 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Api_Common_Distribution: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Distribution"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Distribution"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -501,7 +501,7 @@ extension Api_Common_Distribution: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
@@ -514,7 +514,7 @@ extension Api_Common_Distribution: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Common_Distribution, rhs: Api_Common_Distribution) -> Bool {
+  public static func ==(lhs: Api_Common_Distribution, rhs: Api_Common_Distribution) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}

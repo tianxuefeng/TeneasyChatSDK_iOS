@@ -20,25 +20,25 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct CommonPhoneNumber {
+public struct CommonPhoneNumber {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 默认中国区号 86
-  var countryCode: Int32 = 0
+  public var countryCode: Int32 = 0
 
   /// International Telecommunication Union (ITU) Recommendation E.164,
-  var nationalNumber: Int64 = 0
+  public var nationalNumber: Int64 = 0
 
   /// 隐去手机号码部分数字后的表现形式, 如:
   /// 133*****123
   /// 通常用作前端表现, 或消费方不应知道完整手机号码的场景
-  var maskedNationalNumber: String = String()
+  public var maskedNationalNumber: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -50,14 +50,14 @@ extension CommonPhoneNumber: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension CommonPhoneNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PhoneNumber"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PhoneNumber"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "country_code"),
     2: .standard(proto: "national_number"),
     3: .standard(proto: "masked_national_number"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -71,7 +71,7 @@ extension CommonPhoneNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.countryCode != 0 {
       try visitor.visitSingularInt32Field(value: self.countryCode, fieldNumber: 1)
     }
@@ -84,7 +84,7 @@ extension CommonPhoneNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CommonPhoneNumber, rhs: CommonPhoneNumber) -> Bool {
+  public static func ==(lhs: CommonPhoneNumber, rhs: CommonPhoneNumber) -> Bool {
     if lhs.countryCode != rhs.countryCode {return false}
     if lhs.nationalNumber != rhs.nationalNumber {return false}
     if lhs.maskedNationalNumber != rhs.maskedNationalNumber {return false}

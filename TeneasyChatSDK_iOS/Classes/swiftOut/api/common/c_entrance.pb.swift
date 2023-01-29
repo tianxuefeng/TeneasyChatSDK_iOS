@@ -20,18 +20,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Api_Common_LinkType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Api_Common_LinkType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
   case h5 // = 1
   case web // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .h5
@@ -40,7 +40,7 @@ enum Api_Common_LinkType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .h5: return 1
@@ -55,7 +55,7 @@ enum Api_Common_LinkType: SwiftProtobuf.Enum {
 
 extension Api_Common_LinkType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Api_Common_LinkType] = [
+  public static var allCases: [Api_Common_LinkType] = [
     .unknown,
     .h5,
     .web,
@@ -64,90 +64,90 @@ extension Api_Common_LinkType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Api_Common_Entrance {
+public struct Api_Common_Entrance {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 入口id
-  var entranceID: UInt32 = 0
+  public var entranceID: UInt32 = 0
 
   /// 入口名称
-  var name: String = String()
+  public var name: String = String()
 
   /// 用户昵称
-  var nick: String = String()
+  public var nick: String = String()
 
   /// 用户头像
-  var avatar: String = String()
+  public var avatar: String = String()
 
   /// 咨询类型引导文案
-  var guide: String = String()
+  public var guide: String = String()
 
   /// 咨询文案id
-  var consultIds: [Int32] = []
+  public var consultIds: [Int32] = []
 
   /// 转默认咨询文案的时间
-  var changeDefaultTime: String = String()
+  public var changeDefaultTime: String = String()
 
   /// h5链接
-  var h5Link: String = String()
+  public var h5Link: String = String()
 
   /// web链接
-  var webLink: String = String()
+  public var webLink: String = String()
 
   /// 内部参数
-  var internalParameters: String = String()
+  public var internalParameters: String = String()
 
   /// 客服联盟app参数
-  var appParameters: String = String()
+  public var appParameters: String = String()
 
   /// 接入文档链接
-  var accessLink: String = String()
+  public var accessLink: String = String()
 
   /// 默认咨询文案id
-  var defaultConsultID: Int32 = 0
+  public var defaultConsultID: Int32 = 0
 
   /// h5|web用户连接凭证
-  var certificate: String = String()
+  public var certificate: String = String()
 
   /// 分配一线客服
-  var workerName: [String] = []
+  public var workerName: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Common_Consult {
+public struct Api_Common_Consult {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 咨询id
-  var consultID: UInt32 = 0
+  public var consultID: UInt32 = 0
 
   /// 咨询类型名称
-  var name: String = String()
+  public var name: String = String()
 
   /// 咨询类型文案
-  var guide: String = String()
+  public var guide: String = String()
 
   /// 接待客服组
-  var workerGroupIds: [Int64] = []
+  public var workerGroupIds: [Int64] = []
 
   /// 接待客服
-  var workerIds: [Int32] = []
+  public var workerIds: [Int32] = []
 
   /// 接待客服组名称
-  var workerGroupNames: String = String()
+  public var workerGroupNames: String = String()
 
   /// 接待客服
-  var workerNames: String = String()
+  public var workerNames: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -161,7 +161,7 @@ extension Api_Common_Consult: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.common"
 
 extension Api_Common_LinkType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "LINK_TYPE_UNKNOWN"),
     1: .same(proto: "LINK_TYPE_H5"),
     2: .same(proto: "LINK_TYPE_WEB"),
@@ -169,8 +169,8 @@ extension Api_Common_LinkType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Api_Common_Entrance: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Entrance"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Entrance"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "entrance_id"),
     2: .same(proto: "name"),
     3: .same(proto: "nick"),
@@ -188,7 +188,7 @@ extension Api_Common_Entrance: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     15: .standard(proto: "worker_name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -214,7 +214,7 @@ extension Api_Common_Entrance: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.entranceID != 0 {
       try visitor.visitSingularUInt32Field(value: self.entranceID, fieldNumber: 1)
     }
@@ -263,7 +263,7 @@ extension Api_Common_Entrance: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Common_Entrance, rhs: Api_Common_Entrance) -> Bool {
+  public static func ==(lhs: Api_Common_Entrance, rhs: Api_Common_Entrance) -> Bool {
     if lhs.entranceID != rhs.entranceID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.nick != rhs.nick {return false}
@@ -285,8 +285,8 @@ extension Api_Common_Entrance: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 }
 
 extension Api_Common_Consult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Consult"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Consult"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "consult_id"),
     2: .same(proto: "name"),
     3: .same(proto: "guide"),
@@ -296,7 +296,7 @@ extension Api_Common_Consult: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     7: .standard(proto: "worker_names"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -314,7 +314,7 @@ extension Api_Common_Consult: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.consultID != 0 {
       try visitor.visitSingularUInt32Field(value: self.consultID, fieldNumber: 1)
     }
@@ -339,7 +339,7 @@ extension Api_Common_Consult: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Common_Consult, rhs: Api_Common_Consult) -> Bool {
+  public static func ==(lhs: Api_Common_Consult, rhs: Api_Common_Consult) -> Bool {
     if lhs.consultID != rhs.consultID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.guide != rhs.guide {return false}

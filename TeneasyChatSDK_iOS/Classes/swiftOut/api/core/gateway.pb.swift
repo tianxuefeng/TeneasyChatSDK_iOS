@@ -20,96 +20,96 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Api_Core_GatewayNodeRequest {
+public struct Api_Core_GatewayNodeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 网关节点id
-  var gatewayID: Int32 = 0
+  public var gatewayID: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_GatewayRegisterResponse {
+public struct Api_Core_GatewayRegisterResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 链接id
-  var websocketID: UInt64 = 0
+  public var websocketID: UInt64 = 0
 
   /// 链接创建时间
-  var websocketTime: Int64 = 0
+  public var websocketTime: Int64 = 0
 
   /// 链接标记
-  var websocketFlag: Bool = false
+  public var websocketFlag: Bool = false
 
   /// 上次链接id
-  var lastSocketID: UInt64 = 0
+  public var lastSocketID: UInt64 = 0
 
   /// 上次链接时间
-  var lastSocketTime: Int64 = 0
+  public var lastSocketTime: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_OnlineTenantWorkers {
+public struct Api_Core_OnlineTenantWorkers {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 商户id
-  var tenant: Int32 = 0
+  public var tenant: Int32 = 0
 
   /// 客服id
-  var workers: [Int32] = []
+  public var workers: [Int32] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_GatewayBeaconRequest {
+public struct Api_Core_GatewayBeaconRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 网关节点id
-  var gatewayID: Int32 = 0
+  public var gatewayID: Int32 = 0
 
   /// 心跳间隔时间
-  var duration: Int32 = 0
+  public var duration: Int32 = 0
 
   /// 根据客服心跳汇总的在线客服, 按商户分组
-  var tenants: [Api_Core_OnlineTenantWorkers] = []
+  public var tenants: [Api_Core_OnlineTenantWorkers] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Api_Core_GatewayTeardownRequest {
+public struct Api_Core_GatewayTeardownRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 网关节点id
-  var gatewayID: Int32 = 0
+  public var gatewayID: Int32 = 0
 
   /// 链接id
-  var websocketList: [UInt64] = []
+  public var websocketList: [UInt64] = []
 
   /// 网关离线
-  var gatewayOffline: Bool = false
+  public var gatewayOffline: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -125,12 +125,12 @@ extension Api_Core_GatewayTeardownRequest: @unchecked Sendable {}
 fileprivate let _protobuf_package = "api.core"
 
 extension Api_Core_GatewayNodeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatewayNodeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GatewayNodeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "gateway_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -142,14 +142,14 @@ extension Api_Core_GatewayNodeRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.gatewayID != 0 {
       try visitor.visitSingularInt32Field(value: self.gatewayID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_GatewayNodeRequest, rhs: Api_Core_GatewayNodeRequest) -> Bool {
+  public static func ==(lhs: Api_Core_GatewayNodeRequest, rhs: Api_Core_GatewayNodeRequest) -> Bool {
     if lhs.gatewayID != rhs.gatewayID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -157,8 +157,8 @@ extension Api_Core_GatewayNodeRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Api_Core_GatewayRegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatewayRegisterResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GatewayRegisterResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "websocket_id"),
     2: .standard(proto: "websocket_time"),
     3: .standard(proto: "websocket_flag"),
@@ -166,7 +166,7 @@ extension Api_Core_GatewayRegisterResponse: SwiftProtobuf.Message, SwiftProtobuf
     5: .standard(proto: "last_socket_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -182,7 +182,7 @@ extension Api_Core_GatewayRegisterResponse: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.websocketID != 0 {
       try visitor.visitSingularUInt64Field(value: self.websocketID, fieldNumber: 1)
     }
@@ -201,7 +201,7 @@ extension Api_Core_GatewayRegisterResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_GatewayRegisterResponse, rhs: Api_Core_GatewayRegisterResponse) -> Bool {
+  public static func ==(lhs: Api_Core_GatewayRegisterResponse, rhs: Api_Core_GatewayRegisterResponse) -> Bool {
     if lhs.websocketID != rhs.websocketID {return false}
     if lhs.websocketTime != rhs.websocketTime {return false}
     if lhs.websocketFlag != rhs.websocketFlag {return false}
@@ -213,13 +213,13 @@ extension Api_Core_GatewayRegisterResponse: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Api_Core_OnlineTenantWorkers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OnlineTenantWorkers"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OnlineTenantWorkers"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "tenant"),
     2: .same(proto: "workers"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -232,7 +232,7 @@ extension Api_Core_OnlineTenantWorkers: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.tenant != 0 {
       try visitor.visitSingularInt32Field(value: self.tenant, fieldNumber: 1)
     }
@@ -242,7 +242,7 @@ extension Api_Core_OnlineTenantWorkers: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_OnlineTenantWorkers, rhs: Api_Core_OnlineTenantWorkers) -> Bool {
+  public static func ==(lhs: Api_Core_OnlineTenantWorkers, rhs: Api_Core_OnlineTenantWorkers) -> Bool {
     if lhs.tenant != rhs.tenant {return false}
     if lhs.workers != rhs.workers {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -251,14 +251,14 @@ extension Api_Core_OnlineTenantWorkers: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Api_Core_GatewayBeaconRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatewayBeaconRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GatewayBeaconRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "gateway_id"),
     2: .same(proto: "duration"),
     3: .same(proto: "tenants"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -272,7 +272,7 @@ extension Api_Core_GatewayBeaconRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.gatewayID != 0 {
       try visitor.visitSingularInt32Field(value: self.gatewayID, fieldNumber: 1)
     }
@@ -285,7 +285,7 @@ extension Api_Core_GatewayBeaconRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_GatewayBeaconRequest, rhs: Api_Core_GatewayBeaconRequest) -> Bool {
+  public static func ==(lhs: Api_Core_GatewayBeaconRequest, rhs: Api_Core_GatewayBeaconRequest) -> Bool {
     if lhs.gatewayID != rhs.gatewayID {return false}
     if lhs.duration != rhs.duration {return false}
     if lhs.tenants != rhs.tenants {return false}
@@ -295,14 +295,14 @@ extension Api_Core_GatewayBeaconRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Api_Core_GatewayTeardownRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatewayTeardownRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GatewayTeardownRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "gateway_id"),
     2: .standard(proto: "websocket_list"),
     3: .standard(proto: "gateway_offline"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -316,7 +316,7 @@ extension Api_Core_GatewayTeardownRequest: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.gatewayID != 0 {
       try visitor.visitSingularInt32Field(value: self.gatewayID, fieldNumber: 1)
     }
@@ -329,7 +329,7 @@ extension Api_Core_GatewayTeardownRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Api_Core_GatewayTeardownRequest, rhs: Api_Core_GatewayTeardownRequest) -> Bool {
+  public static func ==(lhs: Api_Core_GatewayTeardownRequest, rhs: Api_Core_GatewayTeardownRequest) -> Bool {
     if lhs.gatewayID != rhs.gatewayID {return false}
     if lhs.websocketList != rhs.websocketList {return false}
     if lhs.gatewayOffline != rhs.gatewayOffline {return false}
