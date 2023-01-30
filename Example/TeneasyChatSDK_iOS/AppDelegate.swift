@@ -16,9 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let scheme = url.scheme,
+            scheme.localizedCaseInsensitiveCompare("teneasyChat") == .orderedSame,
+            let view = url.host {
+            
+            var parameters: [String: String] = [:]
+            URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                parameters[$0.name] = $0.value
+            }
+            
+            //redirect(to: view, with: parameters)
+        }
+        return true
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
