@@ -15,7 +15,18 @@ class ViewController: UIViewController, teneasySDKDelegate {
     var lib = ChatLib()
     func receivedMsg(msg: CommonMessage) {
         print(msg)
-        tvChatView.text.append(msg.content.data)
+       
+        switch msg.payload{
+        case .content(msg.content):
+            print("text")
+        case .image(msg.image):
+            print(msg.image)
+            appendMsg(msg: msg.image.uri)
+        case .audio(msg.audio):
+            print("audio")
+        default:
+            print("ddd")
+        }
     }
     
     func connected(c: Bool) {
@@ -24,6 +35,15 @@ class ViewController: UIViewController, teneasySDKDelegate {
         }else{
             tvChatView.text.append("\n已断开连接\n")
         }
+    }
+    
+    func msgReceipt(msg: CommonMessage){
+        tvChatView.text.append("                       " +  msg.content.data)
+        tvChatView.text.append("                                         " +  Date().getFormattedDate(format: "HH:mm:ss") + "\n\n")
+    }
+    
+    func appendMsg(msg: String){
+        tvChatView.text.append(msg + "\n" +  Date().getFormattedDate(format: "HH:mm:ss") + "\n\n")
     }
     
     override func viewDidLoad() {
@@ -45,10 +65,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     @objc func btSendAction(){
-        let msg = "你好！需要什么帮助？\n"
-        tvChatView.text.append("                       " + msg)
-        lib.sendMessage(msg: msg)
-        
+        let txtMsg = "你好！需要什么帮助？\n"
+        lib.sendMessage(msg: txtMsg)
         let c = CommonMessage()
         print(c.content)
     }

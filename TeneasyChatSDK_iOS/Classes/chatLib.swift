@@ -8,6 +8,7 @@ import SwiftProtobuf
 public protocol teneasySDKDelegate{
     //func receivedMsg(msg: String)
     func receivedMsg(msg: CommonMessage)
+    func msgReceipt(msg: CommonMessage)
     func connected(c: Bool)
 }
 
@@ -29,7 +30,7 @@ public class ChatLib {
     var isConnected = false
     open var delegate : teneasySDKDelegate? = nil
     var payloadId : Int64? = 0
-    var sendingMsg: String = ""
+    var sendingMsg: CommonMessage? = nil
     var chatId: Int64? = 0
     //var token: String? = ""
     public init() {
@@ -76,8 +77,6 @@ public class ChatLib {
 //            print("断开了")
 //        }
         
-        sendingMsg = msg//临时放到一个变量，如果失败，SDK可以自动重试
-            
         //发送信息的封装，有四层
         //payload -> CSSendMessage -> common message -> CommonMessageContent
         
@@ -89,9 +88,12 @@ public class ChatLib {
         var msg = CommonMessage()
         msg.content = content
         msg.sender = 0
-        msg.chatID = 2692944494597
-        msg.worker = 3
+        msg.chatID = self.chatId!
+        msg.worker = 5
         msg.msgTime = Google_Protobuf_Timestamp()
+        
+        //临时放到一个变量，如果失败，这个SDK可以自动重试
+        sendingMsg = msg
         
         //第三层
         var cSendMsg = Gateway_CSSendMessage()
@@ -145,10 +147,10 @@ extension ChatLib : WebSocketDelegate {
        case .connected(let headers):
            print("connected" + headers.description)
            self.delegate?.connected(c: true)
-           if (!sendingMsg.isEmpty){
-               sendingMsg = ""
-               sendMessage(msg: sendingMsg)
-           }
+//           if (!sendingMsg.isEmpty){
+//               sendingMsg = ""
+//               sendMessage(msg: sendingMsg)
+//           }
        case .disconnected(let reason, let closeCode):
          print("disconnected \(reason) \(closeCode)")
        case .text(let text):
@@ -166,18 +168,21 @@ extension ChatLib : WebSocketDelegate {
 
                     delegate?.receivedMsg(msg: msC)
                    }
-               }else if payLoad?.act == .schi{
+               }else if payLoad?.act == .schi{//连接成功后收到的信息，会返回clientId, Token
                    let msg = try? Gateway_SCHi(serializedData: msgData!)
                    self.payloadId = msg?.id
                    print(msg!)
                }else if payLoad?.act == .forward{
                    let msg = try? Gateway_CSForward(serializedData: msgData!)
                    print(msg!)
-               }else if payLoad?.act == .scsendMsgAck{
-                   let msg = try? Gateway_SCSendMessage(serializedData: msgData!)
-                   print("消息回执")
-                   //delegate?.receivedMsg(msg: msg.)
-                   print(msg!)
+               }else if payLoad?.act == .scsendMsgAck{ //服务器告诉此条信息是否发送成功
+                   if let scMsg = try? Gateway_SCSendMessage(serializedData: msgData!){
+                       print("消息回执")
+                       sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
+                       //sendingMsg?.msgTime = scMsg.msgTime.seconds
+                       delegate?.msgReceipt(msg: sendingMsg!)
+                       print(scMsg)
+                   }
                }
                else{
                    print("received data: \(data)")
