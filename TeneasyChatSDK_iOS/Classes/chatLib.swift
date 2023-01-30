@@ -9,6 +9,7 @@ public protocol teneasySDKDelegate{
     //func receivedMsg(msg: String)
     func receivedMsg(msg: CommonMessage)
     func msgReceipt(msg: CommonMessage)
+    func systemMsg(msg: String)
     func connected(c: Bool)
 }
 
@@ -21,10 +22,6 @@ extension teneasySDKDelegate {
 
 public class ChatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
-    //https://csapi.xdev.stream
-    //let url = URL(string: "wss://csapi.xdev.stream/v1/gateway/h5?token=")!
-    //acc=xuaofua001&pwd=xuaofua001&
-    //let url = URL(string: "wss://csapi.xdev.stream?acc=mytenant10123&pwd=mytenant10123&token=")!
     var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
     var websocket : WebSocket? = nil
     var isConnected = false
@@ -32,19 +29,19 @@ public class ChatLib {
     var payloadId : Int64? = 0
     var sendingMsg: CommonMessage? = nil
     var chatId: Int64? = 0
-    //var token: String? = ""
+    var token: String? = ""
+    
     public init() {
     }
     public init(chatId: Int64, token: String) {
         self.chatId = chatId
-        //self.token = token
-        baseUrl = baseUrl + token
+        self.token = token
         print(text)
     }
 
      public func callWebsocket(){
          //var request = URLRequest(url: URL(string: baseUrl))
-         var request = URLRequest(url: URL(string: baseUrl)!)
+         var request = URLRequest(url: URL(string: baseUrl + self.token!)!)
          request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
          websocket = WebSocket(request: request)
          websocket?.request.timeoutInterval = 5 // Sets the timeout for the connection
@@ -73,10 +70,6 @@ public class ChatLib {
     }
     
     public func sendMessage(msg: String){
-//        if !isConnected{
-//            print("断开了")
-//        }
-        
         //发送信息的封装，有四层
         //payload -> CSSendMessage -> common message -> CommonMessageContent
         
@@ -84,17 +77,15 @@ public class ChatLib {
         var content = CommonMessageContent()
         content.data = msg
         
-        //第二层
+        //第二层, 消息主题
         var msg = CommonMessage()
         msg.content = content
         msg.sender = 0
         msg.chatID = self.chatId!
         msg.worker = 5
         msg.msgTime = Google_Protobuf_Timestamp()
-        
-        //临时放到一个变量，如果失败，这个SDK可以自动重试
-        sendingMsg = msg
-        
+
+         
         //第三层
         var cSendMsg = Gateway_CSSendMessage()
         cSendMsg.msg = msg
@@ -111,9 +102,17 @@ public class ChatLib {
         payLoad.id = bigUInt
         let binaryData: Data = try! payLoad.serializedData()
         
-        self.websocket?.write(data: binaryData, completion: ({
-           print("msg sent")
-        }))
+        //临时放到一个变量
+        sendingMsg = msg
+        
+        if !isConnected{
+            print("断开了")
+           callWebsocket()
+        }else{
+            self.websocket?.write(data: binaryData, completion: ({
+               print("msg sent")
+            }))
+        }
     }
     
     private func serilizeSample(){
@@ -144,20 +143,30 @@ extension ChatLib : WebSocketDelegate {
 
    public func didReceive(event: WebSocketEvent, client: WebSocket){
        switch event {
-       case .connected(let headers):
-           print("connected" + headers.description)
+       case .connected( _):
+           //print("connected" + headers.description)
            self.delegate?.connected(c: true)
-//           if (!sendingMsg.isEmpty){
-//               sendingMsg = ""
-//               sendMessage(msg: sendingMsg)
+//           if sendingMsg != nil{
+//               self.sendMessage(msg: sendingMsg!.content.data)
 //           }
+           isConnected = true
        case .disconnected(let reason, let closeCode):
          print("disconnected \(reason) \(closeCode)")
+           isConnected = false
        case .text(let text):
          print("received text: \(text)")
        case .binary(let data):
            if data.count == 1{
                print("在别处登录了")
+               if let d = String(data: data, encoding: .utf8){
+                
+                   if (d.contains("2")){
+                       delegate?.systemMsg(msg: "无效的Token")
+                   }else{
+                       delegate?.systemMsg(msg: "在别处登录了")
+                   }
+                   print(d)
+               }
            }else{
                let payLoad = try? Gateway_Payload(serializedData: data)
                let msgData = payLoad?.data
@@ -169,19 +178,24 @@ extension ChatLib : WebSocketDelegate {
                     delegate?.receivedMsg(msg: msC)
                    }
                }else if payLoad?.act == .schi{//连接成功后收到的信息，会返回clientId, Token
-                   let msg = try? Gateway_SCHi(serializedData: msgData!)
-                   self.payloadId = msg?.id
-                   print(msg!)
+                   if let msg = try? Gateway_SCHi(serializedData: msgData!){
+                       self.payloadId = msg.id
+                       self.chatId = msg.id
+                       self.token = msg.token
+                       print(msg)
+                   }
                }else if payLoad?.act == .forward{
                    let msg = try? Gateway_CSForward(serializedData: msgData!)
                    print(msg!)
                }else if payLoad?.act == .scsendMsgAck{ //服务器告诉此条信息是否发送成功
                    if let scMsg = try? Gateway_SCSendMessage(serializedData: msgData!){
                        print("消息回执")
-                       sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
-                       //sendingMsg?.msgTime = scMsg.msgTime.seconds
-                       delegate?.msgReceipt(msg: sendingMsg!)
-                       print(scMsg)
+                       if sendingMsg != nil{
+                           sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
+                           delegate?.msgReceipt(msg: sendingMsg!)
+                           print(scMsg)
+                           sendingMsg = nil
+                       }
                    }
                }
                else{
@@ -196,6 +210,7 @@ extension ChatLib : WebSocketDelegate {
        case .error(let error):
           // self.delegate?.connected(c: false)
          print("error \(error)")
+           isConnected = false
        case .viabilityChanged:
          print("viabilityChanged")
        case .reconnectSuggested:
@@ -203,6 +218,7 @@ extension ChatLib : WebSocketDelegate {
        case .cancelled:
            self.delegate?.connected(c: false)
          print("cancelled")
+           isConnected = false
        }
     }
     

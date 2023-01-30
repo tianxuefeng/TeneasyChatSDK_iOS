@@ -19,9 +19,12 @@ class ViewController: UIViewController, teneasySDKDelegate {
         switch msg.payload{
         case .content(msg.content):
             print("text")
+            appendMsg(msg: msg.content.data)
         case .image(msg.image):
             print(msg.image)
-            appendMsg(msg: msg.image.uri)
+            appendMsg(msg: "图片：" + msg.image.uri)
+        case .video(msg.video):
+            print("video")
         case .audio(msg.audio):
             print("audio")
         default:
@@ -31,26 +34,45 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func connected(c: Bool) {
         if c == true{
-            tvChatView.text.append("\n已连接上！\n")
+            tvChatView.text.append("\n已连接上！\n\n")
         }else{
-            tvChatView.text.append("\n已断开连接\n")
+            //tvChatView.text.append("\n已断开连接\n\n")
+            //tvChatView.text.append("\n重新连接\n")
+            initSDK()
         }
     }
     
     func msgReceipt(msg: CommonMessage){
         tvChatView.text.append("                       " +  msg.content.data)
+        if msg.msgID == 0{
+            tvChatView.text.append("                    发送失败")
+        }
+      
         tvChatView.text.append("                                         " +  Date().getFormattedDate(format: "HH:mm:ss") + "\n\n")
+    }
+    
+    func systemMsg(msg: String){
+        appendMsg(msg: msg)
     }
     
     func appendMsg(msg: String){
         tvChatView.text.append(msg + "\n" +  Date().getFormattedDate(format: "HH:mm:ss") + "\n\n")
+        //cpf
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tvChatView.text = "teneasy chat sdk 初始化"
-        //从网页端把chatId和token传进sdk
-        lib = ChatLib(chatId: 2692944494597, token: "CCcQARgFIBwoiqzald8w.Lvq-lMjWFQ5xL8_UBZOQLLG0rhXKBWIfUjSWwYthb9Y0GpWn5YY-tV_U47KO59U4utHUqoNgYWwSTqVGjJ7WDg")
+        tvChatView.isUserInteractionEnabled = true
+        tvChatView.isScrollEnabled = true
+        
+        initSDK()
+    }
+    
+    func initSDK(){
+        //从网页端把chatId和token传进sdk,
+        lib = ChatLib(chatId: 2692944494601, token: "CCcQARgJICIon6WAieAw.4hI0uHGRO_-CSlDFnI4036IVnXr7No1wF9f32TCvDXFj27Ph4migozWYC6348C3bvvM-kbdZDAqSNIG2BiAYDw")
         lib.callWebsocket()
         lib.delegate = self
     }
