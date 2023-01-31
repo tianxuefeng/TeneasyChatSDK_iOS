@@ -82,6 +82,53 @@ public class ChatLib {
         msg.content = content
         msg.sender = 0
         msg.chatID = self.chatId!
+        msg.payload = .content(content)
+        msg.worker = 5
+        msg.msgTime = Google_Protobuf_Timestamp()
+
+         
+        //第三层
+        var cSendMsg = Gateway_CSSendMessage()
+        cSendMsg.msg = msg
+        // Serialize to binary protobuf format:
+        let cSendMsgData: Data = try! cSendMsg.serializedData()
+        
+        //第四层
+        var payLoad = Gateway_Payload()
+        payLoad.data = cSendMsgData
+        payLoad.act = .cssendMsg
+        self.payloadId! += 1
+        //self.payloadId! += Int64.random(in: 1000...19999)
+        let bigUInt:UInt64 = UInt64(self.payloadId!)
+        payLoad.id = bigUInt
+        let binaryData: Data = try! payLoad.serializedData()
+        
+        //临时放到一个变量
+        sendingMsg = msg
+        
+        if !isConnected{
+            print("断开了")
+           callWebsocket()
+        }else{
+            self.websocket?.write(data: binaryData, completion: ({
+               print("msg sent")
+            }))
+        }
+    }
+    
+    public func sendMessageImage(url: String){
+        //发送信息的封装，有四层
+        //payload -> CSSendMessage -> common message -> CommonMessageContent
+        //第一层
+        var content = CommonMessageImage()
+        content.uri = url
+        
+        //第二层, 消息主题
+        var msg = CommonMessage()
+        msg.image = content
+        msg.sender = 0
+        msg.chatID = self.chatId!
+        msg.payload = .image(content)
         msg.worker = 5
         msg.msgTime = Google_Protobuf_Timestamp()
 

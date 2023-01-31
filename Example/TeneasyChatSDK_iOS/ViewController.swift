@@ -72,7 +72,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,
-        lib = ChatLib(chatId: 2692944494601, token: "CCcQARgJICIon6WAieAw.4hI0uHGRO_-CSlDFnI4036IVnXr7No1wF9f32TCvDXFj27Ph4migozWYC6348C3bvvM-kbdZDAqSNIG2BiAYDw")
+        lib = ChatLib(chatId: 2692944494603, token: "CCcQARgLICIor_Gtw-Aw._3b9m32P3f9PrimLohGJjs4Ya5yRf6QN-ZAgGskX6U3U2vdJh4HwZuTMeh3FOOQiqsaCHIAYuXxSN-u1A4cFAA")
         lib.callWebsocket()
         lib.delegate = self
     }
@@ -88,9 +88,9 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     @objc func btSendAction(){
         let txtMsg = "你好！需要什么帮助？\n"
-        lib.sendMessage(msg: txtMsg)
-        let c = CommonMessage()
-        print(c.content)
+        //lib.sendMessage(msg: txtMsg)
+        //Send Image
+        lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")
     }
     
 
