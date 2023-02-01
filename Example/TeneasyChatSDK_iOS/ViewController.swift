@@ -9,10 +9,11 @@
 import UIKit
 import TeneasyChatSDK_iOS
 
-
 class ViewController: UIViewController, teneasySDKDelegate {
     @IBOutlet weak var tvChatView: UITextView!
     var lib = ChatLib()
+    
+    //收到对方的消息
     func receivedMsg(msg: CommonMessage) {
         print(msg)
        
@@ -42,8 +43,21 @@ class ViewController: UIViewController, teneasySDKDelegate {
         }
     }
     
+    //发送的消息收到回执
     func msgReceipt(msg: CommonMessage){
-        tvChatView.text.append("                       " +  msg.content.data)
+        var myMsg = ""
+        switch msg.payload{
+        case .content(msg.content):
+            print("text")
+            myMsg = msg.content.data
+        case .image(msg.image):
+            print(msg.image)
+            myMsg = "图片：" + msg.image.uri
+        default:
+            print("ddd")
+        }
+        
+        tvChatView.text.append("                       " +  myMsg)
         if msg.msgID == 0{
             tvChatView.text.append("                    发送失败")
         }
@@ -51,6 +65,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         tvChatView.text.append("                                         " +  Date().getFormattedDate(format: "HH:mm:ss") + "\n\n")
     }
     
+    //收到的系统消息
     func systemMsg(msg: String){
         appendMsg(msg: msg)
     }
@@ -60,10 +75,9 @@ class ViewController: UIViewController, teneasySDKDelegate {
         //cpf
     }
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        tvChatView.text = "teneasy chat sdk 初始化"
+        tvChatView.text = "teneasy chat sdk 初始化\n正在连接。。。\n"
         tvChatView.isUserInteractionEnabled = true
         tvChatView.isScrollEnabled = true
         
@@ -71,7 +85,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     func initSDK(){
-        //从网页端把chatId和token传进sdk,
+        //从网页端把chatId和token传进sdk,2692944494603
         lib = ChatLib(chatId: 2692944494603, token: "CCcQARgLICIor_Gtw-Aw._3b9m32P3f9PrimLohGJjs4Ya5yRf6QN-ZAgGskX6U3U2vdJh4HwZuTMeh3FOOQiqsaCHIAYuXxSN-u1A4cFAA")
         lib.callWebsocket()
         lib.delegate = self
@@ -93,12 +107,9 @@ class ViewController: UIViewController, teneasySDKDelegate {
         lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 }
 

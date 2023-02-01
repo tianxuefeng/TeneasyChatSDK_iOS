@@ -41,8 +41,8 @@ public class ChatLib {
 
      public func callWebsocket(){
          //var request = URLRequest(url: URL(string: baseUrl))
-         var request = URLRequest(url: URL(string: baseUrl + self.token!)!)
-         request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
+         let request = URLRequest(url: URL(string: baseUrl + self.token!)!)
+         //request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
          websocket = WebSocket(request: request)
          websocket?.request.timeoutInterval = 5 // Sets the timeout for the connection
          websocket?.delegate = self
@@ -106,14 +106,7 @@ public class ChatLib {
         //临时放到一个变量
         sendingMsg = msg
         
-        if !isConnected{
-            print("断开了")
-           callWebsocket()
-        }else{
-            self.websocket?.write(data: binaryData, completion: ({
-               print("msg sent")
-            }))
-        }
+        send(binaryData: binaryData)
     }
     
     public func sendMessageImage(url: String){
@@ -152,9 +145,14 @@ public class ChatLib {
         //临时放到一个变量
         sendingMsg = msg
         
+        send(binaryData: binaryData)
+    }
+    
+    private func send(binaryData: Data){
         if !isConnected{
             print("断开了")
            callWebsocket()
+            delegate?.systemMsg(msg: "断开了，重新连接。。。")
         }else{
             self.websocket?.write(data: binaryData, completion: ({
                print("msg sent")
