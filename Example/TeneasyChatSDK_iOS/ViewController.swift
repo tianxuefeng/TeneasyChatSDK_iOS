@@ -13,6 +13,16 @@ class ViewController: UIViewController, teneasySDKDelegate {
     @IBOutlet weak var tvChatView: UITextView!
     var lib = ChatLib()
     
+    func connected(c: Bool) {
+        if c == true{
+            tvChatView.text.append("\n已连接上！\n\n")
+        }else{
+            //tvChatView.text.append("\n已断开连接\n\n")
+            //tvChatView.text.append("\n重新连接\n")
+            initSDK()
+        }
+    }
+    
     //收到对方的消息
     func receivedMsg(msg: CommonMessage) {
         print(msg)
@@ -30,16 +40,6 @@ class ViewController: UIViewController, teneasySDKDelegate {
             print("audio")
         default:
             print("ddd")
-        }
-    }
-    
-    func connected(c: Bool) {
-        if c == true{
-            tvChatView.text.append("\n已连接上！\n\n")
-        }else{
-            //tvChatView.text.append("\n已断开连接\n\n")
-            //tvChatView.text.append("\n重新连接\n")
-            initSDK()
         }
     }
     

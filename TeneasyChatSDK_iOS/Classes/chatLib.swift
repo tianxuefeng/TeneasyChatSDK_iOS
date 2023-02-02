@@ -237,6 +237,7 @@ extension ChatLib : WebSocketDelegate {
                        print("消息回执")
                        if sendingMsg != nil{
                            sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
+                           sendingMsg?.msgTime = scMsg.msgTime
                            delegate?.msgReceipt(msg: sendingMsg!)
                            print(scMsg)
                            sendingMsg = nil
