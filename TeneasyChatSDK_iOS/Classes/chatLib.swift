@@ -238,6 +238,8 @@ extension ChatLib : WebSocketDelegate {
                        if sendingMsg != nil{
                            sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
                            sendingMsg?.msgTime = scMsg.msgTime
+                           
+                           
                            delegate?.msgReceipt(msg: sendingMsg!)
                            print(scMsg)
                            sendingMsg = nil
@@ -267,8 +269,6 @@ extension ChatLib : WebSocketDelegate {
            isConnected = false
        }
     }
-    
-    
     /*public func toastHello(vc : UIViewController){
         let alert = UIAlertController(title: "你好", message: "Message", preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: { _ in

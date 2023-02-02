@@ -4,6 +4,7 @@ platform :ios, '10.0'
 
 target 'TeneasyChatSDK_iOS_Example' do
   pod 'TeneasyChatSDK_iOS', :path => '../'
+  pod 'SwiftDate', '~> 6.3.1'
   #pod 'SwiftProtobuf', '~> 1.20.3'
   #pod 'TeneasyChatSDK_iOS', :git => 'https://github.com/tianxuefeng/TeneasyChatSDK_iOS.git'
   target 'TeneasyChatSDK_iOS_Tests' do
