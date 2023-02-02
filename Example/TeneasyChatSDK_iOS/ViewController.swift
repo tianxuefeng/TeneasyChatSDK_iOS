@@ -12,7 +12,7 @@ import SwiftDate
 
 class ViewController: UIViewController, teneasySDKDelegate {
     @IBOutlet weak var tvChatView: UITextView!
-    var lib = ChatLib()
+    var lib = chatLib()
     
     func connected(c: Bool) {
         if c == true{
@@ -94,7 +94,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,2692944494603
-        lib = ChatLib(chatId: 2692944494603, token: "CCcQARgLICIor_Gtw-Aw._3b9m32P3f9PrimLohGJjs4Ya5yRf6QN-ZAgGskX6U3U2vdJh4HwZuTMeh3FOOQiqsaCHIAYuXxSN-u1A4cFAA")
+        lib = chatLib(chatId: 2692944494603, token: "CCcQARgLICIor_Gtw-Aw._3b9m32P3f9PrimLohGJjs4Ya5yRf6QN-ZAgGskX6U3U2vdJh4HwZuTMeh3FOOQiqsaCHIAYuXxSN-u1A4cFAA")
         lib.callWebsocket()
         lib.delegate = self
     }
