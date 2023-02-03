@@ -79,7 +79,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     func appendMsg(msg: String){
-        tvChatView.text.append(msg + "\n" +  Date().getFormattedDate(format: "HH:mm:ss") + "\n\n")
+        tvChatView.text.append(msg + "\n" +  Date().getFormattedDate(format: "HH:mm") + "\n\n")
         //cpf
     }
     
