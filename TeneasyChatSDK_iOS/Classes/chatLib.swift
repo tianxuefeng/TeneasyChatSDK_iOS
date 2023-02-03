@@ -148,6 +148,13 @@ public class ChatLib {
         send(binaryData: binaryData)
     }
     
+    public func sendHeartBeat(){
+        var myInt = 0
+        let myIntData = Data(bytes: &myInt,
+                             count: MemoryLayout.size(ofValue: myInt))
+        send(binaryData: myIntData)
+    }
+    
     private func send(binaryData: Data){
         if !isConnected{
             print("断开了")

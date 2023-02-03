@@ -109,6 +109,10 @@ class ViewController: UIViewController, teneasySDKDelegate {
         btSend.addTarget(self, action:#selector(btSendAction), for:.touchUpInside)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        lib.sendHeartBeat()
+    }
+    
     @objc func btSendAction(){
         let txtMsg = "你好！需要什么帮助？\n"
         lib.sendMessage(msg: txtMsg)
