@@ -283,7 +283,7 @@ extension ChatLib : WebSocketDelegate {
         msg.chatID = self.chatId!
         msg.payload = .content(content)
         msg.worker = 5
-        msg.msgTime = Google_Protobuf_Timestamp()
+        msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
         
         return msg
     }

@@ -54,6 +54,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         switch msg.payload{
         case .content(msg.content):
             print("text")
+            print(msg.msgTime.date)
             myMsg = msg.content.data
         case .image(msg.image):
             print(msg.image)
