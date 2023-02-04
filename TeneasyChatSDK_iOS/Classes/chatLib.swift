@@ -26,10 +26,11 @@ public class ChatLib {
     var websocket : WebSocket? = nil
     var isConnected = false
     open var delegate : teneasySDKDelegate? = nil
-    var payloadId : Int64? = 0
+    var payloadId : UInt64? = 0
     var sendingMsg: CommonMessage? = nil
     var chatId: Int64? = 0
     var token: String? = ""
+    var session = Session()
     
     public init() {
     }
@@ -37,6 +38,10 @@ public class ChatLib {
         self.chatId = chatId
         self.token = token
         print(text)
+    }
+    
+    public init(session: Session) {
+        self.session = session
     }
 
      public func callWebsocket(){
@@ -98,9 +103,8 @@ public class ChatLib {
         payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
         self.payloadId! += 1
-        //self.payloadId! += Int64.random(in: 1000...19999)
-        let bigUInt:UInt64 = UInt64(self.payloadId!)
-        payLoad.id = bigUInt
+        print("payloadID:" + String(self.payloadId!))
+        payLoad.id = self.payloadId!
         let binaryData: Data = try! payLoad.serializedData()
         
         //临时放到一个变量
@@ -137,6 +141,7 @@ public class ChatLib {
         payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
         self.payloadId! += 1
+        
         //self.payloadId! += Int64.random(in: 1000...19999)
         let bigUInt:UInt64 = UInt64(self.payloadId!)
         payLoad.id = bigUInt
@@ -222,6 +227,9 @@ extension ChatLib : WebSocketDelegate {
            }else{
                let payLoad = try? Gateway_Payload(serializedData: data)
                let msgData = payLoad?.data
+               self.payloadId = payLoad?.id
+
+               print("payloadID:" + String(self.payloadId!))
                
                if (payLoad?.act == .screcvMsg){
                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
@@ -231,10 +239,11 @@ extension ChatLib : WebSocketDelegate {
                    }
                }else if payLoad?.act == .schi{//连接成功后收到的信息，会返回clientId, Token
                    if let msg = try? Gateway_SCHi(serializedData: msgData!){
-                       self.payloadId = msg.id
+                     
+                       print("chatID:" + String(msg.id))
                        self.chatId = msg.id
                        self.token = msg.token
-                       
+                       session.ID = payLoad?.id
                        let autoMsg = composeMessage(textMsg: "你好，我是客服小福")
                        delegate?.receivedMsg(msg: autoMsg)
                        print(msg)
@@ -246,8 +255,10 @@ extension ChatLib : WebSocketDelegate {
                    if let scMsg = try? Gateway_SCSendMessage(serializedData: msgData!){
                        print("消息回执")
                        if sendingMsg != nil{
+                        
                            sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
                            sendingMsg?.msgTime = scMsg.msgTime
+                         
                            delegate?.msgReceipt(msg: sendingMsg!)
                            print(scMsg)
                            sendingMsg = nil

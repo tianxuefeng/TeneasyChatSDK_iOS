@@ -174,6 +174,7 @@
 		C3446F4EC9D7E99F09B4775C83C6B816 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED951A4F096B26B2A320AAD11AC9108 /* Pods-TeneasyChatSDK_iOS_Example-dummy.m */; };
 		C390C6005353FB986CB52F474CEF8588 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B844DE407292BA945CCEA91AA6F060 /* FBSnapshotTestController.m */; };
 		C5A3FCAE997C72A19BD6D0518BFEA3EF /* JSONEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F9223B747A9E851E676990521482D8 /* JSONEncodingVisitor.swift */; };
+		C78D108C298EABF1008254A8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78D108B298EABF0008254A8 /* Session.swift */; };
 		C98E5CF141AEC58075608C7CD4EA0481 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB83DBA678481B728A266BC70185938 /* timestamp.pb.swift */; };
 		C9F76407497DF0205D7460B36D22259F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3280BB5E7B57C31D41117A74F76E9DF3 /* QuartzCore.framework */; };
 		CA54C09A12400567AFFCB407EEB7E154 /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E3D1BA275795EB5605213559101A7E /* UIImage+Diff.m */; };
@@ -485,6 +486,7 @@
 		C5B6E125185BC44330AC8B3DCDAA6B9D /* Engine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Engine.swift; path = Sources/Engine/Engine.swift; sourceTree = "<group>"; };
 		C5F7A899B4F2B46AB41D47CB33F872CA /* c_worker.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = c_worker.pb.swift; sourceTree = "<group>"; };
 		C662BA80D6BD83908C47B116EDFD9355 /* WSEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSEngine.swift; path = Sources/Engine/WSEngine.swift; sourceTree = "<group>"; };
+		C78D108B298EABF0008254A8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Session.swift; path = TeneasyChatSDK_iOS/Classes/Session.swift; sourceTree = "<group>"; };
 		C98E32334558274325A332B6F566E29B /* DateComponents+Extras.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateComponents+Extras.swift"; path = "Sources/SwiftDate/Foundation+Extras/DateComponents+Extras.swift"; sourceTree = "<group>"; };
 		CB122541B2BFEECCC438A3EADFFCEE2F /* TeneasyChatSDK_iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TeneasyChatSDK_iOS-prefix.pch"; sourceTree = "<group>"; };
 		CB2A5E9D1C8E99DE91596B402881CD2F /* WSCompression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSCompression.swift; path = Sources/Compression/WSCompression.swift; sourceTree = "<group>"; };
@@ -881,6 +883,7 @@
 			isa = PBXGroup;
 			children = (
 				4412E45FFE8051D8A51186EE59FE183E /* ChatLib.swift */,
+				C78D108B298EABF0008254A8 /* Session.swift */,
 				83FE68D8EBC7606DCC2766991C0FA517 /* Pod */,
 				CACA721AB3C2DD3EB1B87C7F45F9A653 /* Support Files */,
 				7CE5AE43320B75C19D04E293999E7A55 /* swiftOut */,
@@ -1477,6 +1480,7 @@
 				15FC4791CD0532D96FFEAE95CA49B43D /* g_action.pb.swift in Sources */,
 				51AF7F4E67298861BE4402C5507C7561 /* g_gateway.pb.swift in Sources */,
 				0B6AB42D0FC3598F098E3FB9228CD0A1 /* g_payload.pb.swift in Sources */,
+				C78D108C298EABF1008254A8 /* Session.swift in Sources */,
 				2A2B85D4935AB50F94701DED4FA0B4C3 /* g_pubsub.pb.swift in Sources */,
 				81600784C1B2C99F68CB34757145270C /* gateway.pb.swift in Sources */,
 				A3FA6DADA41A459CD160ACDADF0BA3A5 /* message.pb.swift in Sources */,

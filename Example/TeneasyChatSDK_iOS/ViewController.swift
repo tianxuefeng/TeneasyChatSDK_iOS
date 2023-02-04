@@ -13,6 +13,7 @@ import SwiftDate
 class ViewController: UIViewController, teneasySDKDelegate {
     @IBOutlet weak var tvChatView: UITextView!
     var lib = ChatLib()
+    var payLoadId = 0
     
     func connected(c: Bool) {
         if c == true{
