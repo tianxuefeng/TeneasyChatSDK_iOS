@@ -27,7 +27,7 @@ public class ChatLib {
     var isConnected = false
     open var delegate : teneasySDKDelegate? = nil
     var payloadId : UInt64? = 0
-    var sendingMsg: CommonMessage? = nil
+    public var sendingMsg: CommonMessage? = nil
     var chatId: Int64? = 0
     var token: String? = ""
     var session = Session()
