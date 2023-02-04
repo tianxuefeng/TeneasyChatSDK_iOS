@@ -50,7 +50,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     //发送的消息收到回执
-    func msgReceipt(msg: CommonMessage){
+    func msgReceipt(msg: CommonMessage, payloadId : UInt64 = 0){
         var myMsg = ""
         switch msg.payload{
         case .content(msg.content):

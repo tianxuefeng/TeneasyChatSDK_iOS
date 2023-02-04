@@ -9,7 +9,7 @@ import Foundation
 public protocol teneasySDKDelegate{
     //func receivedMsg(msg: String)
     func receivedMsg(msg: CommonMessage)
-    func msgReceipt(msg: CommonMessage)
+    func msgReceipt(msg: CommonMessage, payloadId : UInt64)
     func systemMsg(msg: String)
     func connected(c: Bool)
 }
@@ -260,7 +260,7 @@ extension ChatLib : WebSocketDelegate {
                            sendingMsg?.msgID = scMsg.msgID //发送成功会得到消息ID
                            sendingMsg?.msgTime = scMsg.msgTime
                          
-                           delegate?.msgReceipt(msg: sendingMsg!)
+                           delegate?.msgReceipt(msg: sendingMsg!, payloadId: payLoad!.id)
                            print(scMsg)
                            sendingMsg = nil
                        }
