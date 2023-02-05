@@ -173,6 +173,10 @@ public class ChatLib {
         }
     }
     
+    func disConnect(){
+        self.websocket?.disconnect()
+    }
+    
     private func serilizeSample(){
         var info = CommonPhoneNumber()
         info.countryCode = 65
