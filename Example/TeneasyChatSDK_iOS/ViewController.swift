@@ -117,6 +117,13 @@ class ViewController: UIViewController, teneasySDKDelegate {
     @objc func btSendAction(){
         let txtMsg = "你好！需要什么帮助？\n"
         lib.sendMessage(msg: txtMsg)
+        
+        if let cMSG = lib.sendingMsg{
+            var time = displayLocalTime(from: cMSG.msgTime.date)
+            print(time)
+            time = displayLocalTime(from:  Double(cMSG.msgTime.seconds))
+            print(time)
+        }
         //Send Image
         //lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")
     }
