@@ -96,7 +96,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,2692944494603
-        lib = ChatLib(chatId: 2692944494603, token: "CCcQARgLICIor_Gtw-Aw._3b9m32P3f9PrimLohGJjs4Ya5yRf6QN-ZAgGskX6U3U2vdJh4HwZuTMeh3FOOQiqsaCHIAYuXxSN-u1A4cFAA")
+        lib = ChatLib(chatId: 2692944494606, token: "CCcQARgLICIor_Gtw-Aw._3b9m32P3f9PrimLohGJjs4Ya5yRf6QN-ZAgGskX6U3U2vdJh4HwZuTMeh3FOOQiqsaCHIAYuXxSN-u1A4cFAA")
         lib.callWebsocket()
         lib.delegate = self
     }
@@ -117,6 +117,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     @objc func btSendAction(){
         let txtMsg = "你好！需要什么帮助？\n"
         lib.sendMessage(msg: txtMsg)
+        //lib.sendHeartBeat()
         
         if let cMSG = lib.sendingMsg{
             var time = displayLocalTime(from: cMSG.msgTime.date)
