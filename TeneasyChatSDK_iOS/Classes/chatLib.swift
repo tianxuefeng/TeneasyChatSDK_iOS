@@ -69,10 +69,7 @@ public class ChatLib {
      }
     
     deinit {
-      if (websocket != nil){
-          websocket!.disconnect()
-          websocket!.delegate = nil
-      }
+        disConnect()
     }
     
     func startTimer() {
@@ -202,10 +199,13 @@ public class ChatLib {
         }
     }
     
-    func disConnect(){
+    public func disConnect(){
         stopTimer()
-        self.websocket?.disconnect()
-        self.websocket = nil
+        if (websocket != nil){
+            websocket!.disconnect()
+            websocket!.delegate = nil
+            websocket = nil
+        }
         print("通信SDK 断开连接")
     }
     
