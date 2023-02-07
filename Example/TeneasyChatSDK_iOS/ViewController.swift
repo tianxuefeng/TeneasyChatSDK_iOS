@@ -15,14 +15,19 @@ class ViewController: UIViewController, teneasySDKDelegate {
     var lib = ChatLib()
     var payLoadId = 0
     
-    func connected(c: Bool) {
-        if c == true{
-            tvChatView.text.append("\n已连接上！\n\n")
+    func connected(c: Gateway_SCHi) {
+
+        let autoMsg = lib.composeMessage(textMsg: "你好，我是客服小福")
+        appendMsg(msg: autoMsg.content.data)
+        
+        if c.workerID != 0{
+            tvChatView.text.append("\n已连接上！ WorkId:\(c.workerID)\n\n")
         }else{
             //tvChatView.text.append("\n已断开连接\n\n")
             //tvChatView.text.append("\n重新连接\n")
             initSDK()
         }
+        print(c.workerID)
     }
     
     //收到对方的消息
@@ -83,6 +88,12 @@ class ViewController: UIViewController, teneasySDKDelegate {
     func appendMsg(msg: String){
         tvChatView.text.append(msg + "\n" +  Date().getFormattedDate(format: "HH:mm") + "\n\n")
         //cpf
+    }
+    
+    func workChanged(msg: Gateway_SCWorkerChanged){
+        tvChatView.text.append(msg.workerName)
+        
+        
     }
     
     override func viewDidLoad() {
