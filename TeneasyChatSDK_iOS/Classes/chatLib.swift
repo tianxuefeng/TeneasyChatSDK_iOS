@@ -36,12 +36,15 @@ public class ChatLib {
     var myTimer: Timer?
     var timerFlag: Int = 60
     var chooseImg: UIImage?
+    var beatMinutes = 0
+    var maxSessionMinutes = 5
     
     public init() {
     }
     public init(chatId: Int64, token: String) {
         self.chatId = chatId
         self.token = token
+        beatMinutes = 0
         print(text)
     }
     
@@ -79,10 +82,14 @@ public class ChatLib {
 
     @objc func updataSecond() {
         timerFlag -= 1
-        if timerFlag <= 0 {
+        if beatMinutes > maxSessionMinutes{
+            stopTimer()
+        }
+        else if timerFlag <= 0 {
             timerFlag = 60
             //print("发送心跳" + Date().getFormattedDate(format: "HH:mm:ss"))
             sendHeartBeat()
+            beatMinutes += 1
         }
     }
 
@@ -190,12 +197,23 @@ public class ChatLib {
     private func send(binaryData: Data){
         if !isConnected{
             print("断开了")
-           callWebsocket()
-            delegate?.systemMsg(msg: "断开了，重新连接。。。")
+            if (beatMinutes > maxSessionMinutes){
+                delegate?.systemMsg(msg: "会话超过30分钟，需要重新进入")
+            }else{
+                callWebsocket()
+                delegate?.systemMsg(msg: "断开了，重新连接。。。")
+            }
         }else{
-            self.websocket?.write(data: binaryData, completion: ({
-               print("msg sent")
-            }))
+            if (beatMinutes > maxSessionMinutes){
+                delegate?.systemMsg(msg: "会话超过30分钟，需要重新进入")
+            }else {
+                
+                self.websocket?.write(data: binaryData, completion: ({
+                print("msg sent")
+             }))
+                
+            }
+        
         }
     }
     

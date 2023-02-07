@@ -170,9 +170,14 @@ class ViewController: UIViewController, teneasySDKDelegate {
         }
     }
     
+    deinit {
+        lib.disConnect()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        lib.sendHeartBeat()
     }
 }
 
