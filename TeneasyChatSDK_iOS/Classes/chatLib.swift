@@ -209,6 +209,7 @@ public class ChatLib {
 
         let myData = Data(bytes: array)
         send(binaryData: myData)
+        print("sending heart beat")
     }
     
     private func send(binaryData: Data) {
