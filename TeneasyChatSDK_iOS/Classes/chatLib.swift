@@ -216,18 +216,27 @@ public class ChatLib {
             print("断开了")
             if beatMinutes > maxSessionMinutes {
                 delegate?.systemMsg(msg: "会话超过30分钟，需要重新进入")
+                failedToSend()
             } else {
                 callWebsocket()
                 delegate?.systemMsg(msg: "断开了，重新连接。。。")
+                failedToSend()
             }
         } else {
             if beatMinutes > maxSessionMinutes {
                 delegate?.systemMsg(msg: "会话超过30分钟，需要重新进入")
+                failedToSend()
             } else {
                 websocket?.write(data: binaryData, completion: ({
                     print("msg sent")
                 }))
             }
+        }
+    }
+    
+    private func failedToSend(){
+        if sendingMsg != nil{
+            delegate?.msgReceipt(msg: sendingMsg!, payloadId: payloadId!)
         }
     }
     
@@ -275,7 +284,7 @@ extension ChatLib: WebSocketDelegate {
 //           if sendingMsg != nil{
 //               self.sendMessage(msg: sendingMsg!.content.data)
 //           }
-            isConnected = true
+            isConnected = false
         case .disconnected(let reason, let closeCode):
             print("disconnected \(reason) \(closeCode)")
             isConnected = false
