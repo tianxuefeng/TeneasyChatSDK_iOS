@@ -301,7 +301,9 @@ extension ChatLib: WebSocketDelegate {
                         delegate?.systemMsg(msg: "在别处登录了")
                     }
                     print(d)
+                    isConnected = false
                 }
+                
             } else {
                 let payLoad = try? Gateway_Payload(serializedData: data)
                 let msgData = payLoad?.data
