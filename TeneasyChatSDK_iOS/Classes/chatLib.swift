@@ -38,7 +38,7 @@ public class ChatLib {
     var timerFlag: Int = 60
     var chooseImg: UIImage?
     var beatMinutes = 0
-    var maxSessionMinutes = 5
+    var maxSessionMinutes = 30
     
     public init() {}
 
@@ -281,11 +281,11 @@ extension ChatLib: WebSocketDelegate {
         switch event {
         case .connected:
             // print("connected" + headers.description)
-            delegate?.systemMsg(msg: "已断开连接")
+            delegate?.systemMsg(msg: "已连接上")
 //           if sendingMsg != nil{
 //               self.sendMessage(msg: sendingMsg!.content.data)
 //           }
-            isConnected = false
+            isConnected = true
         case .disconnected(let reason, let closeCode):
             print("disconnected \(reason) \(closeCode)")
             isConnected = false
