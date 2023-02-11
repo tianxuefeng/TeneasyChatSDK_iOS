@@ -35,7 +35,7 @@ public class ChatLib {
     var session = Session()
     
     var myTimer: Timer?
-    var timerFlag: Int = 60
+    var timerFlag: Int = 5
     var chooseImg: UIImage?
     var beatMinutes = 0
     var maxSessionMinutes = 30
@@ -86,7 +86,7 @@ public class ChatLib {
         if beatMinutes > maxSessionMinutes {
             stopTimer()
         } else if timerFlag <= 0 {
-            timerFlag = 60
+            timerFlag = 5
             // print("发送心跳" + Date().getFormattedDate(format: "HH:mm:ss"))
             sendHeartBeat()
             beatMinutes += 1
