@@ -90,8 +90,9 @@ public class ChatLib {
     
     @objc func updataSecond() {
         sessionTime += 1
-        if sessionTime/8 == 0{//每隔8秒发送一个心跳
+        if sessionTime/5 == 0{//每隔8秒发送一个心跳
             beatTimes += 1
+            sendHeartBeat()
         }
         
         if sessionTime > maxSessionMinutes * 60{//超过最大会话，停止发送心跳
