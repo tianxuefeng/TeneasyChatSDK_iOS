@@ -72,6 +72,12 @@ public class ChatLib {
         print("call web socket")
     }
     
+    public func reConnect(){
+        if websocket != nil{
+            websocket?.connect()
+        }
+    }
+    
     deinit {
         disConnect()
     }
@@ -289,6 +295,7 @@ extension ChatLib: WebSocketDelegate {
         case .disconnected(let reason, let closeCode):
             print("disconnected \(reason) \(closeCode)")
             isConnected = false
+            failedToSend()
         case .text(let text):
             print("received text: \(text)")
         case .binary(let data):
@@ -381,7 +388,8 @@ extension ChatLib: WebSocketDelegate {
         case .reconnectSuggested:
             print("reconnectSuggested")
         case .cancelled:
-            delegate?.systemMsg(msg: "已断开连接")
+            delegate?.systemMsg(msg: "已取消连接")
+            failedToSend()
             print("cancelled")
             isConnected = false
         }

@@ -24,8 +24,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
             tvChatView.text.append("\n已连接上！ WorkId:\(c.workerID)\n\n")
         }else{
             //tvChatView.text.append("\n已断开连接\n\n")
-            //tvChatView.text.append("\n重新连接\n")
-            initSDK()
+            tvChatView.text.append("\n重新连接\n")
+            lib.reConnect()
         }
         print(c.workerID)
     }
