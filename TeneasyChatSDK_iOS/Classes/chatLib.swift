@@ -83,6 +83,7 @@ public class ChatLib {
     }
     
     func startTimer() {
+       stopTimer()
         myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updataSecond), userInfo: nil, repeats: true)
         myTimer!.fire()
     }
