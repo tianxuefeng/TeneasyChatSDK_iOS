@@ -93,7 +93,7 @@ public class ChatLib {
         sessionTime += 1
         if sessionTime%5 == 0{//每隔8秒发送一个心跳
             beatTimes += 1
-            print("send beat \( beatTimes)")
+            print("sending beat \( beatTimes)")
             sendHeartBeat()
         }
         
@@ -384,7 +384,9 @@ extension ChatLib: WebSocketDelegate {
             print("received ping: \(pingData)")
         case .error(let error):
             // self.delegate?.connected(c: false)
-            print("error \(error)")
+            print("socket error \(error)")
+            delegate?.systemMsg(msg: "Socket 出错")
+            failedToSend()
             isConnected = false
         case .viabilityChanged:
             print("viabilityChanged")
