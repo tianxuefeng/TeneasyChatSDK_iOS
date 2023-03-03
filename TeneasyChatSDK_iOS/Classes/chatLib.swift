@@ -6,7 +6,7 @@ import UIKit
 
 // https://swiftpackageregistry.com/daltoniam/Starscream
 // https://www.kodeco.com/861-websockets-on-ios-with-starscream
-public protocol teneasySDKDelegate {
+public protocol teneasySDKDelegate : AnyObject{
     // func receivedMsg(msg: String)
     func receivedMsg(msg: CommonMessage)
     func msgReceipt(msg: CommonMessage, payloadId: UInt64)
@@ -22,12 +22,13 @@ public protocol teneasySDKDelegate {
      }
  }*/
 
-public class ChatLib {
+open class ChatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
     var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
     var websocket: WebSocket?
     var isConnected = false
-    open var delegate: teneasySDKDelegate?
+    // weak var delegate: WebSocketDelegate?
+    public weak var delegate: teneasySDKDelegate?
     open var payloadId: UInt64? = 0
     public var sendingMsg: CommonMessage?
     var chatId: Int64? = 0
