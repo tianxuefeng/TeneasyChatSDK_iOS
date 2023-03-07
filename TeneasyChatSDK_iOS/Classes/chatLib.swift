@@ -94,7 +94,7 @@ open class ChatLib {
         sessionTime += 1
         if sessionTime%5 == 0{//每隔8秒发送一个心跳
             beatTimes += 1
-            print("sending beat \( beatTimes)")
+            //print("sending beat \( beatTimes)")
             sendHeartBeat()
         }
         
@@ -219,7 +219,7 @@ open class ChatLib {
 
         let myData = Data(bytes: array)
         send(binaryData: myData)
-        print("sending heart beat")
+        //print("sending heart beat")
     }
     
     private func send(binaryData: Data) {
