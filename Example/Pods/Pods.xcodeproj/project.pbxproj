@@ -291,7 +291,7 @@
 		02FECBDC8A98287D0DEBB91F96F654B3 /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Sources/SwiftDate/Date/Date.swift; sourceTree = "<group>"; };
 		03B5B943F573C7ADCA5525695D844786 /* SwiftDate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftDate-Info.plist"; sourceTree = "<group>"; };
 		03FE3A7E5ED36F0655EC4E06B6610DB3 /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Session.swift; path = TeneasyChatSDK_iOS/Classes/Session.swift; sourceTree = "<group>"; };
-		0538EDFE61C03E83550B06694CE6F9DA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0538EDFE61C03E83550B06694CE6F9DA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		057007CEFAA4889CA6DB2205F91D658D /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
 		083A0493092AA453A4840EBB9AA8C2C2 /* c_entry.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = c_entry.pb.swift; sourceTree = "<group>"; };
 		08BF010E77EE4A22A0C3E4C63E7712CD /* BinaryEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncoder.swift; path = Sources/SwiftProtobuf/BinaryEncoder.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 		63D2C243D61E19E5F254E40A2D47E72C /* Locales.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Locales.swift; path = Sources/SwiftDate/Supports/Locales.swift; sourceTree = "<group>"; };
 		656C772CD9B3EAA6D2BE4868AC0B2AFE /* TextFormatEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncoder.swift; path = Sources/SwiftProtobuf/TextFormatEncoder.swift; sourceTree = "<group>"; };
 		65C32536F844985255F3A4324DD0245A /* JSONDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecoder.swift; path = Sources/SwiftProtobuf/JSONDecoder.swift; sourceTree = "<group>"; };
-		67591E352AD97F1179100547191F452E /* langs */ = {isa = PBXFileReference; includeInIndex = 1; name = langs; path = Sources/SwiftDate/Formatters/RelativeFormatter/langs; sourceTree = "<group>"; };
+		67591E352AD97F1179100547191F452E /* langs */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = langs; path = Sources/SwiftDate/Formatters/RelativeFormatter/langs; sourceTree = "<group>"; };
 		6995CA2EEA04E6153B6F999E48B93E3E /* Message+JSONArrayAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONArrayAdditions.swift"; path = "Sources/SwiftProtobuf/Message+JSONArrayAdditions.swift"; sourceTree = "<group>"; };
 		6A36C0E235F489C2E7BAF30AE3BFD6F9 /* ISOParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISOParser.swift; path = Sources/SwiftDate/Formatters/ISOParser.swift; sourceTree = "<group>"; };
 		6B1F8A0005DD0986948F383E19B8F6E8 /* SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = Sources/SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 		74C5159FEC7913661650E136AF5EFCD1 /* AssociatedValues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssociatedValues.swift; path = Sources/SwiftDate/Supports/AssociatedValues.swift; sourceTree = "<group>"; };
 		74EAB7908110BFC5C1627758B5A52897 /* TimePeriodProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimePeriodProtocol.swift; path = Sources/SwiftDate/TimePeriod/TimePeriodProtocol.swift; sourceTree = "<group>"; };
 		770E28D71040073C1E4B26CD5F8BD565 /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Sources/SwiftProtobuf/Message.swift; sourceTree = "<group>"; };
-		779241497327D82AA603360C43EC0B21 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		779241497327D82AA603360C43EC0B21 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7862C7990DB7C9FD14978A3CF19F90F2 /* AnyMessageStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyMessageStorage.swift; path = Sources/SwiftProtobuf/AnyMessageStorage.swift; sourceTree = "<group>"; };
 		7AE979F391C6F8428192C601EF3F65EC /* FoundationHTTPHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FoundationHTTPHandler.swift; path = Sources/Framer/FoundationHTTPHandler.swift; sourceTree = "<group>"; };
 		7BAEC02D53524416FD1466216F3B3520 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
@@ -429,7 +429,7 @@
 		841F62BFA1063F06CD11E3C10B91CF22 /* TextFormatDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatDecodingError.swift; path = Sources/SwiftProtobuf/TextFormatDecodingError.swift; sourceTree = "<group>"; };
 		84C0E9AB5FADC2C7D1EC6D03F1ACC0FA /* TeneasyChatSDK_iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TeneasyChatSDK_iOS-Info.plist"; sourceTree = "<group>"; };
 		86318ED928D518D618BAC81542CEEB50 /* UnknownStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnknownStorage.swift; path = Sources/SwiftProtobuf/UnknownStorage.swift; sourceTree = "<group>"; };
-		867B79F10338E263920B2CE740F0512D /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		867B79F10338E263920B2CE740F0512D /* TeneasyChatSDK_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TeneasyChatSDK_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		88AF125606ECA21027592E583FB276D4 /* DateRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRepresentable.swift; path = Sources/SwiftDate/DateRepresentable.swift; sourceTree = "<group>"; };
 		891B2270823847ED23F2ECFC28F935EC /* Starscream */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6B04824F753FAE75CFE95C9908FF0D /* chat.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = chat.pb.swift; sourceTree = "<group>"; };
@@ -447,7 +447,7 @@
 		97ED1454F0F4D6A54D60B452B4A86F33 /* Date+Create.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Create.swift"; path = "Sources/SwiftDate/Date/Date+Create.swift"; sourceTree = "<group>"; };
 		9B6E9F5C7E49E97355F2297F88E81113 /* Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9C6B0094C9AE016E3CA664DE8A79FDD9 /* RelativeFormatter+Style.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RelativeFormatter+Style.swift"; path = "Sources/SwiftDate/Formatters/RelativeFormatter/RelativeFormatter+Style.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E04D7360E671509BA33FA5BB4991B1E /* sentry.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = sentry.pb.swift; sourceTree = "<group>"; };
 		9EDD75C9E4C48CF9B80A5752CFC39417 /* HashVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashVisitor.swift; path = Sources/SwiftProtobuf/HashVisitor.swift; sourceTree = "<group>"; };
 		9F8D2FC16428D4A3F3BCD321A970A03C /* Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -629,7 +629,6 @@
 				9355C1BC1B5448B19415E42A788CAA11 /* worker.pb.swift */,
 				E88B0ED9E95A01EEE335A5F0A66236F3 /* worker_group.pb.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -658,7 +657,6 @@
 				14F46959CAD8F3A2D5545826D783DA8C /* core */,
 				9D853DD2E229D226E67C79E90C8F7297 /* sentry */,
 			);
-			name = api;
 			path = api;
 			sourceTree = "<group>";
 		};
@@ -751,7 +749,6 @@
 				0FE44D81504871C3EAADF5293E34DCDC /* ZigZag.swift */,
 				AFF7AAEB513F6C688222D2DBFC60D219 /* Support Files */,
 			);
-			name = SwiftProtobuf;
 			path = SwiftProtobuf;
 			sourceTree = "<group>";
 		};
@@ -780,7 +777,6 @@
 				C662BA80D6BD83908C47B116EDFD9355 /* WSEngine.swift */,
 				880DC549B33CFAD07584D7A556BD7A02 /* Support Files */,
 			);
-			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -864,7 +860,6 @@
 			children = (
 				9E04D7360E671509BA33FA5BB4991B1E /* sentry.pb.swift */,
 			);
-			name = sentry;
 			path = sentry;
 			sourceTree = "<group>";
 		};
@@ -893,7 +888,6 @@
 				2CB1ABBB29DAD513AE75948235891336 /* g_payload.pb.swift */,
 				5CB550A53B80BE92366DD0E9B0F59555 /* g_pubsub.pb.swift */,
 			);
-			name = gateway;
 			path = gateway;
 			sourceTree = "<group>";
 		};
@@ -918,7 +912,6 @@
 				F01F6E14A8DD62AA359E8100AA6C8111 /* Support Files */,
 				EB69C8898D9B5BE98A2D1604AE8ADBFF /* SwiftSupport */,
 			);
-			name = FBSnapshotTestCase;
 			path = FBSnapshotTestCase;
 			sourceTree = "<group>";
 		};
@@ -979,7 +972,6 @@
 				E0A416E7A91B604E1452E13B57584A8D /* Resources */,
 				4EB0D6E56FDBA3A359E571DC96556715 /* Support Files */,
 			);
-			name = SwiftDate;
 			path = SwiftDate;
 			sourceTree = "<group>";
 		};
@@ -988,7 +980,6 @@
 			children = (
 				5A1537CBFCDD3516C3B418C104761DB1 /* asset.pb.swift */,
 			);
-			name = asset;
 			path = asset;
 			sourceTree = "<group>";
 		};
@@ -1045,7 +1036,6 @@
 				092145D49412C839E3A6CBD4B58EE151 /* c_verify.pb.swift */,
 				B27E7CC46255BECE9FC5B5083D1F9C5C /* c_worker.pb.swift */,
 			);
-			name = common;
 			path = common;
 			sourceTree = "<group>";
 		};
@@ -1340,6 +1330,29 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					6038CE6006EFBE9D905454CF01909C42 = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+					92F160BD880D642E587E236BE270074F = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+					98A98149697C80CEF8D5772791E92E66 = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+					9B78EE4AF6AE03E79D88886319853FF7 = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+					A5F702E0DA383BC1479572581615A916 = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+					ADC1D5EF2AF1FFA1EC94BB12634D20C0 = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+					E2F6117B18B59B0C850F5D4C585FCA77 = {
+						DevelopmentTeam = TJM8W7CS7Y;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1932,8 +1945,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

@@ -20,7 +20,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         let autoMsg = lib.composeMessage(textMsg: "你好，我是客服小福")
         appendMsg(msg: autoMsg.content.data)
         
-        if c.workerID == 0{
+        if c.workerID != 0{
             tvChatView.text.append("\n已连接上！ WorkId:\(c.workerID)\n\n")
             tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
             lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .Video)
