@@ -7,11 +7,15 @@ import UIKit
 // https://swiftpackageregistry.com/daltoniam/Starscream
 // https://www.kodeco.com/861-websockets-on-ios-with-starscream
 public protocol teneasySDKDelegate : AnyObject{
-    // func receivedMsg(msg: String)
+    //收到消息
     func receivedMsg(msg: CommonMessage)
+    //消息回执
     func msgReceipt(msg: CommonMessage, payloadId: UInt64)
+    //系统消息，用于显示Tip
     func systemMsg(msg: String)
+    //连接状态
     func connected(c: Gateway_SCHi)
+    //客服更换回调
     func workChanged(msg: Gateway_SCWorkerChanged)
 }
 
@@ -35,11 +39,19 @@ open class ChatLib {
     var token: String? = ""
     var session = Session()
     
-    var myTimer: Timer?
-    var sessionTime: Int = 0
-    var chooseImg: UIImage?
-    var beatTimes = 0
-    var maxSessionMinutes = 30
+    private var myTimer: Timer?
+    private var sessionTime: Int = 0
+    //var chooseImg: UIImage?
+    private var beatTimes = 0
+    private var maxSessionMinutes = 30
+    var workId: Int32 = 5
+    
+   public enum MsgType{
+       case Text
+       case Image
+       case Video
+       case Audio
+    }
     
     public init() {}
 
@@ -112,7 +124,142 @@ open class ChatLib {
     
     public func deleteMessage() {}
     
-    public func sendMessage(msg: String) {
+    public func sendMessage(msg: String, type: MsgType) {
+        // 发送信息的封装，有四层
+        // payload -> CSSendMessage -> common message -> CommonMessageContent
+        switch type{
+        case .Text:
+            sendTextMessage(txt: msg)
+        case .Audio:
+            sendVideoMessage(url: msg)
+        case .Image:
+            sendImageMessage(url: msg)
+        case .Video:
+            sendFileMessage(url: msg)
+        default:
+            sendTextMessage(txt: msg)
+        }
+
+        
+        doSend()
+    }
+    
+    private func sendTextMessage(txt: String){
+        // 第一层
+        var content = CommonMessageContent()
+        content.data = txt
+        
+        // 第二层, 消息主题
+        var msg = CommonMessage()
+        msg.content = content
+        msg.sender = 0
+        msg.chatID = chatId!
+        msg.payload = .content(content)
+        msg.worker = workId
+        msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
+        
+        // 临时放到一个变量
+        sendingMsg = msg
+    }
+    
+    private func sendImageMessage(url: String){
+        // 第一层
+        var content = CommonMessageImage()
+        content.uri = url
+        
+        // 第二层, 消息主题
+        var msg = CommonMessage()
+        msg.image = content
+        msg.sender = 0
+        msg.chatID = chatId!
+        msg.payload = .image(content)
+        msg.worker = workId
+        msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
+        
+        // 临时放到一个变量
+        sendingMsg = msg
+    }
+    
+    private func sendVideoMessage(url: String){
+        // 第一层
+        var content = CommonMessageVideo()
+        content.uri = url
+        
+        // 第二层, 消息主题
+        var msg = CommonMessage()
+        msg.video = content
+        msg.sender = 0
+        msg.chatID = chatId!
+        msg.payload = .video(content)
+        msg.worker = workId
+        msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
+        
+        // 临时放到一个变量
+        sendingMsg = msg
+    }
+    
+    private func sendAudioMessage(url: String){
+        // 第一层
+        var content = CommonMessageAudio()
+        content.uri = url
+        
+        // 第二层, 消息主题
+        var msg = CommonMessage()
+        msg.audio = content
+        msg.sender = 0
+        msg.chatID = chatId!
+        msg.payload = .audio(content)
+        msg.worker = 5
+        msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
+        
+        // 临时放到一个变量
+        sendingMsg = msg
+    }
+    
+    private func sendFileMessage(url: String){
+        // 第一层
+        var content = CommonMessageFile()
+        content.uri = url
+        
+        // 第二层, 消息主题
+        var msg = CommonMessage()
+        msg.file = content
+        msg.sender = 0
+        msg.chatID = chatId!
+        msg.payload = .file(content)
+        msg.worker = 5
+        msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
+        
+        // 临时放到一个变量
+        sendingMsg = msg
+    }
+    
+    private func doSend(){
+        
+        if sendingMsg == nil{
+            return
+        }
+        
+        // 第三层
+        var cSendMsg = Gateway_CSSendMessage()
+        cSendMsg.msg = sendingMsg!
+        // Serialize to binary protobuf format:
+        let cSendMsgData: Data = try! cSendMsg.serializedData()
+        
+        // 第四层
+        var payLoad = Gateway_Payload()
+        payLoad.data = cSendMsgData
+        payLoad.act = .cssendMsg
+        payloadId! += 1
+        print("payloadID:" + String(payloadId!))
+        payLoad.id = payloadId!
+        let binaryData: Data = try! payLoad.serializedData()
+
+        send(binaryData: binaryData)
+    }
+    
+    //可能会弃用
+    private func sendMessage(msg: String) {
         // 发送信息的封装，有四层
         // payload -> CSSendMessage -> common message -> CommonMessageContent
         
@@ -150,7 +297,8 @@ open class ChatLib {
         send(binaryData: binaryData)
     }
     
-    public func sendMessageImage(url: String) {
+    //可能会弃用
+    private func sendMessageImage(url: String) {
         // 发送信息的封装，有四层
         // payload -> CSSendMessage -> common message -> CommonMessageContent
         // 第一层
@@ -401,6 +549,7 @@ extension ChatLib: WebSocketDelegate {
         }
     }
     
+    ///显示一个文本消息，无需经过服务器
     public func composeMessage(textMsg: String) -> CommonMessage {
         // 第一层
         var content = CommonMessageContent()
