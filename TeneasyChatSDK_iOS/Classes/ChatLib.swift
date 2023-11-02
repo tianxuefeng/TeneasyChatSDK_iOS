@@ -46,12 +46,12 @@ open class ChatLib {
     private var maxSessionMinutes = 30
     var workId: Int32 = 5
     
-   public enum MsgType{
-       case Text
-       case Image
-       case Video
-       case Audio
-    }
+//   public enum MsgType{
+//       case Text
+//       case Image
+//       case Video
+//       case Audio
+//    }
     
     public init() {}
 
@@ -124,17 +124,19 @@ open class ChatLib {
     
     public func deleteMessage() {}
     
-    public func sendMessage(msg: String, type: MsgType) {
+    public func sendMessage(msg: String, type: CommonMessageFormat) {
         // 发送信息的封装，有四层
         // payload -> CSSendMessage -> common message -> CommonMessageContent
         switch type{
-        case .Text:
+        case .msgText:
             sendTextMessage(txt: msg)
-        case .Audio:
+        case .msgVoice:
             sendVideoMessage(url: msg)
-        case .Image:
+        case .msgImg:
             sendImageMessage(url: msg)
-        case .Video:
+        case .msgVideo:
+            sendFileMessage(url: msg)
+        case .msgFile:
             sendFileMessage(url: msg)
         default:
             sendTextMessage(txt: msg)
@@ -471,7 +473,7 @@ extension ChatLib: WebSocketDelegate {
     }
     
     ///显示一个文本消息，无需经过服务器
-    public func composeMessage(textMsg: String) -> CommonMessage {
+    public func composeALocalMessage(textMsg: String) -> CommonMessage {
         // 第一层
         var content = CommonMessageContent()
         content.data = textMsg
