@@ -173,7 +173,7 @@
 		CA54C09A12400567AFFCB407EEB7E154 /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E3D1BA275795EB5605213559101A7E /* UIImage+Diff.m */; };
 		CAA0127E5C9D00120358715A67017E8C /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48207DCA48E8CD2EA64A11738F6E143 /* JSONEncoder.swift */; };
 		CC235941F0CF9FA8C0FA3323A0D18203 /* Framer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF23D636328E83ED8B1B51DF558450 /* Framer.swift */; };
-		CC695F4475762B37695A649538C7486D /* chatLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84D3586D9BEFE339A6DA19AFB341AE /* chatLib.swift */; };
+		CC695F4475762B37695A649538C7486D /* ChatLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84D3586D9BEFE339A6DA19AFB341AE /* ChatLib.swift */; };
 		CD362875001B737912D81C817C31BD37 /* worker_group.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B0ED9E95A01EEE335A5F0A66236F3 /* worker_group.pb.swift */; };
 		D082C6886D47F582940D5490A3480AC9 /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D13171F074D0D5189BF8261097E9865C /* Pods-TeneasyChatSDK_iOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D215D67A5C2EFBD3B4C96FDC27037B99 /* BinaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193C4A93E084872FFEC13208116FEA3 /* BinaryDecoder.swift */; };
@@ -486,7 +486,7 @@
 		BE21AC6BDE558F35489AC0DE4CA382BE /* field_mask.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = field_mask.pb.swift; path = Sources/SwiftProtobuf/field_mask.pb.swift; sourceTree = "<group>"; };
 		BE65A81FE441E3A4053D2E8D4E0D07BE /* Pods-TeneasyChatSDK_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeneasyChatSDK_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BE7E114BE3A7F33E6CDE7ED43C59357C /* JSONMapEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONMapEncodingVisitor.swift; path = Sources/SwiftProtobuf/JSONMapEncodingVisitor.swift; sourceTree = "<group>"; };
-		BE84D3586D9BEFE339A6DA19AFB341AE /* chatLib.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = chatLib.swift; path = TeneasyChatSDK_iOS/Classes/chatLib.swift; sourceTree = "<group>"; };
+		BE84D3586D9BEFE339A6DA19AFB341AE /* ChatLib.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChatLib.swift; path = TeneasyChatSDK_iOS/Classes/ChatLib.swift; sourceTree = "<group>"; };
 		BF3C522A63A718843357CAC2AA2B2528 /* TextFormatScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatScanner.swift; path = Sources/SwiftProtobuf/TextFormatScanner.swift; sourceTree = "<group>"; };
 		C10736F71EECDE2D3500BE6152AFDA29 /* g_action.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = g_action.pb.swift; sourceTree = "<group>"; };
 		C1D7C480C868C17B9093CB7A987D79FB /* front.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = front.pb.swift; sourceTree = "<group>"; };
@@ -783,7 +783,7 @@
 		779EBD62AA174B5564A1769420D34A11 /* TeneasyChatSDK_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BE84D3586D9BEFE339A6DA19AFB341AE /* chatLib.swift */,
+				BE84D3586D9BEFE339A6DA19AFB341AE /* ChatLib.swift */,
 				03FE3A7E5ED36F0655EC4E06B6610DB3 /* Session.swift */,
 				9CB4EC9986B3E4FDBD7D62931E32D9F8 /* Pod */,
 				EAC16AA5A56FBD2C7CF334E9CD785904 /* Support Files */,
@@ -1632,7 +1632,7 @@
 				BB64574BC20B2A97D3666EA859FE44A9 /* c_verify.pb.swift in Sources */,
 				8420529E05C63F2DA2B6D7025FDEE625 /* c_worker.pb.swift in Sources */,
 				68379BA0F4E3DED6283764FF2081C759 /* chat.pb.swift in Sources */,
-				CC695F4475762B37695A649538C7486D /* chatLib.swift in Sources */,
+				CC695F4475762B37695A649538C7486D /* ChatLib.swift in Sources */,
 				36B9A65F91E98E13265E7F017BBFBAA1 /* consult.pb.swift in Sources */,
 				C8A82350C18D7A3E08B660DDDFE80BB0 /* entrance.pb.swift in Sources */,
 				331AA5DDC826E3BD0CB9CF9C10C36C8C /* front.pb.swift in Sources */,
