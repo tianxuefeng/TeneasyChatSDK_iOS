@@ -20,11 +20,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Api_Common_LinkType: SwiftProtobuf.Enum {
+public enum Api_Common_ClientType: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case unknown // = 0
-  case h5 // = 1
-  case web // = 2
+  case workerBegin // = 1
+  case workerPc // = 2
+
+  /// 客服端在此加入新类型
+  case workerEnd // = 100
+  case userBegin // = 101
+  case userH5 // = 102
+  case userWeb // = 103
+
+  /// 用户端在此加入新类型
+  case userEnd // = 200
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -34,8 +43,13 @@ public enum Api_Common_LinkType: SwiftProtobuf.Enum {
   public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
-    case 1: self = .h5
-    case 2: self = .web
+    case 1: self = .workerBegin
+    case 2: self = .workerPc
+    case 100: self = .workerEnd
+    case 101: self = .userBegin
+    case 102: self = .userH5
+    case 103: self = .userWeb
+    case 200: self = .userEnd
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -43,8 +57,13 @@ public enum Api_Common_LinkType: SwiftProtobuf.Enum {
   public var rawValue: Int {
     switch self {
     case .unknown: return 0
-    case .h5: return 1
-    case .web: return 2
+    case .workerBegin: return 1
+    case .workerPc: return 2
+    case .workerEnd: return 100
+    case .userBegin: return 101
+    case .userH5: return 102
+    case .userWeb: return 103
+    case .userEnd: return 200
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -53,12 +72,17 @@ public enum Api_Common_LinkType: SwiftProtobuf.Enum {
 
 #if swift(>=4.2)
 
-extension Api_Common_LinkType: CaseIterable {
+extension Api_Common_ClientType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static var allCases: [Api_Common_LinkType] = [
+  public static var allCases: [Api_Common_ClientType] = [
     .unknown,
-    .h5,
-    .web,
+    .workerBegin,
+    .workerPc,
+    .workerEnd,
+    .userBegin,
+    .userH5,
+    .userWeb,
+    .userEnd,
   ]
 }
 
@@ -151,7 +175,7 @@ public struct Api_Common_Consult {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Api_Common_LinkType: @unchecked Sendable {}
+extension Api_Common_ClientType: @unchecked Sendable {}
 extension Api_Common_Entrance: @unchecked Sendable {}
 extension Api_Common_Consult: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
@@ -160,11 +184,16 @@ extension Api_Common_Consult: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "api.common"
 
-extension Api_Common_LinkType: SwiftProtobuf._ProtoNameProviding {
+extension Api_Common_ClientType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "LINK_TYPE_UNKNOWN"),
-    1: .same(proto: "LINK_TYPE_H5"),
-    2: .same(proto: "LINK_TYPE_WEB"),
+    0: .same(proto: "CLIENT_TYPE_UNKNOWN"),
+    1: .same(proto: "CLIENT_TYPE_WORKER_BEGIN"),
+    2: .same(proto: "CLIENT_TYPE_WORKER_PC"),
+    100: .same(proto: "CLIENT_TYPE_WORKER_END"),
+    101: .same(proto: "CLIENT_TYPE_USER_BEGIN"),
+    102: .same(proto: "CLIENT_TYPE_USER_H5"),
+    103: .same(proto: "CLIENT_TYPE_USER_WEB"),
+    200: .same(proto: "CLIENT_TYPE_USER_END"),
   ]
 }
 

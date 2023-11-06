@@ -41,6 +41,9 @@ public enum Api_AuthenticationRole: SwiftProtobuf.Enum {
 
   /// call from app admin role
   case authRoleAdmin // = 32
+
+  /// call from not trusted public source
+  case authRolePublic // = 64
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -56,6 +59,7 @@ public enum Api_AuthenticationRole: SwiftProtobuf.Enum {
     case 8: self = .authRoleExternal
     case 16: self = .authRoleTenant
     case 32: self = .authRoleAdmin
+    case 64: self = .authRolePublic
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -69,6 +73,7 @@ public enum Api_AuthenticationRole: SwiftProtobuf.Enum {
     case .authRoleExternal: return 8
     case .authRoleTenant: return 16
     case .authRoleAdmin: return 32
+    case .authRolePublic: return 64
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -87,6 +92,7 @@ extension Api_AuthenticationRole: CaseIterable {
     .authRoleExternal,
     .authRoleTenant,
     .authRoleAdmin,
+    .authRolePublic,
   ]
 }
 
@@ -967,6 +973,7 @@ extension Api_AuthenticationRole: SwiftProtobuf._ProtoNameProviding {
     8: .same(proto: "AUTH_ROLE_EXTERNAL"),
     16: .same(proto: "AUTH_ROLE_TENANT"),
     32: .same(proto: "AUTH_ROLE_ADMIN"),
+    64: .same(proto: "AUTH_ROLE_PUBLIC"),
   ]
 }
 

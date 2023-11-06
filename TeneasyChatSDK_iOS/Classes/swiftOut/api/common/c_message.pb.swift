@@ -39,11 +39,11 @@ public enum CommonChatState: SwiftProtobuf.Enum {
   /// 已接待
   case processed // = 4
 
-  /// 黑名单待处理
-  case unconfirmed // = 5
+  /// 黑名单申请(任何非黑名单会话->黑名单待确定)
+  case blacklistApply // = 5
 
-  /// 黑名单
-  case confirmed // = 6
+  /// 黑名单确定(黑名单待确定->黑名单)
+  case blacklistConfirmed // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -57,8 +57,8 @@ public enum CommonChatState: SwiftProtobuf.Enum {
     case 2: self = .unprocessed3Min
     case 3: self = .timeout
     case 4: self = .processed
-    case 5: self = .unconfirmed
-    case 6: self = .confirmed
+    case 5: self = .blacklistApply
+    case 6: self = .blacklistConfirmed
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -70,8 +70,8 @@ public enum CommonChatState: SwiftProtobuf.Enum {
     case .unprocessed3Min: return 2
     case .timeout: return 3
     case .processed: return 4
-    case .unconfirmed: return 5
-    case .confirmed: return 6
+    case .blacklistApply: return 5
+    case .blacklistConfirmed: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -88,8 +88,8 @@ extension CommonChatState: CaseIterable {
     .unprocessed3Min,
     .timeout,
     .processed,
-    .unconfirmed,
-    .confirmed,
+    .blacklistApply,
+    .blacklistConfirmed,
   ]
 }
 
@@ -376,6 +376,22 @@ public struct CommonMessageKey {
   public init() {}
 }
 
+public struct CommonMessageAutoReplyFlag {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// AutoReplyItem.id
+  public var id: Int64 = 0
+
+  /// 指定的问题序号id: QuestionAnswer.id
+  public var qaID: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct CommonMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -413,6 +429,16 @@ public struct CommonMessage {
 
   /// 分配客服id
   public var worker: Int32 = 0
+
+  /// 自动回复相关
+  public var autoReply: CommonMessageAutoReplyFlag {
+    get {return _autoReply ?? CommonMessageAutoReplyFlag()}
+    set {_autoReply = newValue}
+  }
+  /// Returns true if `autoReply` has been explicitly set.
+  public var hasAutoReply: Bool {return self._autoReply != nil}
+  /// Clears the value of `autoReply`. Subsequent reads from it will return its default value.
+  public mutating func clearAutoReply() {self._autoReply = nil}
 
   public var payload: CommonMessage.OneOf_Payload? = nil
 
@@ -558,6 +584,7 @@ public struct CommonMessage {
   public init() {}
 
   fileprivate var _msgTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _autoReply: CommonMessageAutoReplyFlag? = nil
 }
 
 public struct CommonWorkerTransfer {
@@ -617,6 +644,7 @@ extension CommonMessageVideo: @unchecked Sendable {}
 extension CommonMessageGeo: @unchecked Sendable {}
 extension CommonMessageFile: @unchecked Sendable {}
 extension CommonMessageKey: @unchecked Sendable {}
+extension CommonMessageAutoReplyFlag: @unchecked Sendable {}
 extension CommonMessage: @unchecked Sendable {}
 extension CommonMessage.OneOf_Payload: @unchecked Sendable {}
 extension CommonWorkerTransfer: @unchecked Sendable {}
@@ -635,8 +663,8 @@ extension CommonChatState: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "CHAT_STATE_UNPROCESSED_3MIN"),
     3: .same(proto: "CHAT_STATE_TIMEOUT"),
     4: .same(proto: "CHAT_STATE_PROCESSED"),
-    5: .same(proto: "CHAT_STATE_UNCONFIRMED"),
-    6: .same(proto: "CHAT_STATE_CONFIRMED"),
+    5: .same(proto: "CHAT_STATE_BLACKLIST_APPLY"),
+    6: .same(proto: "CHAT_STATE_BLACKLIST_CONFIRMED"),
   ]
 }
 
@@ -916,6 +944,44 @@ extension CommonMessageKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
+extension CommonMessageAutoReplyFlag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MessageAutoReplyFlag"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .standard(proto: "qa_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.qaID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
+    }
+    if self.qaID != 0 {
+      try visitor.visitSingularInt32Field(value: self.qaID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CommonMessageAutoReplyFlag, rhs: CommonMessageAutoReplyFlag) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.qaID != rhs.qaID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Message"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -926,6 +992,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     5: .standard(proto: "reply_msg_id"),
     6: .standard(proto: "msg_op"),
     7: .same(proto: "worker"),
+    8: .standard(proto: "auto_reply"),
     100: .same(proto: "content"),
     101: .same(proto: "image"),
     102: .same(proto: "audio"),
@@ -950,6 +1017,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.replyMsgID) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.msgOp) }()
       case 7: try { try decoder.decodeSingularInt32Field(value: &self.worker) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._autoReply) }()
       case 100: try {
         var v: CommonMessageContent?
         var hadOneofValue = false
@@ -1098,6 +1166,9 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if self.worker != 0 {
       try visitor.visitSingularInt32Field(value: self.worker, fieldNumber: 7)
     }
+    try { if let v = self._autoReply {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    } }()
     switch self.payload {
     case .content?: try {
       guard case .content(let v)? = self.payload else { preconditionFailure() }
@@ -1148,6 +1219,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if lhs.replyMsgID != rhs.replyMsgID {return false}
     if lhs.msgOp != rhs.msgOp {return false}
     if lhs.worker != rhs.worker {return false}
+    if lhs._autoReply != rhs._autoReply {return false}
     if lhs.payload != rhs.payload {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

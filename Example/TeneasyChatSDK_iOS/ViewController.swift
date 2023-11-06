@@ -22,13 +22,14 @@ class ViewController: UIViewController, teneasySDKDelegate {
         
         if c.workerID != 0{
             tvChatView.text.append("\n已连接上！ WorkId:\(c.workerID)\n\n")
-            tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
-            lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
+
         }else{
             //tvChatView.text.append("\n已断开连接\n\n")
-            tvChatView.text.append("\n重新连接\n")
+            //tvChatView.text.append("\n重新连接\n")
             lib.reConnect()
         }
+        tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
+        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
         print(c.workerID)
     }
     
@@ -74,6 +75,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
         tvChatView.text.append("                       " +  myMsg)
         if msg.msgID == 0{
             tvChatView.text.append("                    发送失败")
+        }else{
+            tvChatView.text.append("                    发送成功")
         }
       
         let time = displayLocalTime(from: msg.msgTime.date)

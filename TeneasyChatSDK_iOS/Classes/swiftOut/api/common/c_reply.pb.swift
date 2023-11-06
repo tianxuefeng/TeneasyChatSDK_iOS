@@ -131,7 +131,14 @@ public struct CommonAutoReplyItem {
   public var name: String = String()
 
   /// 引导文案
-  public var title: String = String()
+  public var title: String {
+    get {return _title ?? String()}
+    set {_title = newValue}
+  }
+  /// Returns true if `title` has been explicitly set.
+  public var hasTitle: Bool {return self._title != nil}
+  /// Clears the value of `title`. Subsequent reads from it will return its default value.
+  public mutating func clearTitle() {self._title = nil}
 
   /// 回复内容
   public var qa: [CommonQuestionAnswer] = []
@@ -148,6 +155,8 @@ public struct CommonAutoReplyItem {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _title: String? = nil
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -389,7 +398,7 @@ extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.id) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self._title) }()
       case 4: try { try decoder.decodeRepeatedMessageField(value: &self.qa) }()
       case 5: try { try decoder.decodeSingularDoubleField(value: &self.delaySec) }()
       case 6: try { try decoder.decodeRepeatedInt32Field(value: &self.workerID) }()
@@ -400,15 +409,19 @@ extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.id != 0 {
       try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
     }
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
     }
-    if !self.title.isEmpty {
-      try visitor.visitSingularStringField(value: self.title, fieldNumber: 3)
-    }
+    try { if let v = self._title {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
     if !self.qa.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.qa, fieldNumber: 4)
     }
@@ -427,7 +440,7 @@ extension CommonAutoReplyItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   public static func ==(lhs: CommonAutoReplyItem, rhs: CommonAutoReplyItem) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
-    if lhs.title != rhs.title {return false}
+    if lhs._title != rhs._title {return false}
     if lhs.qa != rhs.qa {return false}
     if lhs.delaySec != rhs.delaySec {return false}
     if lhs.workerID != rhs.workerID {return false}

@@ -276,71 +276,12 @@ public struct Api_Core_QueryChatRequest {
   public init() {}
 }
 
-public struct Api_Core_ChatDetail {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var chatID: Int64 = 0
-
-  /// 入口id
-  public var entranceID: UInt32 = 0
-
-  /// 入口名称
-  public var entranceName: String = String()
-
-  /// 用户来源
-  public var platform: String = String()
-
-  /// IP
-  public var ip: String = String()
-
-  /// 首次联系时间
-  public var createAt: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _createAt ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_createAt = newValue}
-  }
-  /// Returns true if `createAt` has been explicitly set.
-  public var hasCreateAt: Bool {return self._createAt != nil}
-  /// Clears the value of `createAt`. Subsequent reads from it will return its default value.
-  public mutating func clearCreateAt() {self._createAt = nil}
-
-  /// 最后联系时间
-  public var updateAt: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _updateAt ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_updateAt = newValue}
-  }
-  /// Returns true if `updateAt` has been explicitly set.
-  public var hasUpdateAt: Bool {return self._updateAt != nil}
-  /// Clears the value of `updateAt`. Subsequent reads from it will return its default value.
-  public mutating func clearUpdateAt() {self._updateAt = nil}
-
-  /// 用户名
-  public var name: String = String()
-
-  /// 用户头像
-  public var avatar: String = String()
-
-  /// 用户称呼(备注)
-  public var nick: String = String()
-
-  /// 用户诉求
-  public var appeal: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  fileprivate var _createAt: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-  fileprivate var _updateAt: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-}
-
 public struct Api_Core_QueryChatResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var chats: [Api_Core_ChatDetail] = []
+  public var chats: [CommonChatDetail] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -352,9 +293,47 @@ public struct Api_Core_UpdateUserAppealRequest {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var chatID: Int64 = 0
+
   public var userName: String = String()
 
   public var userAppeal: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Api_Core_PingPongRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var local: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Api_Core_PingPongResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var local: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Api_Core_ReplyRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var msgID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -375,9 +354,11 @@ extension Api_Core_CustomerDataResponse: @unchecked Sendable {}
 extension Api_Core_QueryWorkerRequest: @unchecked Sendable {}
 extension Api_Core_QueryWorkerResponse: @unchecked Sendable {}
 extension Api_Core_QueryChatRequest: @unchecked Sendable {}
-extension Api_Core_ChatDetail: @unchecked Sendable {}
 extension Api_Core_QueryChatResponse: @unchecked Sendable {}
 extension Api_Core_UpdateUserAppealRequest: @unchecked Sendable {}
+extension Api_Core_PingPongRequest: @unchecked Sendable {}
+extension Api_Core_PingPongResponse: @unchecked Sendable {}
+extension Api_Core_ReplyRequest: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -946,102 +927,6 @@ extension Api_Core_QueryChatRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Api_Core_ChatDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ChatDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "chat_id"),
-    2: .standard(proto: "entrance_id"),
-    3: .standard(proto: "entrance_name"),
-    4: .same(proto: "platform"),
-    5: .same(proto: "ip"),
-    6: .standard(proto: "create_at"),
-    7: .standard(proto: "update_at"),
-    8: .same(proto: "name"),
-    9: .same(proto: "avatar"),
-    10: .same(proto: "nick"),
-    11: .same(proto: "appeal"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.chatID) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.entranceID) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.entranceName) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.platform) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.ip) }()
-      case 6: try { try decoder.decodeSingularMessageField(value: &self._createAt) }()
-      case 7: try { try decoder.decodeSingularMessageField(value: &self._updateAt) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 9: try { try decoder.decodeSingularStringField(value: &self.avatar) }()
-      case 10: try { try decoder.decodeSingularStringField(value: &self.nick) }()
-      case 11: try { try decoder.decodeSingularStringField(value: &self.appeal) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.chatID != 0 {
-      try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
-    }
-    if self.entranceID != 0 {
-      try visitor.visitSingularUInt32Field(value: self.entranceID, fieldNumber: 2)
-    }
-    if !self.entranceName.isEmpty {
-      try visitor.visitSingularStringField(value: self.entranceName, fieldNumber: 3)
-    }
-    if !self.platform.isEmpty {
-      try visitor.visitSingularStringField(value: self.platform, fieldNumber: 4)
-    }
-    if !self.ip.isEmpty {
-      try visitor.visitSingularStringField(value: self.ip, fieldNumber: 5)
-    }
-    try { if let v = self._createAt {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    } }()
-    try { if let v = self._updateAt {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    } }()
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 8)
-    }
-    if !self.avatar.isEmpty {
-      try visitor.visitSingularStringField(value: self.avatar, fieldNumber: 9)
-    }
-    if !self.nick.isEmpty {
-      try visitor.visitSingularStringField(value: self.nick, fieldNumber: 10)
-    }
-    if !self.appeal.isEmpty {
-      try visitor.visitSingularStringField(value: self.appeal, fieldNumber: 11)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Api_Core_ChatDetail, rhs: Api_Core_ChatDetail) -> Bool {
-    if lhs.chatID != rhs.chatID {return false}
-    if lhs.entranceID != rhs.entranceID {return false}
-    if lhs.entranceName != rhs.entranceName {return false}
-    if lhs.platform != rhs.platform {return false}
-    if lhs.ip != rhs.ip {return false}
-    if lhs._createAt != rhs._createAt {return false}
-    if lhs._updateAt != rhs._updateAt {return false}
-    if lhs.name != rhs.name {return false}
-    if lhs.avatar != rhs.avatar {return false}
-    if lhs.nick != rhs.nick {return false}
-    if lhs.appeal != rhs.appeal {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension Api_Core_QueryChatResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".QueryChatResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1077,8 +962,9 @@ extension Api_Core_QueryChatResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
 extension Api_Core_UpdateUserAppealRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserAppealRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_name"),
-    2: .standard(proto: "user_appeal"),
+    1: .standard(proto: "chat_id"),
+    2: .standard(proto: "user_name"),
+    3: .standard(proto: "user_appeal"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1087,26 +973,127 @@ extension Api_Core_UpdateUserAppealRequest: SwiftProtobuf.Message, SwiftProtobuf
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.userName) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.userAppeal) }()
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.chatID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.userName) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.userAppeal) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.chatID != 0 {
+      try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 1)
+    }
     if !self.userName.isEmpty {
-      try visitor.visitSingularStringField(value: self.userName, fieldNumber: 1)
+      try visitor.visitSingularStringField(value: self.userName, fieldNumber: 2)
     }
     if !self.userAppeal.isEmpty {
-      try visitor.visitSingularStringField(value: self.userAppeal, fieldNumber: 2)
+      try visitor.visitSingularStringField(value: self.userAppeal, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Api_Core_UpdateUserAppealRequest, rhs: Api_Core_UpdateUserAppealRequest) -> Bool {
+    if lhs.chatID != rhs.chatID {return false}
     if lhs.userName != rhs.userName {return false}
     if lhs.userAppeal != rhs.userAppeal {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_PingPongRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".PingPongRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "local"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.local) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.local != 0 {
+      try visitor.visitSingularInt64Field(value: self.local, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_PingPongRequest, rhs: Api_Core_PingPongRequest) -> Bool {
+    if lhs.local != rhs.local {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_PingPongResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".PingPongResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "local"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.local) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.local != 0 {
+      try visitor.visitSingularInt64Field(value: self.local, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_PingPongResponse, rhs: Api_Core_PingPongResponse) -> Bool {
+    if lhs.local != rhs.local {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_ReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ReplyRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "msg_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.msgID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.msgID != 0 {
+      try visitor.visitSingularInt64Field(value: self.msgID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_ReplyRequest, rhs: Api_Core_ReplyRequest) -> Bool {
+    if lhs.msgID != rhs.msgID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

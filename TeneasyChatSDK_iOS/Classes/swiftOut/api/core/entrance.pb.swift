@@ -148,6 +148,58 @@ public struct Api_Core_SaveDistributionRequest {
   public init() {}
 }
 
+public struct Api_Core_EntranceExistsRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var based: Api_Core_EntranceExistsRequest.OneOf_Based? = nil
+
+  public var entranceID: Int32 {
+    get {
+      if case .entranceID(let v)? = based {return v}
+      return 0
+    }
+    set {based = .entranceID(newValue)}
+  }
+
+  public var clientID: Int64 {
+    get {
+      if case .clientID(let v)? = based {return v}
+      return 0
+    }
+    set {based = .clientID(newValue)}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum OneOf_Based: Equatable {
+    case entranceID(Int32)
+    case clientID(Int64)
+
+  #if !swift(>=4.1)
+    public static func ==(lhs: Api_Core_EntranceExistsRequest.OneOf_Based, rhs: Api_Core_EntranceExistsRequest.OneOf_Based) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch (lhs, rhs) {
+      case (.entranceID, .entranceID): return {
+        guard case .entranceID(let l) = lhs, case .entranceID(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.clientID, .clientID): return {
+        guard case .clientID(let l) = lhs, case .clientID(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      default: return false
+      }
+    }
+  #endif
+  }
+
+  public init() {}
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Api_Core_EntranceQueryResponse: @unchecked Sendable {}
 extension Api_Core_DomainItem: @unchecked Sendable {}
@@ -158,6 +210,8 @@ extension Api_Core_UpdateEntranceRequest: @unchecked Sendable {}
 extension Api_Core_DeleteEntranceRequest: @unchecked Sendable {}
 extension Api_Core_GetDistributionResponse: @unchecked Sendable {}
 extension Api_Core_SaveDistributionRequest: @unchecked Sendable {}
+extension Api_Core_EntranceExistsRequest: @unchecked Sendable {}
+extension Api_Core_EntranceExistsRequest.OneOf_Based: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -461,6 +515,66 @@ extension Api_Core_SaveDistributionRequest: SwiftProtobuf.Message, SwiftProtobuf
 
   public static func ==(lhs: Api_Core_SaveDistributionRequest, rhs: Api_Core_SaveDistributionRequest) -> Bool {
     if lhs.distributionType != rhs.distributionType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_EntranceExistsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".EntranceExistsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "entrance_id"),
+    2: .standard(proto: "client_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {
+          if self.based != nil {try decoder.handleConflictingOneOf()}
+          self.based = .entranceID(v)
+        }
+      }()
+      case 2: try {
+        var v: Int64?
+        try decoder.decodeSingularInt64Field(value: &v)
+        if let v = v {
+          if self.based != nil {try decoder.handleConflictingOneOf()}
+          self.based = .clientID(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.based {
+    case .entranceID?: try {
+      guard case .entranceID(let v)? = self.based else { preconditionFailure() }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }()
+    case .clientID?: try {
+      guard case .clientID(let v)? = self.based else { preconditionFailure() }
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_EntranceExistsRequest, rhs: Api_Core_EntranceExistsRequest) -> Bool {
+    if lhs.based != rhs.based {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -121,6 +121,15 @@ public struct Api_Core_QuickReplyItem {
   /// 回复消息 图片 + 文字
   public var items: [CommonMessage] = []
 
+  /// 客服添加到 **常用** 组的便签
+  /// 如果为true:
+  /// 在 常用组 时: 显示 **X** 按钮, 可以从常用组移除
+  /// 在 非常用组 时: 显示 **取消** 按钮, 可以从常用组移除
+  /// 如果为false:
+  /// 在 常用组 时: 不显示 删除 按钮
+  /// 在 非常用组 时: 显示 **常用** 按钮, 可以加入到常用组
+  public var isCustom: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -504,6 +513,7 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
     4: .same(proto: "priority"),
     5: .same(proto: "content"),
     6: .same(proto: "items"),
+    7: .standard(proto: "is_custom"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -518,6 +528,7 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 4: try { try decoder.decodeSingularInt32Field(value: &self.priority) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.content) }()
       case 6: try { try decoder.decodeRepeatedMessageField(value: &self.items) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.isCustom) }()
       default: break
       }
     }
@@ -542,6 +553,9 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
     if !self.items.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.items, fieldNumber: 6)
     }
+    if self.isCustom != false {
+      try visitor.visitSingularBoolField(value: self.isCustom, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -552,6 +566,7 @@ extension Api_Core_QuickReplyItem: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.priority != rhs.priority {return false}
     if lhs.content != rhs.content {return false}
     if lhs.items != rhs.items {return false}
+    if lhs.isCustom != rhs.isCustom {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

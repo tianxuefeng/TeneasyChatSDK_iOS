@@ -37,6 +37,9 @@ public struct Api_Core_MessageSyncRequest {
   /// 结果包括msg_id这条信息
   public var withLastOne: Bool = false
 
+  /// 指定下级workerId
+  public var workerID: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -137,7 +140,7 @@ public struct Api_Core_MessageSearchResponse {
   public var lastMsgID: Int64 = 0
 
   /// TODO: 临时字段: 前端没有维护 会话信息, 需要先给会话关联的头像和姓名
-  public var detail: Dictionary<Int64,Api_Core_ChatDetail> = [:]
+  public var detail: Dictionary<Int64,CommonChatDetail> = [:]
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -201,6 +204,7 @@ extension Api_Core_MessageSyncRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     2: .standard(proto: "msg_id"),
     3: .same(proto: "count"),
     4: .standard(proto: "with_last_one"),
+    5: .standard(proto: "worker_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -213,6 +217,7 @@ extension Api_Core_MessageSyncRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.msgID) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.count) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.withLastOne) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.workerID) }()
       default: break
       }
     }
@@ -231,6 +236,9 @@ extension Api_Core_MessageSyncRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.withLastOne != false {
       try visitor.visitSingularBoolField(value: self.withLastOne, fieldNumber: 4)
     }
+    if self.workerID != 0 {
+      try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -239,6 +247,7 @@ extension Api_Core_MessageSyncRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs.msgID != rhs.msgID {return false}
     if lhs.count != rhs.count {return false}
     if lhs.withLastOne != rhs.withLastOne {return false}
+    if lhs.workerID != rhs.workerID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -376,7 +385,7 @@ extension Api_Core_MessageSearchResponse: SwiftProtobuf.Message, SwiftProtobuf._
       case 1: try { try decoder.decodeSingularMessageField(value: &self._request) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.lastMsgID) }()
-      case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,Api_Core_ChatDetail>.self, value: &self.detail) }()
+      case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,CommonChatDetail>.self, value: &self.detail) }()
       default: break
       }
     }
@@ -397,7 +406,7 @@ extension Api_Core_MessageSearchResponse: SwiftProtobuf.Message, SwiftProtobuf._
       try visitor.visitSingularInt64Field(value: self.lastMsgID, fieldNumber: 3)
     }
     if !self.detail.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,Api_Core_ChatDetail>.self, value: self.detail, fieldNumber: 4)
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,CommonChatDetail>.self, value: self.detail, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }

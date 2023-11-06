@@ -273,6 +273,12 @@ public struct Api_Common_Worker {
   /// 密码
   public var password: String = String()
 
+  /// 登录/未登录
+  public var connectState: Api_Common_ConnectState = .offline
+
+  /// 商户ID
+  public var tenantID: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -288,6 +294,8 @@ public struct Api_Common_WorkerGroup {
   public var name: String = String()
 
   public var priority: Int32 = 0
+
+  public var count: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -310,6 +318,22 @@ public struct Api_Common_Distribution {
   public init() {}
 }
 
+public struct Api_Common_TenantClique {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var id: Int32 = 0
+
+  public var name: String = String()
+
+  public var priority: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Api_Common_DistributionType: @unchecked Sendable {}
 extension Api_Common_WorkerPermission: @unchecked Sendable {}
@@ -318,6 +342,7 @@ extension Api_Common_OnlineState: @unchecked Sendable {}
 extension Api_Common_Worker: @unchecked Sendable {}
 extension Api_Common_WorkerGroup: @unchecked Sendable {}
 extension Api_Common_Distribution: @unchecked Sendable {}
+extension Api_Common_TenantClique: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -372,6 +397,8 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     6: .same(proto: "avatar"),
     7: .standard(proto: "online_state"),
     8: .same(proto: "password"),
+    9: .standard(proto: "connect_state"),
+    10: .standard(proto: "tenant_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -388,6 +415,8 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       case 6: try { try decoder.decodeSingularStringField(value: &self.avatar) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.onlineState) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.password) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self.connectState) }()
+      case 10: try { try decoder.decodeSingularInt32Field(value: &self.tenantID) }()
       default: break
       }
     }
@@ -418,6 +447,12 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if !self.password.isEmpty {
       try visitor.visitSingularStringField(value: self.password, fieldNumber: 8)
     }
+    if self.connectState != .offline {
+      try visitor.visitSingularEnumField(value: self.connectState, fieldNumber: 9)
+    }
+    if self.tenantID != 0 {
+      try visitor.visitSingularInt32Field(value: self.tenantID, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -430,6 +465,8 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if lhs.avatar != rhs.avatar {return false}
     if lhs.onlineState != rhs.onlineState {return false}
     if lhs.password != rhs.password {return false}
+    if lhs.connectState != rhs.connectState {return false}
+    if lhs.tenantID != rhs.tenantID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -441,6 +478,7 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     1: .same(proto: "id"),
     2: .same(proto: "name"),
     3: .same(proto: "priority"),
+    4: .same(proto: "count"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -452,6 +490,7 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.id) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.priority) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.count) }()
       default: break
       }
     }
@@ -467,6 +506,9 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if self.priority != 0 {
       try visitor.visitSingularInt32Field(value: self.priority, fieldNumber: 3)
     }
+    if self.count != 0 {
+      try visitor.visitSingularInt32Field(value: self.count, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -474,6 +516,7 @@ extension Api_Common_WorkerGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
+    if lhs.count != rhs.count {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -515,6 +558,50 @@ extension Api_Common_Distribution: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 
   public static func ==(lhs: Api_Common_Distribution, rhs: Api_Common_Distribution) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.priority != rhs.priority {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Common_TenantClique: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".TenantClique"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "priority"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.priority) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularInt32Field(value: self.id, fieldNumber: 1)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
+    }
+    if self.priority != 0 {
+      try visitor.visitSingularInt32Field(value: self.priority, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Common_TenantClique, rhs: Api_Common_TenantClique) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.priority != rhs.priority {return false}
