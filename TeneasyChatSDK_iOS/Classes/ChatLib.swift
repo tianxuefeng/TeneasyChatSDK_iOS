@@ -28,7 +28,7 @@ public protocol teneasySDKDelegate : AnyObject{
 
 open class ChatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
-    var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
+    public var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
     var websocket: WebSocket?
     var isConnected = false
     // weak var delegate: WebSocketDelegate?
@@ -260,7 +260,42 @@ open class ChatLib {
         send(binaryData: binaryData)
     }
     
-    public func resendMsg(msg: CommonMessage, payloadId: Int) {
+    /// 对消息进行更新，删除，重发等操作
+    /// - Parameters:
+    ///   - msg: 是一个CommonMessage
+    ///   - payloadId: 消息列表中的payloadId
+    ///   - act: 操作动作枚举
+    public func operateMsg(msg: CommonMessage, payloadId: UInt64, act: Gateway_Action){
+        // 第三层
+        var cSendMsg = Gateway_CSSendMessage()
+        cSendMsg.msg = msg
+        var cSendMsgData: Data? = nil
+        do{
+            cSendMsgData = try cSendMsg.serializedData()
+        }catch{
+            
+        }
+        guard let cMsg = cSendMsgData else { return }
+        
+        // 第四层
+        var payLoad = Gateway_Payload()
+        payLoad.data = cMsg
+        payLoad.act = act
+        payLoad.id = payloadId
+        
+        var cbinaryData: Data? = nil
+        do {
+            cbinaryData = try payLoad.serializedData()
+        }catch{
+            
+        }
+        guard let binaryData = cbinaryData else { return }
+        // 临时放到一个变量
+        //sendingMsg = msg
+        send(binaryData: binaryData)
+    }
+    
+    /*private func resendMsg(msg: CommonMessage, payloadId: Int) {
         // 第三层
         var cSendMsg = Gateway_CSSendMessage()
         cSendMsg.msg = msg
@@ -279,7 +314,7 @@ open class ChatLib {
         sendingMsg = msg
         
         send(binaryData: binaryData)
-    }
+    }*/
     
     public func sendHeartBeat() {
 //        var myInt = 0

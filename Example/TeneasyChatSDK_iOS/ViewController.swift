@@ -13,7 +13,10 @@ import SwiftDate
 class ViewController: UIViewController, teneasySDKDelegate {
     @IBOutlet weak var tvChatView: UITextView!
     var lib = ChatLib()
-    var payLoadId = 0
+    var payLoadId: UInt64 = 0
+    var lastMessage: CommonMessage? = nil
+    
+    var send = false
     
     func connected(c: Gateway_SCHi) {
         
@@ -40,7 +43,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         //let time = displayLocalTime(from: msg.msgTime.timeIntervalSince1970)
         let time = displayLocalTime(from: msg.msgTime.date)
         print(time)
-       
+
         switch msg.payload{
         case .content(msg.content):
             print("text")
@@ -83,6 +86,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
         print(time)
         
         tvChatView.text.append("                                         " +  time + "\n\n")
+        self.payLoadId = payloadId
+        lastMessage = msg
     }
     
     //收到的系统消息
@@ -97,6 +102,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func workChanged(msg: Gateway_SCWorkerChanged){
         tvChatView.text.append(msg.workerName)
+        
         
         
     }
@@ -131,18 +137,25 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     @objc func btSendAction(){
-        let txtMsg = "你好！需要什么帮助？\n"
-        lib.sendMessage(msg: txtMsg, type: .msgText)
-        //lib.sendHeartBeat()
         
-        if let cMSG = lib.sendingMsg{
-            var time = displayLocalTime(from: cMSG.msgTime.date)
-            print(time)
-            time = displayLocalTime(from:  Double(cMSG.msgTime.seconds))
-            print(time)
+        if !send && lastMessage != nil{
+            lib.operateMsg(msg: lastMessage!, payloadId: payLoadId, act: .csdeleteMsg)
+            return
+        }else{
+            let txtMsg = "你好！需要什么帮助？\n"
+            lib.sendMessage(msg: txtMsg, type: .msgText)
+            //lib.sendHeartBeat()
+            
+            if let cMSG = lib.sendingMsg{
+                var time = displayLocalTime(from: cMSG.msgTime.date)
+                print(time)
+                time = displayLocalTime(from:  Double(cMSG.msgTime.seconds))
+                print(time)
+            }
+            //Send Image
+            //lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")
         }
-        //Send Image
-        //lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")
+        send = false
     }
     
     //用于转换服务器的时间是GMT+0
