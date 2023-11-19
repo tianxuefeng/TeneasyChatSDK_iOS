@@ -35,7 +35,7 @@ open class ChatLib {
     public weak var delegate: teneasySDKDelegate?
     open var payloadId: UInt64? = 0
     public var sendingMsg: CommonMessage?
-    var chatId: Int64? = 0
+    var chatId: Int64 = 0
     var token: String? = ""
     var session = Session()
     
@@ -155,7 +155,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.content = content
         msg.sender = 0
-        msg.chatID = chatId!
+        msg.chatID = chatId
         msg.payload = .content(content)
         msg.worker = workId
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
@@ -173,7 +173,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.image = content
         msg.sender = 0
-        msg.chatID = chatId!
+        msg.chatID = chatId
         msg.payload = .image(content)
         msg.worker = workId
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
@@ -191,7 +191,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.video = content
         msg.sender = 0
-        msg.chatID = chatId!
+        msg.chatID = chatId
         msg.payload = .video(content)
         msg.worker = workId
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
@@ -209,7 +209,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.audio = content
         msg.sender = 0
-        msg.chatID = chatId!
+        msg.chatID = chatId
         msg.payload = .audio(content)
         msg.worker = 5
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
@@ -227,7 +227,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.file = content
         msg.sender = 0
-        msg.chatID = chatId!
+        msg.chatID = chatId
         msg.payload = .file(content)
         msg.worker = 5
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
@@ -437,6 +437,7 @@ extension ChatLib: WebSocketDelegate {
                     if let msg = try? Gateway_SCHi(serializedData: msgData!) {
                         print("chatID:" + String(msg.id))
                         delegate?.connected(c: msg)
+                       
                         print(msg)
                     }
                 } else if payLoad?.act == .scworkerChanged {
@@ -478,6 +479,7 @@ extension ChatLib: WebSocketDelegate {
                             delegate?.msgReceipt(msg: sendingMsg!, payloadId: payLoad!.id)
                             print(scMsg)
                             sendingMsg = nil
+                            chatId = scMsg.chatID
                         }
                     }
                 } else {
@@ -517,7 +519,7 @@ extension ChatLib: WebSocketDelegate {
         var msg = CommonMessage()
         msg.content = content
         msg.sender = 0
-        msg.chatID = chatId!
+        msg.chatID = chatId
         msg.payload = .content(content)
         msg.worker = 5
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
