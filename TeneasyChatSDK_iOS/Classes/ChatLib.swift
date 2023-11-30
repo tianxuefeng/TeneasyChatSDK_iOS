@@ -33,8 +33,9 @@ open class ChatLib {
     var isConnected = false
     // weak var delegate: WebSocketDelegate?
     public weak var delegate: teneasySDKDelegate?
-    open var payloadId: UInt64? = 0
+    open var payloadId: UInt64 = 0
     public var sendingMsg: CommonMessage?
+    private var msgList: [UInt64: CommonMessage] = [:]
     var chatId: Int64 = 0
     var token: String? = ""
     var session = Session()
@@ -135,7 +136,7 @@ open class ChatLib {
         case .msgImg:
             sendImageMessage(url: msg)
         case .msgVideo:
-            sendFileMessage(url: msg)
+            sendVideoMessage(url: msg)
         case .msgFile:
             sendFileMessage(url: msg)
         default:
@@ -237,7 +238,6 @@ open class ChatLib {
     }
     
     private func doSend(){
-        
         if sendingMsg == nil{
             return
         }
@@ -252,10 +252,13 @@ open class ChatLib {
         var payLoad = Gateway_Payload()
         payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
-        payloadId! += 1
-        print("payloadID:" + String(payloadId!))
-        payLoad.id = payloadId!
+        payloadId += 1
+        print("payloadID:" + String(payloadId))
+        payLoad.id = payloadId
         let binaryData: Data = try! payLoad.serializedData()
+        
+        // Assuming msgList is a mutable dictionary
+        msgList[payloadId] = sendingMsg
 
         send(binaryData: binaryData)
     }
@@ -306,7 +309,7 @@ open class ChatLib {
         var payLoad = Gateway_Payload()
         payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
-        self.payloadId! = UInt64(payloadId)
+        self.payloadId = UInt64(payloadId)
         payLoad.id = self.payloadId!
         let binaryData: Data = try! payLoad.serializedData()
         
@@ -353,7 +356,7 @@ open class ChatLib {
     
     private func failedToSend(){
         if sendingMsg != nil{
-            delegate?.msgReceipt(msg: sendingMsg!, payloadId: payloadId!)
+            delegate?.msgReceipt(msg: sendingMsg!, payloadId: payloadId)
         }
     }
     
@@ -422,65 +425,51 @@ extension ChatLib: WebSocketDelegate {
                 }
                 
             } else {
-                let payLoad = try? Gateway_Payload(serializedData: data)
-                let msgData = payLoad?.data
-                payloadId = payLoad?.id
-
-                print("payloadID:" + String(payloadId!))
-               
-                if payLoad?.act == .screcvMsg {
-                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData!)
+                guard let payLoad = try? Gateway_Payload(serializedData: data) else { return }
+                let msgData = payLoad.data
+                payloadId = payLoad.id
+                
+                print("payloadID:" + String(payloadId))
+                
+                if payLoad.act == .screcvMsg {
+                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData)
                     if let msC = msg?.msg {
                         delegate?.receivedMsg(msg: msC)
                     }
-                } else if payLoad?.act == .schi { // 连接成功后收到的信息，会返回clientId, Token
-                    if let msg = try? Gateway_SCHi(serializedData: msgData!) {
+                } else if payLoad.act == .schi { // 连接成功后收到的信息，会返回clientId, Token
+                    if let msg = try? Gateway_SCHi(serializedData: msgData) {
                         print("chatID:" + String(msg.id))
                         delegate?.connected(c: msg)
-                       
+                        
                         print(msg)
                     }
-                } else if payLoad?.act == .scworkerChanged {
-                    if let msg = try? Gateway_SCWorkerChanged(serializedData: msgData!) {
+                } else if payLoad.act == .scworkerChanged {
+                    if let msg = try? Gateway_SCWorkerChanged(serializedData: msgData) {
                         delegate?.workChanged(msg: msg)
                         print(msg)
                     }
                 }
-               
-                /*
-                 sendInputtingBegin(msg) {
-                        const data = gateway.Payload.create({
-                            act: gateway.Action.ActionInputtingBegin,
-                            data: gateway.InputtingBegin.encode(msg).finish()
-                        });
-                        this.ev.onSend.emit(data);
-                    }
-                    ;
-                    sendInputtingEnd(msg) {
-                        const data = gateway.Payload.create({
-                            act: gateway.Action.ActionInputtingEnd,
-                            data: gateway.InputtingEnd.encode(msg).finish()
-                        });
-                        this.ev.onSend.emit(data);
-                    }
-                    ;
-                 */
-               
-                else if payLoad?.act == .forward {
-                    let msg = try? Gateway_CSForward(serializedData: msgData!)
+                
+                else if payLoad.act == .forward {
+                    let msg = try? Gateway_CSForward(serializedData: msgData)
                     print(msg!)
-                } else if payLoad?.act == .scsendMsgAck { // 服务器告诉此条信息是否发送成功
-                    if let scMsg = try? Gateway_SCSendMessage(serializedData: msgData!) {
+                } else if payLoad.act == .scsendMsgAck { // 服务器告诉此条信息是否发送成功
+                    if let scMsg = try? Gateway_SCSendMessage(serializedData: msgData) {
                         print("消息回执")
-                        if sendingMsg != nil {
-                            sendingMsg?.msgID = scMsg.msgID // 发送成功会得到消息ID
-                            sendingMsg?.msgTime = scMsg.msgTime
-                         
-                            delegate?.msgReceipt(msg: sendingMsg!, payloadId: payLoad!.id)
-                            print(scMsg)
-                            sendingMsg = nil
+                        //if sendingMsg != nil {
+                        // sendingMsg?.msgID = scMsg.msgID // 发送成功会得到消息ID
+                        // sendingMsg?.msgTime = scMsg.msgTime
+                        
+                        if msgList[payLoad.id] != nil{
+                            var cMsg = msgList[payLoad.id]
+                            cMsg?.msgID = scMsg.msgID
+                            cMsg?.msgTime = scMsg.msgTime
+                            delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
+                            //print(scMsg)
+                            //sendingMsg = nil
                             chatId = scMsg.chatID
                         }
+                        //}
                     }
                 } else {
                     print("received data: \(data)")

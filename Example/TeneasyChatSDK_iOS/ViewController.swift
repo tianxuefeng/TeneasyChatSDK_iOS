@@ -31,8 +31,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
             //tvChatView.text.append("\n重新连接\n")
             lib.reConnect()
         }
-        tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
-        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
+        tvChatView.text.append("\n发送图片！ ImageUrl: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKV-3KPDbUgVdqjfEb3HK_SvGjcPYVl7n7KGCwBL6&s\n\n")
+        lib.sendMessage(msg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKV-3KPDbUgVdqjfEb3HK_SvGjcPYVl7n7KGCwBL6&s", type: .msgImg)
         print(c.workerID)
     }
     
@@ -63,6 +63,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     //发送的消息收到回执
     func msgReceipt(msg: CommonMessage, payloadId : UInt64 = 0){
         var myMsg = ""
+        print("收到回执")
         switch msg.payload{
         case .content(msg.content):
             print("text")
@@ -71,8 +72,17 @@ class ViewController: UIViewController, teneasySDKDelegate {
         case .image(msg.image):
             print(msg.image)
             myMsg = "图片：" + msg.image.uri
+        case .video(msg.video):
+            print(msg.video)
+            myMsg = "视频：" + msg.video.uri
+        case .audio(msg.audio):
+            print(msg.audio)
+            myMsg = "音频：" + msg.audio.uri
+        case .file(msg.file):
+            print(msg.file)
+            myMsg = "file：" + msg.file.uri
         default:
-            print("ddd")
+            print(msg)
         }
         
         tvChatView.text.append("                       " +  myMsg)
@@ -138,12 +148,12 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     @objc func btSendAction(){
         
-        if !send && lastMessage != nil{
-            lib.operateMsg(msg: lastMessage!, payloadId: payLoadId, act: .csdeleteMsg)
-            return
-        }else{
+//        if !send && lastMessage != nil{
+//            lib.operateMsg(msg: lastMessage!, payloadId: payLoadId, act: .csdeleteMsg)
+//            return
+//        }else{
             let txtMsg = "你好！需要什么帮助？\n"
-            lib.sendMessage(msg: txtMsg, type: .msgText)
+            //lib.sendMessage(msg: txtMsg, type: .msgText)
             //lib.sendHeartBeat()
             
             if let cMSG = lib.sendingMsg{
@@ -152,9 +162,13 @@ class ViewController: UIViewController, teneasySDKDelegate {
                 time = displayLocalTime(from:  Double(cMSG.msgTime.seconds))
                 print(time)
             }
+        
+                tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
+                lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
+        
             //Send Image
             //lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")
-        }
+        //}
         send = false
     }
     
