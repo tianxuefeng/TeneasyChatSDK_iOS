@@ -128,7 +128,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,2692944494603
-        lib = ChatLib(chatId: 0, token: "CCcQARgOICIowqaSjeIw.9rO3unQwFrUUa-vJ6HvUQAbiAZN7XWBbaE_Oyd48C0Ae4xhzWWSriIGZZdVSvOajS1h_RFlQHZiFzadgBBuwDQ")
+        lib = ChatLib(chatId: 0, token: "CCcQARgOICIowqaSjeIw.9rO3unQwFrUUa-vJ6HvUQAbiAZN7XWBbaE_Oyd48C0Ae4xhzWWSriIGZZdVSvOajS1h_RFlQHZiFzadgBBuwDQ", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
         lib.callWebsocket()
         lib.delegate = self
     }
@@ -143,7 +143,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        lib.sendHeartBeat()
+       // lib.sendHeartBeat()
     }
     
     @objc func btSendAction(){
@@ -220,7 +220,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        lib.sendHeartBeat()
+        //lib.sendHeartBeat()
     }
 }
 

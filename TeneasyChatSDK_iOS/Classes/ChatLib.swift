@@ -28,7 +28,7 @@ public protocol teneasySDKDelegate : AnyObject{
 
 open class ChatLib {
     public private(set) var text = "Teneasy Chat SDK 启动"
-    public var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
+    private var baseUrl = "wss://csapi.xdev.stream/v1/gateway/h5?token="
     var websocket: WebSocket?
     var isConnected = false
     // weak var delegate: WebSocketDelegate?
@@ -56,9 +56,10 @@ open class ChatLib {
     
     public init() {}
 
-    public init(chatId: Int64, token: String) {
+    public init(chatId: Int64, token: String, baseUrl: String) {
         self.chatId = chatId
         self.token = token
+        self.baseUrl = baseUrl
         beatTimes = 0
         print(text)
     }
@@ -319,7 +320,7 @@ open class ChatLib {
         send(binaryData: binaryData)
     }*/
     
-    public func sendHeartBeat() {
+    private func sendHeartBeat() {
 //        var myInt = 0
 //        let myIntData = Data(bytes: &myInt,
 //                             count: MemoryLayout.size(ofValue: myInt))
