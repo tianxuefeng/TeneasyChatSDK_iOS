@@ -89,7 +89,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         if msg.msgID == 0{
             tvChatView.text.append("                    发送失败")
         }else{
-            tvChatView.text.append("                    发送成功")
+            tvChatView.text.append("                    发送成功\(msg.msgID)")
         }
       
         let time = displayLocalTime(from: msg.msgTime.date)
@@ -147,6 +147,11 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     @objc func btSendAction(){
+        tvChatView.text.append("\n回复信息:")
+        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo, replyMsgId: lastMessage?.msgID ?? 0)
+    }
+    
+    @objc func btSendAction2(){
         
 //        if !send && lastMessage != nil{
 //            lib.operateMsg(msg: lastMessage!, payloadId: payLoadId, act: .csdeleteMsg)
@@ -165,6 +170,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
         
                 tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
                 lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
+        
+        
         
             //Send Image
             //lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")

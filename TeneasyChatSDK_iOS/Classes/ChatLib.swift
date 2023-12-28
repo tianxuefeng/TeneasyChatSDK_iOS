@@ -46,6 +46,7 @@ open class ChatLib {
     private var beatTimes = 0
     private var maxSessionMinutes = 30
     var workId: Int32 = 5
+    private var replyMsgId: Int64 = 0
     
 //   public enum MsgType{
 //       case Text
@@ -126,7 +127,8 @@ open class ChatLib {
     
     public func deleteMessage() {}
     
-    public func sendMessage(msg: String, type: CommonMessageFormat) {
+    public func sendMessage(msg: String, type: CommonMessageFormat, replyMsgId: Int64? = 0) {
+        self.replyMsgId = replyMsgId ?? 0
         // 发送信息的封装，有四层
         // payload -> CSSendMessage -> common message -> CommonMessageContent
         switch type{
@@ -157,9 +159,11 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.content = content
         msg.sender = 0
+        msg.replyMsgID = self.replyMsgId
         msg.chatID = chatId
         msg.payload = .content(content)
         msg.worker = workId
+        
         msg.msgTime.seconds = Int64(Date().timeIntervalSince1970)
         
         // 临时放到一个变量
@@ -175,6 +179,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.image = content
         msg.sender = 0
+        msg.replyMsgID = self.replyMsgId
         msg.chatID = chatId
         msg.payload = .image(content)
         msg.worker = workId
@@ -193,6 +198,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.video = content
         msg.sender = 0
+        msg.replyMsgID = self.replyMsgId
         msg.chatID = chatId
         msg.payload = .video(content)
         msg.worker = workId
@@ -211,6 +217,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.audio = content
         msg.sender = 0
+        msg.replyMsgID = self.replyMsgId
         msg.chatID = chatId
         msg.payload = .audio(content)
         msg.worker = 5
@@ -229,6 +236,7 @@ open class ChatLib {
         var msg = CommonMessage()
         msg.file = content
         msg.sender = 0
+        msg.replyMsgID = self.replyMsgId
         msg.chatID = chatId
         msg.payload = .file(content)
         msg.worker = 5
