@@ -488,7 +488,8 @@ extension ChatLib: WebSocketDelegate {
                              }
                  */
                 else if payLoad.act == .scdeleteMsgAck {
-                    let cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
+                    var cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
+                    cMsg?.msg.msgID = -1
                     print("删除消息回执")
                     if let msg = cMsg?.msg{
                         delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
