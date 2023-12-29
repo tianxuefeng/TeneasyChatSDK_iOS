@@ -458,10 +458,9 @@ extension ChatLib: WebSocketDelegate {
             } else {
                 guard let payLoad = try? Gateway_Payload(serializedData: data) else { return }
                 let msgData = payLoad.data
-                
-                if sendingMsg?.msgOp != .msgOpDelete{
-                    payloadId = payLoad.id
-                }
+//                if sendingMsg?.msgOp != .msgOpDelete{
+//                    payloadId = payLoad.id
+//                }
                 print("new payloadID:" + String(payloadId))
                 if payLoad.act == .screcvMsg {
                     let scMsg = try? Gateway_SCRecvMessage(serializedData: msgData)
@@ -469,7 +468,7 @@ extension ChatLib: WebSocketDelegate {
                     if msg != nil {
                         if (msg!.msgOp == .msgOpDelete){
                             msg?.msgID = -1
-                            print("对方撤回了消息 payloadID:" + String(payloadId))
+                            print("对方撤回了消息 payloadID:" + String(payLoad.id))
                             delegate?.msgReceipt(msg: msg!, payloadId: payLoad.id)
                         }else{
                             delegate?.receivedMsg(msg: msg!)
@@ -478,8 +477,9 @@ extension ChatLib: WebSocketDelegate {
                 } else if payLoad.act == .schi { // 连接成功后收到的信息，会返回clientId, Token
                     if let msg = try? Gateway_SCHi(serializedData: msgData) {
                         print("chatID:" + String(msg.id))
+                        payloadId = payLoad.id
                         delegate?.connected(c: msg)
-                        
+                        print("初始payloadId:" + String(payloadId))
                         print(msg)
                     }
                 } else if payLoad.act == .scworkerChanged {
@@ -541,8 +541,8 @@ extension ChatLib: WebSocketDelegate {
                             if cMsg != nil{
                                 if (sendingMsg?.msgOp == .msgOpDelete){
                                     cMsg!.msgID = -1
+                                    print("删除消息成功");
                                 }
-                                print("删除消息成功");
                                 delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
                             }
                             //print(scMsg)

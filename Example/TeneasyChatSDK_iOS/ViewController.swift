@@ -146,7 +146,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
        // lib.sendHeartBeat()
     }
     
-    @objc func btSendAction(){
+    @objc func btSendAction3(){
         
         //tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
         //lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
@@ -157,7 +157,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         lib.deleteMessage(msgId: lastMessage?.msgID ?? 0)//493660676493934594
     }
     
-    @objc func btSendAction2(){
+    @objc func btSendAction(){
         
 //        if !send && lastMessage != nil{
 //            lib.operateMsg(msg: lastMessage!, payloadId: payLoadId, act: .csdeleteMsg)
