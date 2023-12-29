@@ -275,14 +275,16 @@ open class ChatLib {
         var payLoad = Gateway_Payload()
         payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
-        payloadId += 1
-        print("payloadID:" + String(payloadId))
-        payLoad.id = payloadId
-        let binaryData: Data = try! payLoad.serializedData()
         
         // Assuming msgList is a mutable dictionary
-        msgList[payloadId] = sendingMsg
-
+        if (sendingMsg?.msgOp == .msgOpPost){
+            payloadId += 1
+            print("payloadID:" + String(payloadId))
+            msgList[payloadId] = sendingMsg
+        }
+        
+        payLoad.id = payloadId
+        let binaryData: Data = try! payLoad.serializedData()
         send(binaryData: binaryData)
     }
     
@@ -454,10 +456,10 @@ extension ChatLib: WebSocketDelegate {
                 guard let payLoad = try? Gateway_Payload(serializedData: data) else { return }
                 let msgData = payLoad.data
                 
-                if sendingMsg?.msgOp == .msgOpPost{
+                if sendingMsg?.msgOp != .msgOpDelete{
                     payloadId = payLoad.id
-                    print("new payloadID:" + String(payloadId))
                 }
+                print("new payloadID:" + String(payloadId))
                 
                 if payLoad.act == .screcvMsg {
                     let msg = try? Gateway_SCRecvMessage(serializedData: msgData)
@@ -492,7 +494,10 @@ extension ChatLib: WebSocketDelegate {
                     print("删除消息回执，payloadId:\(payLoad.id) msgId:\(cMsg?.msg.msgID ?? 0)")
                     cMsg?.msg.msgID = -1
                     if let msg = cMsg?.msg{
-                        delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                        if msgList[payLoad.id] != nil{
+                            print("删除消息成功");
+                            delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                        }
                         print(msg)
                     }
                 }
@@ -528,6 +533,7 @@ extension ChatLib: WebSocketDelegate {
                                 if (sendingMsg?.msgOp == .msgOpDelete){
                                     cMsg!.msgID = -1
                                 }
+                                print("删除消息成功");
                                 delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
                             }
                             //print(scMsg)

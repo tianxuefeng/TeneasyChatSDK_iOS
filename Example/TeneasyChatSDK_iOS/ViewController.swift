@@ -151,7 +151,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
 //        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo, replyMsgId: lastMessage?.msgID ?? 0)
         
         tvChatView.text.append("\n删除信息:")
-        lib.deleteMessage(msgId: 564321055359893503)//493660676493934594
+        lib.deleteMessage(msgId: lastMessage?.msgID ?? 0)//493660676493934594
     }
     
     @objc func btSendAction2(){
