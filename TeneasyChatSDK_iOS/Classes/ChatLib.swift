@@ -441,17 +441,20 @@ extension ChatLib: WebSocketDelegate {
             print("received text: \(text)")
         case .binary(let data):
             if data.count == 1 {
-                print("在别处登录了")
+                print("在别处登录了 A")
                 if let d = String(data: data, encoding: .utf8) {
+                    // Attempt to convert the data to a UTF-8 string, and if successful, execute the block inside the 'if' statement.
+                    
                     if d.contains("2") {
-                        delegate?.systemMsg(msg: "无效的Token")
+                        // Check if the string contains the character "2".
+                        delegate?.systemMsg(msg: "无效的Token") // Delegate a system message if the condition is true.
                     } else {
-                        delegate?.systemMsg(msg: "在别处登录了")
+                        delegate?.systemMsg(msg: "在别处登录了 B") // Delegate a different system message if the condition is false.
                     }
-                    print(d)
-                    isConnected = false
+                    
+                    print(d.description) // Print the resulting string.
+                    isConnected = false // Set the 'isConnected' variable to false.
                 }
-                
             } else {
                 guard let payLoad = try? Gateway_Payload(serializedData: data) else { return }
                 let msgData = payLoad.data
@@ -460,11 +463,17 @@ extension ChatLib: WebSocketDelegate {
                     payloadId = payLoad.id
                 }
                 print("new payloadID:" + String(payloadId))
-                
                 if payLoad.act == .screcvMsg {
-                    let msg = try? Gateway_SCRecvMessage(serializedData: msgData)
-                    if let msC = msg?.msg {
-                        delegate?.receivedMsg(msg: msC)
+                    let scMsg = try? Gateway_SCRecvMessage(serializedData: msgData)
+                    var msg = scMsg?.msg
+                    if msg != nil {
+                        if (msg!.msgOp == .msgOpDelete){
+                            msg?.msgID = -1
+                            print("对方撤回了消息 payloadID:" + String(payloadId))
+                            delegate?.msgReceipt(msg: msg!, payloadId: payLoad.id)
+                        }else{
+                            delegate?.receivedMsg(msg: msg!)
+                        }
                     }
                 } else if payLoad.act == .schi { // 连接成功后收到的信息，会返回clientId, Token
                     if let msg = try? Gateway_SCHi(serializedData: msgData) {

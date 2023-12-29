@@ -128,7 +128,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,2692944494603
-        lib = ChatLib(chatId: 0, token: "CCcQARgOICIowqaSjeIw.9rO3unQwFrUUa-vJ6HvUQAbiAZN7XWBbaE_Oyd48C0Ae4xhzWWSriIGZZdVSvOajS1h_RFlQHZiFzadgBBuwDQ", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
+        lib = ChatLib(chatId: 0, token: "CMwBEAEYDiCcASjjoNCvyzE.RmXisQknL9Act5PeTAsUNb4ITWUXEZyCSkP5dALeo8EAzuPe9W9jdt7fASKBUvqOBmJeoby_rgycNPtkJQB_Ag", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
         lib.callWebsocket()
         lib.delegate = self
     }
@@ -147,8 +147,11 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     @objc func btSendAction(){
+        
+        //tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
+        //lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
 //        tvChatView.text.append("\n回复信息:")
-//        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo, replyMsgId: lastMessage?.msgID ?? 0)
+        //lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo, replyMsgId: lastMessage?.msgID ?? 0)
         
         tvChatView.text.append("\n删除信息:")
         lib.deleteMessage(msgId: lastMessage?.msgID ?? 0)//493660676493934594
