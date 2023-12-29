@@ -491,11 +491,11 @@ extension ChatLib: WebSocketDelegate {
                  */
                 else if payLoad.act == .scdeleteMsgAck {
                     var cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
-                    print("删除消息回执，payloadId:\(payLoad.id) msgId:\(cMsg?.msg.msgID ?? 0)")
+                    print("删除消息回执A，payloadId:\(payLoad.id) msgId:\(cMsg?.msg.msgID ?? 0)")
                     cMsg?.msg.msgID = -1
                     if let msg = cMsg?.msg{
                         if msgList[payLoad.id] != nil{
-                            print("删除消息成功");
+                            print("删除成功");
                             delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
                         }
                         print(msg)
@@ -519,7 +519,7 @@ extension ChatLib: WebSocketDelegate {
                     print(msg!)
                 } else if payLoad.act == .scsendMsgAck { // 服务器告诉此条信息是否发送成功
                     if let scMsg = try? Gateway_SCSendMessage(serializedData: msgData) {
-                        print("消息回执，payloadId:\(payLoad.id) msgId:\(scMsg.msgID)")
+                        print("消息回执B，payloadId:\(payLoad.id) msgId:\(scMsg.msgID)")
                         //if sendingMsg != nil {
                         // sendingMsg?.msgID = scMsg.msgID // 发送成功会得到消息ID
                         // sendingMsg?.msgTime = scMsg.msgTime
