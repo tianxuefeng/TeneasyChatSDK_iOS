@@ -125,8 +125,6 @@ open class ChatLib {
         }
     }
     
-    public func deleteMessage() {}
-    
     public func sendMessage(msg: String, type: CommonMessageFormat, replyMsgId: Int64? = 0) {
         self.replyMsgId = replyMsgId ?? 0
         // 发送信息的封装，有四层
@@ -146,6 +144,22 @@ open class ChatLib {
             sendTextMessage(txt: msg)
         }
 
+        
+        doSend()
+    }
+    
+    public func deleteMessage(msgId: Int64){
+        // 第一层
+        //var content = CommonMessageContent()
+        //content.data = "d"
+        
+        var msg = CommonMessage()
+        //msg.content = content
+        msg.chatID = 0//2692944494609
+        msg.msgID = msgId
+        msg.msgOp = .msgOpDelete
+        // 临时放到一个变量
+        sendingMsg = msg
         
         doSend()
     }
@@ -277,9 +291,11 @@ open class ChatLib {
     ///   - msg: 是一个CommonMessage
     ///   - payloadId: 消息列表中的payloadId
     ///   - act: 操作动作枚举
-    public func operateMsg(msg: CommonMessage, payloadId: UInt64, act: Gateway_Action){
+    /*public func operateMsg(msg: CommonMessage, payloadId: UInt64, act: Gateway_Action){
         // 第三层
         var cSendMsg = Gateway_CSSendMessage()
+        
+        
         cSendMsg.msg = msg
         var cSendMsgData: Data? = nil
         do{
@@ -293,6 +309,7 @@ open class ChatLib {
         var payLoad = Gateway_Payload()
         payLoad.data = cMsg
         payLoad.act = act
+        self.payloadId += 1
         payLoad.id = payloadId
         
         var cbinaryData: Data? = nil
@@ -305,7 +322,7 @@ open class ChatLib {
         // 临时放到一个变量
         //sendingMsg = msg
         send(binaryData: binaryData)
-    }
+    }*/
     
     /*private func resendMsg(msg: CommonMessage, payloadId: Int) {
         // 第三层
@@ -436,9 +453,11 @@ extension ChatLib: WebSocketDelegate {
             } else {
                 guard let payLoad = try? Gateway_Payload(serializedData: data) else { return }
                 let msgData = payLoad.data
-                payloadId = payLoad.id
                 
-                print("payloadID:" + String(payloadId))
+                if sendingMsg?.msgOp == .msgOpPost{
+                    payloadId = payLoad.id
+                    print("new payloadID:" + String(payloadId))
+                }
                 
                 if payLoad.act == .screcvMsg {
                     let msg = try? Gateway_SCRecvMessage(serializedData: msgData)
@@ -459,6 +478,36 @@ extension ChatLib: WebSocketDelegate {
                     }
                 }
                 
+                /*
+                 else if(payLoad.act == GAction.Action.ActionSCDeleteMsgACK) {
+                                 val msg = GGateway.SCSendMessage.parseFrom(msgData)
+                                 Log.i(TAG, "删除回执收到：消息ID: ${msg.msgId}")
+                             }  else if(payLoad.act == GAction.Action.ActionSCDeleteMsg) {
+                                 val msg = GGateway.SCRecvMessage.parseFrom(msgData)
+                                 Log.i(TAG, "对方删除了消息：消息ID: ${msg.msg.msgId}")
+                             }
+                 */
+                else if payLoad.act == .scdeleteMsgAck {
+                    let cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
+                    print("删除消息回执")
+                    if let msg = cMsg?.msg{
+                        delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                        print(msg)
+                    }
+                }
+                else if payLoad.act == .scdeleteMsg {
+                    let cMsg = try? Gateway_CSRecvMessage(serializedData: msgData)
+                    if let cMsg = cMsg{
+                        //delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                        // 第二层, 消息主题
+                        var msg = CommonMessage()
+                        msg.msgID = -1
+                        msg.chatID = cMsg.chatID
+                        delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                        print(msg)
+                    }
+                }
+                
                 else if payLoad.act == .forward {
                     let msg = try? Gateway_CSForward(serializedData: msgData)
                     print(msg!)
@@ -473,7 +522,13 @@ extension ChatLib: WebSocketDelegate {
                             var cMsg = msgList[payLoad.id]
                             cMsg?.msgID = scMsg.msgID
                             cMsg?.msgTime = scMsg.msgTime
-                            delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
+                            
+                            if cMsg != nil{
+                                if (sendingMsg?.msgOp == .msgOpDelete){
+                                    cMsg!.msgID = -1
+                                }
+                                delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
+                            }
                             //print(scMsg)
                             //sendingMsg = nil
                             chatId = scMsg.chatID

@@ -135,7 +135,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         let btSend = UIButton()
-        btSend.frame = CGRect(x: 100, y: 600, width: 200, height: 200)
+        btSend.frame = CGRect(x: 100, y: 200, width: 200, height: 200)
         btSend.setTitleColor(UIColor.systemRed, for: UIControlState.normal)
         btSend.setTitle("Send", for: UIControlState.normal)
         self.view.addSubview(btSend)
@@ -147,8 +147,11 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     @objc func btSendAction(){
-        tvChatView.text.append("\n回复信息:")
-        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo, replyMsgId: lastMessage?.msgID ?? 0)
+//        tvChatView.text.append("\n回复信息:")
+//        lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo, replyMsgId: lastMessage?.msgID ?? 0)
+        
+        tvChatView.text.append("\n删除信息:")
+        lib.deleteMessage(msgId: 564321055359893503)//493660676493934594
     }
     
     @objc func btSendAction2(){
