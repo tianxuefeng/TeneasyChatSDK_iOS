@@ -501,7 +501,7 @@ extension ChatLib: WebSocketDelegate {
                 else if payLoad.act == .scdeleteMsgAck {
                     var cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
                     print("删除消息回执A，payloadId:\(payLoad.id) msgId:\(cMsg?.msg.msgID ?? 0)")
-                    cMsg?.msg.msgID = -1
+                    //cMsg?.msg.msgID = -1
                     if let msg = cMsg?.msg{
                         if msgList[payLoad.id] != nil{
                             print("删除成功");
@@ -516,7 +516,9 @@ extension ChatLib: WebSocketDelegate {
                         //delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
                         // 第二层, 消息主题
                         var msg = CommonMessage()
-                        msg.msgID = -1
+                        //msg.msgID = -1
+                        msg.msgID = cMsg.msgID
+                        msg.msgOp = .msgOpDelete
                         msg.chatID = cMsg.chatID
                         delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
                         print(msg)
@@ -540,7 +542,8 @@ extension ChatLib: WebSocketDelegate {
                             
                             if cMsg != nil{
                                 if (sendingMsg?.msgOp == .msgOpDelete){
-                                    cMsg!.msgID = -1
+                                    //cMsg!.msgID = -1
+                                    cMsg!.msgOp = .msgOpDelete
                                     print("删除消息成功");
                                 }
                                 delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
