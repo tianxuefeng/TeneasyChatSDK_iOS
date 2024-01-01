@@ -467,7 +467,7 @@ extension ChatLib: WebSocketDelegate {
                     var msg = scMsg?.msg
                     if msg != nil {
                         if (msg!.msgOp == .msgOpDelete){
-                            msg?.msgID = -1
+                            //msg?.msgID = -1
                             print("对方撤回了消息 payloadID:" + String(payLoad.id))
                             delegate?.msgReceipt(msg: msg!, payloadId: payLoad.id)
                         }else{
