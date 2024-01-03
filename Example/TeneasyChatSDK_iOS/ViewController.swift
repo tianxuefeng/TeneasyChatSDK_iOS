@@ -128,8 +128,15 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,2692944494603
-        //CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg
-        lib = ChatLib(chatId: 0, token: "CH0QARiX9w4gogEo9MS-08wx.R07hSs5oXQxe9s0bV0WsaislYcvHDNYvUYT-2JNEo4wcBC1LNEHmHAFSjCoY8g60oW31zZiIs1kZhejQEaEhBQ", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
+        /*
+         老token，一直有效，很好
+         CCcQARgOICIowqaSjeIw.9rO3unQwFrUUa-vJ6HvUQAbiAZN7XWBbaE_Oyd48C0Ae4xhzWWSriIGZZdVSvOajS1h_RFlQHZiFzadgBBuwDQ
+         
+        CH0QARiX9w4gogEo9MS-08wx.R07hSs5oXQxe9s0bV0WsaislYcvHDNYvUYT-2JNEo4wcBC1LNEHmHAFSjCoY8g60oW31zZiIs1kZhejQEaEhBQ
+
+       CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg
+         */
+        lib = ChatLib(chatId: 0, token: "CCcQARgOICIowqaSjeIw.9rO3unQwFrUUa-vJ6HvUQAbiAZN7XWBbaE_Oyd48C0Ae4xhzWWSriIGZZdVSvOajS1h_RFlQHZiFzadgBBuwDQ", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
         lib.callWebsocket()
         lib.delegate = self
     }
@@ -178,7 +185,9 @@ class ViewController: UIViewController, teneasySDKDelegate {
                 tvChatView.text.append("\n发送一个视频！ VideoUrl: https://www.youtube.com/watch?v=wbFHmblw9J8\n\n")
                 lib.sendMessage(msg: "https://www.youtube.com/watch?v=wbFHmblw9J8", type: .msgVideo)
         
-        
+        if let msg = lastMessage{
+            lib.resendMsg(msg: msg, payloadId: payLoadId)
+        }
         
             //Send Image
             //lib.sendMessageImage(url: "https://www.bing.com/th?id=OHR.ZebraTrio_ROW8661058210_1920x1080.jpg&rf=LaDigue_1920x1080.jpg")

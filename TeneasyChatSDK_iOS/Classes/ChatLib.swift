@@ -44,7 +44,7 @@ open class ChatLib {
     private var sessionTime: Int = 0
     //var chooseImg: UIImage?
     private var beatTimes = 0
-    private var maxSessionMinutes = 30
+    private var maxSessionMinutes = 90
     var workId: Int32 = 5
     private var replyMsgId: Int64 = 0
     
@@ -260,7 +260,7 @@ open class ChatLib {
         sendingMsg = msg
     }
     
-    private func doSend(){
+    private func doSend(payload_Id: UInt64 = 0){
        guard let msg = sendingMsg else {
             return
         }
@@ -276,16 +276,26 @@ open class ChatLib {
         payLoad.data = cSendMsgData
         payLoad.act = .cssendMsg
         
-        // Assuming msgList is a mutable dictionary
-        if (sendingMsg?.msgOp == .msgOpPost){
+        //payload_id != 0的时候，可能是重发，重发不需要+1
+        if (sendingMsg?.msgOp == .msgOpPost && payload_Id == 0){
             payloadId += 1
             print("payloadID:" + String(payloadId))
             msgList[payloadId] = msg
         }
         
-        payLoad.id = payloadId
+        if payload_Id != 0{
+            payLoad.id = payload_Id
+        }else{
+            payLoad.id = payloadId
+        }
         let binaryData: Data = try! payLoad.serializedData()
         send(binaryData: binaryData)
+    }
+    
+   public func resendMsg(msg: CommonMessage, payloadId: UInt64) {
+        // 临时放到一个变量
+        sendingMsg = msg
+        doSend(payload_Id: payloadId)
     }
     
     /// 对消息进行更新，删除，重发等操作
@@ -359,7 +369,7 @@ open class ChatLib {
         if !isConnected {
             print("断开了")
             if sessionTime > maxSessionMinutes * 60 {
-                delegate?.systemMsg(msg: "会话超过30分钟，需要重新进入")
+                delegate?.systemMsg(msg: "会话超过\(maxSessionMinutes)分钟，需要重新进入")
                 failedToSend()
             } else {
                 callWebsocket()
@@ -368,7 +378,7 @@ open class ChatLib {
             }
         } else {
             if sessionTime > maxSessionMinutes * 60 {
-                delegate?.systemMsg(msg: "会话超过30分钟，需要重新进入")
+                delegate?.systemMsg(msg: "会话超过\(maxSessionMinutes)分钟，需要重新进入")
                 failedToSend()
             } else {
                 websocket?.write(data: binaryData, completion: ({
