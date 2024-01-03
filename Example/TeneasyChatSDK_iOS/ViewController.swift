@@ -128,7 +128,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
     
     func initSDK(){
         //从网页端把chatId和token传进sdk,2692944494603
-        lib = ChatLib(chatId: 0, token: "CMwBEAEYDiCcASjjoNCvyzE.RmXisQknL9Act5PeTAsUNb4ITWUXEZyCSkP5dALeo8EAzuPe9W9jdt7fASKBUvqOBmJeoby_rgycNPtkJQB_Ag", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
+        //CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg
+        lib = ChatLib(chatId: 0, token: "CH0QARiX9w4gogEo9MS-08wx.R07hSs5oXQxe9s0bV0WsaislYcvHDNYvUYT-2JNEo4wcBC1LNEHmHAFSjCoY8g60oW31zZiIs1kZhejQEaEhBQ", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
         lib.callWebsocket()
         lib.delegate = self
     }

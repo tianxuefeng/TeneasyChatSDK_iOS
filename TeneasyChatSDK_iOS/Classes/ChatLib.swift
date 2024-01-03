@@ -37,7 +37,7 @@ open class ChatLib {
     public var sendingMsg: CommonMessage?
     private var msgList: [UInt64: CommonMessage] = [:]
     var chatId: Int64 = 0
-    var token: String? = ""
+    var token: String = ""
     var session = Session()
     
     private var myTimer: Timer?
@@ -70,14 +70,14 @@ open class ChatLib {
     }
 
     public func callWebsocket() {
-        // var request = URLRequest(url: URL(string: baseUrl))
-        let request = URLRequest(url: URL(string: baseUrl + token!)!)
+        guard let url = URL(string: baseUrl + token) else { return }
+        let request = URLRequest(url: url)
         // request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
         websocket = WebSocket(request: request)
         websocket?.request.timeoutInterval = 5 // Sets the timeout for the connection
         websocket?.delegate = self
         websocket?.connect()
-         
+        
         /* 添加header的办法
          request.setValue("someother protocols", forHTTPHeaderField: "Sec-WebSocket-Protocol")
          request.setValue("14", forHTTPHeaderField: "Sec-WebSocket-Version")
@@ -261,13 +261,13 @@ open class ChatLib {
     }
     
     private func doSend(){
-        if sendingMsg == nil{
+       guard let msg = sendingMsg else {
             return
         }
         
         // 第三层
         var cSendMsg = Gateway_CSSendMessage()
-        cSendMsg.msg = sendingMsg!
+        cSendMsg.msg = msg
         // Serialize to binary protobuf format:
         let cSendMsgData: Data = try! cSendMsg.serializedData()
         
@@ -280,7 +280,7 @@ open class ChatLib {
         if (sendingMsg?.msgOp == .msgOpPost){
             payloadId += 1
             print("payloadID:" + String(payloadId))
-            msgList[payloadId] = sendingMsg
+            msgList[payloadId] = msg
         }
         
         payLoad.id = payloadId
@@ -348,10 +348,6 @@ open class ChatLib {
     }*/
     
     private func sendHeartBeat() {
-//        var myInt = 0
-//        let myIntData = Data(bytes: &myInt,
-//                             count: MemoryLayout.size(ofValue: myInt))
-        
         let array: [UInt8] = [0]
 
         let myData = Data(bytes: array)
@@ -383,16 +379,16 @@ open class ChatLib {
     }
     
     private func failedToSend(){
-        if sendingMsg != nil{
-            delegate?.msgReceipt(msg: sendingMsg!, payloadId: payloadId)
+        if let msg = sendingMsg{
+            delegate?.msgReceipt(msg: msg, payloadId: payloadId)
         }
     }
     
     public func disConnect() {
         stopTimer()
-        if websocket != nil {
-            websocket!.disconnect()
-            websocket!.delegate = nil
+        if let socket = websocket {
+            socket.disconnect()
+            socket.delegate = nil
             websocket = nil
         }
         print("通信SDK 断开连接")
@@ -429,9 +425,6 @@ extension ChatLib: WebSocketDelegate {
         case .connected:
             // print("connected" + headers.description)
             delegate?.systemMsg(msg: "已连接上")
-//           if sendingMsg != nil{
-//               self.sendMessage(msg: sendingMsg!.content.data)
-//           }
             isConnected = true
         case .disconnected(let reason, let closeCode):
             print("disconnected \(reason) \(closeCode)")
@@ -560,12 +553,12 @@ extension ChatLib: WebSocketDelegate {
             }
 
         case .pong(let pongData):
-            print("received pong: \(pongData)")
+            print("received pong: \(String(describing: pongData))")
         case .ping(let pingData):
-            print("received ping: \(pingData)")
+            print("received ping: \(String(describing: pingData))")
         case .error(let error):
             // self.delegate?.connected(c: false)
-            print("socket error \(error)")
+            print("socket error \(String(describing: error))")
             delegate?.systemMsg(msg: "Socket 出错")
             failedToSend()
             isConnected = false
