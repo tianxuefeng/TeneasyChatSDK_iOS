@@ -61,7 +61,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     //发送的消息收到回执
-    func msgReceipt(msg: CommonMessage, payloadId : UInt64 = 0){
+    func msgReceipt(msg: CommonMessage, payloadId : UInt64 = 0, errMsg: String?){
         var myMsg = ""
         print("收到回执")
         switch msg.payload{
@@ -85,7 +85,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
             print(msg)
         }
         
-        tvChatView.text.append("                       " +  myMsg)
+        tvChatView.text.append("                       " +  myMsg + " " + (errMsg ?? ""))
         if msg.msgID == 0{
             tvChatView.text.append("                    发送失败")
         }else{
@@ -136,7 +136,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
 
        CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg
          */
-        lib = ChatLib(chatId: 0, token: "CCcQARgOICIowqaSjeIw.9rO3unQwFrUUa-vJ6HvUQAbiAZN7XWBbaE_Oyd48C0Ae4xhzWWSriIGZZdVSvOajS1h_RFlQHZiFzadgBBuwDQ", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
+        lib = ChatLib(chatId: 0, token: "CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
         lib.callWebsocket()
         lib.delegate = self
     }

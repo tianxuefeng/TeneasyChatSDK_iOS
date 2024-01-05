@@ -10,7 +10,7 @@ public protocol teneasySDKDelegate : AnyObject{
     //收到消息
     func receivedMsg(msg: CommonMessage)
     //消息回执
-    func msgReceipt(msg: CommonMessage, payloadId: UInt64)
+    func msgReceipt(msg: CommonMessage, payloadId: UInt64, errMsg: String?)
     //系统消息，用于显示Tip
     func systemMsg(msg: String)
     //连接状态
@@ -390,7 +390,7 @@ open class ChatLib {
     
     private func failedToSend(){
         if let msg = sendingMsg{
-            delegate?.msgReceipt(msg: msg, payloadId: payloadId)
+            delegate?.msgReceipt(msg: msg, payloadId: payloadId, errMsg: nil)
         }
     }
     
@@ -472,7 +472,7 @@ extension ChatLib: WebSocketDelegate {
                         if (msg!.msgOp == .msgOpDelete){
                             //msg?.msgID = -1
                             print("对方撤回了消息 payloadID:" + String(payLoad.id))
-                            delegate?.msgReceipt(msg: msg!, payloadId: payLoad.id)
+                            delegate?.msgReceipt(msg: msg!, payloadId: payLoad.id, errMsg: nil)
                         }else{
                             delegate?.receivedMsg(msg: msg!)
                         }
@@ -502,13 +502,14 @@ extension ChatLib: WebSocketDelegate {
                              }
                  */
                 else if payLoad.act == .scdeleteMsgAck {
-                    var cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
+                    let cMsg = try? Gateway_CSSendMessage(serializedData: msgData)
                     print("删除消息回执A，payloadId:\(payLoad.id) msgId:\(cMsg?.msg.msgID ?? 0)")
                     //cMsg?.msg.msgID = -1
                     if let msg = cMsg?.msg{
                         if msgList[payLoad.id] != nil{
                             print("删除成功");
-                            delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                            
+                            delegate?.msgReceipt(msg: msg, payloadId: payLoad.id, errMsg: nil)
                         }
                         print(msg)
                     }
@@ -523,11 +524,10 @@ extension ChatLib: WebSocketDelegate {
                         msg.msgID = cMsg.msgID
                         msg.msgOp = .msgOpDelete
                         msg.chatID = cMsg.chatID
-                        delegate?.msgReceipt(msg: msg, payloadId: payLoad.id)
+                        delegate?.msgReceipt(msg: msg, payloadId: payLoad.id, errMsg: nil)
                         print(msg)
                     }
                 }
-                
                 else if payLoad.act == .forward {
                     let msg = try? Gateway_CSForward(serializedData: msgData)
                     print(msg!)
@@ -542,14 +542,16 @@ extension ChatLib: WebSocketDelegate {
                             var cMsg = msgList[payLoad.id]
                             cMsg?.msgID = scMsg.msgID
                             cMsg?.msgTime = scMsg.msgTime
-                            
+                        
                             if cMsg != nil{
                                 if (sendingMsg?.msgOp == .msgOpDelete){
                                     //cMsg!.msgID = -1
                                     cMsg!.msgOp = .msgOpDelete
                                     print("删除消息成功");
+                                }else if(!scMsg.errMsg.isEmpty){
+                                    cMsg!.msgID = -2
                                 }
-                                delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id)
+                                delegate?.msgReceipt(msg: cMsg!, payloadId: payLoad.id, errMsg: scMsg.errMsg)
                             }
                             //print(scMsg)
                             //sendingMsg = nil
