@@ -401,6 +401,60 @@ public struct Api_Core_UpdateTenantRequest {
   /// 商户分组
   public var cliqueID: Int32 = 0
 
+  /// 商户云信前缀
+  public var nimprex: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Api_Core_PublicKeyResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  ///key
+  public var token: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Api_Core_QueryTenantInfoResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var item: Api_Core_TenantItem {
+    get {return _item ?? Api_Core_TenantItem()}
+    set {_item = newValue}
+  }
+  /// Returns true if `item` has been explicitly set.
+  public var hasItem: Bool {return self._item != nil}
+  /// Clears the value of `item`. Subsequent reads from it will return its default value.
+  public mutating func clearItem() {self._item = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _item: Api_Core_TenantItem? = nil
+}
+
+/// TODO: 更新云信信息
+public struct Api_Core_UpdateNimInfoRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var workerID: Int32 = 0
+
+  public var nimid: String = String()
+
+  public var nimsession: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -423,6 +477,9 @@ extension Api_Core_TenantItem: @unchecked Sendable {}
 extension Api_Core_AdminLoginRequest: @unchecked Sendable {}
 extension Api_Core_AdminLoginResponse: @unchecked Sendable {}
 extension Api_Core_UpdateTenantRequest: @unchecked Sendable {}
+extension Api_Core_PublicKeyResponse: @unchecked Sendable {}
+extension Api_Core_QueryTenantInfoResponse: @unchecked Sendable {}
+extension Api_Core_UpdateNimInfoRequest: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1100,6 +1157,7 @@ extension Api_Core_UpdateTenantRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     4: .standard(proto: "daily_service_capacity"),
     5: .same(proto: "password"),
     6: .standard(proto: "clique_id"),
+    7: .same(proto: "nimprex"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1114,6 +1172,7 @@ extension Api_Core_UpdateTenantRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 4: try { try decoder.decodeSingularInt32Field(value: &self.dailyServiceCapacity) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.password) }()
       case 6: try { try decoder.decodeSingularInt32Field(value: &self.cliqueID) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.nimprex) }()
       default: break
       }
     }
@@ -1138,6 +1197,9 @@ extension Api_Core_UpdateTenantRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.cliqueID != 0 {
       try visitor.visitSingularInt32Field(value: self.cliqueID, fieldNumber: 6)
     }
+    if !self.nimprex.isEmpty {
+      try visitor.visitSingularStringField(value: self.nimprex, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1148,6 +1210,119 @@ extension Api_Core_UpdateTenantRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.dailyServiceCapacity != rhs.dailyServiceCapacity {return false}
     if lhs.password != rhs.password {return false}
     if lhs.cliqueID != rhs.cliqueID {return false}
+    if lhs.nimprex != rhs.nimprex {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_PublicKeyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".PublicKeyResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "token"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.token) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.token.isEmpty {
+      try visitor.visitSingularStringField(value: self.token, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_PublicKeyResponse, rhs: Api_Core_PublicKeyResponse) -> Bool {
+    if lhs.token != rhs.token {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_QueryTenantInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryTenantInfoResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "item"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._item) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._item {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_QueryTenantInfoResponse, rhs: Api_Core_QueryTenantInfoResponse) -> Bool {
+    if lhs._item != rhs._item {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Api_Core_UpdateNimInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateNimInfoRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "workerId"),
+    2: .same(proto: "nimid"),
+    3: .same(proto: "nimsession"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.workerID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.nimid) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.nimsession) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.workerID != 0 {
+      try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 1)
+    }
+    if !self.nimid.isEmpty {
+      try visitor.visitSingularStringField(value: self.nimid, fieldNumber: 2)
+    }
+    if !self.nimsession.isEmpty {
+      try visitor.visitSingularStringField(value: self.nimsession, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Api_Core_UpdateNimInfoRequest, rhs: Api_Core_UpdateNimInfoRequest) -> Bool {
+    if lhs.workerID != rhs.workerID {return false}
+    if lhs.nimid != rhs.nimid {return false}
+    if lhs.nimsession != rhs.nimsession {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

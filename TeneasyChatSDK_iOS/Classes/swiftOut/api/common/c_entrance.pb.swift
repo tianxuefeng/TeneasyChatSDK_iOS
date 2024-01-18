@@ -31,6 +31,7 @@ public enum Api_Common_ClientType: SwiftProtobuf.Enum {
   case userBegin // = 101
   case userH5 // = 102
   case userWeb // = 103
+  case userApp // = 104
 
   /// 用户端在此加入新类型
   case userEnd // = 200
@@ -49,6 +50,7 @@ public enum Api_Common_ClientType: SwiftProtobuf.Enum {
     case 101: self = .userBegin
     case 102: self = .userH5
     case 103: self = .userWeb
+    case 104: self = .userApp
     case 200: self = .userEnd
     default: self = .UNRECOGNIZED(rawValue)
     }
@@ -63,6 +65,7 @@ public enum Api_Common_ClientType: SwiftProtobuf.Enum {
     case .userBegin: return 101
     case .userH5: return 102
     case .userWeb: return 103
+    case .userApp: return 104
     case .userEnd: return 200
     case .UNRECOGNIZED(let i): return i
     }
@@ -82,6 +85,7 @@ extension Api_Common_ClientType: CaseIterable {
     .userBegin,
     .userH5,
     .userWeb,
+    .userApp,
     .userEnd,
   ]
 }
@@ -193,6 +197,7 @@ extension Api_Common_ClientType: SwiftProtobuf._ProtoNameProviding {
     101: .same(proto: "CLIENT_TYPE_USER_BEGIN"),
     102: .same(proto: "CLIENT_TYPE_USER_H5"),
     103: .same(proto: "CLIENT_TYPE_USER_WEB"),
+    104: .same(proto: "CLIENT_TYPE_USER_APP"),
     200: .same(proto: "CLIENT_TYPE_USER_END"),
   ]
 }

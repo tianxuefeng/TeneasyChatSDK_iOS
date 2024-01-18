@@ -47,6 +47,9 @@ open class ChatLib {
     private var maxSessionMinutes = 90
     var workId: Int32 = 5
     private var replyMsgId: Int64 = 0
+    private var userId: Int32 = 0
+    private var sign: String = ""
+    //wss://csapi.xdev.stream/v1/gateway/h5?token=CH0QARji9w4gogEor4i7mc0x.PKgbr4QAEspllbvDx7bg8RB_qDhkWozBKgWtoOPfVmlTfPbd8nyBZk9uyQvjj-3F6MXHyE9GmZvj0_PRTm_tDA&userid=1125324&ty=104&dt=1705583047601&sign=&rd=1019737
     
 //   public enum MsgType{
 //       case Text
@@ -57,10 +60,12 @@ open class ChatLib {
     
     public init() {}
 
-    public init(chatId: Int64, token: String, baseUrl: String) {
+    public init(userId:Int32, token: String, baseUrl: String, sign: String, chatId: Int64 = 0) {
         self.chatId = chatId
         self.token = token
         self.baseUrl = baseUrl
+        self.userId = userId
+        self.sign = sign
         beatTimes = 0
         print(text)
     }
@@ -70,7 +75,11 @@ open class ChatLib {
     }
 
     public func callWebsocket() {
-        guard let url = URL(string: baseUrl + token) else { return }
+        let rd = Int.random(in: 1000000..<9999999)
+        let date = Date()
+        let dt = Int(date.timeIntervalSince1970 * 1000)
+        let urlStr = "\(baseUrl + token)&userid=\(self.userId)&ty=\(Api_Common_ClientType.userApp.rawValue)&dt=\(dt)&sign=\(self.sign)&rd=\(rd)"
+        guard let url = URL(string: urlStr) else { return }
         let request = URLRequest(url: url)
         // request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
         websocket = WebSocket(request: request)

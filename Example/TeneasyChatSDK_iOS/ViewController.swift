@@ -136,7 +136,10 @@ class ViewController: UIViewController, teneasySDKDelegate {
 
        CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg
          */
-        lib = ChatLib(chatId: 0, token: "CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=")
+        /*
+               1125324  1125397 1125417
+                */
+        lib = ChatLib(userId: 1125397, token: "CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=", sign: "")
         lib.callWebsocket()
         lib.delegate = self
     }

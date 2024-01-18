@@ -279,6 +279,15 @@ public struct Api_Common_Worker {
   /// 商户ID
   public var tenantID: Int32 = 0
 
+  /// 云信Id
+  public var workerNimid: String = String()
+
+  /// 云信session
+  public var workerNimsession: String = String()
+
+  ///是否已经注册nim true需要，false 不需要
+  public var bneednim: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -399,6 +408,9 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     8: .same(proto: "password"),
     9: .standard(proto: "connect_state"),
     10: .standard(proto: "tenant_id"),
+    11: .standard(proto: "worker_nimid"),
+    12: .standard(proto: "worker_nimsession"),
+    13: .same(proto: "bneednim"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -417,6 +429,9 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       case 8: try { try decoder.decodeSingularStringField(value: &self.password) }()
       case 9: try { try decoder.decodeSingularEnumField(value: &self.connectState) }()
       case 10: try { try decoder.decodeSingularInt32Field(value: &self.tenantID) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.workerNimid) }()
+      case 12: try { try decoder.decodeSingularStringField(value: &self.workerNimsession) }()
+      case 13: try { try decoder.decodeSingularBoolField(value: &self.bneednim) }()
       default: break
       }
     }
@@ -453,6 +468,15 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if self.tenantID != 0 {
       try visitor.visitSingularInt32Field(value: self.tenantID, fieldNumber: 10)
     }
+    if !self.workerNimid.isEmpty {
+      try visitor.visitSingularStringField(value: self.workerNimid, fieldNumber: 11)
+    }
+    if !self.workerNimsession.isEmpty {
+      try visitor.visitSingularStringField(value: self.workerNimsession, fieldNumber: 12)
+    }
+    if self.bneednim != false {
+      try visitor.visitSingularBoolField(value: self.bneednim, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -467,6 +491,9 @@ extension Api_Common_Worker: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if lhs.password != rhs.password {return false}
     if lhs.connectState != rhs.connectState {return false}
     if lhs.tenantID != rhs.tenantID {return false}
+    if lhs.workerNimid != rhs.workerNimid {return false}
+    if lhs.workerNimsession != rhs.workerNimsession {return false}
+    if lhs.bneednim != rhs.bneednim {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

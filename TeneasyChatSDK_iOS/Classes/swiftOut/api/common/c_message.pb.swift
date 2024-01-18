@@ -362,6 +362,160 @@ public struct CommonMessageFile {
   public init() {}
 }
 
+public struct CommonMessageUnion {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var payload: CommonMessageUnion.OneOf_Payload? = nil
+
+  public var content: CommonMessageContent {
+    get {
+      if case .content(let v)? = payload {return v}
+      return CommonMessageContent()
+    }
+    set {payload = .content(newValue)}
+  }
+
+  public var image: CommonMessageImage {
+    get {
+      if case .image(let v)? = payload {return v}
+      return CommonMessageImage()
+    }
+    set {payload = .image(newValue)}
+  }
+
+  public var audio: CommonMessageAudio {
+    get {
+      if case .audio(let v)? = payload {return v}
+      return CommonMessageAudio()
+    }
+    set {payload = .audio(newValue)}
+  }
+
+  public var video: CommonMessageVideo {
+    get {
+      if case .video(let v)? = payload {return v}
+      return CommonMessageVideo()
+    }
+    set {payload = .video(newValue)}
+  }
+
+  public var geo: CommonMessageGeo {
+    get {
+      if case .geo(let v)? = payload {return v}
+      return CommonMessageGeo()
+    }
+    set {payload = .geo(newValue)}
+  }
+
+  public var file: CommonMessageFile {
+    get {
+      if case .file(let v)? = payload {return v}
+      return CommonMessageFile()
+    }
+    set {payload = .file(newValue)}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum OneOf_Payload: Equatable {
+    case content(CommonMessageContent)
+    case image(CommonMessageImage)
+    case audio(CommonMessageAudio)
+    case video(CommonMessageVideo)
+    case geo(CommonMessageGeo)
+    case file(CommonMessageFile)
+
+  #if !swift(>=4.1)
+    public static func ==(lhs: CommonMessageUnion.OneOf_Payload, rhs: CommonMessageUnion.OneOf_Payload) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch (lhs, rhs) {
+      case (.content, .content): return {
+        guard case .content(let l) = lhs, case .content(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.image, .image): return {
+        guard case .image(let l) = lhs, case .image(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.audio, .audio): return {
+        guard case .audio(let l) = lhs, case .audio(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.video, .video): return {
+        guard case .video(let l) = lhs, case .video(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.geo, .geo): return {
+        guard case .geo(let l) = lhs, case .geo(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.file, .file): return {
+        guard case .file(let l) = lhs, case .file(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      default: return false
+      }
+    }
+  #endif
+  }
+
+  public init() {}
+}
+
+public struct CommonMessageAutoReplyQA {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 序号
+  public var id: Int32 = 0
+
+  /// 常见问题
+  public var question: CommonMessageUnion {
+    get {return _question ?? CommonMessageUnion()}
+    set {_question = newValue}
+  }
+  /// Returns true if `question` has been explicitly set.
+  public var hasQuestion: Bool {return self._question != nil}
+  /// Clears the value of `question`. Subsequent reads from it will return its default value.
+  public mutating func clearQuestion() {self._question = nil}
+
+  /// 回答
+  public var answer: [CommonMessageUnion] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _question: CommonMessageUnion? = nil
+}
+
+/// 自动回复消息
+public struct CommonMessageAutoReply {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var id: Int64 = 0
+
+  /// 引导文案
+  public var title: String = String()
+
+  /// 延迟回复时间
+  public var delaySec: Int32 = 0
+
+  /// 问答
+  public var qa: [CommonMessageAutoReplyQA] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct CommonMessageKey {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -386,6 +540,29 @@ public struct CommonMessageAutoReplyFlag {
 
   /// 指定的问题序号id: QuestionAnswer.id
   public var qaID: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct CommonMessageWorkerChanged {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var workerClientID: Int64 = 0
+
+  public var workerID: Int32 = 0
+
+  public var name: String = String()
+
+  public var avatar: String = String()
+
+  public var greeting: String = String()
+
+  ///转接任务
+  public var state: CommonChatState = .common
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -430,15 +607,15 @@ public struct CommonMessage {
   /// 分配客服id
   public var worker: Int32 = 0
 
-  /// 自动回复相关
-  public var autoReply: CommonMessageAutoReplyFlag {
-    get {return _autoReply ?? CommonMessageAutoReplyFlag()}
-    set {_autoReply = newValue}
+  /// 自动回复选项, 历史原因保留(没规划好, 应该放到payload中)
+  public var autoReplyFlag: CommonMessageAutoReplyFlag {
+    get {return _autoReplyFlag ?? CommonMessageAutoReplyFlag()}
+    set {_autoReplyFlag = newValue}
   }
-  /// Returns true if `autoReply` has been explicitly set.
-  public var hasAutoReply: Bool {return self._autoReply != nil}
-  /// Clears the value of `autoReply`. Subsequent reads from it will return its default value.
-  public mutating func clearAutoReply() {self._autoReply = nil}
+  /// Returns true if `autoReplyFlag` has been explicitly set.
+  public var hasAutoReplyFlag: Bool {return self._autoReplyFlag != nil}
+  /// Clears the value of `autoReplyFlag`. Subsequent reads from it will return its default value.
+  public mutating func clearAutoReplyFlag() {self._autoReplyFlag = nil}
 
   public var payload: CommonMessage.OneOf_Payload? = nil
 
@@ -517,6 +694,24 @@ public struct CommonMessage {
     set {payload = .blacklistConfirm(newValue)}
   }
 
+  /// 自动回复问题
+  public var autoReply: CommonMessageAutoReply {
+    get {
+      if case .autoReply(let v)? = payload {return v}
+      return CommonMessageAutoReply()
+    }
+    set {payload = .autoReply(newValue)}
+  }
+
+  /// 客服改变
+  public var workerChanged: CommonMessageWorkerChanged {
+    get {
+      if case .workerChanged(let v)? = payload {return v}
+      return CommonMessageWorkerChanged()
+    }
+    set {payload = .workerChanged(newValue)}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Payload: Equatable {
@@ -532,6 +727,10 @@ public struct CommonMessage {
     case blacklistApply(CommonBlackListApply)
     /// 确认拉入黑名单
     case blacklistConfirm(CommonBlackListConfirm)
+    /// 自动回复问题
+    case autoReply(CommonMessageAutoReply)
+    /// 客服改变
+    case workerChanged(CommonMessageWorkerChanged)
 
   #if !swift(>=4.1)
     public static func ==(lhs: CommonMessage.OneOf_Payload, rhs: CommonMessage.OneOf_Payload) -> Bool {
@@ -575,6 +774,14 @@ public struct CommonMessage {
         guard case .blacklistConfirm(let l) = lhs, case .blacklistConfirm(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
+      case (.autoReply, .autoReply): return {
+        guard case .autoReply(let l) = lhs, case .autoReply(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.workerChanged, .workerChanged): return {
+        guard case .workerChanged(let l) = lhs, case .workerChanged(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -584,7 +791,7 @@ public struct CommonMessage {
   public init() {}
 
   fileprivate var _msgTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-  fileprivate var _autoReply: CommonMessageAutoReplyFlag? = nil
+  fileprivate var _autoReplyFlag: CommonMessageAutoReplyFlag? = nil
 }
 
 public struct CommonWorkerTransfer {
@@ -643,8 +850,13 @@ extension CommonMessageAudio: @unchecked Sendable {}
 extension CommonMessageVideo: @unchecked Sendable {}
 extension CommonMessageGeo: @unchecked Sendable {}
 extension CommonMessageFile: @unchecked Sendable {}
+extension CommonMessageUnion: @unchecked Sendable {}
+extension CommonMessageUnion.OneOf_Payload: @unchecked Sendable {}
+extension CommonMessageAutoReplyQA: @unchecked Sendable {}
+extension CommonMessageAutoReply: @unchecked Sendable {}
 extension CommonMessageKey: @unchecked Sendable {}
 extension CommonMessageAutoReplyFlag: @unchecked Sendable {}
+extension CommonMessageWorkerChanged: @unchecked Sendable {}
 extension CommonMessage: @unchecked Sendable {}
 extension CommonMessage.OneOf_Payload: @unchecked Sendable {}
 extension CommonWorkerTransfer: @unchecked Sendable {}
@@ -906,6 +1118,246 @@ extension CommonMessageFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
+extension CommonMessageUnion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MessageUnion"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "content"),
+    2: .same(proto: "image"),
+    3: .same(proto: "audio"),
+    4: .same(proto: "video"),
+    5: .same(proto: "geo"),
+    6: .same(proto: "file"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: CommonMessageContent?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .content(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .content(v)
+        }
+      }()
+      case 2: try {
+        var v: CommonMessageImage?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .image(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .image(v)
+        }
+      }()
+      case 3: try {
+        var v: CommonMessageAudio?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .audio(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .audio(v)
+        }
+      }()
+      case 4: try {
+        var v: CommonMessageVideo?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .video(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .video(v)
+        }
+      }()
+      case 5: try {
+        var v: CommonMessageGeo?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .geo(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .geo(v)
+        }
+      }()
+      case 6: try {
+        var v: CommonMessageFile?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .file(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .file(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.payload {
+    case .content?: try {
+      guard case .content(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .image?: try {
+      guard case .image(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case .audio?: try {
+      guard case .audio(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case .video?: try {
+      guard case .video(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    }()
+    case .geo?: try {
+      guard case .geo(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    }()
+    case .file?: try {
+      guard case .file(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CommonMessageUnion, rhs: CommonMessageUnion) -> Bool {
+    if lhs.payload != rhs.payload {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension CommonMessageAutoReplyQA: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MessageAutoReplyQA"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "question"),
+    3: .same(proto: "answer"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._question) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.answer) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.id != 0 {
+      try visitor.visitSingularInt32Field(value: self.id, fieldNumber: 1)
+    }
+    try { if let v = self._question {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    if !self.answer.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.answer, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CommonMessageAutoReplyQA, rhs: CommonMessageAutoReplyQA) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs._question != rhs._question {return false}
+    if lhs.answer != rhs.answer {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension CommonMessageAutoReply: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MessageAutoReply"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "title"),
+    3: .standard(proto: "delay_sec"),
+    4: .same(proto: "qa"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.delaySec) }()
+      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.qa) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 2)
+    }
+    if self.delaySec != 0 {
+      try visitor.visitSingularInt32Field(value: self.delaySec, fieldNumber: 3)
+    }
+    if !self.qa.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.qa, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CommonMessageAutoReply, rhs: CommonMessageAutoReply) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.delaySec != rhs.delaySec {return false}
+    if lhs.qa != rhs.qa {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension CommonMessageKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MessageKey"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -982,6 +1434,68 @@ extension CommonMessageAutoReplyFlag: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
+extension CommonMessageWorkerChanged: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MessageWorkerChanged"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "worker_client_id"),
+    2: .standard(proto: "worker_id"),
+    3: .same(proto: "name"),
+    4: .same(proto: "avatar"),
+    5: .same(proto: "greeting"),
+    6: .same(proto: "State"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.workerClientID) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.workerID) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.avatar) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.greeting) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.state) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.workerClientID != 0 {
+      try visitor.visitSingularInt64Field(value: self.workerClientID, fieldNumber: 1)
+    }
+    if self.workerID != 0 {
+      try visitor.visitSingularInt32Field(value: self.workerID, fieldNumber: 2)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
+    }
+    if !self.avatar.isEmpty {
+      try visitor.visitSingularStringField(value: self.avatar, fieldNumber: 4)
+    }
+    if !self.greeting.isEmpty {
+      try visitor.visitSingularStringField(value: self.greeting, fieldNumber: 5)
+    }
+    if self.state != .common {
+      try visitor.visitSingularEnumField(value: self.state, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CommonMessageWorkerChanged, rhs: CommonMessageWorkerChanged) -> Bool {
+    if lhs.workerClientID != rhs.workerClientID {return false}
+    if lhs.workerID != rhs.workerID {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.avatar != rhs.avatar {return false}
+    if lhs.greeting != rhs.greeting {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Message"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -992,7 +1506,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     5: .standard(proto: "reply_msg_id"),
     6: .standard(proto: "msg_op"),
     7: .same(proto: "worker"),
-    8: .standard(proto: "auto_reply"),
+    8: .standard(proto: "auto_reply_flag"),
     100: .same(proto: "content"),
     101: .same(proto: "image"),
     102: .same(proto: "audio"),
@@ -1002,6 +1516,8 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     106: .standard(proto: "worker_trans"),
     107: .standard(proto: "blacklist_apply"),
     108: .standard(proto: "blacklist_confirm"),
+    109: .standard(proto: "auto_reply"),
+    110: .standard(proto: "worker_changed"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1017,7 +1533,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.replyMsgID) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.msgOp) }()
       case 7: try { try decoder.decodeSingularInt32Field(value: &self.worker) }()
-      case 8: try { try decoder.decodeSingularMessageField(value: &self._autoReply) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._autoReplyFlag) }()
       case 100: try {
         var v: CommonMessageContent?
         var hadOneofValue = false
@@ -1135,6 +1651,32 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
           self.payload = .blacklistConfirm(v)
         }
       }()
+      case 109: try {
+        var v: CommonMessageAutoReply?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .autoReply(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .autoReply(v)
+        }
+      }()
+      case 110: try {
+        var v: CommonMessageWorkerChanged?
+        var hadOneofValue = false
+        if let current = self.payload {
+          hadOneofValue = true
+          if case .workerChanged(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.payload = .workerChanged(v)
+        }
+      }()
       default: break
       }
     }
@@ -1166,7 +1708,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if self.worker != 0 {
       try visitor.visitSingularInt32Field(value: self.worker, fieldNumber: 7)
     }
-    try { if let v = self._autoReply {
+    try { if let v = self._autoReplyFlag {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
     } }()
     switch self.payload {
@@ -1206,6 +1748,14 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
       guard case .blacklistConfirm(let v)? = self.payload else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 108)
     }()
+    case .autoReply?: try {
+      guard case .autoReply(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 109)
+    }()
+    case .workerChanged?: try {
+      guard case .workerChanged(let v)? = self.payload else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 110)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1219,7 +1769,7 @@ extension CommonMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if lhs.replyMsgID != rhs.replyMsgID {return false}
     if lhs.msgOp != rhs.msgOp {return false}
     if lhs.worker != rhs.worker {return false}
-    if lhs._autoReply != rhs._autoReply {return false}
+    if lhs._autoReplyFlag != rhs._autoReplyFlag {return false}
     if lhs.payload != rhs.payload {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
