@@ -463,8 +463,8 @@ extension ChatLib: WebSocketDelegate {
         case .disconnected(let reason, let closeCode):
             print("disconnected \(reason) \(closeCode)")
             isConnected = false
-            result.Code = 1007
-            result.Message = "已取消连接"
+            result.Code = 1001
+            result.Message = "已断开通信"
             delegate?.systemMsg(result: result)
             failedToSend()
         case .text(let text):
