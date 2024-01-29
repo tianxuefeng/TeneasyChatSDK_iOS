@@ -19,7 +19,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
     var send = false
     
     func connected(c: Gateway_SCHi) {
-        
+        print("token:\(c.token)")
         let autoMsg = lib.composeALocalMessage(textMsg: "你好，我是客服小福")
         appendMsg(msg: autoMsg.content.data)
         
@@ -34,6 +34,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         tvChatView.text.append("\n发送图片！ ImageUrl: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKV-3KPDbUgVdqjfEb3HK_SvGjcPYVl7n7KGCwBL6&s\n\n")
         lib.sendMessage(msg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKV-3KPDbUgVdqjfEb3HK_SvGjcPYVl7n7KGCwBL6&s", type: .msgImg)
         print(c.workerID)
+        
     }
     
     //收到对方的消息
@@ -101,8 +102,8 @@ class ViewController: UIViewController, teneasySDKDelegate {
     }
     
     //收到的系统消息
-    func systemMsg(msg: String){
-        appendMsg(msg: msg)
+    func systemMsg(result: Result){
+        appendMsg(msg: result.Message)
     }
     
     func appendMsg(msg: String){
@@ -139,7 +140,7 @@ class ViewController: UIViewController, teneasySDKDelegate {
         /*
                1125324  1125397 1125417
                 */
-        lib = ChatLib(userId: 1125397, token: "CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=", sign: "")
+        lib = ChatLib(userId: 1125397, cert: "CH0QARib9w4gogEo8_nL1cwx.gXxoS2IK7cv4JWQb8LRmGI-cSEFHwfyBmoyErwSw0h1BXdkotxH4OgoiHvi6B6CON8LX7ei5AKwn3v1epXB9Cg", baseUrl: "wss://csapi.xdev.stream/v1/gateway/h5?token=", sign: "")
         lib.callWebsocket()
         lib.delegate = self
     }

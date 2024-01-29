@@ -12,7 +12,8 @@ public protocol teneasySDKDelegate : AnyObject{
     //消息回执
     func msgReceipt(msg: CommonMessage, payloadId: UInt64, errMsg: String?)
     //系统消息，用于显示Tip
-    func systemMsg(msg: String)
+    //func systemMsg(msg: String)
+    func systemMsg(result: Result)
     //连接状态
     func connected(c: Gateway_SCHi)
     //客服更换回调
@@ -49,6 +50,7 @@ open class ChatLib {
     private var replyMsgId: Int64 = 0
     private var userId: Int32 = 0
     private var sign: String = ""
+    private var cert: String = ""
     //wss://csapi.xdev.stream/v1/gateway/h5?token=CH0QARji9w4gogEor4i7mc0x.PKgbr4QAEspllbvDx7bg8RB_qDhkWozBKgWtoOPfVmlTfPbd8nyBZk9uyQvjj-3F6MXHyE9GmZvj0_PRTm_tDA&userid=1125324&ty=104&dt=1705583047601&sign=&rd=1019737
     
 //   public enum MsgType{
@@ -60,9 +62,9 @@ open class ChatLib {
     
     public init() {}
 
-    public init(userId:Int32, token: String, baseUrl: String, sign: String, chatId: Int64 = 0) {
+    public init(userId:Int32, cert: String, baseUrl: String, sign: String, chatId: Int64 = 0) {
         self.chatId = chatId
-        self.token = token
+        self.cert = cert
         self.baseUrl = baseUrl
         self.userId = userId
         self.sign = sign
@@ -78,7 +80,7 @@ open class ChatLib {
         let rd = Int.random(in: 1000000..<9999999)
         let date = Date()
         let dt = Int(date.timeIntervalSince1970 * 1000)
-        let urlStr = "\(baseUrl + token)&userid=\(self.userId)&ty=\(Api_Common_ClientType.userApp.rawValue)&dt=\(dt)&sign=\(self.sign)&rd=\(rd)"
+        let urlStr = "\(baseUrl + cert)&userid=\(self.userId)&ty=\(Api_Common_ClientType.userApp.rawValue)&dt=\(dt)&sign=\(self.sign)&rd=\(rd)"
         guard let url = URL(string: urlStr) else { return }
         let request = URLRequest(url: url)
         // request.setValue("chat,superchat", forHTTPHeaderField: "Sec-WebSocket-Protocol")
@@ -375,19 +377,26 @@ open class ChatLib {
     }
     
     private func send(binaryData: Data) {
+        var result = Result()
         if !isConnected {
             print("断开了")
             if sessionTime > maxSessionMinutes * 60 {
-                delegate?.systemMsg(msg: "会话超过\(maxSessionMinutes)分钟，需要重新进入")
+                result.Code = 1005
+                result.Message = "会话超过\(maxSessionMinutes)分钟，需要重新进入"
+                delegate?.systemMsg(result: result)
                 failedToSend()
             } else {
                 callWebsocket()
-                delegate?.systemMsg(msg: "断开了，重新连接。。。")
+                result.Code = 1006
+                result.Message = "会话超过\(maxSessionMinutes)分钟，需要重新进入"
+                delegate?.systemMsg(result: result)
                 failedToSend()
             }
         } else {
             if sessionTime > maxSessionMinutes * 60 {
-                delegate?.systemMsg(msg: "会话超过\(maxSessionMinutes)分钟，需要重新进入")
+                result.Code = 1006
+                result.Message = "会话超过\(maxSessionMinutes)分钟，需要重新进入"
+                delegate?.systemMsg(result: result)
                 failedToSend()
             } else {
                 websocket?.write(data: binaryData, completion: ({
@@ -440,14 +449,23 @@ extension ChatLib: WebSocketDelegate {
     }
 
     public func didReceive(event: WebSocketEvent, client: WebSocket) {
+        var result = Result()
         switch event {
+
         case .connected:
             // print("connected" + headers.description)
-            delegate?.systemMsg(msg: "已连接上")
+            var result = Result()
+            result.Code = 0
+            result.Message = "已连接上"
+            delegate?.systemMsg(result: result)
+            
             isConnected = true
         case .disconnected(let reason, let closeCode):
             print("disconnected \(reason) \(closeCode)")
             isConnected = false
+            result.Code = 1007
+            result.Message = "已取消连接"
+            delegate?.systemMsg(result: result)
             failedToSend()
         case .text(let text):
             print("received text: \(text)")
@@ -456,12 +474,16 @@ extension ChatLib: WebSocketDelegate {
                 print("在别处登录了 A")
                 if let d = String(data: data, encoding: .utf8) {
                     // Attempt to convert the data to a UTF-8 string, and if successful, execute the block inside the 'if' statement.
-                    
+     
                     if d.contains("2") {
                         // Check if the string contains the character "2".
-                        delegate?.systemMsg(msg: "无效的Token") // Delegate a system message if the condition is true.
+                        result.Code = 1002
+                        result.Message = "无效的Token"
+                        delegate?.systemMsg(result: result) // Delegate a system message if the condition is true.
                     } else {
-                        delegate?.systemMsg(msg: "在别处登录了 B") // Delegate a different system message if the condition is false.
+                        result.Code = 1003
+                        result.Message = "在别处登录了 B"
+                        delegate?.systemMsg(result: result) // Delegate a different system message if the condition is false.
                     }
                     
                     print(d.description) // Print the resulting string.
@@ -580,7 +602,11 @@ extension ChatLib: WebSocketDelegate {
         case .error(let error):
             // self.delegate?.connected(c: false)
             print("socket error \(String(describing: error))")
-            delegate?.systemMsg(msg: "Socket 出错")
+            
+            var result = Result()
+            result.Code = 1004
+            result.Message = "Socket 出错"
+            delegate?.systemMsg(result: result)
             failedToSend()
             isConnected = false
         case .viabilityChanged:
@@ -588,7 +614,10 @@ extension ChatLib: WebSocketDelegate {
         case .reconnectSuggested:
             print("reconnectSuggested")
         case .cancelled:
-            delegate?.systemMsg(msg: "已取消连接")
+            var result = Result()
+            result.Code = 1007
+            result.Message = "已取消连接"
+            delegate?.systemMsg(result: result)
             failedToSend()
             print("cancelled")
             isConnected = false
