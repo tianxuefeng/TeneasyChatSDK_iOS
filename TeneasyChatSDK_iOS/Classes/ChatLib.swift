@@ -72,9 +72,9 @@ open class ChatLib {
         print(text)
     }
     
-    public init(session: Session) {
-        self.session = session
-    }
+//    public init(session: Session) {
+//        self.session = session
+//    }
 
     public func callWebsocket() {
         let rd = Int.random(in: 1000000..<9999999)
